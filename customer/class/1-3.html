@@ -10,13 +10,13 @@
 <body>
   <header class="main-header">
     <div class="header-inner">
-      <h1>【ジューシー】</h1>
+      <h1>【株式会社　ジューシー】</h1>
       <p class="tagline">【キャッチコピー】</p>
     </div>
   </header>
 
   <section class="detail-section">
-    <img src="img/1-3/*.jpg" alt="店舗写真" />
+    <img src="img/1-3/Cafe.jpg" alt="店舗写真" />
     <h2>店舗紹介</h2>
     <p>
       【PR文１】<br>
@@ -27,37 +27,38 @@
     <center>
     <div class="product-card-list">
       <div class="product-card">
-        <img src="img/1-3/*.jpg" alt="おすすめ１">
+        <img src="img/1-3/Cafe01.jpg" alt="おすすめ１">
         <div class="product-card-body">
           <h3>【おすすめ商品１】</h3>
           <p class="product-price">【値段】</p>
         </div>
       </div>
       <div class="product-card">
-        <img src="img/1-3/*.jpg" alt="おすすめ２">
+        <img src="img/1-3/Cafe02.jpg" alt="おすすめ２">
         <div class="product-card-body">
           <h3>【おすすめ商品２】</h3>
           <p class="product-price">【値段】</p>
         </div>
       </div>
       <div class="product-card">
-        <img src="img/1-3/*.jpg" alt="おすすめ３">
+        <img src="img/1-3/Cafe03.jpg" alt="おすすめ３">
         <div class="product-card-body">
           <h3>【おすすめ商品３】</h3>
           <p class="product-price">【値段】</p>
         </div>
       </div>
     </div>
-    <!-- 販売状況ボタン -->
-<button class="show-status" data-class="1-3">全商品の販売状況はこちら</button>
 
-<!-- モーダルウィンドウ -->
-<div id="modal" class="hidden">
-  <div id="modal-content">
-    <span id="modal-close" style="font-size: 1.5rem;">&times;</span>
-    <div id="modal-body">読み込み中...</div>
-  </div>
-</div>
+    <!-- 販売状況ボタン -->
+    <button class="show-status" data-class="1-3">この店舗の全商品を見る</button>
+
+    <!-- モーダルウィンドウ -->
+    <div id="modal" class="hidden">
+      <div id="modal-content">
+        <span id="modal-close" style="font-size: 1.5rem;">&times;</span>
+        <div id="modal-body">読み込み中...</div>
+      </div>
+    </div>
 
 <script>
 document.addEventListener('DOMContentLoaded', () => {
@@ -65,47 +66,64 @@ document.addEventListener('DOMContentLoaded', () => {
   const modalBody = document.getElementById('modal-body');
   const modalClose = document.getElementById('modal-close');
 
-  // 販売状況ボタンのクリックでモーダル表示・データ取得
+  // モーダルの企業別表示のための企業名取得
+  const targetCompanyName = "株式会社　ジューシー";
+
   document.querySelectorAll('.show-status').forEach(button => {
     button.addEventListener('click', () => {
-      const className = "1-3";
       modal.classList.remove('hidden');
       document.body.classList.add('modal-open');
       modalBody.innerHTML = '読み込み中...';
-      const Gas_Url = "https://script.google.com/macros/s/AKfycbxbLB9n0R4aWXw9ZSSH0zt3jPkEaKwXmXtfQB4WJAqOClEQA3AzWexMmoyU8GTd2CVxKg/exec?sheet=" + encodeURIComponent(className);
-      
-      console.log(className); // クラス名が正しいかを確認
-      console.log(Gas_Url); // URLが正しいかを確認
-      
+
+      const Gas_Url = "https://script.google.com/macros/s/AKfycbz2R8MK3B76df53AdmPeFKxW0f-MkxmewER6T-wwY8WaC9rD6ypWBWtBPbkcbGsG5e9tQ/exec";
       fetch(Gas_Url)
         .then(response => response.json())
         .then(data => {
-          modalBody.innerHTML = data.map(item => {
-            const isSoldOut = item.sales === "完売";
-            return `<div class=\"item\" style=\"margin-bottom: 16px;\">`
-              + `<strong>${item.pdname}</strong><br>`
-              + `価格: ¥${item.price.toLocaleString()}<br>`
-              + `販売状況: <span style=\"color:${isSoldOut ? 'red' : 'black'};\">${item.sales}</span><br>`
-              + `</div>`;
-          }).join('');
+          let currentCompany = "";
+          const matchedProducts = [];
+
+          data.forEach(item => {
+            if (item.company_name) {
+              currentCompany = item.company_name;
+            } else if (currentCompany === targetCompanyName && item.pdname) {
+              matchedProducts.push(item);
+            }
+          });
+
+          if (matchedProducts.length > 0) {
+            const companyHeader = `<h3 style="margin-top: 1em;">${targetCompanyName}</h3>`;
+            const productList = matchedProducts.map(item => {
+              const isSoldOut = item.sales === "完売";
+              return `<div class="item" style="margin-bottom: 16px;">
+                <strong>${item.pdname}</strong><br>
+                価格: ¥${item.price.toLocaleString()}<br>
+                販売状況: <span style="color:${isSoldOut ? 'red' : 'black'};">${item.sales}</span>
+              </div>`;
+            }).join('');
+            modalBody.innerHTML = companyHeader + productList;
+          } else {
+            modalBody.innerHTML = '対象の企業の商品データが見つかりません。';
+          }
         })
         .catch(error => {
+          console.error(error);
           modalBody.innerHTML = 'データの取得に失敗しました。';
         });
     });
   });
 
-  // モーダルを閉じる
   modalClose.addEventListener('click', () => {
     modal.classList.add('hidden');
     document.body.classList.remove('modal-open');
   });
+
   window.addEventListener('click', (e) => {
     if (e.target.id === 'modal') {
       modal.classList.add('hidden');
       document.body.classList.remove('modal-open');
     }
   });
+
   window.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
       modal.classList.add('hidden');
@@ -114,15 +132,14 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 </script>
-
 </center>
 
-    <a href="../store.html" class="back-link">← クラス一覧に戻る</a>
-  </section>
+<a href="../store.html" class="back-link">← クラス一覧に戻る</a>
+</section>
 
-  <footer>
-    <p>公式インスタグラム: <a href="https://www.instagram.com/kumasho.dept/" target="_blank">kumasho.dept</a></p>
-    <small>© 課題研究 アプリ開発班</small>
-  </footer>
+<footer>
+  <p>公式インスタグラム: <a href="https://www.instagram.com/kumasho.dept/" target="_blank">kumasho.dept</a></p>
+  <small>© 課題研究 アプリ開発班</small>
+</footer>
 </body>
 </html>
