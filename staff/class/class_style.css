@@ -1,96 +1,125 @@
-body { background-color: #ffdbac; }
+body { background-color: #ffc477; }
 
 #title {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 99%; height: auto;
-    background-color: #ffb75a;
+    top: 0; left: 0;
+    width: 99%; height: 84px;
+    background-color: #ff9100;
     z-index: 1000;
-    box-shadow: 0 7px 7px rgba(0,0,0,0.7);
+    /* box-shadow: 0 7px 7px rgba(0,0,0,0.3); */
     border: solid 7px #ff9100;
+    border-bottom: none;
 }
 
-#title_display, p {
+#title_display, p {    /* <p>は仮のタグ、本来はid付き */
     margin: 3px 0 3px 7px;
     display: inline-block;
 }
 
-#point_button {
-    border-radius: 18px;
-    width: 59px; height: 59px;
-    font-size: 34px;
-    float: right;
-    margin: 3px;
-    transition: background 0.3s;
-    box-shadow: 0 3px 3px rgba(0,0,0,0.7);
+#title_display {
+    font-size: 195%;
 }
 
-#point_button:hover {
-    cursor: pointer;
-    background-color: #aeaeae;
+p {    /* <p>は仮のタグ、本来はid付き */
+    font-size: 118%;
 }
 
 #body{ padding-top: 100px; }
 
+#tab_buttons {
+    margin-top: 90px;
+    display: flex;
+    position: fixed;
+    top: 0; left: 0;
+    background-color: #ff9100;
+    border: solid 7px #ff9100;
+    border-top-color: #000000;
+    border-top-width: 3px;
+    border-bottom: none;
+    width: 99%;
+}
+
+#tab_buttons button {
+    padding: 6px 24px;
+    border: none;
+    border-radius: 18px 18px 0 0;
+    background-color: #ff9100;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#tab_buttons button.active_tab {
+    background-color: #ffc477;
+}
+
+#tab_buttons button.active_tab:hover {
+    background-color: #ffc477;
+}
+
+#tab_buttons button:hover {
+    background-color: #ffad42;
+}
+
+#tab_contents {
+    margin-top: 125px;
+    display: flex;
+    position: fixed;
+    top: 0; left: 0;
+    background-color: #ffecd3;
+    width: 99%; height: 627px;    /* 基本的にauto */
+    border: solid 7px #ffc477;
+    border-radius: 18px;
+}
+
 /* 一番下に記述　ここから */
-#modal_background {
-    opacity: 0;
-    transition: opacity 0.3s ease;
+.modal_buttons {
+    background: #5a9bff;
+    color: #fff;
+    border: none;
+    border-radius: 18px;
+    width: 210px; height: auto;
+    font-size: 34px;
+    float: right;
+    margin: 7px;
+    transition: all 0.3s ease;
+    box-shadow: 0 7px 7px rgba(0,0,0,0.7);
+}
+
+#logout_button {
+    color: #ff1f1f;
+}
+
+.modal_buttons:hover {
+    cursor: pointer;
+    transform: translateY(3px);
+    box-shadow: 0 3px 3px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+#loading {
+    display: none;
     position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
     background: rgba(0, 0, 0, 0.5);
+    z-index: 2000;
+    display: flex;
     align-items: center;
     justify-content: center;
-    z-index: 1001;
-    display: none;
 }
 
-#modal_background.show {
-    opacity: 1;
-    display: flex;
-}
-
-#modal_window {
-    background-color: #ffdbac;
-    border: solid 7px #ff9100;
-    border-radius: 18px;
-    width: auto; height: auto;
-    box-shadow: 0 7px 7px rgba(0, 0, 0, 0.7);
-    display: flex;
-}
-
-#close_button {
-    cursor: pointer;
-    color: #000;
-    font-size: 195%;
-    float: left;
-    margin: 7px;
-}
-
-#close_button:hover {
-    color: #ff0000;
-}
-
-.modal_buttons {
-    margin: 95px;
-    width: auto;
-    font-size: 195%;
-    border: solid 3px #000;
-    box-shadow: 0 7px 7px rgba(0,0,0,0.7);
-    border-radius: 18px;
-    transition: background 0.3s;
-}
-
-#logout_button {
-    color: #ff0000;
-}
-
-.modal_buttons:hover {
-    background-color: #aeaeae;
-    cursor: pointer;
+#spinner {
+    border: 7px solid #ffffff;
+    border-top: 7px solid #f39121;
+    border-radius: 50%;
+    width: 70px;
+    height: 70px;
+    animation: spin 0.7s linear infinite;
 }
 /* 一番下に記述　ここまで */

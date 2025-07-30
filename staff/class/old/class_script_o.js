@@ -6,11 +6,7 @@ console.log(`クラス番号: ${class_number}`);
 console.log(localStorage.getItem(`logged_${class_number}`));
 const modal_overlay = document.getElementById('modal_overlay');    // モーダルのオーバーレイ要素を取得
 
-// 不正アクセス防止
-if (!localStorage.getItem(`logged_${class_number}`)) {
-    alert('不正なアクセスです。ログインページに遷移します。');
-    window.location.href = '../../home/home.html';
-};
+
 
 // ページ描画後の読み込み処理
 window.addEventListener('DOMContentLoaded', async function() {
@@ -102,6 +98,8 @@ window.addEventListener('DOMContentLoaded', async function() {
                 if (now_company) {
                     products_by_company.push(now_company);
                 };
+
+                console.log(`products_by_company.length: ${products_by_company.length}`);
 
                 // 全体の商品数・完売数を集計
                 const total_products = products_by_company.reduce((sum, n_c) => sum + n_c.products.length, 0);

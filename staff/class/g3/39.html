@@ -10,28 +10,29 @@
     <body>
         <header id="title">
             <h1 id="title_display">３年９組</h1>
-            <button id="point_button">≡</button>
+            <button id="logout_button" class="modal_buttons">ログアウト</button>
+            <button id="reload_button" class="modal_buttons">再読み込み</button>
 
             <div id="total_display">
-                <p>
-                    <!-- クラス全体のトータル　jsで作成 -->
-                </p>
+                <!-- クラス全体のトータル　jsで作成 -->
             </div>
         </header>
 
         <main id="body">
+            <div id="tab_buttons" class="tab_buttons">
+                
+            </div>
+            <div id="tab_contents" class="tab_contents">
+
+            </div>
             
         </main>
 
-        <!-- 一番下に記述　ここから -->
-        <div id="modal_background">
-            <div id="modal_window">
-                <a id="close_button">✕</a>
-                <button id="reload_button" class="modal_buttons">再読み込み</button><br><br>
-                <button id="logout_button" class="modal_buttons">ログアウト</button><br>
-            </div>
+        <!-- その他処理用 -->
+        <div id="loading">
+            <div id="spinner"></div>
         </div>
-        <!-- 一番下に記述　ここまで -->
+
         <script src="../class_script.js"></script>
     </body>
 </html>
