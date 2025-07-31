@@ -180,14 +180,32 @@ window.addEventListener('DOMContentLoaded', async function() {
                         tab_contents_table_tbody_td_price.textContent = '￥' + parseInt(all_data[c].products.price[p]).toLocaleString();
                         tab_contents_table_tbody_tr.appendChild(tab_contents_table_tbody_td_price);
 
-                        // チェックボックス生成（gaspost処理？）
+                        // チェックボックス生成
                         const tab_contents_table_tbody_td_sales = this.document.createElement('td');
-                        tab_contents_table_tbody_td_sales.textContent = all_data[c].products.sales[p];
-                        tab_contents_table_tbody_tr.appendChild(tab_contents_table_tbody_td_sales);
 
+                        const tab_contents_table_tbody_td_sales_checkbox = Object.assign(this.document.createElement('input'), {
+                            type: 'checkbox',
+                            checked: all_data[c].products.sales[p] === '完売',
+                            classList: 'tab_contents_table_tbody_td_sales_checkbox'
+                        });
+
+                        tab_contents_table_tbody_td_sales_checkbox.dataset.index = `${c}-${p}`  // チェックボックス番地を入力（念のため）
+
+                        const tab_contents_table_tbody_td_sales_checkbox_label = Object.assign(this.document.createElement('span'), {
+                            textContent: tab_contents_table_tbody_td_sales_checkbox.checked ? '完売' : '販売中',
+                            classList: tab_contents_table_tbody_td_sales_checkbox.checked ? 'soldout' : 'onsale'
+                        });
+
+                        Object.assign(tab_contents_table_tbody_td_sales_checkbox_label.style, {
+                            fontWeight: 'bolder'
+                        });
+
+                        tab_contents_table_tbody_td_sales.appendChild(tab_contents_table_tbody_td_sales_checkbox);
+                        tab_contents_table_tbody_td_sales.appendChild(tab_contents_table_tbody_td_sales_checkbox_label);
+                        tab_contents_table_tbody_tr.appendChild(tab_contents_table_tbody_td_sales);
+                        
                         // 最後
                         tab_contents_table_tbody.appendChild(tab_contents_table_tbody_tr);
-                        // ここまで
                     };
 
                     // table入力処理
@@ -200,7 +218,15 @@ window.addEventListener('DOMContentLoaded', async function() {
 
                 const first_tab = document.querySelector(".tab_buttons button");
                 if(first_tab) first_tab.click();
-            })
+
+                // checkboxクリック時
+                this.document.querySelectorAll('.tab_contents_table_tbody_td_sales_checkbox').forEach(checkbox => {
+                    checkbox.addEventListener('change', (e) => {
+                        const checkbox_dataset = e.target.dataset.index;
+                    });
+                });
+
+            })  // then の最後やでぇ
 
             .finally(() => {
                 this.document.getElementById('loading').style.display = 'none';

@@ -99,7 +99,7 @@ table td{
     border-right: solid 1px #5a9bff;
 }
 
-table td:last-child { text-align: center; }
+table td:last-child { padding-left: 30px; }
 
 table td:nth-child(2) {
     text-align: right;
@@ -127,6 +127,12 @@ table tr:last-child td:last-child { border-bottom-right-radius: 18px; }
     font-size: larger;
     font-weight: bolder;
 }
+
+input { width: 18px; height: 18px; }
+
+span.soldout { color: #ff0000; }
+
+span.onsale { color: #0000ff; }
 
 /* 一番下に記述　ここから */
 .modal_buttons {
