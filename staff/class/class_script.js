@@ -78,7 +78,7 @@ window.addEventListener('DOMContentLoaded', async function() {
                         company_count++;
                     };
 
-                    if('pdname' in json_data_row && 'price' in json_data_row && 'sales' in json_data_row && json_data_row != null) {
+                    if('pdname' in json_data_row && 'price' in json_data_row && 'sales' in json_data_row && json_data_row != null && json_data_row.pdname != '') {
                         all_data[company_count - 1].products.pdname.push(json_data_row.pdname);
                         all_data[company_count - 1].products.price.push(json_data_row.price);
                         all_data[company_count - 1].products.sales.push(json_data_row.sales);
@@ -117,17 +117,68 @@ window.addEventListener('DOMContentLoaded', async function() {
                     // タブ
                     const tab_btns = this.document.createElement('button');
                     tab_btns.textContent = all_data[c].company_name;
-                    tab_btns.dataset.index = c.toString()
+                    tab_btns.dataset.index = c
                     this.document.getElementById('tab_buttons').appendChild(tab_btns);
 
                     // 内容
+                    const tab_contents_div = this.document.createElement('div');
+                    tab_contents_div.classList.add('tab_content');
+                    tab_contents_div.dataset.index = c
+                    if(c === 0) tab_contents_div.classList.add('show');
+
+                    const tab_contents_table = this.document.createElement('table');    // テーブル全体
+
+                    // thead部分
+                    const tab_contents_table_thead = this.document.createElement('thead');    // テーブルのヘッド
+                    const tab_contents_table_thead_row = this.document.createElement('tr');    // テーブル行（仮？）
+
+                    ['商品名', '販売価格', '販売状況'].forEach(text => {
+                        const tab_contents_table_thead_th = this.document.createElement('th');
+                        tab_contents_table_thead_th.textContent = text;
+                        tab_contents_table_thead_row.appendChild(tab_contents_table_thead_th);
+                    });
+                    tab_contents_table_thead.appendChild(tab_contents_table_thead_row);
+                    tab_contents_table.appendChild(tab_contents_table_thead);
+
+                    // tbody部分
+                    const tab_contents_table_tbody = this.document.createElement('tbody');
+                    for(let p = 0; p < all_data[c].products.pdname.length; p++) {
+                        const tab_contents_table_tbody_tr = this.document.createElement('tr');
+
+                        const tab_contents_table_tbody_td_pdname = this.document.createElement('td');
+                        tab_contents_table_tbody_td_pdname.textContent = all_data[c].products.pdname[p];
+                        tab_contents_table_tbody_tr.appendChild(tab_contents_table_tbody_td_pdname);
+
+                        const tab_contents_table_tbody_td_price = this.document.createElement('td');
+                        tab_contents_table_tbody_td_price.textContent = '￥' + parseInt(all_data[c].products.price[p]).toLocaleString();
+                        tab_contents_table_tbody_tr.appendChild(tab_contents_table_tbody_td_price);
+
+                        // チェックボックス生成（gaspost処理？）
+                        const tab_contents_table_tbody_td_sales = this.document.createElement('td');
+                        tab_contents_table_tbody_td_sales.textContent = all_data[c].products.sales[p];
+                        tab_contents_table_tbody_tr.appendChild(tab_contents_table_tbody_td_sales);
+
+                        // 企業ごとの商品数・完売数の集計
+
+
+                        // 最後
+                        tab_contents_table_tbody.appendChild(tab_contents_table_tbody_tr);
+                        // ここまで
+                    };
+
+                    // table入力処理
+                    tab_contents_table.appendChild(tab_contents_table_tbody);
+                    tab_contents_div.appendChild(tab_contents_table);
+                    this.document.getElementById('tab_contents').appendChild(tab_contents_div);
+                    // ここまで
                 };
+
+                const first_tab = document.querySelector(".tab_buttons button");
+                if(first_tab) first_tab.click();
             })
 
             .finally(() => {
                 this.document.getElementById('loading').style.display = 'none';
-                const first_tab = document.querySelector(".tab_buttons button");
-                if(first_tab) first_tab.click();
             });
     } else {
         this.alert('データの読み込みに失敗しました。ログインページに遷移します。');
@@ -154,7 +205,7 @@ document.getElementById('tab_buttons').addEventListener('click', (e) => {
         });
         e.target.classList.add('active_tab');
 
-        document.querySelectorAll('.tab_contents').forEach((div, i) => {
+        document.querySelectorAll('.tab_content').forEach((div, i) => {
             div.classList.toggle('show', i == index);
         });
     };

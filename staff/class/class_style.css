@@ -6,23 +6,18 @@ body { background-color: #ffc477; }
     width: 99%; height: 84px;
     background-color: #ff9100;
     z-index: 1000;
-    /* box-shadow: 0 7px 7px rgba(0,0,0,0.3); */
     border: solid 7px #ff9100;
     border-bottom: none;
 }
 
-#title_display, p {    /* <p>は仮のタグ、本来はid付き */
+#title_display, p {
     margin: 3px 0 3px 7px;
     display: inline-block;
 }
 
-#title_display {
-    font-size: 195%;
-}
+#title_display { font-size: 195%; }
 
-p {    /* <p>は仮のタグ、本来はid付き */
-    font-size: 118%;
-}
+p { font-size: 118%; }
 
 #body{ padding-top: 100px; }
 
@@ -33,43 +28,87 @@ p {    /* <p>は仮のタグ、本来はid付き */
     top: 0; left: 0;
     background-color: #ff9100;
     border: solid 7px #ff9100;
-    border-top-color: #000000;
-    border-top-width: 3px;
+    border-top-color: #e07f00;;
+    border-top-width: 2px;
     border-bottom: none;
     width: 99%;
 }
 
 #tab_buttons button {
     padding: 6px 24px;
-    border: none;
+    border: solid 1px #e07f00;
+    border-bottom: none;
     border-radius: 18px 18px 0 0;
     background-color: #ff9100;
     cursor: pointer;
     transition: background-color 0.3s;
 }
 
-#tab_buttons button.active_tab {
-    background-color: #ffc477;
-}
+#tab_buttons button.active_tab { background-color: #ffc477; }
 
-#tab_buttons button.active_tab:hover {
-    background-color: #ffc477;
-}
+#tab_buttons button.active_tab:hover { background-color: #ffc477; }
 
-#tab_buttons button:hover {
-    background-color: #ffad42;
-}
+#tab_buttons button:hover { background-color: #ffad42; }
 
-#tab_contents {
+.tab_content {
     margin-top: 125px;
-    display: flex;
+    display: none;
     position: fixed;
     top: 0; left: 0;
-    background-color: #ffecd3;
-    width: 99%; height: 627px;    /* 基本的にauto */
+    background-color: #ffc477;;
+    width: 99%; height: 637px;
     border: solid 7px #ffc477;
     border-radius: 18px;
 }
+
+.tab_content.show { 
+    display: flex;
+    overflow-y: auto;
+}
+
+table { 
+    margin: 7px;
+    border-radius: 18px;
+    background-color: #aeceff;
+    box-shadow: 0 7px 7px rgba(0, 0, 0, 0.7);
+    width: 100%; 
+    border-spacing: 0;
+    font-size: 124%;
+}
+
+table th {
+    background-color: #5a9bff;
+    border: solid 3px #5a9bff;
+}
+
+table th:first-child { border-radius: 18px 0 0 0; }
+
+table th:last-child { border-radius: 0 18px 0 0; }
+
+table td{
+    border-bottom: solid 1px #5a9bff; 
+    border-right: solid 1px #5a9bff;
+}
+
+table td:last-child { text-align: center; }
+
+table td:nth-child(2) {
+    text-align: right;
+    padding-right: 7px;
+}
+
+table tr:nth-child(even) { background-color: #bfd8ff; }
+
+table td:first-child {
+    border-left: solid 1px #5a9bff;
+    padding-left: 18px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+}
+
+table tr:last-child td:first-child { border-bottom-left-radius: 18px; }
+
+table tr:last-child td:last-child { border-bottom-right-radius: 18px; }
 
 /* 一番下に記述　ここから */
 .modal_buttons {
@@ -85,9 +124,7 @@ p {    /* <p>は仮のタグ、本来はid付き */
     box-shadow: 0 7px 7px rgba(0,0,0,0.7);
 }
 
-#logout_button {
-    color: #ff1f1f;
-}
+#logout_button { color: #ff1f1f; }
 
 .modal_buttons:hover {
     cursor: pointer;
