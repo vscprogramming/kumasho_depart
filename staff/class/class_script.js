@@ -60,8 +60,6 @@ window.addEventListener('DOMContentLoaded', async function() {
 
                 const all_data = [];    // 全てのデータをまとめたオブジェクト
                 let company_count = 0;    // 企業数の集計
-                let all_products_count = 0;    // すべての商品数
-                let all_sales_count = 0;    // すべての完売数
 
                 json_data.forEach(json_data_row => {
                     all_data[company_count] = {
@@ -89,20 +87,36 @@ window.addEventListener('DOMContentLoaded', async function() {
                 console.log(all_data);
 
                 // 全体の商品数・完売数を集計
+                let all_products_count = 0;    // すべての商品数
+                let all_sales_count = 0;    // すべての完売数
+                let company_products_count, company_sales_count;    // 企業ごとの商品数, 企業ごとの完売数
+                let ps_count = {
+                    products_count: [],
+                    sales_count: []
+                };
+
                 for(let c = 0; c < all_data.length; c++) {
-                    for(let p = 0; p < all_data[c].products.pdname.length; p++) {
-                        all_products_count++;
-                    };
+                    company_products_count = 0;
+                    company_sales_count = 0;
 
                     for(let p = 0; p < all_data[c].products.pdname.length; p++) {
+                        all_products_count++;
+                        company_products_count ++;
+
                         if(all_data[c].products.sales[p] === "完売") {
                             all_sales_count++;
+                            company_sales_count ++;
                         };
                     };
+
+                    ps_count.products_count.push(company_products_count);
+                    ps_count.sales_count.push(company_sales_count);
                 };
 
                 console.log('企業数, 商品数, 完売数');
                 console.log(`${company_count}, ${all_products_count}, ${all_sales_count}`);
+                console.log('ps_count: ');
+                console.log(ps_count);
 
                 // 全体の商品数・完売数を表示
                 const total_display = Object.assign(this.document.createElement('p'), {
@@ -113,19 +127,30 @@ window.addEventListener('DOMContentLoaded', async function() {
                 this.document.getElementById('total_display').appendChild(total_display);
 
                 // タブの生成
+
                 for(let c = 0; c < company_count; c++) {
                     // タブ
                     const tab_btns = this.document.createElement('button');
                     tab_btns.textContent = all_data[c].company_name;
-                    tab_btns.dataset.index = c
+                    tab_btns.dataset.index = c;
                     this.document.getElementById('tab_buttons').appendChild(tab_btns);
 
                     // 内容
                     const tab_contents_div = this.document.createElement('div');
                     tab_contents_div.classList.add('tab_content');
-                    tab_contents_div.dataset.index = c
+                    tab_contents_div.dataset.index = c;
                     if(c === 0) tab_contents_div.classList.add('show');
 
+                    // 企業ごとの商品数・完売数の表示
+                    const company_total_display = Object.assign(this.document.createElement('p'), {
+                        classList: 'company_total_display_text',
+                        id: 'company_total_display_text',
+                        innerHTML: `<span class="company_total_display_text_company_name">${all_data[c].company_name}</span>（　商品数：${ps_count.products_count[c]}　／　完売数：${ps_count.sales_count[c]}　）`
+                    });
+
+                    company_total_display.dataset.index = c;
+
+                    // テーブルの作成
                     const tab_contents_table = this.document.createElement('table');    // テーブル全体
 
                     // thead部分
@@ -137,11 +162,13 @@ window.addEventListener('DOMContentLoaded', async function() {
                         tab_contents_table_thead_th.textContent = text;
                         tab_contents_table_thead_row.appendChild(tab_contents_table_thead_th);
                     });
+
                     tab_contents_table_thead.appendChild(tab_contents_table_thead_row);
                     tab_contents_table.appendChild(tab_contents_table_thead);
 
                     // tbody部分
                     const tab_contents_table_tbody = this.document.createElement('tbody');
+
                     for(let p = 0; p < all_data[c].products.pdname.length; p++) {
                         const tab_contents_table_tbody_tr = this.document.createElement('tr');
 
@@ -158,9 +185,6 @@ window.addEventListener('DOMContentLoaded', async function() {
                         tab_contents_table_tbody_td_sales.textContent = all_data[c].products.sales[p];
                         tab_contents_table_tbody_tr.appendChild(tab_contents_table_tbody_td_sales);
 
-                        // 企業ごとの商品数・完売数の集計
-
-
                         // 最後
                         tab_contents_table_tbody.appendChild(tab_contents_table_tbody_tr);
                         // ここまで
@@ -168,6 +192,7 @@ window.addEventListener('DOMContentLoaded', async function() {
 
                     // table入力処理
                     tab_contents_table.appendChild(tab_contents_table_tbody);
+                    tab_contents_div.appendChild(company_total_display);
                     tab_contents_div.appendChild(tab_contents_table);
                     this.document.getElementById('tab_contents').appendChild(tab_contents_div);
                     // ここまで
