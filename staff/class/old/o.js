@@ -46,9 +46,9 @@ document.getElementById('logout-button').onclick = () => {
 };
 
 // ログインしていなければホームへ遷移
-//if (!localStorage.getItem(`isLoggedIn${classNumber}`)) {
-    //window.location.href = '../../home/home.html';
-//};
+if (!localStorage.getItem(`isLoggedIn${classNumber}`)) {
+    window.location.href = '../../home/home.html';
+};
 
 // ページ描画後の初期化処理
 window.addEventListener('DOMContentLoaded', async function () {

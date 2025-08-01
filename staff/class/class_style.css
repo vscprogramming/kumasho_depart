@@ -144,15 +144,8 @@ span.onsale { color: #0000ff; }
     font-size: 34px;
     float: right;
     margin: 7px;
-    transition: all 0.3s ease;
+    transition: all 0.15s ease;
     box-shadow: 0 7px 7px rgba(0,0,0,0.7);
-}
-
-#logout_button {
-    background-image: url('../class/imgs/logout.png');
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
 }
 
 #reload_button {
@@ -160,12 +153,64 @@ span.onsale { color: #0000ff; }
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
+    font-size: 0;
+}
+
+#reload_button::after {
+    content: '再読み込み';
+    opacity: 0;
+    transition: all 0.3s ease;
+    font-size: 20px;
+    pointer-events: none;
+    position: absolute;
+    text-align: center;
+    transform: translate(-50%, -50%);
+}
+
+#reload_button:hover {
+    background-image: none;
+    background: #5a9bff;
+    content: '再読み込み';
+    color: #000000;
+}
+
+#reload_button:hover::after {
+    opacity: 1;
+}
+
+#logout_button {
+    background-image: url('../class/imgs/logout.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    font-size: 0;
+}
+
+#logout_button::after {
+    content: 'ログアウト';
+    opacity: 0;
+    transition: all 0.3s ease;
+    font-size: 20px;
+    pointer-events: none;
+    position: absolute;
+    text-align: center;
+    transform: translate(-50%, -50%);
+}
+
+#logout_button:hover {
+    background-image: none;
+    background: #5a9bff;
+    content: "ログアウト";
+    color: #ff0000;
+}
+
+#logout_button:hover::after {
+    opacity: 1;
 }
 
 .modal_buttons:hover {
     cursor: pointer;
-    transform: translateY(3px);
-    box-shadow: 0 3px 3px rgba(0, 0, 0, 0.3);
+    width: 195px; height: 47px;
 }
 
 @keyframes spin {
@@ -195,4 +240,3 @@ span.onsale { color: #0000ff; }
     height: 70px;
     animation: spin 0.7s linear infinite;
 }
-/* 一番下に記述　ここまで */

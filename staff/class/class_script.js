@@ -32,9 +32,11 @@ const all_gas_url = new Map([
     ['3-9', 'https://script.google.com/macros/s/AKfycbw5dUn9N6EaJjr5CbIJR9In9rY4t0Ute7Img5oNuLoD3y18kMRh2alcX2OaT9K7xxDqTQ/exec']
 ]);
 
-// 不正アクセス防止用　ここから
-
-// 不正アクセス防止用　ここまで
+// 不正アクセス防止
+if (!localStorage.getItem(`logged_${class_number}`)) {
+    alert('不正なアクセスです。ログインページへ遷移します。');
+    window.location.href = '../../home/home.html';
+};
 
 window.addEventListener('DOMContentLoaded', async function() {
     // ローディング表示
@@ -219,10 +221,11 @@ window.addEventListener('DOMContentLoaded', async function() {
                 const first_tab = document.querySelector(".tab_buttons button");
                 if(first_tab) first_tab.click();
 
-                // checkboxクリック時
+                // checkboxクリック時 ここから
                 this.document.querySelectorAll('.tab_contents_table_tbody_td_sales_checkbox').forEach(checkbox => {
                     checkbox.addEventListener('change', (e) => {
                         const checkbox_dataset = e.target.dataset.index;
+                        console.log(e.target.dataset.index);
                     });
                 });
 
@@ -237,9 +240,9 @@ window.addEventListener('DOMContentLoaded', async function() {
     };
 });
 
-// ボタン処理等　ここから
+// その他の処理等　ここから
 document.getElementById('reload_button').addEventListener('click', () => {
-    window.location.reload();
+    window.location.reload()
 });
 
 document.getElementById('logout_button').addEventListener('click', () => {
@@ -252,8 +255,9 @@ document.getElementById('tab_buttons').addEventListener('click', (e) => {
         const index = e.target.dataset.index;
 
         document.querySelectorAll('.tab_buttons button').forEach((btn, i) => {
-            btn.classList.remove('active_tab');
+            btn.classList.remove('active_tab')
         });
+
         e.target.classList.add('active_tab');
 
         document.querySelectorAll('.tab_content').forEach((div, i) => {
@@ -261,4 +265,3 @@ document.getElementById('tab_buttons').addEventListener('click', (e) => {
         });
     };
 });
-// ボタン処理等　ここまで */
