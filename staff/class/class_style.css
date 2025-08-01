@@ -99,7 +99,7 @@ table td{
     border-right: solid 1px #5a9bff;
 }
 
-table td:last-child { padding-left: 30px; }
+table td:last-child { padding-left: 157px; }
 
 table td:nth-child(2) {
     text-align: right;
@@ -119,9 +119,13 @@ table tr:last-child td:first-child { border-bottom-left-radius: 18px; }
 
 table tr:last-child td:last-child { border-bottom-right-radius: 18px; }
 
-.company_total_display_text {
-    margin-left: 7px;
-}
+table th:nth-child(1), table td:nth-child(1) { width: 50%; }
+
+table th:nth-child(2), table td:nth-child(2) { width: 20%; }
+
+table th:nth-child(3), table td:nth-child(3) { width: 30%; }
+
+.company_total_display_text { margin-left: 7px; }
 
 .company_total_display_text_company_name {
     font-size: larger;
@@ -133,6 +137,8 @@ input { width: 18px; height: 18px; }
 span.soldout { color: #ff0000; }
 
 span.onsale { color: #0000ff; }
+
+.tab_contents_table_tbody_td_sales_checkbox { cursor: pointer; }
 
 /* 一番下に記述　ここから */
 .modal_buttons {
