@@ -29,7 +29,7 @@ const all_gas_url = new Map([
     ['3-6', ''],
     ['3-7', ''],
     ['3-8', ''],
-    ['3-9', 'https://script.google.com/macros/s/AKfycby6Eq-0HOlHpRRzLIZf2teAAQKhkyPRLUsjcrowfS7zUiQSXqUB6Nc11r6slmFFSFxpFA/exec']
+    ['3-9', 'https://script.google.com/macros/s/AKfycbxSYNTEBhCNPATOGIL61wiAi_SdxMNkApWpHTHVT8kPfQyueIDKLRMkvSuNsHh1ZVtfhw/exec']
 ]);
 
 // 不正アクセス防止
