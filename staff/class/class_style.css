@@ -1,18 +1,19 @@
-body {background-color: #ffc477;}
+body {background-color: #333333;}
 
 #title {
     position: fixed;
     top: 0; left: 0;
     width: 99%; height: 84px;
-    background-color: #ff9100;
+    background-color: #121212;
     z-index: 1000;
-    border: solid 7px #ff9100;
+    border: solid 7px #121212;
     border-bottom: none;
 }
 
 #title_display, p {
     margin: 3px 0 3px 7px;
     display: inline-block;
+    color: #eee;
 }
 
 #title_display {
@@ -29,44 +30,47 @@ p {font-size: 118%;}
     display: flex;
     position: fixed;
     top: 0; left: 0;
-    background-color: #ff9100;
-    border: solid 7px #ff9100;
-    border-top-color: #e07f00;;
-    border-top-width: 2px;
+    background-color: #121212;
+    border: solid 7px #121212;
+    border-top-color: #808080;
+    border-top-width: 1px;
     border-bottom: none;
     width: 99%;
 }
 
 #tab_buttons button {
     padding: 6px 24px;
-    border: solid 1px #e07f00;
-    border-bottom: none;
-    border-radius: 18px 18px 0 0;
-    background-color: #ff9b17;
+    border: solid 1px #808080;
+    border-radius: 7px 7px 0 0;
+    background-color: #121212;
     cursor: pointer;
     transition: background-color 0.3s;
     box-shadow: 0 3px 3px rgba(0, 0, 0, 0.7);
     font-weight: bolder;
     font-size: 103%;
+    color: #eee;
 }
 
 #tab_buttons button.active_tab {
-    background-color: #ffc477;
+    background-color: #333333;
     z-index: 3000;
+    border: solid 1px #4169E1;
 }
 
-#tab_buttons button.active_tab:hover {background-color: #ffc477;}
+#tab_buttons button.active_tab:hover {background-color: #333333;}
 
-#tab_buttons button:hover {background-color: #ffad42;}
+#tab_buttons button:hover {background-color: #333333;}
 
 .tab_content {
     margin-top: 124px;
     display: none;
     position: fixed;
     top: 0; left: 0;
-    background-color: #ffc477;;
+    background-color: #333333;
     width: 99%; height: 637px;
-    border: solid 7px #ffc477;
+    border: solid 7px #333333;
+    border-top-width: 1px;
+    border-top-color: #808080;
 }
 
 .tab_content.show { 
@@ -78,16 +82,17 @@ p {font-size: 118%;}
 table { 
     margin: 7px;
     border-radius: 18px;
-    background-color: #aeceff;
+    background-color: #333;
     box-shadow: 0 7px 7px rgba(0, 0, 0, 0.7);
     width: 98.5%; 
     border-spacing: 0;
     font-size: 124%;
+    color: #eee;
 }
 
 table th {
-    background-color: #5a9bff;
-    border: solid 3px #5a9bff;
+    background-color: #4169E1;
+    border: solid 3px #4169E1;
 }
 
 table th:first-child {border-radius: 18px 0 0 0;}
@@ -106,7 +111,7 @@ table td:nth-child(2) {
     padding-right: 7px;
 }
 
-table tr:nth-child(even) {background-color: #c6dcff;}
+table tr:nth-child(even) {background-color: #444;}
 
 table td:first-child {
     border-left: solid 1px #5a9bff;
@@ -134,15 +139,15 @@ table th:nth-child(3), table td:nth-child(3) {width: 30%;}
 
 input {width: 18px; height: 18px;}
 
-span.soldout {color: #ff0000;}
+span.soldout {color: #ff3737;}
 
-span.onsale {color: #0000ff;}
+span.onsale {color: #2f63ff;}
 
 .tab_contents_table_tbody_td_sales_checkbox {cursor: pointer;}
 
 .modal_buttons {
-    background: #5a9bff;
-    color: #fff;
+    background: #eee;
+    color: #eee;
     border: none;
     border-radius: 18px;
     width: 47px; height: 47px;
@@ -174,9 +179,10 @@ span.onsale {color: #0000ff;}
 
 #reload_button:hover {
     background-image: none;
-    background: #5a9bff;
+    background: #eee;
     content: '再読み込み';
-    color: #000000;
+    color: #121212;
+    font-weight: bolder;
 }
 
 #reload_button:hover::after {opacity: 1;}
@@ -202,9 +208,10 @@ span.onsale {color: #0000ff;}
 
 #logout_button:hover {
     background-image: none;
-    background: #5a9bff;
+    background: #eee;
     content: "ログアウト";
-    color: #ff0000;
+    color: #ff4b4b;
+    font-weight: bolder;
 }
 
 #logout_button:hover::after {opacity: 1;}
@@ -234,7 +241,7 @@ span.onsale {color: #0000ff;}
 }
 
 #spinner {
-    border: 7px solid #ffffff;
+    border: 7px solid #eee;
     border-top: 7px solid #f39121;
     border-radius: 50%;
     width: 70px;

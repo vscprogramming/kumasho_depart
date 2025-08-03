@@ -28,6 +28,11 @@
 
         input {cursor: pointer;}
 
+        input:focus, select:focus {
+            border-color: #000000;
+            box-shadow: 7px 7px 7px rgba(0, 0, 0, 0.05);
+        }
+
         h1 {
             color: #000000;
             margin-bottom: 24px;
@@ -82,20 +87,20 @@
             padding: 12px;
             font-size: 1rem;
             border-radius: 7px;
-            border: 1px solid #ccc;
+            border: 3px solid #4e8cff;
             background-color: #fff;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+            box-shadow: 7px 7px 7px rgba(0, 0, 0, 0.05);
             text-align: center;
         }
 
         .class-select {
-            width: 108.7%;
+            width: 110%;
             padding: 12px;
             font-size: 1rem;
             border-radius: 7px;
-            border: 1px solid #ccc;
+            border: 3px solid #4e8cff;
             background-color: #fff;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+            box-shadow: 7px 7px 7px rgba(0, 0, 0, 0.05);
             cursor: pointer;
         }
 
@@ -104,9 +109,9 @@
             padding: 12px;
             font-size: 1rem;
             border-radius: 7px;
-            border: 1px solid #ccc;
+            border: 3px solid #4e8cff;
             background-color: #fff;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+            box-shadow: 7px 7px 7px rgba(0, 0, 0, 0.05);
             cursor: text;
         }
 
@@ -117,7 +122,7 @@
             left: 0;
             width: 100vw;
             height: 100vh;
-            background: rgba(255, 255, 255, 0.7);
+            background: rgba(0, 0, 0, 0.5);
             z-index: 2000;
             display: flex;
             align-items: center;
@@ -125,18 +130,15 @@
         }
 
         .spinner {
-            border: 8px solid #f3f3f3;
-            border-top: 8px solid #f39121;
+            border: 7px solid #ffffff;
+            border-top: 7px solid #f39121;
             border-radius: 50%;
-            width: 60px;
-            height: 60px;
-            animation: spin 1s linear infinite;
+            width: 70px;
+            height: 70px;
+            animation: spin 0.7s linear infinite;
         }
 
-        p {
-            margin-top: 173px;
-            text-align: right;
-        }
+        p {text-align: right;}
     </style>
 
     <body>
@@ -291,6 +293,6 @@
             </script>
         </div>
 
-        <p>v0.38(v1.0)</p> <!-- バージョン情報 -->
+        <p>v0.38.1(v1.0.1)</p> <!-- バージョン情報 -->
     </body>
 </html>
