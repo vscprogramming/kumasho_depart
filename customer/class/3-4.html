@@ -72,7 +72,7 @@ document.addEventListener('DOMContentLoaded', () => {
       modal.classList.remove('hidden');
       document.body.classList.add('modal-open');
       modalBody.innerHTML = '読み込み中...';
-      const Gas_Url = "https://script.google.com/macros/s/AKfycbzvsrQzO0C9vzJ5TTgRA9zk05imKoYGjVzM0i-EWspbkyuDcc8kn3FI75FfYQufjIYbpA/exec?sheet=" + encodeURIComponent(className);  // 8/2 23:45 url書き換え済み
+      const Gas_Url = "https://script.google.com/macros/s/AKfycbzvsrQzO0C9vzJ5TTgRA9zk05imKoYGjVzM0i-EWspbkyuDcc8kn3FI75FfYQufjIYbpA/exec?sheet=";
       
       console.log(className); // クラス名が正しいかを確認
       console.log(Gas_Url); // URLが正しいかを確認
@@ -121,7 +121,7 @@ document.addEventListener('DOMContentLoaded', () => {
   </section>
 
   <footer>
-    <p>公式インスタグラム: <a href="https://www.instagram.com/kumasho.dept/" target="_blank">kumasho.dept</a></p>
+    <p>公式インスタグラム: <a href="https://www.instagram.com/kumasho.dept/" target="_blank" rel="noopener">kumasho.dept</a></p>
     <small>© 課題研究 アプリ開発班</small>
   </footer>
 </body>
