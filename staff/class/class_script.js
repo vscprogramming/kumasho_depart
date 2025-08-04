@@ -61,8 +61,6 @@ async function gas_Loading(get, post) {
         .then(response => response.json())
 
         .then(json_data => {
-            // document.getElementsByTagName('body').innerHTML = '';
-
             console.log('json_data（元データ）:');
             console.log(json_data);
 
@@ -94,6 +92,9 @@ async function gas_Loading(get, post) {
 
             console.log('all_data（整理後）: ');
             console.log(all_data);
+
+            // 再読み込み用に初期化
+            document.getElementById('total_display').innerHTML ='';
 
             // 全体の商品数・完売数を集計
             let all_products_count = 0;    // すべての商品数
@@ -135,6 +136,10 @@ async function gas_Loading(get, post) {
             });
 
             this.document.getElementById('total_display').appendChild(total_display);
+
+            // 再読み込み用に初期化
+            document.getElementById('tab_buttons').innerHTML ='';
+            document.getElementById('tab_contents').innerHTML ='';
 
             // タブの生成
             for (let c = 0; c < company_count; c++) {
@@ -290,7 +295,7 @@ async function gas_Loading(get, post) {
 
 // その他の処理等
 document.getElementById('reload_button').addEventListener('click', () => {
-    window.location.reload()
+    window.location.reload();
 });
 
 document.getElementById('logout_button').addEventListener('click', () => {
@@ -314,46 +319,8 @@ document.getElementById('tab_buttons').addEventListener('click', (e) => {
     };
 });
 
-/* window.onload = () => {
-    setInterval(() => {
-        gas_Loading(gas_url_get, gas_url_post);
-    }, 10 * 1000);
+window.onload = () => {
+    setInterval(async () => {
+        await gas_Loading(gas_url_get, gas_url_post);
+    }, Math.floor(Math.random() * (60 - 30 + 1) + 30) * 1000);
 };
-
-/* async function gas_Loading_update(get) {
-    await this.fetch(get)
-        .then(response => response.json())
-        .then(json_data_update => {
-            console.log('json_data_update（元データ）:');
-            console.log(json_data_update);
-
-            // 扱いやすいデータ構造に変換
-            const all_data_update = [];    // 全てのデータをまとめたオブジェクト
-            let company_count = 0;    // 企業数の集計
-
-            json_data_update.forEach(row => {
-                all_data_update[company_count] = {
-                    company_name: '',
-                    products: {
-                        pdname: [],
-                        price: [],
-                        sales: []
-                    }
-                };
-
-                if ('company_name' in row && row.company_name != null) {
-                    all_data_update[company_count].company_name = row.company_name;
-                    company_count++;
-                };
-
-                if ('pdname' in row && 'price' in row && 'sales' in row && row != null && row.pdname != '') {
-                    all_data_update[company_count - 1].products.pdname.push(row.pdname);
-                    all_data_update[company_count - 1].products.price.push(row.price);
-                    all_data_update[company_count - 1].products.sales.push(row.sales);
-                };
-            });
-
-            console.log('all_data_update（整理後）: ');
-            console.log(all_data_update);
-        });
-}; */

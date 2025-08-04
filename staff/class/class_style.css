@@ -1,4 +1,4 @@
-body {background-color: #333333;}
+body {background-color: #333;}
 
 #title {
     position: fixed;
@@ -44,7 +44,7 @@ p {font-size: 118%;}
     border-radius: 7px 7px 0 0;
     background-color: #121212;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: 0.15s;
     box-shadow: 0 3px 3px rgba(0, 0, 0, 0.7);
     font-weight: bolder;
     font-size: 103%;
@@ -52,23 +52,23 @@ p {font-size: 118%;}
 }
 
 #tab_buttons button.active_tab {
-    background-color: #333333;
+    background-color: #f80;
     z-index: 3000;
-    border: solid 1px #4169E1;
+    border: solid 1px #f80;
 }
 
-#tab_buttons button.active_tab:hover {background-color: #333333;}
+#tab_buttons button.active_tab:hover {background-color: #f80;}
 
-#tab_buttons button:hover {background-color: #333333;}
+#tab_buttons button:hover {background-color: #430;}
 
 .tab_content {
     margin-top: 124px;
     display: none;
     position: fixed;
     top: 0; left: 0;
-    background-color: #333333;
+    background-color: #333;
     width: 99%; height: 637px;
-    border: solid 7px #333333;
+    border: solid 7px #333;
     border-top-width: 1px;
     border-top-color: #808080;
 }
@@ -90,9 +90,11 @@ table {
     color: #eee;
 }
 
+table tr:nth-child(even) {background-color: #444444;}
+
 table th {
-    background-color: #4169E1;
-    border: solid 3px #4169E1;
+    background-color: #f80;
+    border: solid 1px #f70;
 }
 
 table th:first-child {border-radius: 18px 0 0 0;}
@@ -100,8 +102,8 @@ table th:first-child {border-radius: 18px 0 0 0;}
 table th:last-child {border-radius: 0 18px 0 0;}
 
 table td{
-    border-bottom: solid 1px #5a9bff; 
-    border-right: solid 1px #5a9bff;
+    border-bottom: solid 1px #f80; 
+    border-right: solid 1px #f80;
 }
 
 table td:last-child {padding-left: 157px;}
@@ -111,10 +113,8 @@ table td:nth-child(2) {
     padding-right: 7px;
 }
 
-table tr:nth-child(even) {background-color: #444;}
-
 table td:first-child {
-    border-left: solid 1px #5a9bff;
+    border-left: solid 1px #f80;
     padding-left: 18px;
     padding-top: 3px;
     padding-bottom: 3px;
@@ -146,7 +146,7 @@ span.onsale {color: #2f63ff;}
 .tab_contents_table_tbody_td_sales_checkbox {cursor: pointer;}
 
 .modal_buttons {
-    background: #eee;
+    background: #f80;
     color: #eee;
     border: none;
     border-radius: 18px;
@@ -170,22 +170,24 @@ span.onsale {color: #2f63ff;}
     content: '再読み込み';
     opacity: 0;
     transition: all 0.3s ease;
-    font-size: 20px;
     pointer-events: none;
     position: absolute;
     text-align: center;
     transform: translate(-50%, -50%);
+    font-size: 0;
 }
 
 #reload_button:hover {
     background-image: none;
-    background: #eee;
     content: '再読み込み';
-    color: #121212;
+    color: #eee;
     font-weight: bolder;
 }
 
-#reload_button:hover::after {opacity: 1;}
+#reload_button:hover::after {
+    opacity: 1;
+    font-size: 20px;
+}
 
 #logout_button {
     background-image: url('../class/imgs/logout.png');
@@ -199,22 +201,24 @@ span.onsale {color: #2f63ff;}
     content: 'ログアウト';
     opacity: 0;
     transition: all 0.3s ease;
-    font-size: 20px;
     pointer-events: none;
     position: absolute;
     text-align: center;
     transform: translate(-50%, -50%);
+    font-size: 0;
 }
 
 #logout_button:hover {
     background-image: none;
-    background: #eee;
     content: "ログアウト";
-    color: #ff4b4b;
+    color: #eee;
     font-weight: bolder;
 }
 
-#logout_button:hover::after {opacity: 1;}
+#logout_button:hover::after {
+    opacity: 1;
+    font-size: 20px;
+}
 
 .modal_buttons:hover {
     cursor: pointer;
@@ -242,7 +246,7 @@ span.onsale {color: #2f63ff;}
 
 #spinner {
     border: 7px solid #eee;
-    border-top: 7px solid #f39121;
+    border-top: 7px solid #f80;
     border-radius: 50%;
     width: 70px;
     height: 70px;

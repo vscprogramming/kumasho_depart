@@ -8,7 +8,7 @@
 
     <style>
         body {
-            background: #d3e2ff;
+            background: #121212;
             margin: 0;
             padding: 0;
         }
@@ -19,22 +19,25 @@
             min-height: 300px;
             height: auto;
             margin: 100px auto;
-            background: #ffdbac;
+            background: #333;
             border-radius: 34px;
             box-shadow: 7px 7px 7px rgba(0, 0, 0, 0.7);
             padding: 36px 24px 36px 24px;
             text-align: center;
+            color: #eee;
         }
 
         input {cursor: pointer;}
 
+        label.grade {color: #000;}
+
         input:focus, select:focus {
-            border-color: #000000;
+            border-color: #f80;
             box-shadow: 7px 7px 7px rgba(0, 0, 0, 0.05);
         }
 
         h1 {
-            color: #000000;
+            color: #eee;
             margin-bottom: 24px;
             font-size: 2rem;
         }
@@ -44,8 +47,8 @@
             right: 32px;
             z-index: 1000;
             display: inline-block;
-            background: #4e8cff;
-            color: #fff;
+            background: #f80;
+            color: #eee;
             text-decoration: none;
             font-size: 1.1rem;
             padding: 12px 36px;
@@ -56,7 +59,7 @@
         }
 
         .main-btn:hover {
-            background: #2563c9;
+            background: #f70;
             cursor: pointer;
             box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.3);
             transform: translateY(-50%, -50%);
@@ -138,7 +141,10 @@
             animation: spin 0.7s linear infinite;
         }
 
-        p {text-align: right;}
+        p {
+            text-align: right;
+            color: #eee;
+        }
     </style>
 
     <body>
@@ -153,9 +159,9 @@
 
                             <td>
                                 <div class="grade-select">
-                                    <label><input type="radio" name="grade" value="1">1年</label>
-                                    <label><input type="radio" name="grade" value="2">2年</label>
-                                    <label><input type="radio" name="grade" value="3" checked>3年</label>
+                                    <label class="grade"><input type="radio" name="grade" value="1">1年</label>
+                                    <label class="grade"><input type="radio" name="grade" value="2">2年</label>
+                                    <label class="grade"><input type="radio" name="grade" value="3" checked>3年</label>
                                 </div>
                             </td>
                         </tr>
@@ -233,14 +239,14 @@
                 };
 
                 document.querySelectorAll('input[name="grade"]').forEach(radio => {
-                    radio.addEventListener('change', function () {
+                    radio.addEventListener('change', function() {
                         updateClassOptions(this.value);
                     });
                 });
 
                 updateClassOptions(document.querySelector('input[name="grade"]:checked').value);
 
-                document.querySelector('form').addEventListener('submit', async function (p) {
+                document.querySelector('form').addEventListener('submit', async function(p) {
                     p.preventDefault();
                     document.getElementById('loading').style.display = 'flex';
                     const classValue = document.getElementById('class').value;
@@ -281,7 +287,7 @@
                     };
                 });
 
-                window.addEventListener('DOMContentLoaded', function () {
+                window.addEventListener('DOMContentLoaded', function() {
                     document.getElementById('loading').style.display = 'none';
 
                     for (let g = 1; g <= 3; g++) {
@@ -293,6 +299,6 @@
             </script>
         </div>
 
-        <p>v0.38.1(v1.0.1)</p> <!-- バージョン情報 -->
+        <p>v0.39(v1.1)</p> <!-- バージョン情報 -->
     </body>
 </html>
