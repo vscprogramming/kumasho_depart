@@ -45,7 +45,7 @@ p {font-size: 118%;}
     background-color: #121212;
     cursor: pointer;
     transition: 0.15s;
-    box-shadow: 0 3px 3px rgba(0, 0, 0, 0.7);
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.7);
     font-weight: bolder;
     font-size: 103%;
     color: #eee;
@@ -83,14 +83,14 @@ table {
     margin: 7px;
     border-radius: 18px;
     background-color: #333;
-    box-shadow: 0 7px 7px rgba(0, 0, 0, 0.7);
+    box-shadow: 7px 7px 7px rgba(0, 0, 0, 0.7);
     width: 98.5%; 
     border-spacing: 0;
     font-size: 124%;
     color: #eee;
 }
 
-table tr:nth-child(even) {background-color: #444444;}
+table tr:nth-child(even) {background-color: #444;}
 
 table th {
     background-color: #f80;
@@ -155,7 +155,7 @@ span.onsale {color: #2f63ff;}
     float: right;
     margin: 7px;
     transition: all 0.15s ease;
-    box-shadow: 0 7px 7px rgba(0,0,0,0.7);
+    box-shadow: 7px 7px 7px rgba(0,0,0,0.7);
 }
 
 #reload_button {
@@ -233,10 +233,8 @@ span.onsale {color: #2f63ff;}
 #loading {
     display: none;
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
     background: rgba(0, 0, 0, 0.5);
     z-index: 2000;
     display: flex;
@@ -248,7 +246,6 @@ span.onsale {color: #2f63ff;}
     border: 7px solid #eee;
     border-top: 7px solid #f80;
     border-radius: 50%;
-    width: 70px;
-    height: 70px;
+    width: 70px; height: 70px;
     animation: spin 0.7s linear infinite;
 }

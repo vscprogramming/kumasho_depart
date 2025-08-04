@@ -15,9 +15,8 @@
 
         .container {
             max-width: 720px;
-            width: 100%;
             min-height: 300px;
-            height: auto;
+            width: 100%; height: auto;
             margin: 100px auto;
             background: #333;
             border-radius: 34px;
@@ -85,46 +84,35 @@
             font-weight: bold;
         }
 
-        .grade-select {
-            width: 100%;
+        .grade-select, .class-select, .password-input {
             padding: 12px;
             font-size: 1rem;
             border-radius: 7px;
             border: 3px solid #4e8cff;
             background-color: #fff;
             box-shadow: 7px 7px 7px rgba(0, 0, 0, 0.05);
+        }
+
+        .grade-select {
+            width: 100%;      
             text-align: center;
         }
 
         .class-select {
             width: 110%;
-            padding: 12px;
-            font-size: 1rem;
-            border-radius: 7px;
-            border: 3px solid #4e8cff;
-            background-color: #fff;
-            box-shadow: 7px 7px 7px rgba(0, 0, 0, 0.05);
             cursor: pointer;
         }
 
         .password-input {
             width: 100%;
-            padding: 12px;
-            font-size: 1rem;
-            border-radius: 7px;
-            border: 3px solid #4e8cff;
-            background-color: #fff;
-            box-shadow: 7px 7px 7px rgba(0, 0, 0, 0.05);
             cursor: text;
         }
 
         .loading {
             display: none;
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
+            top: 0; left: 0;
+            width: 100vw; height: 100vh;
             background: rgba(0, 0, 0, 0.5);
             z-index: 2000;
             display: flex;
@@ -133,11 +121,10 @@
         }
 
         .spinner {
-            border: 7px solid #ffffff;
+            border: 7px solid #fff;
             border-top: 7px solid #f39121;
             border-radius: 50%;
-            width: 70px;
-            height: 70px;
+            width: 70px; height: 70px;
             animation: spin 0.7s linear infinite;
         }
 
@@ -187,7 +174,9 @@
                 <button type="submit" class="main-btn">ログイン</button>
             </form>
 
-            <div class="loading" id="loading"><div class="spinner"></div></div>
+            <div class="loading" id="loading">
+                <div class="spinner"></div>
+            </div>
 
             <script>
                 const classOptions = {
@@ -299,6 +288,6 @@
             </script>
         </div>
 
-        <p>v0.39(v1.1)</p> <!-- バージョン情報 -->
+        <p>v0.39.1(v1.1.1)</p> <!-- バージョン情報 -->
     </body>
 </html>

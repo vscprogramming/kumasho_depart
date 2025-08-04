@@ -1,4 +1,4 @@
-const { class_name, class_number } = document.documentElement.dataset;
+const {class_name, class_number} = document.documentElement.dataset;
 console.log(`${class_name}, ${class_number}`);
 console.log(localStorage.getItem(`logged_${class_number}`));
 
@@ -94,7 +94,7 @@ async function gas_Loading(get, post) {
             console.log(all_data);
 
             // 再読み込み用に初期化
-            document.getElementById('total_display').innerHTML ='';
+            document.getElementById('total_display').innerHTML = '';
 
             // 全体の商品数・完売数を集計
             let all_products_count = 0;    // すべての商品数
@@ -134,12 +134,12 @@ async function gas_Loading(get, post) {
                 id: 'total_display_text',
                 innerHTML: `企業数：${company_count}　／　商品数：${all_products_count}　／　完売数：${all_sales_count}`
             });
-
+            
             this.document.getElementById('total_display').appendChild(total_display);
 
             // 再読み込み用に初期化
-            document.getElementById('tab_buttons').innerHTML ='';
-            document.getElementById('tab_contents').innerHTML ='';
+            document.getElementById('tab_buttons').innerHTML = '';
+            document.getElementById('tab_contents').innerHTML = '';
 
             // タブの生成
             for (let c = 0; c < company_count; c++) {
@@ -205,7 +205,7 @@ async function gas_Loading(get, post) {
                         classList: 'tab_contents_table_tbody_td_sales_checkbox'
                     });
 
-                    tab_contents_table_tbody_td_sales_checkbox.dataset.index = `${c}-${p}`  // チェックボックス番地を入力（post用）
+                    tab_contents_table_tbody_td_sales_checkbox.dataset.index = `${c}-${p}`;  // チェックボックス番地を入力（post用）
 
                     const tab_contents_table_tbody_td_sales_checkbox_label = Object.assign(this.document.createElement('span'), {
                         textContent: tab_contents_table_tbody_td_sales_checkbox.checked ? '完売' : '販売中',
@@ -322,5 +322,5 @@ document.getElementById('tab_buttons').addEventListener('click', (e) => {
 window.onload = () => {
     setInterval(async () => {
         await gas_Loading(gas_url_get, gas_url_post);
-    }, Math.floor(Math.random() * (60 - 30 + 1) + 30) * 1000);
+    }, Math.floor(Math.random() * 31 + 30) * 1000);
 };
