@@ -211,7 +211,7 @@ span.onsale {color: #2f63ff;}
 #logout_button:hover {
     background-image: none;
     content: "ログアウト";
-    color: #eee;
+    color: #ff3737;
     font-weight: bolder;
 }
 
