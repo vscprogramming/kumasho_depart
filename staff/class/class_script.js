@@ -43,7 +43,7 @@ if (!localStorage.getItem(`logged_${class_number}`)) {
     window.location.href = '../../home/home.html';
 };
 
-window.addEventListener('DOMContentLoaded', async function () {
+window.addEventListener('DOMContentLoaded', async () => {
     document.getElementById('loading').style.display = 'flex';    // ローディング表示
 
     if (!(gas_url_get == null || gas_url_post == null)) {
