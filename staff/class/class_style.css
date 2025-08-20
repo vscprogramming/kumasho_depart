@@ -1,4 +1,4 @@
-body {background-color: #333;}
+body { background-color: #333; }
 
 #title {
     position: fixed;
@@ -21,9 +21,9 @@ body {background-color: #333;}
     font-weight: bolder;
 }
 
-p {font-size: 118%;}
+p { font-size: 118%; }
 
-#body{padding-top: 100px;}
+#body{ padding-top: 100px; }
 
 #tab_buttons {
     margin-top: 90px;
@@ -57,9 +57,9 @@ p {font-size: 118%;}
     border: solid 1px #f80;
 }
 
-#tab_buttons button.active_tab:hover {background-color: #f80;}
+#tab_buttons button.active_tab:hover { background-color: #f80; }
 
-#tab_buttons button:hover {background-color: #430;}
+#tab_buttons button:hover { background-color: #430; }
 
 .tab_content {
     margin-top: 124px;
@@ -90,23 +90,23 @@ table {
     color: #eee;
 }
 
-table tr:nth-child(even) {background-color: #444;}
+table tr:nth-child(even) { background-color: #444; }
 
 table th {
     background-color: #f80;
     border: solid 1px #f70;
 }
 
-table th:first-child {border-radius: 18px 0 0 0;}
+table th:first-child { border-radius: 18px 0 0 0; }
 
-table th:last-child {border-radius: 0 18px 0 0;}
+table th:last-child { border-radius: 0 18px 0 0; }
 
 table td{
     border-bottom: solid 1px #f80; 
     border-right: solid 1px #f80;
 }
 
-table td:last-child {padding-left: 157px;}
+table td:last-child { padding-left: 157px; }
 
 table td:nth-child(2) {
     text-align: right;
@@ -120,30 +120,36 @@ table td:first-child {
     padding-bottom: 3px;
 }
 
-table tr:last-child td:first-child {border-bottom-left-radius: 18px;}
+table tr:last-child td:first-child { border-bottom-left-radius: 18px; }
 
-table tr:last-child td:last-child {border-bottom-right-radius: 18px;}
+table tr:last-child td:last-child { border-bottom-right-radius: 18px; }
 
-table th:nth-child(1), table td:nth-child(1) {width: 50%;}
+table th:nth-child(1), table td:nth-child(1) { width: 50%; }
 
-table th:nth-child(2), table td:nth-child(2) {width: 20%;}
+table th:nth-child(2), table td:nth-child(2) { width: 20%; }
 
-table th:nth-child(3), table td:nth-child(3) {width: 30%;}
+table th:nth-child(3), table td:nth-child(3) { width: 30%; }
 
-.company_total_display_text {margin-left: 7px;}
+.company_total_display_text { margin-left: 7px; }
 
 .company_total_display_text_company_name {
     font-size: larger;
     font-weight: bolder;
 }
 
-input {width: 18px; height: 18px;}
+input { width: 18px; height: 18px; }
 
-span.soldout {color: #ff3737;}
+span.soldout {
+    color: #ff3737;
+    font-weight: bolder;
+}
 
-span.onsale {color: #2f63ff;}
+span.onsale {
+    color: #2f63ff;
+    font-weight: bolder;
+}
 
-.tab_contents_table_tbody_td_sales_checkbox {cursor: pointer;}
+.tab_contents_table_tbody_td_sales_checkbox { cursor: pointer; }
 
 .modal_buttons {
     background: #f80;
@@ -226,8 +232,8 @@ span.onsale {color: #2f63ff;}
 }
 
 @keyframes spin {
-    0% {transform: rotate(0deg);}
-    100% {transform: rotate(360deg);}
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
 
 #loading {

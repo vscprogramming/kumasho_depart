@@ -32,8 +32,8 @@ const all_gas_url = new Map([
     ['3-9', 'https://script.google.com/macros/s/AKfycbyEHLBgehDKx2n8OztlXKV_V3c71krJc1dIgIE4mM8CdBIYvK6wZb_eb1oi98LzwQQqWw/exec']
 ]);
 
-const gas_url_post = all_gas_url.get(class_name);
-const gas_url_get = gas_url_post + '?sheet=' + encodeURIComponent(class_name);
+const gas_url_post = all_gas_url.get(class_name),
+    gas_url_get = gas_url_post + '?sheet=' + encodeURIComponent(class_name);
 console.log(`get用：${gas_url_get}`);
 console.log(`post用：${gas_url_post}`);
 
@@ -97,9 +97,8 @@ async function gas_Loading(get, post) {
             document.getElementById('total_display').innerHTML = '';
 
             // 全体の商品数・完売数を集計
-            let all_products_count = 0;    // すべての商品数
-            let all_sales_count = 0;    // すべての完売数
-            let company_products_count, company_sales_count;    // 企業ごとの商品数, 企業ごとの完売数
+            let all_products_count = 0, all_sales_count = 0,    // すべての商品数, すべての完売数
+                company_products_count, company_sales_count;    // 企業ごとの商品数, 企業ごとの完売数
 
             let ps_count = {
                 products_count: [],
@@ -138,8 +137,7 @@ async function gas_Loading(get, post) {
             this.document.getElementById('total_display').appendChild(total_display);
 
             // 再読み込み用に初期化
-            document.getElementById('tab_buttons').innerHTML = '';
-            document.getElementById('tab_contents').innerHTML = '';
+            ['tab_buttons', 'tab_contents'].forEach(id => { document.getElementById(id).innerHTML = ''; });
 
             // タブの生成
             for (let c = 0; c < company_count; c++) {
@@ -168,8 +166,8 @@ async function gas_Loading(get, post) {
                 const tab_contents_table = this.document.createElement('table');    // テーブル全体
 
                 // thead部分
-                const tab_contents_table_thead = this.document.createElement('thead');    // テーブルのヘッド
-                const tab_contents_table_thead_row = this.document.createElement('tr');    // テーブル行
+                const tab_contents_table_thead = this.document.createElement('thead'),    // テーブルのヘッド
+                    tab_contents_table_thead_row = this.document.createElement('tr');    // テーブル行
 
                 ['商品名', '販売価格', '販売状況'].forEach(text => {
                     const tab_contents_table_thead_th = this.document.createElement('th');
@@ -212,8 +210,6 @@ async function gas_Loading(get, post) {
                         classList: tab_contents_table_tbody_td_sales_checkbox.checked ? 'soldout' : 'onsale'
                     });
 
-                    tab_contents_table_tbody_td_sales_checkbox_label.style.fontWeight = 'bolder';
-
                     tab_contents_table_tbody_td_sales.appendChild(tab_contents_table_tbody_td_sales_checkbox);
                     tab_contents_table_tbody_td_sales.appendChild(tab_contents_table_tbody_td_sales_checkbox_label);
                     tab_contents_table_tbody_tr.appendChild(tab_contents_table_tbody_td_sales);
@@ -235,19 +231,18 @@ async function gas_Loading(get, post) {
 
             // checkboxクリック時 ここから
             this.document.querySelectorAll('.tab_contents_table_tbody_td_sales_checkbox').forEach(checkbox => {
-                checkbox.addEventListener('change', (e) => {
-                    const checkbox_dataset = e.target.dataset.index;
+                checkbox.addEventListener('change', (event) => {
+                    const checkbox_dataset = event.target.dataset.index;
                     console.log(checkbox_dataset);
-                    const checkbox_c = parseInt(checkbox_dataset.charAt(0));
-                    const checkbox_p = parseInt(checkbox_dataset.charAt(2));
+                    const checkbox_c = parseInt(checkbox_dataset.charAt(0)), checkbox_p = parseInt(checkbox_dataset.charAt(2));
 
                     Object.assign(this.document.querySelector(`[data-index="${checkbox_dataset}"]`).nextElementSibling, {
-                        textContent: e.target.checked ? '完売' : '販売中',
-                        classList: e.target.checked ? 'soldout' : 'onsale'
+                        textContent: event.target.checked ? '完売' : '販売中',
+                        classList: event.target.checked ? 'soldout' : 'onsale'
                     });
 
                     // ローカルデータの更新
-                    all_data[checkbox_c].products.sales[checkbox_p] = e.target.checked ? '完売' : '販売中';
+                    all_data[checkbox_c].products.sales[checkbox_p] = event.target.checked ? '完売' : '販売中';
                     console.log(all_data);
                     all_sales_count = 0;
 
@@ -278,16 +273,14 @@ async function gas_Loading(get, post) {
                     const gas_post_data = new URLSearchParams({
                         company_number: checkbox_c,
                         product_number: checkbox_p,
-                        sales: e.target.checked ? '完売' : '販売中'
+                        sales: event.target.checked ? '完売' : '販売中'
                     });
 
-                    console.log(`${checkbox_c}, ${checkbox_p}, ${e.target.checked ? '完売' : '販売中'}`);
+                    console.log(`${checkbox_c}, ${checkbox_p}, ${event.target.checked ? '完売' : '販売中'}`);
 
                     this.fetch(post, { method: 'POST', body: gas_post_data })
                         .then(response => response.text())
-                        .then(result => {
-                            if (result == 'NG') alert('スプレッドシートの更新に失敗しました。');
-                        });
+                        .then(result => { if (result == 'NG') alert('スプレッドシートの更新に失敗しました。'); });
                 });
             });
         });
@@ -299,20 +292,23 @@ document.getElementById('reload_button').addEventListener('click', () => {
 });
 
 document.getElementById('logout_button').addEventListener('click', () => {
-    localStorage.removeItem(`logged_${class_number}`);
-    window.location.href = '../../home/home.html';
+    // 将来的にはモーダルにする予定
+    if (confirm('ログアウトしますか？')) {
+        localStorage.removeItem(`logged_${class_number}`);
+        window.location.href = '../../home/home.html';
+    };
 });
 
-document.getElementById('tab_buttons').addEventListener('click', (e) => {
-    if (e.target.tagName === 'BUTTON') {
-        const index = e.target.dataset.index;
+document.getElementById('tab_buttons').addEventListener('click', (event) => {
+    if (event.target.tagName === 'BUTTON') {
+        const index = event.target.dataset.index;
 
-        document.querySelectorAll('.tab_buttons button').forEach((btn, i) => {
+        document.querySelectorAll('.tab_buttons button').forEach((btn) => {
             btn.classList.remove('active_tab');
         });
 
-        e.target.classList.add('active_tab');
-
+        event.target.classList.add('active_tab');
+        
         document.querySelectorAll('.tab_content').forEach((div, i) => {
             div.classList.toggle('show', i == index);
         });

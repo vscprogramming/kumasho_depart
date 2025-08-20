@@ -5,8 +5,7 @@ body {
   margin: 0;
   line-height: 1.7;
   /* スクロールバーのカスタマイズ（Windows用） */
-  scrollbar-width: thin;
-  scrollbar-color: #d4af37 #f9f7f2;
+  /* Firefox scrollbar */
 }
 
 /* Chrome, Edge, Safari用のスクロールバー */

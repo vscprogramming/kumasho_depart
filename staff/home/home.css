@@ -1,0 +1,139 @@
+body {
+    background: #121212;
+}
+
+.container {
+    max-width: 720px;
+    min-height: 300px;
+    width: 100%;
+    height: auto;
+    margin: 100px auto;
+    background: #333;
+    border-radius: 34px;
+    box-shadow: 7px 7px 7px rgba(0, 0, 0, 0.7);
+    padding: 36px 24px 36px 24px;
+    text-align: center;
+    color: #eee;
+}
+
+input {
+    cursor: pointer;
+}
+
+label.grade {
+    color: #000;
+}
+
+input:focus,
+select:focus {
+    border-color: #f80;
+    box-shadow: 7px 7px 7px rgba(0, 0, 0, 0.05);
+}
+
+h1 {
+    color: #eee;
+    margin-bottom: 30px;
+    font-size: 2rem;
+}
+
+.login_button {
+    top: 24px;
+    right: 32px;
+    display: inline-block;
+    background: #f80;
+    color: #eee;
+    text-decoration: none;
+    font-size: 1.3rem;
+    padding: 12px 36px;
+    border-radius: 18px;
+    transition: all 0.2s ease;
+    box-shadow: 7px 7px 7px rgba(0, 0, 0, 0.7);
+    text-align: center;
+    font-weight: bolder;
+}
+
+.login_button:hover {
+    background: #f70;
+    cursor: pointer;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.3);
+    transform: translateY(-50%, -50%);
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+table {
+    width: 70%;
+    font-size: 130%;
+}
+
+table th,
+table td {
+    padding: 12px 16px;
+    text-align: left;
+}
+
+table th {
+    background: #f5f6fa;
+}
+
+.grade_select,
+.class_select,
+.password_input {
+    padding: 12px;
+    font-size: 1rem;
+    border-radius: 7px;
+    border: 3px solid #f80;
+    background-color: #fff;
+    box-shadow: 7px 7px 7px rgba(0, 0, 0, 0.05);
+}
+
+.grade_select {
+    width: 100%;
+    text-align: center;
+}
+
+.class_select {
+    width: 110%;
+    cursor: pointer;
+}
+
+.password_input {
+    width: 100%;
+    cursor: text;
+}
+
+.loading {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.spinner {
+    border: 7px solid #fff;
+    border-top: 7px solid #f39121;
+    border-radius: 50%;
+    width: 70px;
+    height: 70px;
+    animation: spin 0.7s linear infinite;
+}
+
+p {
+    text-align: right;
+    color: #eee;
+}
