@@ -1,16 +1,21 @@
-body { background-color: #333; }
+body {
+    background-color: #333;
+}
 
 #title {
     position: fixed;
-    top: 0; left: 0;
-    width: 99%; height: 84px;
+    top: 0;
+    left: 0;
+    width: 99%;
+    height: 84px;
     background-color: #121212;
     z-index: 1000;
     border: solid 7px #121212;
     border-bottom: none;
 }
 
-#title_display, p {
+#title_display,
+p {
     margin: 3px 0 3px 7px;
     display: inline-block;
     color: #eee;
@@ -21,15 +26,20 @@ body { background-color: #333; }
     font-weight: bolder;
 }
 
-p { font-size: 118%; }
+p {
+    font-size: 118%;
+}
 
-#body{ padding-top: 100px; }
+#body {
+    padding-top: 100px;
+}
 
 #tab_buttons {
     margin-top: 90px;
     display: flex;
     position: fixed;
-    top: 0; left: 0;
+    top: 0;
+    left: 0;
     background-color: #121212;
     border: solid 7px #121212;
     border-top-color: #808080;
@@ -57,56 +67,70 @@ p { font-size: 118%; }
     border: solid 1px #f80;
 }
 
-#tab_buttons button.active_tab:hover { background-color: #f80; }
+#tab_buttons button.active_tab:hover {
+    background-color: #f80;
+}
 
-#tab_buttons button:hover { background-color: #430; }
+#tab_buttons button:hover {
+    background-color: #430;
+}
 
 .tab_content {
     margin-top: 124px;
     display: none;
     position: fixed;
-    top: 0; left: 0;
+    top: 0;
+    left: 0;
     background-color: #333;
-    width: 99%; height: 637px;
+    width: 99%;
+    height: 637px;
     border: solid 7px #333;
     border-top-width: 1px;
     border-top-color: #808080;
 }
 
-.tab_content.show { 
+.tab_content.show {
     display: flex;
     flex-direction: column;
     overflow-y: auto;
 }
 
-table { 
+table {
     margin: 7px;
     border-radius: 18px;
     background-color: #333;
     box-shadow: 7px 7px 7px rgba(0, 0, 0, 0.7);
-    width: 98.5%; 
+    width: 98.5%;
     border-spacing: 0;
     font-size: 124%;
     color: #eee;
 }
 
-table tr:nth-child(even) { background-color: #444; }
+table tr:nth-child(even) {
+    background-color: #444;
+}
 
 table th {
     background-color: #f80;
     border: solid 1px #f70;
 }
 
-table th:first-child { border-radius: 18px 0 0 0; }
+table th:first-child {
+    border-radius: 18px 0 0 0;
+}
 
-table th:last-child { border-radius: 0 18px 0 0; }
+table th:last-child {
+    border-radius: 0 18px 0 0;
+}
 
-table td{
-    border-bottom: solid 1px #f80; 
+table td {
+    border-bottom: solid 1px #f80;
     border-right: solid 1px #f80;
 }
 
-table td:last-child { padding-left: 157px; }
+table td:last-child {
+    padding-left: 157px;
+}
 
 table td:nth-child(2) {
     text-align: right;
@@ -120,24 +144,42 @@ table td:first-child {
     padding-bottom: 3px;
 }
 
-table tr:last-child td:first-child { border-bottom-left-radius: 18px; }
+table tr:last-child td:first-child {
+    border-bottom-left-radius: 18px;
+}
 
-table tr:last-child td:last-child { border-bottom-right-radius: 18px; }
+table tr:last-child td:last-child {
+    border-bottom-right-radius: 18px;
+}
 
-table th:nth-child(1), table td:nth-child(1) { width: 50%; }
+table th:nth-child(1),
+table td:nth-child(1) {
+    width: 50%;
+}
 
-table th:nth-child(2), table td:nth-child(2) { width: 20%; }
+table th:nth-child(2),
+table td:nth-child(2) {
+    width: 20%;
+}
 
-table th:nth-child(3), table td:nth-child(3) { width: 30%; }
+table th:nth-child(3),
+table td:nth-child(3) {
+    width: 30%;
+}
 
-.company_total_display_text { margin-left: 7px; }
+.company_total_display_text {
+    margin-left: 7px;
+}
 
 .company_total_display_text_company_name {
     font-size: larger;
     font-weight: bolder;
 }
 
-input { width: 18px; height: 18px; }
+input {
+    width: 18px;
+    height: 18px;
+}
 
 span.soldout {
     color: #ff3737;
@@ -149,98 +191,99 @@ span.onsale {
     font-weight: bolder;
 }
 
-.tab_contents_table_tbody_td_sales_checkbox { cursor: pointer; }
+.tab_contents_table_tbody_td_sales_checkbox {
+    cursor: pointer;
+}
 
 .modal_buttons {
-    background: #f80;
+    background: #fa0;
     color: #eee;
     border: none;
     border-radius: 18px;
-    width: 47px; height: 47px;
-    font-size: 34px;
+    width: 47px;
+    height: 47px;
     float: right;
     margin: 7px;
     transition: all 0.15s ease;
-    box-shadow: 7px 7px 7px rgba(0,0,0,0.7);
+    box-shadow: 7px 7px 7px rgba(0, 0, 0, 0.7);
+    font-weight: bolder;
 }
 
-#reload_button {
-    background-image: url('../class/imgs/reload.png');
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    font-size: 0;
+#reload_icon {
+    font-size: 34px;
+    opacity: 1;
+}
+
+#reload_button:hover #reload_icon {
+    display: none;
 }
 
 #reload_button::after {
     content: '再読み込み';
-    opacity: 0;
-    transition: all 0.3s ease;
     pointer-events: none;
     position: absolute;
     text-align: center;
     transform: translate(-50%, -50%);
     font-size: 0;
-}
-
-#reload_button:hover {
-    background-image: none;
-    content: '再読み込み';
-    color: #eee;
-    font-weight: bolder;
+    opacity: 0;
 }
 
 #reload_button:hover::after {
     opacity: 1;
     font-size: 20px;
+    transition: 0.2s ease;
 }
 
-#logout_button {
-    background-image: url('../class/imgs/logout.png');
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center;
-    font-size: 0;
+#logout_icon {
+    font-size: 34px;
+    opacity: 1;
+    color: #f00;
+}
+
+#logout_button:hover #logout_icon {
+    display: none;
 }
 
 #logout_button::after {
     content: 'ログアウト';
     opacity: 0;
-    transition: all 0.3s ease;
     pointer-events: none;
     position: absolute;
     text-align: center;
     transform: translate(-50%, -50%);
     font-size: 0;
-}
-
-#logout_button:hover {
-    background-image: none;
-    content: "ログアウト";
-    color: #ff3737;
-    font-weight: bolder;
+    color: #f00;
 }
 
 #logout_button:hover::after {
     opacity: 1;
     font-size: 20px;
+    transition: 0.2s ease;
 }
 
 .modal_buttons:hover {
     cursor: pointer;
-    width: 195px; height: 47px;
+    width: 195px;
+    height: 47px;
 }
 
 @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
 #loading {
     display: none;
     position: fixed;
-    top: 0; left: 0;
-    width: 100vw; height: 100vh;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
     background: rgba(0, 0, 0, 0.5);
     z-index: 2000;
     display: flex;
@@ -252,6 +295,88 @@ span.onsale {
     border: 7px solid #eee;
     border-top: 7px solid #f80;
     border-radius: 50%;
-    width: 70px; height: 70px;
+    width: 70px;
+    height: 70px;
     animation: spin 0.7s linear infinite;
+}
+
+#modal {
+    opacity: 0;
+    display: none;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: #00000070;
+    z-index: 4000;
+    transition: all 0.3s ease;
+    align-items: center;
+    justify-content: center;
+}
+
+#modal.show {
+    opacity: 1;
+    display: flex;
+}
+
+#logout_check {
+    background-color: #333;
+    border-radius: 18px;
+    z-index: 5000;
+    width: 34%;
+    height: 29%;
+    align-items: flex-start;
+    position: relative;
+    box-shadow: 7px 7px 7px rgba(0, 0, 0, 0.7);
+}
+
+#logout_check h3 {
+    margin: 10% 0 18% 7px;
+    color: #eee;
+}
+
+#logout_check_title::before {
+    color: #eee;
+    content: 'ログアウト確認';
+    font-size: 18px;
+    font-weight: bolder;
+    margin-left: 7px;
+}
+
+#logout_check_title {
+    background-color: #f80;
+    border-radius: 18px 18px 0 0;
+    z-index: 6000;
+    width: 100%;
+    height: 13%;
+    position: absolute;
+}
+
+#ok_button,
+#cancel_button {
+    z-index: 7000;
+    width: 34%;
+    height: 18%;
+    border-radius: 18px;
+    background-color: #f80;
+    font-weight: bolder;
+    font-size: 18px;
+    color: #eee;
+    transition: 0.3s ease;
+    box-shadow: 7px 7px 7px rgba(0, 0, 0, 0.7)
+}
+
+#ok_button {
+    color: #f00;
+    margin-left: 6px;
+}
+
+#cancel_button {
+    margin-left: 14%;
+}
+
+#ok_button:hover,
+#cancel_button:hover {
+    background-color: #fa0;
 }

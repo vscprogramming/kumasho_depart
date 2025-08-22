@@ -1,38 +1,56 @@
 <!DOCTYPE html>
 
 <html lang="ja" data-class_name="3-8" data-class_number="38">
-    <head>
-        <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>熊デパ　３年８組</title>
-        <link rel="stylesheet" href="../class_style.css">
-    </head>
 
-    <body>
-        <header id="title">
-            <h1 id="title_display">３年８組</h1>
-            <button id="logout_button" class="modal_buttons"></button>
-            <button id="reload_button" class="modal_buttons"></button>
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>熊デパ　３年８組</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="../class_style.css">
+</head>
 
-            <div id="total_display">
-                <!-- クラス全体のトータル　jsで作成 -->
-            </div>
-        </header>
+<body>
+    <header id="title">
+        <h1 id="title_display">３年８組</h1>
 
-        <main id="body">
-            <div id="tab_buttons" class="tab_buttons">
-                <!-- タブの切り替えボタン　jsで作成 -->
-            </div>
+        <button id="logout_button" class="modal_buttons">
+            <span class="material-icons" id="logout_icon">logout</span>
+        </button>
 
-            <div id="tab_contents" class="tab_contents">
-                <!-- タブごとの内容（table）　jsで作成 -->
-            </div>
-        </main>
+        <button id="reload_button" class="modal_buttons">
+            <span class="material-icons" id="reload_icon">refresh</span>
+        </button>
 
-        <!-- その他処理用 -->
-        <div id="loading">
-            <div id="spinner"></div>
+        <div id="total_display">
+            <!-- クラス全体のトータル　jsで作成 -->
+        </div>
+    </header>
+
+    <main id="body">
+        <div id="tab_buttons" class="tab_buttons">
+            <!-- タブの切り替えボタン　jsで作成 -->
         </div>
 
-        <script src="../class_script.js"></script>
-    </body>
+        <div id="tab_contents" class="tab_contents">
+            <!-- タブごとの内容（table）　jsで作成 -->
+        </div>
+    </main>
+
+    <div id="modal">
+        <div id="logout_check">
+            <div id="logout_check_title"></div>
+            <h3>ログアウトしますか？</h3>
+            <button id="cancel_button">キャンセル</button>
+            <button id="ok_button">ログアウト</button>
+        </div>
+    </div>
+
+    <!-- その他処理用 -->
+    <div id="loading">
+        <div id="spinner"></div>
+    </div>
+
+    <script src="../class_script.js"></script>
+</body>
+
 </html>

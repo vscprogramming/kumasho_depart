@@ -1,6 +1,6 @@
-const {class_name, class_number} = document.documentElement.dataset;
+const { class_name, class_number } = document.documentElement.dataset;
 console.log(`${class_name}, ${class_number}`);
-console.log(localStorage.getItem(`logged_${class_number}`));
+console.log(`logged_${class_number}: ${localStorage.getItem(`logged_${class_number}`)}`);
 
 const all_gas_url = new Map([
     ['1-1', 'https://script.google.com/macros/s/AKfycbzHsNfnfnOqQpJaD-rSgHRGsfTcxfrA6i2X-O8JhlvKuHLd-SBO3-OTXc6RjEwnNswp/exec'],
@@ -32,10 +32,13 @@ const all_gas_url = new Map([
     ['3-9', 'https://script.google.com/macros/s/AKfycbyEHLBgehDKx2n8OztlXKV_V3c71krJc1dIgIE4mM8CdBIYvK6wZb_eb1oi98LzwQQqWw/exec']
 ]);
 
-const gas_url_post = all_gas_url.get(class_name),
-    gas_url_get = gas_url_post + '?sheet=' + encodeURIComponent(class_name);
+const gas_url_post = all_gas_url.get(class_name);
+const gas_url_get = `${gas_url_post}?sheet=${encodeURIComponent(class_name)}`;
 console.log(`get用：${gas_url_get}`);
 console.log(`post用：${gas_url_post}`);
+
+// タブ用変数
+let tab_select = null;
 
 // 不正アクセス防止
 if (!localStorage.getItem(`logged_${class_number}`)) {
@@ -57,12 +60,11 @@ window.addEventListener('DOMContentLoaded', async () => {
 });
 
 async function gas_Loading(get, post) {
-    await this.fetch(get)
-        .then(response => response.json())
+    try {
+        const response = await this.fetch(get);
 
-        .then(json_data => {
-            console.log('json_data（元データ）:');
-            console.log(json_data);
+        if (response.ok) {
+            const json_data = await response.json();
 
             // 扱いやすいデータ構造に変換
             const all_data = [];    // 全てのデータをまとめたオブジェクト
@@ -90,15 +92,15 @@ async function gas_Loading(get, post) {
                 };
             });
 
-            console.log('all_data（整理後）: ');
+            console.log('all_data: ');
             console.log(all_data);
 
             // 再読み込み用に初期化
             document.getElementById('total_display').innerHTML = '';
 
             // 全体の商品数・完売数を集計
-            let all_products_count = 0, all_sales_count = 0,    // すべての商品数, すべての完売数
-                company_products_count, company_sales_count;    // 企業ごとの商品数, 企業ごとの完売数
+            let all_products_count = 0, all_sales_count = 0;    // すべての商品数, すべての完売数
+            let company_products_count, company_sales_count;    // 企業ごとの商品数, 企業ごとの完売数
 
             let ps_count = {
                 products_count: [],
@@ -123,8 +125,9 @@ async function gas_Loading(get, post) {
                 ps_count.sales_count.push(company_sales_count);
             };
 
-            console.log('企業数, 商品数, 完売数');
-            console.log(`${company_count}, ${all_products_count}, ${all_sales_count}`);
+            console.log(`企業数: ${company_count}`)
+            console.log(`商品数: ${all_products_count}`);
+            console.log(`完売数: ${all_sales_count}`);
             console.log('ps_count: ');
             console.log(ps_count);
 
@@ -133,11 +136,13 @@ async function gas_Loading(get, post) {
                 id: 'total_display_text',
                 innerHTML: `企業数：${company_count}　／　商品数：${all_products_count}　／　完売数：${all_sales_count}`
             });
-            
+
             this.document.getElementById('total_display').appendChild(total_display);
 
             // 再読み込み用に初期化
-            ['tab_buttons', 'tab_contents'].forEach(id => { document.getElementById(id).innerHTML = ''; });
+            ['tab_buttons', 'tab_contents'].forEach(id => {
+                document.getElementById(id).innerHTML = '';
+            });
 
             // タブの生成
             for (let c = 0; c < company_count; c++) {
@@ -155,8 +160,7 @@ async function gas_Loading(get, post) {
 
                 // 企業ごとの商品数・完売数の表示
                 const company_total_display = Object.assign(this.document.createElement('p'), {
-                    classList: 'company_total_display_text',
-                    id: 'company_total_display_text',
+                    className: 'company_total_display_text',
                     innerHTML: `<span class="company_total_display_text_company_name">${all_data[c].company_name}</span>（　商品数：${ps_count.products_count[c]}　／　完売数：${ps_count.sales_count[c]}　）`
                 });
 
@@ -166,8 +170,8 @@ async function gas_Loading(get, post) {
                 const tab_contents_table = this.document.createElement('table');    // テーブル全体
 
                 // thead部分
-                const tab_contents_table_thead = this.document.createElement('thead'),    // テーブルのヘッド
-                    tab_contents_table_thead_row = this.document.createElement('tr');    // テーブル行
+                const tab_contents_table_thead = this.document.createElement('thead');    // テーブルのヘッド
+                const tab_contents_table_thead_row = this.document.createElement('tr');    // テーブル行
 
                 ['商品名', '販売価格', '販売状況'].forEach(text => {
                     const tab_contents_table_thead_th = this.document.createElement('th');
@@ -199,15 +203,15 @@ async function gas_Loading(get, post) {
 
                     const tab_contents_table_tbody_td_sales_checkbox = Object.assign(this.document.createElement('input'), {
                         type: 'checkbox',
-                        checked: all_data[c].products.sales[p] === '完売',
-                        classList: 'tab_contents_table_tbody_td_sales_checkbox'
+                        className: 'tab_contents_table_tbody_td_sales_checkbox',
+                        checked: all_data[c].products.sales[p] === '完売'
                     });
 
                     tab_contents_table_tbody_td_sales_checkbox.dataset.index = `${c}-${p}`;  // チェックボックス番地を入力（post用）
 
                     const tab_contents_table_tbody_td_sales_checkbox_label = Object.assign(this.document.createElement('span'), {
-                        textContent: tab_contents_table_tbody_td_sales_checkbox.checked ? '完売' : '販売中',
-                        classList: tab_contents_table_tbody_td_sales_checkbox.checked ? 'soldout' : 'onsale'
+                        className: tab_contents_table_tbody_td_sales_checkbox.checked ? 'soldout' : 'onsale',
+                        textContent: tab_contents_table_tbody_td_sales_checkbox.checked ? '完売' : '販売中'
                     });
 
                     tab_contents_table_tbody_td_sales.appendChild(tab_contents_table_tbody_td_sales_checkbox);
@@ -225,20 +229,34 @@ async function gas_Loading(get, post) {
                 this.document.getElementById('tab_contents').appendChild(tab_contents_div);
             };
 
-            // 初期表示タブの設定
-            const first_tab = document.querySelector('.tab_buttons button');
-            if (first_tab) first_tab.click();
+            // 初期表示タブの設定・自動再読み込み時のタブ移動制限
+            if (tab_select == null) {
+                tab_select = 0;
+                const first_tab = document.querySelector('#tab_buttons button');
+                if (first_tab) first_tab.click();
+            } else if (tab_select >= 0 && tab_select < company_count) {
+                document.querySelectorAll('#tab_buttons button').forEach((btn, c) => {
+                    btn.classList.toggle('active_tab', c == tab_select);
+                });
+
+                document.querySelectorAll('.tab_content').forEach((div, c) => {
+                    div.classList.toggle('show', c == tab_select);
+                });
+
+                console.log('tab_select');
+                console.log(tab_select);
+            };
 
             // checkboxクリック時 ここから
             this.document.querySelectorAll('.tab_contents_table_tbody_td_sales_checkbox').forEach(checkbox => {
-                checkbox.addEventListener('change', (event) => {
+                checkbox.addEventListener('change', async (event) => {
                     const checkbox_dataset = event.target.dataset.index;
-                    console.log(checkbox_dataset);
-                    const checkbox_c = parseInt(checkbox_dataset.charAt(0)), checkbox_p = parseInt(checkbox_dataset.charAt(2));
+                    console.log(`${checkbox_dataset}(${parseInt(checkbox_dataset.charAt(0)) + 1}社目, ${parseInt(checkbox_dataset.slice(2)) + 1}番目の商品)`);
+                    const checkbox_c = parseInt(checkbox_dataset.charAt(0)), checkbox_p = parseInt(checkbox_dataset.slice(2));
 
                     Object.assign(this.document.querySelector(`[data-index="${checkbox_dataset}"]`).nextElementSibling, {
-                        textContent: event.target.checked ? '完売' : '販売中',
-                        classList: event.target.checked ? 'soldout' : 'onsale'
+                        className: event.target.checked ? 'soldout' : 'onsale',
+                        textContent: event.target.checked ? '完売' : '販売中'
                     });
 
                     // ローカルデータの更新
@@ -247,6 +265,7 @@ async function gas_Loading(get, post) {
                     all_sales_count = 0;
 
                     for (let c = 0; c < all_data.length; c++) {
+                        company_products_count = 0;
                         company_sales_count = 0;
 
                         for (let p = 0; p < all_data[c].products.pdname.length; p++) {
@@ -264,8 +283,10 @@ async function gas_Loading(get, post) {
                     };
 
                     total_display.innerHTML = `企業数：${company_count}　／　商品数：${all_products_count}　／　完売数：${all_sales_count}`;
-                    console.log('企業数, 商品数, 完売数');
-                    console.log(`${company_count}, ${all_products_count}, ${all_sales_count}`);
+
+                    console.log(`企業数: ${company_count}`)
+                    console.log(`商品数: ${all_products_count}`);
+                    console.log(`完売数: ${all_sales_count}`);
                     console.log('ps_count: ');
                     console.log(ps_count);
 
@@ -276,14 +297,29 @@ async function gas_Loading(get, post) {
                         sales: event.target.checked ? '完売' : '販売中'
                     });
 
-                    console.log(`${checkbox_c}, ${checkbox_p}, ${event.target.checked ? '完売' : '販売中'}`);
+                    const response = await this.fetch(post, { method: 'POST', body: gas_post_data });
 
-                    this.fetch(post, { method: 'POST', body: gas_post_data })
-                        .then(response => response.text())
-                        .then(result => { if (result == 'NG') alert('スプレッドシートの更新に失敗しました。'); });
+                    if (response.ok) {
+                        const result = await response.text();
+
+                        if (result == 'NG') {
+                            alert('スプレッドシートの更新に失敗しました。\nデータの整合性を保つため、再読み込みします。');
+                            window.location.reload();
+                        };
+                    } else {
+                        alert('読み込みエラーが発生しました。\n再読み込みします。');
+                        window.location.reload();
+                    };
                 });
             });
-        });
+        } else {
+            alert('読み込みエラーが発生しました。\n再読み込みします。');
+            window.location.reload();
+        };
+    } catch (error) {
+        alert('ネットワークエラーが発生しました。\n再読み込みします。');
+        window.location.reload();
+    };
 };
 
 // その他の処理等
@@ -291,32 +327,46 @@ document.getElementById('reload_button').addEventListener('click', () => {
     window.location.reload();
 });
 
+// ログアウトモーダル表示
 document.getElementById('logout_button').addEventListener('click', () => {
-    // 将来的にはモーダルにする予定
-    if (confirm('ログアウトしますか？')) {
-        localStorage.removeItem(`logged_${class_number}`);
-        window.location.href = '../../home/home.html';
-    };
+    document.getElementById('modal').classList.add('show');
 });
 
+// キャンセル時
+document.getElementById('cancel_button').addEventListener('click', () => {
+    document.getElementById('modal').classList.remove('show');
+});
+
+// ログアウト
+document.getElementById('ok_button').addEventListener('click', () => {
+    localStorage.removeItem(`logged_${class_number}`);
+    window.location.href = '../../home/home.html';
+});
+
+// タブの切り替え機構
 document.getElementById('tab_buttons').addEventListener('click', (event) => {
     if (event.target.tagName === 'BUTTON') {
         const index = event.target.dataset.index;
+        tab_select = parseInt(index);
 
-        document.querySelectorAll('.tab_buttons button').forEach((btn) => {
+        document.querySelectorAll('#tab_buttons button').forEach((btn) => {
             btn.classList.remove('active_tab');
         });
 
         event.target.classList.add('active_tab');
-        
+
         document.querySelectorAll('.tab_content').forEach((div, i) => {
             div.classList.toggle('show', i == index);
         });
     };
+
+    console.log('tab_select');
+    console.log(tab_select);
 });
 
+// 自動再読み込み
 window.onload = () => {
     setInterval(async () => {
         await gas_Loading(gas_url_get, gas_url_post);
-    }, Math.floor(Math.random() * 31 + 30) * 1000);
+    }, (Math.floor(Math.random() * 31) + 30) * 1000);
 };

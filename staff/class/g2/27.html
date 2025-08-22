@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+
+<html lang="ja" data-class_name="2-7" data-class_number="27">
+
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>熊デパ　２年７組</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="../class_style.css">
+</head>
+
+<body>
+    <header id="title">
+        <h1 id="title_display">２年７組</h1>
+
+        <button id="logout_button" class="modal_buttons">
+            <span class="material-icons" id="logout_icon">logout</span>
+        </button>
+
+        <button id="reload_button" class="modal_buttons">
+            <span class="material-icons" id="reload_icon">refresh</span>
+        </button>
+
+        <div id="total_display">
+            <!-- クラス全体のトータル　jsで作成 -->
+        </div>
+    </header>
+
+    <main id="body">
+        <div id="tab_buttons" class="tab_buttons">
+            <!-- タブの切り替えボタン　jsで作成 -->
+        </div>
+
+        <div id="tab_contents" class="tab_contents">
+            <!-- タブごとの内容（table）　jsで作成 -->
+        </div>
+    </main>
+
+    <div id="modal">
+        <div id="logout_check">
+            <div id="logout_check_title"></div>
+            <h3>ログアウトしますか？</h3>
+            <button id="cancel_button">キャンセル</button>
+            <button id="ok_button">ログアウト</button>
+        </div>
+    </div>
+
+    <!-- その他処理用 -->
+    <div id="loading">
+        <div id="spinner"></div>
+    </div>
+
+    <script src="../class_script.js"></script>
+</body>
+
+</html>

@@ -90,7 +90,7 @@ window.addEventListener('DOMContentLoaded', async () => {
             id_pass.password.push(json_data_row.password);
         });
     } else {
-        alert('ネットワークエラーが発生しました。再読み込みします。');
+        alert('ネットワークエラーが発生しました。\n再読み込みします。');
         window.location.reload();
     };
 
@@ -116,10 +116,8 @@ document.querySelector('form').addEventListener('submit', async (event) => {
     if (found_index !== -1) {
         if (password === id_pass.password[found_index]) {
             console.log('認証成功');
-            setTimeout(() => {
-                localStorage.setItem(`logged_${id}`, 'true');
-                window.location.href = `../class/g${id.charAt(0)}/${id}.html`;
-            }, 3000);
+            localStorage.setItem(`logged_${id}`, 'true');
+            window.location.href = `../class/g${id.charAt(0)}/${id}.html`;
         } else {
             console.log('パスワードが間違っています');
             alert('パスワードが間違っています。');
