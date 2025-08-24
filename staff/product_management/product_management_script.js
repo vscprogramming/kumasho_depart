@@ -1,6 +1,12 @@
-const { class_name, class_number } = document.documentElement.dataset;
+const class_name = localStorage.getItem('class_name'), class_number = localStorage.getItem('class_number');
 console.log(`${class_name}, ${class_number}`);
 console.log(`logged_${class_number}: ${localStorage.getItem(`logged_${class_number}`)}`);
+const fw_cn = full_width(class_number);    // タイトル用
+console.log(`full_width_class_number: ${fw_cn}`);
+
+['page_title', 'title_display'].forEach(id => {
+    document.getElementById(id).textContent = `${fw_cn[0]}年${fw_cn[1]}組`;
+});
 
 const all_gas_url = new Map([
     ['1-1', 'https://script.google.com/macros/s/AKfycbzHsNfnfnOqQpJaD-rSgHRGsfTcxfrA6i2X-O8JhlvKuHLd-SBO3-OTXc6RjEwnNswp/exec'],
@@ -43,7 +49,7 @@ let tab_select = null;
 // 不正アクセス防止
 if (!localStorage.getItem(`logged_${class_number}`)) {
     alert('不正なアクセスです。ログインページへ遷移します。');
-    window.location.href = '../../home/home.html';
+    window.location.href = '../home/home.html';
 };
 
 window.addEventListener('DOMContentLoaded', async () => {
@@ -53,7 +59,7 @@ window.addEventListener('DOMContentLoaded', async () => {
         await gas_Loading(gas_url_get, gas_url_post);    // gas読み込み
     } else {
         this.alert('データの読み込みに失敗しました。ログインページに遷移します。');
-        this.window.location.href = '../../home/home.html';
+        this.window.location.href = '../home/home.html';
     };
 
     this.document.getElementById('loading').style.display = 'none';
@@ -251,8 +257,8 @@ async function gas_Loading(get, post) {
             this.document.querySelectorAll('.tab_contents_table_tbody_td_sales_checkbox').forEach(checkbox => {
                 checkbox.addEventListener('change', async (event) => {
                     const checkbox_dataset = event.target.dataset.index;
-                    console.log(`${checkbox_dataset}(${parseInt(checkbox_dataset.charAt(0)) + 1}社目, ${parseInt(checkbox_dataset.slice(2)) + 1}番目の商品)`);
-                    const checkbox_c = parseInt(checkbox_dataset.charAt(0)), checkbox_p = parseInt(checkbox_dataset.slice(2));
+                    console.log(`${checkbox_dataset}(${parseInt(checkbox_dataset[0]) + 1}社目, ${parseInt(checkbox_dataset.slice(2)) + 1}番目の商品)`);
+                    const checkbox_c = parseInt(checkbox_dataset[0]), checkbox_p = parseInt(checkbox_dataset.slice(2));
 
                     Object.assign(this.document.querySelector(`[data-index="${checkbox_dataset}"]`).nextElementSibling, {
                         className: event.target.checked ? 'soldout' : 'onsale',
@@ -322,7 +328,15 @@ async function gas_Loading(get, post) {
     };
 };
 
+function full_width(num) {
+    const number = ['１', '２', '３', '４', '５', '６', '７', '８', '９'];
+    let result = '';
+    for (let c of num) result += number[parseInt(c) - 1];
+    return result;
+};
+
 // その他の処理等
+// リロードボタン
 document.getElementById('reload_button').addEventListener('click', () => {
     window.location.reload();
 });
@@ -333,14 +347,16 @@ document.getElementById('logout_button').addEventListener('click', () => {
 });
 
 // キャンセル時
-document.getElementById('cancel_button').addEventListener('click', () => {
-    document.getElementById('modal').classList.remove('show');
+['cancel_button', 'modal'].forEach(id => {
+    document.getElementById(id).addEventListener('click', () => {
+        document.getElementById('modal').classList.remove('show');
+    });
 });
 
 // ログアウト
 document.getElementById('ok_button').addEventListener('click', () => {
     localStorage.removeItem(`logged_${class_number}`);
-    window.location.href = '../../home/home.html';
+    window.location.href = '../home/home.html';
 });
 
 // タブの切り替え機構

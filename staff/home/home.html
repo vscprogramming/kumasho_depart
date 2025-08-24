@@ -1,61 +1,74 @@
 <!DOCTYPE html>
 
 <html lang="ja">
+    <head>
+        <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="home.css">
+        <title>熊商デパ ログイン</title>
+    </head>
 
-<head>
-    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>熊商デパ ログイン</title>
-    <link rel="stylesheet" href="home.css">
-</head>
+    <body>
+        <div id="container">
+            <h1>熊商デパート　関係者ログイン</h1>
 
-<body>
-    <div class="container">
-        <h1>熊商デパート　関係者ログイン</h1>
+            <form>
+                <center>
+                    <table>
+                        <tr>
+                            <td>
+                                <label for="id">学年</label>
+                            </td>
 
-        <form>
-            <center>
-                <table>
-                    <tr>
-                        <td><label for="id">学年</label></td>
+                            <td>
+                                <div id="grade">
+                                    <label class="grade">
+                                        <input class="grade" type="radio" name="grade" value="1">1年
+                                    </label>
 
-                        <td>
-                            <div class="grade_select">
-                                <label class="grade"><input class="grade" type="radio" name="grade" value="1">1年</label>
-                                <label class="grade"><input class="grade" type="radio" name="grade" value="2">2年</label>
-                                <label class="grade"><input class="grade" type="radio" name="grade" value="3" checked>3年</label>
-                            </div>
-                        </td>
-                    </tr>
+                                    <label class="grade">
+                                        <input class="grade" type="radio" name="grade" value="2">2年
+                                    </label>
 
-                    <tr>
-                        <td><label for="class">クラス</label></td>
+                                    <label class="grade">
+                                        <input class="grade" type="radio" name="grade" value="3" checked>3年
+                                    </label>
+                                </div>
+                            </td>
+                        </tr>
 
-                        <td>
-                            <select id="class" name="class" class="class_select" required>
-                                <!-- オプションはJavaScriptによって追加 -->
-                            </select>
-                        </td>
-                    </tr>
+                        <tr>
+                            <td>
+                                <label for="class">クラス</label>
+                            </td>
 
-                    <tr>
-                        <td><label for="password">パスワード</label></td>
-                        <td><input type="password" id="password" name="password" class="password_input"
-                                placeholder="パスワードを入力してください" required></td>
-                    </tr>
-                </table>
-            </center>
+                            <td>
+                                <select id="class" name="class" required>
+                                    <!-- オプションはJavaScriptによって追加 -->
+                                </select>
+                            </td>
+                        </tr>
 
-            <br>
-            <button type="submit" class="login_button">ログイン</button>
-        </form>
+                        <tr>
+                            <td>
+                                <label for="password">パスワード</label>
+                            </td>
 
-        <div class="loading" id="loading">
-            <div class="spinner"></div>
+                            <td>
+                                <input type="password" id="password" name="password" placeholder="パスワードを入力してください" required>
+                            </td>
+                        </tr>
+                    </table>
+                </center>
+
+                <button type="submit" id="login_button">ログイン</button>
+            </form>
+
+            <div id="loading">
+                <div id="spinner"></div>
+            </div>
         </div>
-    </div>
 
-    <p>v0.42(v0.42)(v1.3)</p> <!-- バージョン情報 -->
-    <script src="home.js"></script>
-</body>
-
+        <p>v0.43(v0.43)(v1.3.1)</p> <!-- バージョン情報 -->
+        <script src="home.js"></script>
+    </body>
 </html>

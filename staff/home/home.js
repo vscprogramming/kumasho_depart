@@ -117,15 +117,18 @@ document.querySelector('form').addEventListener('submit', async (event) => {
         if (password === id_pass.password[found_index]) {
             console.log('認証成功');
             localStorage.setItem(`logged_${id}`, 'true');
-            window.location.href = `../class/g${id.charAt(0)}/${id}.html`;
+            localStorage.setItem(`class_name`, `${id[0]}-${id[1]}`);
+            localStorage.setItem(`class_number`, id);
+            // サイトに移動
+            window.location.href = '../product_management/product_management.html';
         } else {
-            console.log('パスワードが間違っています');
+            console.error('パスワードが間違っています');
             alert('パスワードが間違っています。');
             document.getElementById('password').value = '';
             document.getElementById('loading').style.display = 'none';
         };
     } else {
-        console.log('指定されたIDが見つかりません');
+        console.error('指定されたIDが見つかりません');
         alert('指定されたIDが見つかりません。');
         document.getElementById('loading').style.display = 'none';
     };

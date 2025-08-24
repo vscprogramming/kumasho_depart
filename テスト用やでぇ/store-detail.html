@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>店舗詳細</title>
+  <link rel="stylesheet" href="customer.css" />
+</head>
+<body>
+  <header class="main-header">
+    <div class="header-inner">
+      <h1 id="shop-name">店舗名</h1>
+      <p class="tagline" id="shop-catch">キャッチコピー</p>
+    </div>
+  </header>
+
+  <main>
+    <section class="detail-section">
+      <img id="shop-image" src="" alt="店舗写真" />
+
+      <h2>店舗紹介</h2>
+      <p id="shop-pr">店舗のPR情報がここに表示されます。</p>
+
+      <h2>おすすめ商品</h2>
+      <center>
+      <div class="product-card-list" id="product-list">
+        <!-- 商品カードがここに追加されます -->
+      </div>
+
+      <button class="show-status" aria-haspopup="dialog" aria-controls="modal">
+        この店舗の全商品を見る
+      </button>
+
+      <div id="modal" class="hidden" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+        <div id="modal-content">
+          <span id="modal-close" role="button" tabindex="0" aria-label="閉じる">&times;</span>
+          <div id="modal-body">
+            <h3 id="modal-title">商品情報</h3>
+            <p>読み込み中...</p>
+          </div>
+        </div>
+      </div>
+      <br>
+      <a href="store.html" class="back-link">← クラス一覧に戻る</a>
+    </section>
+  </main>
+
+  <footer>
+    <p>
+      公式インスタグラム:
+      <a href="https://www.instagram.com/kumasho.dept/" target="_blank" rel="noopener noreferrer">
+        kumasho.dept
+      </a>
+    </p>
+    <small>© 課題研究 アプリ開発班</small>
+  </footer>
+
+  <script src="store-detail.js"></script>
+</body>
+</html>
