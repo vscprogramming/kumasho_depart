@@ -384,5 +384,5 @@ document.getElementById('tab_buttons').addEventListener('click', (event) => {
 window.onload = () => {
     setInterval(async () => {
         await gas_Loading(gas_url_get, gas_url_post);
-    }, (Math.floor(Math.random() * 31) + 30) * 1000);
+    }, (Math.floor(Math.random() * 121) + 60) * 1000);
 };

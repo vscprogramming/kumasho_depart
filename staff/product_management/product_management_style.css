@@ -106,7 +106,7 @@ table td {
     border-right: solid 1px #f80;
 }
 
-table td:last-child { padding-left: 157px; }
+table td:last-child input[type='checkbox'] { margin-left: 40%; }
 
 table td:nth-child(2) {
     text-align: right;
@@ -264,7 +264,7 @@ span.onsale {
     background-color: #333;
     border-radius: 18px;
     z-index: 5000;
-    width: 34%; height: 29%;
+    width: 567px; height: 287px;
     align-items: flex-start;
     position: relative;
     box-shadow: 7px 7px 7px rgba(0, 0, 0, 0.7);
@@ -273,12 +273,13 @@ span.onsale {
 #logout_check h3 {
     margin: 18% 0 11% 7px;
     color: #eee;
+    font-size: 130%;
 }
 
 #logout_check_title::before {
     color: #eee;
     content: 'ログアウト確認';
-    font-size: 18px;
+    font-size: 24px;
     font-weight: bolder;
     margin-left: 7px;
 }
@@ -293,11 +294,11 @@ span.onsale {
 
 #ok_button, #cancel_button {
     z-index: 7000;
-    width: 34%; height: 18%;
+    width: 34%; height: 17%;
     border-radius: 18px;
     background-color: #f80;
     font-weight: bolder;
-    font-size: 18px;
+    font-size: 24px;
     color: #eee;
     transition: 0.3s ease;
     box-shadow: 7px 7px 7px rgba(0, 0, 0, 0.7)
@@ -305,7 +306,7 @@ span.onsale {
 
 #ok_button {
     color: #f00;
-    margin-left: 6px;
+    margin-left: 18px;
 }
 
 #cancel_button { margin-left: 14%; }
