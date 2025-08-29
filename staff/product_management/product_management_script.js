@@ -1,4 +1,5 @@
-const class_name = localStorage.getItem('class_name'), class_number = localStorage.getItem('class_number');
+const class_name = localStorage.getItem('class_name');
+const class_number = localStorage.getItem('class_number');
 console.log(`${class_name}, ${class_number}`);
 console.log(`logged_${class_number}: ${localStorage.getItem(`logged_${class_number}`)}`);
 const fw_cn = full_width(class_number);    // タイトル用
@@ -50,7 +51,7 @@ let tab_select = null;
 if (!localStorage.getItem(`logged_${class_number}`)) {
     alert('不正なアクセスです。ログインページへ遷移します。');
     window.location.href = '../home/home.html';
-};
+}
 
 window.addEventListener('DOMContentLoaded', async () => {
     document.getElementById('loading').style.display = 'flex';    // ローディング表示
@@ -60,7 +61,7 @@ window.addEventListener('DOMContentLoaded', async () => {
     } else {
         this.alert('データの読み込みに失敗しました。ログインページに遷移します。');
         this.window.location.href = '../home/home.html';
-    };
+    }
 
     this.document.getElementById('loading').style.display = 'none';
 });
@@ -89,13 +90,13 @@ async function gas_Loading(get, post) {
                 if ('company_name' in json_data_row && json_data_row.company_name != null) {
                     all_data[company_count].company_name = json_data_row.company_name;
                     company_count++;
-                };
+                }
 
                 if ('pdname' in json_data_row && 'price' in json_data_row && 'sales' in json_data_row && json_data_row != null && json_data_row.pdname != '') {
                     all_data[company_count - 1].products.pdname.push(json_data_row.pdname);
                     all_data[company_count - 1].products.price.push(json_data_row.price);
                     all_data[company_count - 1].products.sales.push(json_data_row.sales);
-                };
+                }
             });
 
             console.log('all_data: ');
@@ -124,12 +125,12 @@ async function gas_Loading(get, post) {
                     if (all_data[c].products.sales[p] === '完売') {
                         all_sales_count++;
                         company_sales_count++;
-                    };
-                };
+                    }
+                }
 
                 ps_count.products_count.push(company_products_count);
                 ps_count.sales_count.push(company_sales_count);
-            };
+            }
 
             console.log(`企業数: ${company_count}`)
             console.log(`商品数: ${all_products_count}`);
@@ -226,14 +227,14 @@ async function gas_Loading(get, post) {
 
                     // tbody入力処理
                     tab_contents_table_tbody.appendChild(tab_contents_table_tbody_tr);
-                };
+                }
 
                 // table入力処理
                 tab_contents_table.appendChild(tab_contents_table_tbody);
                 tab_contents_div.appendChild(company_total_display);
                 tab_contents_div.appendChild(tab_contents_table);
                 this.document.getElementById('tab_contents').appendChild(tab_contents_div);
-            };
+            }
 
             // 初期表示タブの設定・自動再読み込み時のタブ移動制限
             if (tab_select == null) {
@@ -251,7 +252,7 @@ async function gas_Loading(get, post) {
 
                 console.log('tab_select');
                 console.log(tab_select);
-            };
+            }
 
             // checkboxクリック時 ここから
             this.document.querySelectorAll('.tab_contents_table_tbody_td_sales_checkbox').forEach(checkbox => {
@@ -280,13 +281,13 @@ async function gas_Loading(get, post) {
                             if (all_data[c].products.sales[p] === '完売') {
                                 all_sales_count++;
                                 company_sales_count++;
-                            };
-                        };
+                            }
+                        }
 
                         ps_count.sales_count[c] = company_sales_count;
                         const company_total_display_text_update = this.document.querySelector(`.company_total_display_text[data-index="${c}"]`);
                         if (company_total_display_text_update) company_total_display_text_update.innerHTML = `<span class="company_total_display_text_company_name">${all_data[c].company_name}</span>（　商品数：${ps_count.products_count[c]}　／　完売数：${company_sales_count}　）`;
-                    };
+                    }
 
                     total_display.innerHTML = `企業数：${company_count}　／　商品数：${all_products_count}　／　完売数：${all_sales_count}`;
 
@@ -311,29 +312,29 @@ async function gas_Loading(get, post) {
                         if (result == 'NG') {
                             alert('スプレッドシートの更新に失敗しました。\nデータの整合性を保つため、再読み込みします。');
                             window.location.reload();
-                        };
+                        }
                     } else {
                         alert('読み込みエラーが発生しました。\n再読み込みします。');
                         window.location.reload();
-                    };
+                    }
                 });
             });
         } else {
             alert('読み込みエラーが発生しました。\n再読み込みします。');
             window.location.reload();
-        };
+        }
     } catch (error) {
         alert('ネットワークエラーが発生しました。\n再読み込みします。');
         window.location.reload();
-    };
-};
+    }
+}
 
 function full_width(num) {
     const number = ['１', '２', '３', '４', '５', '６', '７', '８', '９'];
     let result = '';
     for (let c of num) result += number[parseInt(c) - 1];
     return result;
-};
+}
 
 // その他の処理等
 // リロードボタン
@@ -374,7 +375,7 @@ document.getElementById('tab_buttons').addEventListener('click', (event) => {
         document.querySelectorAll('.tab_content').forEach((div, i) => {
             div.classList.toggle('show', i == index);
         });
-    };
+    }
 
     console.log('tab_select');
     console.log(tab_select);
@@ -385,4 +386,4 @@ window.onload = () => {
     setInterval(async () => {
         await gas_Loading(gas_url_get, gas_url_post);
     }, (Math.floor(Math.random() * 121) + 60) * 1000);
-};
+}
