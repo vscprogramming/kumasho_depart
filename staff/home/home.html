@@ -302,7 +302,7 @@
                 // id探索
                 let found_index = id_pass.id.indexOf(id);
 
-                // 認証処理（簡易的だから爆速やで）
+                // 認証処理
                 if (found_index !== -1) {
                     if (password === id_pass.password[found_index]) {
                         console.log('認証成功');
