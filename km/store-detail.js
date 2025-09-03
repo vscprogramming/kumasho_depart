@@ -35,6 +35,7 @@ document.addEventListener("DOMContentLoaded", () => {
             document.getElementById("shop-pr").innerHTML = shop.pr.join("<br>");
 
             const productList = document.getElementById("product-list");
+            console.log(shop.products);
             shop.products.forEach(p => {
                 const card = document.createElement("div");
                 card.className = "product-card";

@@ -171,7 +171,7 @@ footer a {
   padding: 10px;
 }
 
-.back-link {
+.back-link, .show-status{
   display: inline-block;
   margin-top: 2rem;
   font-weight: bold;
@@ -180,7 +180,7 @@ footer a {
   transition: color 0.3s ease, background 0.3s;
 }
 
-.back-link:hover {
+.back-link:hover, .show-status:hover{
   color: #d4af37;
   background: #fffbe6;
 }
@@ -316,3 +316,4 @@ body.modal-open {
   padding: 0;
   display: inline-block;
 }
+
