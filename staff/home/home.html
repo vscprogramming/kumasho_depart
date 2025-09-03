@@ -7,65 +7,112 @@
     </head>
 
     <style>
-        body {
-            background: #121212;
-            cursor: default;
+        /* ======= CSS 変数 ======= */
+        :root {
+            /* カラー */
+            --color-orange: #f80;
+            --color-orange-hover: #f70;
+            --color-orange-alt: #f39121;
+
+            --color-bg-dark: #121212;
+            --color-bg-mid: #333;
+            --color-bg-white: #fff;
+            --color-bg-table: #f5f6fa;
+
+            --color-text-light: #eee;
+            --color-text-dark: #000;
+
+            /* レイアウト */
+            --radius: 18px;
+            --radius-large: 34px;
+            --shadow-strong: 7px 7px 7px rgba(0, 0, 0, 0.7);
+            --shadow-light: 7px 7px 7px rgba(0, 0, 0, 0.05);
         }
 
-        #container {
-            max-width: 720px;
-            min-height: 300px;
-            width: 100%; height: auto;
-            margin: 100px auto;
-            padding: 36px 24px 36px 24px;
-            background: #333;
-            border-radius: 34px;
-            box-shadow: 7px 7px 7px rgba(0, 0, 0, 0.7);
-            text-align: center;
-            color: #eee;
+        /* ======= ベース =======  */
+        body {
+            background: var(--color-bg-dark);
+            cursor: default;
         }
 
         input { cursor: pointer; }
 
-        label.grade { color: #000; }
-
-        input:focus, select:focus {
-            border-color: #f80;
-            box-shadow: 7px 7px 7px rgba(0, 0, 0, 0.05);
+        p {
+            text-align: right;
+            color: var(--color-text-light);
         }
 
+        /* ======= コンテナー ======= */
+        #container {
+            width: 100%; height: auto;
+            max-width: 720px;
+            min-height: 300px;
+            margin: 100px auto;
+            padding: 36px 24px;
+            background: var(--color-bg-mid);
+            border-radius: var(--radius-large);
+            box-shadow: var(--shadow-strong);
+            text-align: center;
+            color: var(--color-text-light);
+        }
+
+        /* ======= フォーム要素 ======= */
+        label.grade { color: var(--color-text-dark); }
+
+        input:focus, select:focus {
+            border-color: var(--color-orange);
+            box-shadow: var(--shadow-light);
+        }
+
+        #grade, #class, #password {
+            padding: 12px;
+            font-size: 1rem;
+            border-radius: var(--radius);
+            border: 3px solid var(--color-orange);
+            background-color: var(--color-bg-white);
+            box-shadow: var(--shadow-light);
+        }
+
+        #grade, #password { width: 100%; }
+        #grade { text-align: center; }
+
+        #class {
+            width: 110%;
+            cursor: pointer;
+        }
+
+        #password { cursor: text; }
+
+        /* ======= タイトル ======= */
         h1 {
-            color: #eee;
+            color: var(--color-text-light);
             margin-bottom: 30px;
             font-size: 2rem;
         }
 
+        /* ======= ログインボタン ======= */
         #login_button {
-            background: #f80;
-            color: #eee;
+            background: var(--color-orange);
+            color: var(--color-text-light);
             text-decoration: none;
             font-size: 1.3rem;
             padding: 12px 36px;
-            border-radius: 18px;
+            border-radius: var(--radius);
             transition: all 0.3s ease;
-            box-shadow: 7px 7px 7px rgba(0, 0, 0, 0.7);
+            box-shadow: var(--shadow-strong);
             text-align: center;
             font-weight: bolder;
             margin-top: 24px;
         }
 
         #login_button:hover {
-            background: #f70;
+            background: var(--color-orange-hover);
             cursor: pointer;
             box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.3);
             transform: translateY(-50%, -50%);
         }
 
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
+        /* ======= テーブル ======= */
         table {
             width: 70%;
             font-size: 130%;
@@ -76,52 +123,34 @@
             text-align: left;
         }
 
-        table th { background: #f5f6fa; }
+        table th { background: var(--color-bg-table); }
 
-        #grade, #class, #password {
-            padding: 12px;
-            font-size: 1rem;
-            border-radius: 18px;
-            border: 3px solid #f80;
-            background-color: #fff;
-            box-shadow: 7px 7px 7px rgba(0, 0, 0, 0.05);
+        /* ======= ローディングスピナー ======= */
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
-
-        #grade, #password { width: 100%; }
-
-        #grade { text-align: center; }
-
-        #class {
-            width: 110%;
-            cursor: pointer;
-        }
-
-        #password { cursor: text; }
 
         #loading {
-            display: none;
-            position: fixed;
             top: 0; left: 0;
             width: 100vw; height: 100vh;
+            display: none;
+            position: fixed;
             background: rgba(0, 0, 0, 0.5);
-            z-index: 2000;
+            z-index: 9999;
             display: flex;
             align-items: center;
             justify-content: center;
         }
 
         #spinner {
-            border: 7px solid #fff;
-            border-top: 7px solid #f39121;
-            border-radius: 50%;
             width: 70px; height: 70px;
+            border: 7px solid var(--color-bg-white);
+            border-top: 7px solid var(--color-orange-alt);
+            border-radius: 50%;
             animation: spin 0.7s linear infinite;
         }
 
-        p {
-            text-align: right;
-            color: #eee;
-        }
     </style>
 
     <body>
@@ -185,7 +214,7 @@
             </div>
         </div>
 
-        <p>v0.46(v0.46)(v1.3.4)</p> <!-- バージョン情報 -->
+        <p>v0.47(v0.47)(v1.3.5)</p> <!-- バージョン情報 -->
 
         <script>
             const class_options = {

@@ -4,9 +4,9 @@ body {
 }
 
 #container {
+    width: 100%; height: auto;
     max-width: 720px;
     min-height: 300px;
-    width: 100%; height: auto;
     margin: 100px auto; padding: 36px 24px 36px 24px;
     background: #333;
     border-radius: 34px;
@@ -16,7 +16,6 @@ body {
 }
 
 input { cursor: pointer; }
-
 label.grade { color: #000; }
 
 input:focus, select:focus {
@@ -78,7 +77,6 @@ table th { background: #f5f6fa; }
 }
 
 #grade, #password { width: 100%; }
-
 #grade { text-align: center; }
 
 #class {
@@ -89,10 +87,10 @@ table th { background: #f5f6fa; }
 #password { cursor: text; }
 
 #loading {
-    display: none;
-    position: fixed;
     top: 0; left: 0;
     width: 100vw; height: 100vh;
+    display: none;
+    position: fixed;
     background: rgba(0, 0, 0, 0.5);
     z-index: 2000;
     display: flex;
@@ -101,10 +99,10 @@ table th { background: #f5f6fa; }
 }
 
 #spinner {
+    width: 70px; height: 70px;
     border: 7px solid #fff;
     border-top: 7px solid #f39121;
     border-radius: 50%;
-    width: 70px; height: 70px;
     animation: spin 0.7s linear infinite;
 }
 

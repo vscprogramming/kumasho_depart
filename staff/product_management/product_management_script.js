@@ -1,12 +1,11 @@
-const class_name = localStorage.getItem('class_name');
-const class_number = localStorage.getItem('class_number');
+const class_name = localStorage.getItem('class_name'), class_number = localStorage.getItem('class_number');
 console.log(`${class_name}, ${class_number}`);
 console.log(`logged_${class_number}: ${localStorage.getItem(`logged_${class_number}`)}`);
 const fw_cn = full_width(class_number);    // タイトル用
 console.log(`full_width_class_number: ${fw_cn}`);
 
-['page_title', 'title_display'].forEach(id => {
-    document.getElementById(id).textContent = `${fw_cn[0]}年${fw_cn[1]}組`;
+['page_title', 'title_display'].forEach(e_id => {
+    document.getElementById(e_id).textContent = `${fw_cn[0]}年${fw_cn[1]}組`;
 });
 
 const all_gas_url = new Map([
@@ -39,8 +38,7 @@ const all_gas_url = new Map([
     ['3-9', 'https://script.google.com/macros/s/AKfycbyEHLBgehDKx2n8OztlXKV_V3c71krJc1dIgIE4mM8CdBIYvK6wZb_eb1oi98LzwQQqWw/exec']
 ]);
 
-const gas_url_post = all_gas_url.get(class_name);
-const gas_url_get = `${gas_url_post}?sheet=${encodeURIComponent(class_name)}`;
+const gas_url_post = all_gas_url.get(class_name), gas_url_get = `${gas_url_post}?sheet=${encodeURIComponent(class_name)}`;
 console.log(`get用：${gas_url_get}`);
 console.log(`post用：${gas_url_post}`);
 
@@ -56,7 +54,7 @@ if (!localStorage.getItem(`logged_${class_number}`)) {
 window.addEventListener('DOMContentLoaded', async () => {
     document.getElementById('loading').style.display = 'flex';    // ローディング表示
 
-    if (!(gas_url_get == null || gas_url_post == null)) {
+    if (gas_url_get != null || gas_url_post != null) {
         await gas_Loading(gas_url_get, gas_url_post);    // gas読み込み
     } else {
         this.alert('データの読み込みに失敗しました。ログインページに遷移します。');
@@ -87,12 +85,14 @@ async function gas_Loading(get, post) {
                     }
                 };
 
-                if ('company_name' in json_data_row && json_data_row.company_name != null) {
+                if ('company_name' in json_data_row &&
+                    json_data_row.company_name != null) {
                     all_data[company_count].company_name = json_data_row.company_name;
                     company_count++;
                 }
 
-                if ('pdname' in json_data_row && 'price' in json_data_row && 'sales' in json_data_row && json_data_row != null && json_data_row.pdname != '') {
+                if ('pdname' in json_data_row && 'price' in json_data_row && 'sales' in json_data_row &&
+                    json_data_row != null && json_data_row.pdname != '') {
                     all_data[company_count - 1].products.pdname.push(json_data_row.pdname);
                     all_data[company_count - 1].products.price.push(json_data_row.price);
                     all_data[company_count - 1].products.sales.push(json_data_row.sales);
@@ -147,8 +147,8 @@ async function gas_Loading(get, post) {
             this.document.getElementById('total_display').appendChild(total_display);
 
             // 再読み込み用に初期化
-            ['tab_buttons', 'tab_contents'].forEach(id => {
-                document.getElementById(id).innerHTML = '';
+            ['tab_buttons', 'tab_contents'].forEach(e_id => {
+                document.getElementById(e_id).innerHTML = '';
             });
 
             // タブの生成
@@ -348,8 +348,8 @@ document.getElementById('logout_button').addEventListener('click', () => {
 });
 
 // キャンセル時
-['cancel_button', 'modal'].forEach(id => {
-    document.getElementById(id).addEventListener('click', () => {
+['cancel_button', 'modal'].forEach(e_id => {
+    document.getElementById(e_id).addEventListener('click', () => {
         document.getElementById('modal').classList.remove('show');
     });
 });
