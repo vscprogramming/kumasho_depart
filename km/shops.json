@@ -199,7 +199,7 @@
                 "image": "img/1-1/Cafe03.jpg"
             }
         ],
-        "company_name": "有限会社 林檎堂",
+        "company_name": "株式会社 林檎堂",
         "gasUrl": "https://script.google.com/macros/s/AKfycby4ijWRrgG4xcIeOHUoGq-nV5a4CUSHbovnFP5zlDyNyN4Omin1r-4caw08gMoZibhl/exec"
     },
     {
@@ -1447,35 +1447,6 @@
             }
         ],
         "company_name": "アトリエ Green Sea",
-        "gasUrl": "https://script.google.com/macros/s/AKfycbxScIiePXzOq-D9SKt7j5KfHCxiaLsI_AcCzhOPDULYh8kZYHHuwnN69IMJrSP5pYN6/exec"
-    },
-    {
-        "id": "3-8-3",
-        "name": "洋装のタバラ",
-        "catch": "キャッチコピー",
-        "image": "img/1-1/Cafe.jpg",
-        "pr": [
-            "PR文１",
-            "PR文２"
-        ],
-        "products": [
-            {
-                "name": "おすすめ商品１",
-                "price": 500,
-                "image": "img/1-1/Cafe01.jpg"
-            },
-            {
-                "name": "おすすめ商品２",
-                "price": 600,
-                "image": "img/1-1/Cafe02.jpg"
-            },
-            {
-                "name": "おすすめ商品３",
-                "price": 700,
-                "image": "img/1-1/Cafe03.jpg"
-            }
-        ],
-        "company_name": "洋装のタバラ",
         "gasUrl": "https://script.google.com/macros/s/AKfycbxScIiePXzOq-D9SKt7j5KfHCxiaLsI_AcCzhOPDULYh8kZYHHuwnN69IMJrSP5pYN6/exec"
     },
     {
