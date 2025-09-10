@@ -93,21 +93,27 @@ document.addEventListener("DOMContentLoaded", () => {
                             }
                         });
 
-                        if (matchedProducts.length > 0) {
+                      if (matchedProducts.length > 0) {
                             const companyHeader = `<h3 style="margin-top: 1em;">${shop.company_name}</h3>`;
                             const productList = matchedProducts.map(item => {
                                 const isSoldOut = item.sales === "完売";
-                                return `<div class="item" style="margin-bottom: 16px;">
+                                return `
+                                <div class="item" style="
+                                    margin-bottom: 16px;
+                                    padding: 8px;
+                                    background-color: ${isSoldOut ? '#eee' : 'white'};
+                                    border-bottom: 1px solid #ccc;
+                                ">
                                     <strong>${item.pdname}</strong><br>
                                     価格: ¥${Number(item.price || 0).toLocaleString()}<br>
                                     販売状況: <span style="color:${isSoldOut ? 'red' : 'black'};">${item.sales}</span>
-                                </div>`;
+                                </div>
+                                `;
                             }).join('');
                             modalBody.innerHTML = companyHeader + productList;
-                        } else {
+                            } else {
                             modalBody.innerHTML = messages.notFound;
-                        }
-                    })
+                            }
                     .catch(error => {
                         console.error("GASデータ取得エラー:", error);
                         modalBody.innerHTML = messages.fetchError;
