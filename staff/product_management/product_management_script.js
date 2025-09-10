@@ -1,4 +1,5 @@
-const class_name = localStorage.getItem('class_name'), class_number = localStorage.getItem('class_number');
+const class_name = localStorage.getItem('class_name');
+const class_number = localStorage.getItem('class_number');
 console.log(`${class_name}, ${class_number}`);
 console.log(`logged_${class_number}: ${localStorage.getItem(`logged_${class_number}`)}`);
 const fw_cn = full_width(class_number);    // タイトル用
@@ -38,7 +39,8 @@ const all_gas_url = new Map([
     ['3-9', 'https://script.google.com/macros/s/AKfycbyEHLBgehDKx2n8OztlXKV_V3c71krJc1dIgIE4mM8CdBIYvK6wZb_eb1oi98LzwQQqWw/exec']
 ]);
 
-const gas_url_post = all_gas_url.get(class_name), gas_url_get = `${gas_url_post}?sheet=${encodeURIComponent(class_name)}`;
+const gas_url_post = all_gas_url.get(class_name);
+const gas_url_get = `${gas_url_post}?sheet=${encodeURIComponent(class_name)}`;
 console.log(`get用：${gas_url_get}`);
 console.log(`post用：${gas_url_post}`);
 
@@ -80,7 +82,6 @@ async function gas_Loading(get, post) {
                     company_name: '',
                     products: {
                         pdname: [],
-                        price: [],
                         sales: []
                     }
                 };
@@ -91,10 +92,9 @@ async function gas_Loading(get, post) {
                     company_count++;
                 }
 
-                if ('pdname' in json_data_row && 'price' in json_data_row && 'sales' in json_data_row &&
+                if ('pdname' in json_data_row && 'sales' in json_data_row &&
                     json_data_row != null && json_data_row.pdname != '') {
                     all_data[company_count - 1].products.pdname.push(json_data_row.pdname);
-                    all_data[company_count - 1].products.price.push(json_data_row.price);
                     all_data[company_count - 1].products.sales.push(json_data_row.sales);
                 }
             });
@@ -180,7 +180,7 @@ async function gas_Loading(get, post) {
                 const tab_contents_table_thead = this.document.createElement('thead');    // テーブルのヘッド
                 const tab_contents_table_thead_row = this.document.createElement('tr');    // テーブル行
 
-                ['商品名', '販売価格', '販売状況'].forEach(text => {
+                ['商品名', '販売状況'].forEach(text => {
                     const tab_contents_table_thead_th = this.document.createElement('th');
                     tab_contents_table_thead_th.textContent = text;
                     tab_contents_table_thead_row.appendChild(tab_contents_table_thead_th);
@@ -199,11 +199,6 @@ async function gas_Loading(get, post) {
                     const tab_contents_table_tbody_td_pdname = this.document.createElement('td');
                     tab_contents_table_tbody_td_pdname.textContent = all_data[c].products.pdname[p];
                     tab_contents_table_tbody_tr.appendChild(tab_contents_table_tbody_td_pdname);
-
-                    // 販売価格
-                    const tab_contents_table_tbody_td_price = this.document.createElement('td');
-                    tab_contents_table_tbody_td_price.textContent = '￥' + parseInt(all_data[c].products.price[p]).toLocaleString();
-                    tab_contents_table_tbody_tr.appendChild(tab_contents_table_tbody_td_price);
 
                     // チェックボックス生成（販売状況）
                     const tab_contents_table_tbody_td_sales = this.document.createElement('td');
@@ -337,6 +332,11 @@ function full_width(num) {
 }
 
 // その他の処理等
+// 検索ボタン
+document.getElementById('search_button').addEventListener('click', () => {
+    document.getElementById();
+});
+
 // リロードボタン
 document.getElementById('reload_button').addEventListener('click', () => {
     window.location.reload();
@@ -344,13 +344,13 @@ document.getElementById('reload_button').addEventListener('click', () => {
 
 // ログアウトモーダル表示
 document.getElementById('logout_button').addEventListener('click', () => {
-    document.getElementById('modal').classList.add('show');
+    document.getElementById('logout_modal').classList.add('show');
 });
 
 // キャンセル時
-['cancel_button', 'modal'].forEach(e_id => {
+['cancel_button', 'logout_modal'].forEach(e_id => {
     document.getElementById(e_id).addEventListener('click', () => {
-        document.getElementById('modal').classList.remove('show');
+        document.getElementById('logout_modal').classList.remove('show');
     });
 });
 

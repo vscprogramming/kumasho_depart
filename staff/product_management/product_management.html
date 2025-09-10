@@ -20,6 +20,10 @@
                 <span class="material-icons" id="reload_icon">refresh</span>
             </button>
 
+            <button id="search_button" class="modal_buttons">
+                <span class="material-icons" id="search_icon">search</span>
+            </button>
+
             <div id="total_display">
                 <!-- クラス全体のトータル　jsで作成 -->
             </div>
@@ -35,7 +39,14 @@
             </div>
         </main>
 
-        <div id="modal">
+        <!-- モーダル類 -->
+        <div id="search_modal">
+            <input type="text" id="search_input" name="search_input" placeholder="検索">
+            <a id="s_up"><span class="material-icons" id="s_up_icon">arrow_upward</span></a>
+            <a id="s_down"><span class="material-icons" id="s_down_icon">arrow_downward</span></a>
+        </div>
+
+        <div id="logout_modal">
             <div id="logout_check">
                 <div id="logout_check_title"></div>
                 <h3>ログアウトしますか？</h3>
