@@ -1,0 +1,28 @@
+[
+    {
+        "id": 391,
+        "name": "AmeYa",
+        "img": "img/store/AmeYa.png",
+        "form_url": "",
+        "products": [
+            {
+                "name": "袋入りキャンディー　ぶどうヨーグルト",
+                "img": "img/products/AmeYa/hb.png",
+                "price": 530,
+                "stock": 40
+            },
+            {
+                "name": "袋入りキャンディー　ピーチヨーグルト",
+                "img": "img/products/AmeYa/hp.png",
+                "price": 530,
+                "stock": 40
+            },
+            {
+                "name": "スノーボール",
+                "img": "img/products/AmeYa/s.png",
+                "price": 410,
+                "stock": 100
+            }
+        ]
+    }
+]

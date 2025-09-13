@@ -67,259 +67,251 @@ window.addEventListener('DOMContentLoaded', async () => {
 });
 
 async function gas_Loading(get, post) {
-    try {
-        const response = await this.fetch(get);
+    const response = await this.fetch(get);
 
-        if (response.ok) {
-            const json_data = await response.json();
+    if (response.ok) {
+        const json_data = await response.json();
 
-            // 扱いやすいデータ構造に変換
-            const all_data = [];    // 全てのデータをまとめたオブジェクト
-            let company_count = 0;    // 企業数の集計
+        // 扱いやすいデータ構造に変換
+        const all_data = [];    // 全てのデータをまとめたオブジェクト
+        let company_count = 0;    // 企業数の集計
 
-            json_data.forEach(json_data_row => {
-                all_data[company_count] = {
-                    company_name: '',
-                    products: {
-                        pdname: [],
-                        sales: []
-                    }
-                };
-
-                if ('company_name' in json_data_row &&
-                    json_data_row.company_name != null) {
-                    all_data[company_count].company_name = json_data_row.company_name;
-                    company_count++;
+        json_data.forEach(json_data_row => {
+            all_data[company_count] = {
+                company_name: '',
+                products: {
+                    pdname: [],
+                    sales: []
                 }
-
-                if ('pdname' in json_data_row && 'sales' in json_data_row &&
-                    json_data_row != null && json_data_row.pdname != '') {
-                    all_data[company_count - 1].products.pdname.push(json_data_row.pdname);
-                    all_data[company_count - 1].products.sales.push(json_data_row.sales);
-                }
-            });
-
-            console.log('all_data: ');
-            console.log(all_data);
-
-            // 再読み込み用に初期化
-            document.getElementById('total_display').innerHTML = '';
-
-            // 全体の商品数・完売数を集計
-            let all_products_count = 0, all_sales_count = 0;    // すべての商品数, すべての完売数
-            let company_products_count, company_sales_count;    // 企業ごとの商品数, 企業ごとの完売数
-
-            let ps_count = {
-                products_count: [],
-                sales_count: []
             };
 
-            for (let c = 0; c < all_data.length; c++) {
-                company_products_count = 0;
-                company_sales_count = 0;
-
-                for (let p = 0; p < all_data[c].products.pdname.length; p++) {
-                    all_products_count++;
-                    company_products_count++;
-
-                    if (all_data[c].products.sales[p] === '完売') {
-                        all_sales_count++;
-                        company_sales_count++;
-                    }
-                }
-
-                ps_count.products_count.push(company_products_count);
-                ps_count.sales_count.push(company_sales_count);
+            if ('company_name' in json_data_row &&
+                json_data_row.company_name != null) {
+                all_data[company_count].company_name = json_data_row.company_name;
+                company_count++;
             }
 
-            console.log(`企業数: ${company_count}`)
-            console.log(`商品数: ${all_products_count}`);
-            console.log(`完売数: ${all_sales_count}`);
-            console.log('ps_count: ');
-            console.log(ps_count);
+            if ('pdname' in json_data_row && 'sales' in json_data_row &&
+                json_data_row != null && json_data_row.pdname != '') {
+                all_data[company_count - 1].products.pdname.push(json_data_row.pdname);
+                all_data[company_count - 1].products.sales.push(json_data_row.sales);
+            }
+        });
 
-            // 全体の商品数・完売数を表示
-            const total_display = Object.assign(this.document.createElement('p'), {
-                id: 'total_display_text',
-                innerHTML: `企業数：${company_count}　／　商品数：${all_products_count}　／　完売数：${all_sales_count}`
+        console.log('all_data: ');
+        console.log(all_data);
+
+        // 再読み込み用に初期化
+        document.getElementById('total_display').innerHTML = '';
+
+        // 全体の商品数・完売数を集計
+        let all_products_count = 0, all_sales_count = 0;    // すべての商品数, すべての完売数
+        let company_products_count, company_sales_count;    // 企業ごとの商品数, 企業ごとの完売数
+
+        let ps_count = {
+            products_count: [],
+            sales_count: []
+        };
+
+        for (let c = 0; c < all_data.length; c++) {
+            company_products_count = 0;
+            company_sales_count = 0;
+
+            for (let p = 0; p < all_data[c].products.pdname.length; p++) {
+                all_products_count++;
+                company_products_count++;
+
+                if (all_data[c].products.sales[p] === '完売') {
+                    all_sales_count++;
+                    company_sales_count++;
+                }
+            }
+
+            ps_count.products_count.push(company_products_count);
+            ps_count.sales_count.push(company_sales_count);
+        }
+
+        console.log(`企業数: ${company_count}`)
+        console.log(`商品数: ${all_products_count}`);
+        console.log(`完売数: ${all_sales_count}`);
+        console.log('ps_count: ');
+        console.log(ps_count);
+
+        // 全体の商品数・完売数を表示
+        const total_display = Object.assign(this.document.createElement('p'), {
+            id: 'total_display_text',
+            innerHTML: `企業数：${company_count}　／　商品数：${all_products_count}　／　完売数：${all_sales_count}`
+        });
+
+        this.document.getElementById('total_display').appendChild(total_display);
+
+        // 再読み込み用に初期化
+        ['tab_buttons', 'tab_contents'].forEach(e_id => {
+            document.getElementById(e_id).innerHTML = '';
+        });
+
+        // タブの生成
+        for (let c = 0; c < company_count; c++) {
+            // タブ
+            const tab_btns = this.document.createElement('button');
+            tab_btns.textContent = all_data[c].company_name;
+            tab_btns.dataset.index = c;
+            this.document.getElementById('tab_buttons').appendChild(tab_btns);
+
+            // 内容
+            const tab_contents_div = this.document.createElement('div');
+            tab_contents_div.classList.add('tab_content');
+            tab_contents_div.dataset.index = c;
+            if (c === 0) tab_contents_div.classList.add('show');
+
+            // 企業ごとの商品数・完売数の表示
+            const company_total_display = Object.assign(this.document.createElement('p'), {
+                className: 'company_total_display_text',
+                innerHTML: `<span class="company_total_display_text_company_name">${all_data[c].company_name}</span>（　商品数：${ps_count.products_count[c]}　／　完売数：${ps_count.sales_count[c]}　）`
             });
 
-            this.document.getElementById('total_display').appendChild(total_display);
+            company_total_display.dataset.index = c;
 
-            // 再読み込み用に初期化
-            ['tab_buttons', 'tab_contents'].forEach(e_id => {
-                document.getElementById(e_id).innerHTML = '';
+            // テーブルの作成
+            const tab_contents_table = this.document.createElement('table');    // テーブル全体
+
+            // thead部分
+            const tab_contents_table_thead = this.document.createElement('thead');    // テーブルのヘッド
+            const tab_contents_table_thead_row = this.document.createElement('tr');    // テーブル行
+
+            ['商品名', '販売状況'].forEach(text => {
+                const tab_contents_table_thead_th = this.document.createElement('th');
+                tab_contents_table_thead_th.textContent = text;
+                tab_contents_table_thead_row.appendChild(tab_contents_table_thead_th);
             });
 
-            // タブの生成
-            for (let c = 0; c < company_count; c++) {
-                // タブ
-                const tab_btns = this.document.createElement('button');
-                tab_btns.textContent = all_data[c].company_name;
-                tab_btns.dataset.index = c;
-                this.document.getElementById('tab_buttons').appendChild(tab_btns);
+            tab_contents_table_thead.appendChild(tab_contents_table_thead_row);
+            tab_contents_table.appendChild(tab_contents_table_thead);
 
-                // 内容
-                const tab_contents_div = this.document.createElement('div');
-                tab_contents_div.classList.add('tab_content');
-                tab_contents_div.dataset.index = c;
-                if (c === 0) tab_contents_div.classList.add('show');
+            // tbody部分
+            const tab_contents_table_tbody = this.document.createElement('tbody');
 
-                // 企業ごとの商品数・完売数の表示
-                const company_total_display = Object.assign(this.document.createElement('p'), {
-                    className: 'company_total_display_text',
-                    innerHTML: `<span class="company_total_display_text_company_name">${all_data[c].company_name}</span>（　商品数：${ps_count.products_count[c]}　／　完売数：${ps_count.sales_count[c]}　）`
+            for (let p = 0; p < all_data[c].products.pdname.length; p++) {
+                const tab_contents_table_tbody_tr = this.document.createElement('tr');
+
+                // 商品名
+                const tab_contents_table_tbody_td_pdname = this.document.createElement('td');
+                tab_contents_table_tbody_td_pdname.textContent = all_data[c].products.pdname[p];
+                tab_contents_table_tbody_tr.appendChild(tab_contents_table_tbody_td_pdname);
+
+                // プルダウン生成（販売状況）
+                const tab_contents_table_tbody_td_sales = this.document.createElement('td');
+
+                const tab_contents_table_tbody_td_sales_pulldown = Object.assign(this.document.createElement('select'), {
+                    className: 'tab_contents_table_tbody_td_sales_pulldown',
                 });
 
-                company_total_display.dataset.index = c;
+                ['販売中', '仕入準備中', '完売'].forEach(item => {
+                    const pulldown_option = Object.assign(document.createElement('option'), {
+                        value: item,
+                        text: item,
+                    });
 
-                // テーブルの作成
-                const tab_contents_table = this.document.createElement('table');    // テーブル全体
-
-                // thead部分
-                const tab_contents_table_thead = this.document.createElement('thead');    // テーブルのヘッド
-                const tab_contents_table_thead_row = this.document.createElement('tr');    // テーブル行
-
-                ['商品名', '販売状況'].forEach(text => {
-                    const tab_contents_table_thead_th = this.document.createElement('th');
-                    tab_contents_table_thead_th.textContent = text;
-                    tab_contents_table_thead_row.appendChild(tab_contents_table_thead_th);
+                    tab_contents_table_tbody_td_sales_pulldown.appendChild(pulldown_option);
                 });
+                tab_contents_table_tbody_td_sales_pulldown.selectedIndex = all_data[c].products.sales[p] === '販売中' ? 0 : all_data[c].products.sales[p] === '仕入準備中' ? 1 : 2;
 
-                tab_contents_table_thead.appendChild(tab_contents_table_thead_row);
-                tab_contents_table.appendChild(tab_contents_table_thead);
+                tab_contents_table_tbody_td_sales_pulldown.dataset.index = `${c}-${p}`;  // プルダウン番地を入力（post用）
 
-                // tbody部分
-                const tab_contents_table_tbody = this.document.createElement('tbody');
+                tab_contents_table_tbody_td_sales.appendChild(tab_contents_table_tbody_td_sales_pulldown);
+                tab_contents_table_tbody_tr.appendChild(tab_contents_table_tbody_td_sales);
 
-                for (let p = 0; p < all_data[c].products.pdname.length; p++) {
-                    const tab_contents_table_tbody_tr = this.document.createElement('tr');
-
-                    // 商品名
-                    const tab_contents_table_tbody_td_pdname = this.document.createElement('td');
-                    tab_contents_table_tbody_td_pdname.textContent = all_data[c].products.pdname[p];
-                    tab_contents_table_tbody_tr.appendChild(tab_contents_table_tbody_td_pdname);
-
-                    // チェックボックス生成（販売状況）
-                    const tab_contents_table_tbody_td_sales = this.document.createElement('td');
-
-                    const tab_contents_table_tbody_td_sales_checkbox = Object.assign(this.document.createElement('input'), {
-                        type: 'checkbox',
-                        className: 'tab_contents_table_tbody_td_sales_checkbox',
-                        checked: all_data[c].products.sales[p] === '完売'
-                    });
-
-                    tab_contents_table_tbody_td_sales_checkbox.dataset.index = `${c}-${p}`;  // チェックボックス番地を入力（post用）
-
-                    const tab_contents_table_tbody_td_sales_checkbox_label = Object.assign(this.document.createElement('span'), {
-                        className: tab_contents_table_tbody_td_sales_checkbox.checked ? 'soldout' : 'onsale',
-                        textContent: tab_contents_table_tbody_td_sales_checkbox.checked ? '完売' : '販売中'
-                    });
-
-                    tab_contents_table_tbody_td_sales.appendChild(tab_contents_table_tbody_td_sales_checkbox);
-                    tab_contents_table_tbody_td_sales.appendChild(tab_contents_table_tbody_td_sales_checkbox_label);
-                    tab_contents_table_tbody_tr.appendChild(tab_contents_table_tbody_td_sales);
-
-                    // tbody入力処理
-                    tab_contents_table_tbody.appendChild(tab_contents_table_tbody_tr);
-                }
-
-                // table入力処理
-                tab_contents_table.appendChild(tab_contents_table_tbody);
-                tab_contents_div.appendChild(company_total_display);
-                tab_contents_div.appendChild(tab_contents_table);
-                this.document.getElementById('tab_contents').appendChild(tab_contents_div);
+                // tbody入力処理
+                tab_contents_table_tbody.appendChild(tab_contents_table_tbody_tr);
             }
 
-            // 初期表示タブの設定・自動再読み込み時のタブ移動制限
-            if (tab_select == null) {
-                tab_select = 0;
-                const first_tab = document.querySelector('#tab_buttons button');
-                if (first_tab) first_tab.click();
-            } else if (tab_select >= 0 && tab_select < company_count) {
-                document.querySelectorAll('#tab_buttons button').forEach((btn, c) => {
-                    btn.classList.toggle('active_tab', c == tab_select);
-                });
+            // table入力処理
+            tab_contents_table.appendChild(tab_contents_table_tbody);
+            tab_contents_div.appendChild(company_total_display);
+            tab_contents_div.appendChild(tab_contents_table);
+            this.document.getElementById('tab_contents').appendChild(tab_contents_div);
+        }
 
-                document.querySelectorAll('.tab_content').forEach((div, c) => {
-                    div.classList.toggle('show', c == tab_select);
-                });
+        // 初期表示タブの設定・自動再読み込み時のタブ移動制限
+        if (tab_select == null) {
+            tab_select = 0;
+            const first_tab = document.querySelector('#tab_buttons button');
+            if (first_tab) first_tab.click();
+        } else if (tab_select >= 0 && tab_select < company_count) {
+            document.querySelectorAll('#tab_buttons button').forEach((btn, c) => {
+                btn.classList.toggle('active_tab', c == tab_select);
+            });
 
-                console.log('tab_select');
-                console.log(tab_select);
-            }
+            document.querySelectorAll('.tab_content').forEach((div, c) => {
+                div.classList.toggle('show', c == tab_select);
+            });
 
-            // checkboxクリック時 ここから
-            this.document.querySelectorAll('.tab_contents_table_tbody_td_sales_checkbox').forEach(checkbox => {
-                checkbox.addEventListener('change', async (event) => {
-                    const checkbox_dataset = event.target.dataset.index;
-                    console.log(`${checkbox_dataset}(${parseInt(checkbox_dataset[0]) + 1}社目, ${parseInt(checkbox_dataset.slice(2)) + 1}番目の商品)`);
-                    const checkbox_c = parseInt(checkbox_dataset[0]), checkbox_p = parseInt(checkbox_dataset.slice(2));
+            console.log('tab_select');
+            console.log(tab_select);
+        }
 
-                    Object.assign(this.document.querySelector(`[data-index="${checkbox_dataset}"]`).nextElementSibling, {
-                        className: event.target.checked ? 'soldout' : 'onsale',
-                        textContent: event.target.checked ? '完売' : '販売中'
-                    });
+        // プルダウン変更時 ここから
+        this.document.querySelectorAll('.tab_contents_table_tbody_td_sales_pulldown').forEach(pulldown => {
+            pulldown.addEventListener('change', async (event) => {
+                const pulldown_dataset = event.target.dataset.index;
+                console.log(`${pulldown_dataset}(${parseInt(pulldown_dataset[0]) + 1}社目, ${parseInt(pulldown_dataset.slice(2)) + 1}番目の商品)`);
+                const pulldown_c = parseInt(pulldown_dataset[0]), pulldown_p = parseInt(pulldown_dataset.slice(2));
 
-                    // ローカルデータの更新
-                    all_data[checkbox_c].products.sales[checkbox_p] = event.target.checked ? '完売' : '販売中';
-                    console.log(all_data);
-                    all_sales_count = 0;
+                // ローカルデータの更新
+                all_data[pulldown_c].products.sales[pulldown_p] = document.querySelector(`[data-index="${pulldown_dataset}"]`).value;
+                console.log(all_data);
+                all_sales_count = 0;
 
-                    for (let c = 0; c < all_data.length; c++) {
-                        company_products_count = 0;
-                        company_sales_count = 0;
+                for (let c = 0; c < all_data.length; c++) {
+                    company_products_count = 0;
+                    company_sales_count = 0;
 
-                        for (let p = 0; p < all_data[c].products.pdname.length; p++) {
-                            company_products_count++;
+                    for (let p = 0; p < all_data[c].products.pdname.length; p++) {
+                        company_products_count++;
 
-                            if (all_data[c].products.sales[p] === '完売') {
-                                all_sales_count++;
-                                company_sales_count++;
-                            }
+                        if (all_data[c].products.sales[p] === '完売' || all_data[c].products.sales[p] === '仕入準備中') {
+                            all_sales_count++;
+                            company_sales_count++;
                         }
-
-                        ps_count.sales_count[c] = company_sales_count;
-                        const company_total_display_text_update = this.document.querySelector(`.company_total_display_text[data-index="${c}"]`);
-                        if (company_total_display_text_update) company_total_display_text_update.innerHTML = `<span class="company_total_display_text_company_name">${all_data[c].company_name}</span>（　商品数：${ps_count.products_count[c]}　／　完売数：${company_sales_count}　）`;
                     }
 
-                    total_display.innerHTML = `企業数：${company_count}　／　商品数：${all_products_count}　／　完売数：${all_sales_count}`;
+                    ps_count.sales_count[c] = company_sales_count;
+                    const company_total_display_text_update = this.document.querySelector(`.company_total_display_text[data-index="${c}"]`);
+                    if (company_total_display_text_update) company_total_display_text_update.innerHTML = `<span class="company_total_display_text_company_name">${all_data[c].company_name}</span>（　商品数：${ps_count.products_count[c]}　／　完売数：${company_sales_count}　）`;
+                }
 
-                    console.log(`企業数: ${company_count}`)
-                    console.log(`商品数: ${all_products_count}`);
-                    console.log(`完売数: ${all_sales_count}`);
-                    console.log('ps_count: ');
-                    console.log(ps_count);
+                total_display.innerHTML = `企業数：${company_count}　／　商品数：${all_products_count}　／　完売数：${all_sales_count}`;
 
-                    // gasへpostリクエスト
-                    const gas_post_data = new URLSearchParams({
-                        company_number: checkbox_c,
-                        product_number: checkbox_p,
-                        sales: event.target.checked ? '完売' : '販売中'
-                    });
+                console.log(`企業数: ${company_count}`)
+                console.log(`商品数: ${all_products_count}`);
+                console.log(`完売数: ${all_sales_count}`);
+                console.log('ps_count: ');
+                console.log(ps_count);
 
-                    const response = await this.fetch(post, { method: 'POST', body: gas_post_data });
+                // gasへpostリクエスト
+                const gas_post_data = new URLSearchParams({
+                    company_number: pulldown_c,
+                    product_number: pulldown_p,
+                    sales: all_data[pulldown_c].products.sales[pulldown_p]
+                });
 
-                    if (response.ok) {
-                        const result = await response.text();
+                const response = await this.fetch(post, { method: 'POST', body: gas_post_data });
 
-                        if (result == 'NG') {
-                            alert('スプレッドシートの更新に失敗しました。\nデータの整合性を保つため、再読み込みします。');
-                            window.location.reload();
-                        }
-                    } else {
-                        alert('読み込みエラーが発生しました。\n再読み込みします。');
+                if (response.ok) {
+                    const result = await response.text();
+
+                    if (result == 'NG') {
+                        alert('スプレッドシートの更新に失敗しました。\nデータの整合性を保つため、再読み込みします。');
                         window.location.reload();
                     }
-                });
+                } else {
+                    alert('読み込みエラーが発生しました。\n再読み込みします。(1)');
+                    window.location.reload();
+                }
             });
-        } else {
-            alert('読み込みエラーが発生しました。\n再読み込みします。');
-            window.location.reload();
-        }
-    } catch (error) {
-        alert('ネットワークエラーが発生しました。\n再読み込みします。');
+        });
+    } else {
+        alert('読み込みエラーが発生しました。\n再読み込みします。(1)');
         window.location.reload();
     }
 }
@@ -382,8 +374,8 @@ document.getElementById('tab_buttons').addEventListener('click', (event) => {
 });
 
 // 自動再読み込み
-window.onload = () => {
-    setInterval(async () => {
-        await gas_Loading(gas_url_get, gas_url_post);
-    }, (Math.floor(Math.random() * 121) + 60) * 1000);
-}
+// window.onload = () => {
+//     setInterval(async () => {
+//         await gas_Loading(gas_url_get, gas_url_post);
+//     }, (Math.floor(Math.random() * 121) + 60) * 1000);
+// }

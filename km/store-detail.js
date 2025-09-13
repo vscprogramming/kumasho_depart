@@ -124,9 +124,7 @@ document.addEventListener("DOMContentLoaded", () => {
       });
 
       modalClose.addEventListener("click", closeModal);
-      window.addEventListener("click", e => {
-        if (e.target.id === "modal") closeModal();
-      });
+      
       window.addEventListener("keydown", e => {
         if (e.key === "Escape") closeModal();
       });

@@ -1,0 +1,28 @@
+#title {
+    background-color: #e60;
+}
+
+#store_tab {
+    background-color: #7b1f29;
+}
+
+#products_window {
+    background-color: #f4f4f4;
+}
+
+html, body{
+    margin: 0; padding: 0;
+    color: #fff;
+    font-family: 'Noto Sans JP', sans-serif;
+}
+
+h1 {
+    margin: 0 0 0 18px;
+    color: #fff4d6;
+    font-weight: bolder;
+    font-family: 'Noto Serif JP', serif;
+}
+
+#store {
+    display: flex;
+}

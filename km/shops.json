@@ -407,7 +407,7 @@
     },
     {
         "id": "2-2-1",
-        "name": "田舎総菜 樂や",
+        "name": "田舎惣菜 樂や",
         "catch": "キャッチコピー",
         "image": "img/1-1/Cafe.jpg",
         "pr": [
@@ -431,7 +431,7 @@
                 "image": "img/1-1/Cafe03.jpg"
             }
         ],
-        "company_name": "田舎総菜 樂や",
+        "company_name": "田舎惣菜 樂や",
         "gasUrl": "https://script.google.com/macros/s/AKfycbyC285RKzw7FJvpHwKKgjhjWj8QjjJ5vFwvwIHAfqENUiRKZga0tGCclP1h1iKvZ4_yLQ/exec"
     },
     {

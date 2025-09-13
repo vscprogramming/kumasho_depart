@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>販売商品一覧</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header id="fixed-header">
+    <h1>販売商品一覧</h1>
+    <div id="last-updated">最終更新：--</div>
+  </header>
+
+  <div id="loading-message">読み込み中です…</div>
+
+  <div id="filter-container">
+    <button id="search-toggle">︙</button>
+  </div>
+
+  <table id="product-table">
+    <thead>
+      <tr>
+        <th>店舗</th>
+        <th>クラス</th>  
+        <th>商品名</th>
+        <th>価格</th>
+        <th>販売状況</th>
+      </tr>
+    </thead>
+    <tbody id="product-list"></tbody>
+  </table>
+
+  <!-- 🔍 モーダル：検索＋絞り込み -->
+  <div id="search-modal" class="hidden">
+    <div class="modal-content">
+      <span id="close-modal">&times;</span>
+      <h2>商品検索・絞り込み</h2>
+
+      <input type="text" id="search-input" placeholder="商品名・店舗名・クラス名で検索">
+
+      <label for="status-filter">販売状況：</label>
+      <select id="status-filter">
+        <option value="すべて">すべて</option>
+        <option value="販売中">販売中</option>
+        <option value="完売">完売</option>
+        <option value="仕入準備中">仕入準備中</option>
+      </select>
+
+      <button id="search-button">検索</button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
