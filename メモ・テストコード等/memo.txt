@@ -1,12 +1,27 @@
 〇商品登録システム
 	・商品の名前、数量を登録
 
-〇商品管理システム
-	・商品登録システムに基づき在庫を管理する
-	・店頭商品も販売状況等により逐一変更可能
-
 〇情報送信用（お客様呼び出し・落とし物等）
     本部用と放送部用が必要？
     そもそも作るのか？
 
-スクロール位置が再読み込み時に元に戻る説
+やるべきこと
+・CSSの最適化（モーダル類）
+・jsの最適化（ボタンの処理類）
+・検索機能（gasの負担を減らしましょう）
+
+
+販売状況リセットプログラム（GASに設定するやつ）
+function setStatusByStoreWithVariableItems() {
+  const sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
+  const storeCount = sheet.getRange("A4").getValue(); // 店舗数
+  const startRow = 8;
+
+  for (let i = 0; i < storeCount; i++) {
+    const itemCountCol = 2 + i * 4;
+    const itemCount = sheet.getRange(6, itemCountCol).getValue();
+    const statusCol = itemCountCol + 1;
+    const range = sheet.getRange(startRow, statusCol, itemCount);
+    range.setValue("販売中");
+  }
+}

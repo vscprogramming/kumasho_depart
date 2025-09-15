@@ -40,10 +40,18 @@
         </main>
 
         <!-- モーダル類 -->
-        <div id="search_modal">
-            <input type="text" id="search_input" name="search_input" placeholder="検索">
-            <a id="s_up"><span class="material-icons" id="s_up_icon">arrow_upward</span></a>
-            <a id="s_down"><span class="material-icons" id="s_down_icon">arrow_downward</span></a>
+        <div id="search_modal_back">
+            <div id="search_modal">
+                <div id="search_title">
+                    <button id="search_close_button">
+                        <span class="material-icons" id="search_close_icon">close</span>
+                    </button>
+                </div>
+
+                <input type="text" id="search_input" name="search_input" placeholder="商品名を入力してください">
+                <button id="search_reset">絞り込み解除</button>
+                <button id="search">検索</button>
+            </div>
         </div>
 
         <div id="logout_modal">
