@@ -1,33 +1,213 @@
+['resize', 'DOMContentLoaded'].forEach(event => window.addEventListener(event, () => resize_div()));
+
 function resize_div() {
-    const window_width = window.innerWidth;
-    const window_height = window.innerHeight;
-
-    // タイトルdiv
-    Object.assign(document.getElementById('title').style, {
-        width: `${window_width}px`,
-        height: `${window_height * 0.07}px`,
-        fontSize: `2.6vmin`
-    });
-
-    // 店舗・商品表示（最上）
-    Object.assign(document.getElementById('store').style, {
-        width: `${window_width}px`,
-        height: `${window_height - window_height * 0.07}px`
-    });
-
-    // 店舗選択タブ
-    Object.assign(document.getElementById('store_tab').style, {
-        width: '17%',
-        height: `${window_height - window_height * 0.07}px`
-    });
-
-    // 商品一覧
-    Object.assign(document.getElementById('products_window').style, {
-        width: `83%`,
-        height: `${window_height - window_height * 0.07}px`
+    Object.assign(document.getElementById('all').style, {
+        width: `${window.innerWidth}px`,
+        height: `${window.innerHeight}px`
     });
 }
 
-['resize', 'DOMContentLoaded'].forEach(event => {
-    window.addEventListener(event, () => resize_div())
+var json_data, all_data = [];
+let tab_select;
+
+window.addEventListener('DOMContentLoaded', async () => {
+    // ローディング表示
+
+    await json_load();
+    await content_generation();
+
+    // ローディング非表示
 });
+
+async function json_load() {
+    try {
+        const response = await fetch('products.json');
+
+        if (response.ok) {
+            json_data = await response.json();
+
+            // データ構造変えちゃえ
+            json_data.forEach((jd_row, i) => all_data[i + 1] = jd_row);
+            
+            console.log(all_data);
+        } else {
+            alert('データの読み込みに失敗しました。\n再読み込みします。');
+            window.location.reload();
+        }
+    } catch (error) {
+        alert('ネットワークエラーが発生しました。\n再読み込みします。');
+        window.location.reload();
+    }
+}
+
+function content_generation() {
+    const company_count = all_data.length; // 企業数
+    // タブボタン生成
+    const store_buttons = document.getElementById('store_buttons');
+
+    for (let c = 0; c < company_count; c++) {
+        if (c == 0) {
+            const home_btn = Object.assign(document.createElement('button'), {
+                className: 'home_btn',
+                textContent: 'ホーム'
+            });
+
+            home_btn.dataset.index = c;
+            store_buttons.appendChild(home_btn);
+        } else {
+            const tab_btns = Object.assign(document.createElement('button'), {
+                className: 'tab_btns',
+                textContent: all_data[c].name
+            });
+
+            tab_btns.dataset.index = c;
+            store_buttons.appendChild(tab_btns);
+        }
+    }
+
+    // 企業データの生成
+    const products_window = document.getElementById('products_window');
+
+    for (let c = 0; c < company_count; c++) {
+        if (c == 0) {
+            const content = document.createElement('div');  // おおもと
+            Object.assign(content, {
+                classList: 'contents'
+            });
+
+            // タイトル類生成
+            const company_title = document.createElement('div');
+            Object.assign(company_title, {
+                classList: 'company_title'
+            });
+
+            const img = document.createElement('img');
+            Object.assign(img, {
+                src: 'img/store/home.png',
+                alt: 'ホーム'
+            });
+            company_title.appendChild(img);
+
+            const title_text = document.createElement('h1');
+            Object.assign(title_text, {
+                className: 'title_text',
+                textContent: 'ホーム'
+            });
+            company_title.appendChild(title_text);
+
+            content.appendChild(company_title);  // 最後
+
+            // その他コンテンツ
+            
+            const info = document.createElement('div');
+            Object.assign(info, {
+                classList: 'info'
+            });
+
+            const info_text = document.createElement('div');
+            Object.assign(info_text, {
+                classList: 'info_text',
+                innerHTML: `
+                    <style>
+                        h2, h3 { margin: 0;
+                            font-family: 'Noto Serif JP', serif;
+                        }
+                            
+                        h3 {
+                            color: red;
+                            font-weight: bolder;
+                        }
+                    </style>
+                    <h2>第３８回 熊商デパート　事前販売商品一覧サイトです。</h2>
+                    <h2>各企業のタブをクリックして、商品をご覧ください。</h2>
+                    <h2>購入希望の方は、申し込みフォームにアクセスしてください。</h2>
+                    <h3>※商品は数に限りがある場合がございます。注文数が超過した場合は、抽選販売となります。ご了承ください。</h3>
+                    <br>なお、今回の事前販売は以下のようなスケジュールで行います。<br>
+                    <h3>フォーム受付期間：*?月*?日（?）〜*?月*?日（?）</h3>
+                    <h3>抽選結果発表：*?月*?日<br>当選した人にはメールを送信いたします。</h3>
+                `
+            });
+            info.appendChild(info_text);
+            content.appendChild(info);
+
+            products_window.appendChild(content);   // おおもと
+        } else {
+            const content = document.createElement('div');  // おおもと
+            Object.assign(content, {
+                classList: 'contents'
+            });
+            content.dataset.index = c;
+
+            // タイトル類生成
+            const company_title = document.createElement('div');
+            Object.assign(company_title, {
+                classList: 'company_title'
+            });
+
+            const img = document.createElement('img');
+            Object.assign(img, {
+                src: all_data[c].img,
+                alt: all_data[c].name
+            });
+            company_title.appendChild(img);
+
+            const title_text = document.createElement('h1');
+            Object.assign(title_text, {
+                className: 'title_text',
+                textContent: all_data[c].name
+            });
+            company_title.appendChild(title_text);
+            content.appendChild(company_title);  // 最後
+
+            // formへ飛ぶボタン
+            const form_btn = document.createElement('button')
+            Object.assign(form_btn, {
+                onclick() {
+                    window.location.href = all_data[c].form_url
+                },
+                textContent: `${all_data[c].name}　注文フォームへ`,
+                classList: 'form_btns'
+            })
+            content.appendChild(form_btn);  // 最後
+
+            // 商品カード生成
+            const products = document.createElement('div');
+            Object.assign(products, {
+                classList: 'products'
+            });
+
+            for (let p = 0; p < all_data[c].products.length; p++) {
+                const products_card = document.createElement('div');
+                Object.assign(products_card, {
+                    classList: 'products_card',
+                    textContent: all_data[c].products[p].name
+                });
+                products.appendChild(products_card); // グリッドおおもと
+
+            }
+
+            content.appendChild(products);  // 最後
+            products_window.appendChild(content);   // おおもと
+        }
+    }
+
+    if (tab_select == null) {
+        tab_select = 0;
+        const first_tab = document.querySelector('#store_buttons button');
+        if (first_tab) first_tab.click();
+    } else if (tab_select >= 0 && tab_select < company_count) {
+        document.querySelectorAll('#store_buttons button').forEach((btn, c) => btn.classList.toggle('active_tab', c == tab_select));
+        document.querySelectorAll('.contents').forEach((div, c) => div.classList.toggle('show', c == tab_select));
+    }
+}
+
+// タブ切り替え機構
+document.getElementById('store_buttons').addEventListener('click', (event) => {
+    if (event.target.tagName === 'BUTTON') {
+        const index = event.target.dataset.index;
+        tab_select = parseInt(index);
+        document.querySelectorAll('#store_buttons button').forEach(btn => btn.classList.remove('active_tab'));  // ボタン見た目
+        event.target.classList.add('active_tab');
+        document.querySelectorAll('.contents').forEach((div, i) => div.classList.toggle('show', i == index));
+    }
+})

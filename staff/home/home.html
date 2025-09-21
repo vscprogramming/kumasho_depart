@@ -241,7 +241,7 @@
         </div>
     </div>
 
-    <p>v1.1.1(v1.1)(v1.5.1)</p> <!-- バージョン情報 -->
+    <p>v1.6</p> <!-- バージョン情報 -->
 
     <script>
         const class_options = {
@@ -317,10 +317,7 @@
             });
 
             // プルダウンリストが変更されたとき、パスワード欄をリセット
-            document.getElementById('class').addEventListener('change', () => {
-                document.getElementById('password').value = '';
-            });
-
+            document.getElementById('class').addEventListener('change', () => document.getElementById('password').value = '');
             update_class_options(document.querySelector('input[name="grade"]:checked').value);
 
             // ユーザーID・パスワードの取得
@@ -365,7 +362,6 @@
                     localStorage.setItem(`logged_${id}`, 'true');
                     localStorage.setItem(`class_name`, `${id[0]}-${id[1]}`);
                     localStorage.setItem(`class_number`, id);
-                    // サイトに移動
                     window.location.href = '../product_management/product_management.html';
                 } else {
                     console.error('パスワードが間違っています');

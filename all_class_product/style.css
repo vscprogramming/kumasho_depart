@@ -159,3 +159,44 @@ body {
   border-radius: 4px;
   cursor: pointer;
 }
+
+#filter-container button {
+  padding: 8px 16px;
+  margin: 4px;
+  font-size: 14px;
+  border: none;
+  border-radius: 4px;
+  background-color: #f0f0f0;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#filter-container button:hover {
+  background-color: #ddd;
+}
+
+#show-osusume {
+  background-color: #ffe4b5;
+}
+
+#show-osusume.active {
+  background-color: #ffcc80;
+  font-weight: bold;
+}
+
+#show-all.active {
+  background-color: #cce5ff;
+  font-weight: bold;
+}
+
+#switching-message {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #555;
+}
+
+.hidden {
+  display: none;
+}
+
+

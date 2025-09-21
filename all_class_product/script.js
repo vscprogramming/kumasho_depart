@@ -29,6 +29,7 @@ const apiConfigs = [
 ];
 
 let allProducts = [];
+let currentDisplayMode=`all`;
 
 async function fetchFromGAS(url) {
   try {
@@ -179,3 +180,86 @@ document.getElementById('search-button').addEventListener('click', () => {
   displayData(filtered);
   document.getElementById('search-modal').classList.add('hidden');
 });
+
+
+//おすすめ表示
+async function fetchOsusumeList() {
+  try {
+    const response = await fetch('osusume.json');
+    if (!response.ok) throw new Error(`おすすめJSON取得失敗: ${response.status}`);
+    return await response.json();
+  } catch (error) {
+    console.error("おすすめ商品の読み込み失敗:", error);
+    return [];
+  }
+}
+
+function filterOsusumeProducts(allProducts, osusumeList) {
+  return allProducts.filter(product =>
+    osusumeList.some(osu =>
+      product.name.trim() === osu.name.trim() &&
+      product.store.trim() === osu.store.trim() &&
+      product.class.trim() === osu.class.trim()
+    )
+  );
+}
+
+function showSwitchingMessage() {
+  const msg = document.getElementById('switching-message');
+  msg.classList.remove('hidden');
+  setTimeout(() => msg.classList.add('hidden'), 1000);
+}
+
+function toggleActiveButton(activeId) {
+  document.getElementById('show-all').classList.remove('active');
+  document.getElementById('show-osusume').classList.remove('active');
+  document.getElementById(activeId).classList.add('active');
+}
+
+document.getElementById('show-all').addEventListener('click', () => {
+  currentDisplayMode = 'all';
+  showSwitchingMessage();
+  displayData(allProducts);
+  toggleActiveButton('show-all');
+});
+
+document.getElementById('show-osusume').addEventListener('click', async () => {
+  currentDisplayMode = 'osusume';
+  showSwitchingMessage();
+  const osusumeList = await fetchOsusumeList();
+  const filtered = filterOsusumeProducts(allProducts, osusumeList);
+  displayData(filtered);
+  toggleActiveButton('show-osusume');
+
+});
+
+async function loadAllData() {
+  const loading = document.getElementById('loading-message');
+  loading.classList.remove('hidden');
+
+  try {
+    const fetchPromises = apiConfigs.map(async config => {
+      const raw = await fetchFromGAS(config.url);
+      return parseProducts(raw, config.className);
+    });
+
+    const results = await Promise.all(fetchPromises);
+    allProducts = results.flat();
+    updateTimestamp();
+
+    if (currentDisplayMode === 'osusume') {
+      const osusumeList = await fetchOsusumeList();
+      const filtered = filterOsusumeProducts(allProducts, osusumeList);
+      displayData(filtered);
+      toggleActiveButton('show-osusume');
+    } else {
+      displayData(allProducts);
+      toggleActiveButton('show-all');
+    }
+  } catch (error) {
+    console.error("データ読み込みエラー:", error);
+    displayData([]);
+  } finally {
+    loading.classList.add('hidden'); // ← ここが重要
+  }
+}
