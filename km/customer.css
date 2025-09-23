@@ -1,4 +1,5 @@
-html, body {
+html,
+body {
   height: 100%;
   overflow-y: auto;
   overflow-x: hidden;
@@ -13,7 +14,7 @@ html, body {
 /* スクロールバーのカスタマイズ（Chrome, Edge, Safari） */
 body::-webkit-scrollbar {
   width: 8px;
-  background: #f9f7f2;
+  background: #fff3b8;
 }
 
 body::-webkit-scrollbar-thumb {
@@ -171,7 +172,8 @@ footer a {
   padding: 10px;
 }
 
-.back-link, .show-status{
+.back-link,
+.show-status {
   display: inline-block;
   margin-top: 2rem;
   font-weight: bold;
@@ -180,7 +182,8 @@ footer a {
   transition: color 0.3s ease, background 0.3s;
 }
 
-.back-link:hover, .show-status:hover{
+.back-link:hover,
+.show-status:hover {
   color: #d4af37;
   background: #fffbe6;
 }
@@ -316,4 +319,3 @@ body.modal-open {
   padding: 0;
   display: inline-block;
 }
-

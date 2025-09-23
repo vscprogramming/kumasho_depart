@@ -74,7 +74,12 @@ document.addEventListener("DOMContentLoaded", () => {
       document.querySelector(".show-status").addEventListener("click", () => {
         modal.classList.remove("hidden");
         document.body.classList.add("modal-open");
-        modalBody.innerHTML = messages.loading;
+  // 検索UI初期化・非表示
+  const searchInput = document.getElementById("product-search");
+  searchInput.value = "";
+  searchInput.style.display = "none";
+  const modalProductList = document.getElementById("modal-product-list");
+  modalProductList.innerHTML = `<p>${messages.loading}</p>`;
 
         fetch(shop.gasUrl)
           .then(response => {
@@ -95,31 +100,51 @@ document.addEventListener("DOMContentLoaded", () => {
               }
             });
 
-            if (matchedProducts.length > 0) {
-              const companyHeader = `<h3 style="margin-top: 1em;">${shop.company_name}</h3>`;
-              const productList = matchedProducts.map(item => {
-                const isSoldOut = item.sales === "完売";
-                return `
-                  <div class="item" style="
-                    margin-bottom: 16px;
-                    padding: 8px;
-                    background-color: ${isSoldOut ? '#eee' : '#fff'};
-                    border-bottom: 1px solid #ccc;
-                  ">
-                    <strong>${item.pdname}</strong><br>
-                    価格: ¥${Number(item.price || 0).toLocaleString()}<br>
-                    販売状況: <span style="color:${isSoldOut ? 'red' : 'black'};">${item.sales}</span>
-                  </div>
-                `;
-              }).join('');
-              modalBody.innerHTML = companyHeader + productList;
-            } else {
-              modalBody.innerHTML = `<p>${messages.notFound}</p>`;
+            // 商品リスト描画関数
+            function renderProducts(products) {
+              if (products.length > 0) {
+                const companyHeader = `<h3 style="margin-top: 1em;">${shop.company_name}</h3>`;
+                const productList = products.map(item => {
+                  const isSoldOut = item.sales === "完売";
+                  return `
+                    <div class="item" style="
+                      margin-bottom: 16px;
+                      padding: 8px;
+                      background-color: ${isSoldOut ? '#eee' : '#fff'};
+                      border-bottom: 1px solid #ccc;
+                    ">
+                      <strong>${item.pdname}</strong><br>
+                      価格: ¥${Number(item.price || 0).toLocaleString()}<br>
+                      販売状況: <span style="color:${isSoldOut ? 'red' : 'black'};">${item.sales}</span>
+                    </div>
+                  `;
+                }).join('');
+                modalProductList.innerHTML = companyHeader + productList;
+              } else {
+                modalProductList.innerHTML = `<p>${messages.notFound}</p>`;
+              }
             }
+
+            // 初期表示 & 検索窓表示
+            renderProducts(matchedProducts);
+            searchInput.style.display = "block";
+
+            // 検索イベント
+            searchInput.addEventListener("input", function() {
+              const keyword = this.value.trim();
+              const filtered = matchedProducts.filter(item =>
+                item.pdname && item.pdname.includes(keyword)
+              );
+              if (filtered.length > 0) {
+                renderProducts(filtered);
+              } else {
+                modalProductList.innerHTML = '<p>該当する商品はありません。</p>';
+              }
+            });
           })
           .catch(error => {
             console.error("GASデータ取得エラー:", error);
-            modalBody.innerHTML = `<p>${messages.fetchError}</p>`;
+            modalProductList.innerHTML = `<p>${messages.fetchError}</p>`;
           });
       });
 

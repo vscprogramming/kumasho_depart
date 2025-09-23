@@ -191,9 +191,7 @@ table th:nth-child(2), table td:nth-child(2) { width: 35%; }
     opacity: 1;
 }
 
-#search_button:hover #search_icon,
-#reload_button:hover #reload_icon,
-#logout_button:hover #logout_icon { display: none; }
+#search_button:hover #search_icon, #reload_button:hover #reload_icon, #logout_button:hover #logout_icon { display: none; }
 
 #search_button:hover::after, #reload_button:hover::after, #logout_button:hover::after {
     font-size: 20px;

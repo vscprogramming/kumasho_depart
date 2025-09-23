@@ -241,7 +241,7 @@
         </div>
     </div>
 
-    <p>v1.7.1</p> <!-- バージョン情報 -->
+    <p>v1.7.2</p>   <!-- バージョン情報 -->
 
     <script>
         const class_options = {
@@ -311,9 +311,7 @@
 
             // プルダウンリストの内容作成
             document.querySelectorAll('input[name="grade"]').forEach(radio => {
-                radio.addEventListener('change', () => {
-                    update_class_options(radio.value);
-                });
+                radio.addEventListener('change', () => update_class_options(radio.value));
             });
 
             // プルダウンリストが変更されたとき、パスワード欄をリセット

@@ -1,4 +1,6 @@
-['resize', 'DOMContentLoaded'].forEach(event => window.addEventListener(event, () => resize_div()));
+['resize', 'DOMContentLoaded'].forEach(event => {
+    window.addEventListener(event, () => resize_div());
+});
 
 function resize_div() {
     Object.assign(document.getElementById('all').style, {
@@ -23,7 +25,9 @@ async function json_load() {
             json_data = await response.json();
 
             // データ構造変えちゃえ
-            json_data.forEach((jd_row, i) => all_data[i + 1] = jd_row);
+            json_data.forEach((jd_row, i) => {
+                all_data[i + 1] = jd_row;
+            });
 
             console.log(all_data);
         } else {
@@ -152,7 +156,9 @@ function content_generation() {
             // formへ飛ぶボタン
             const form_btn = document.createElement('button')
             Object.assign(form_btn, {
-                onclick() { window.location.href = all_data[c].form_url },
+                onclick() {
+                    window.location.href = all_data[c].form_url;
+                },
                 textContent: `${all_data[c].name}　注文フォームへ`,
                 classList: 'form_btns'
             })
@@ -200,8 +206,13 @@ function content_generation() {
         const first_tab = document.querySelector('#store_buttons button');
         if (first_tab) first_tab.click();
     } else if (tab_select >= 0 && tab_select < company_count) {
-        document.querySelectorAll('#store_buttons button').forEach((btn, c) => btn.classList.toggle('active_tab', c == tab_select));
-        document.querySelectorAll('.contents').forEach((div, c) => div.classList.toggle('show', c == tab_select));
+        document.querySelectorAll('#store_buttons button').forEach((btn, c) => {
+            btn.classList.toggle('active_tab', c == tab_select);
+        });
+
+        document.querySelectorAll('.contents').forEach((div, c) => {
+            div.classList.toggle('show', c == tab_select);
+        });
     }
 }
 
@@ -210,8 +221,15 @@ document.getElementById('store_buttons').addEventListener('click', (event) => {
     if (event.target.tagName === 'BUTTON') {
         const index = event.target.dataset.index;
         tab_select = parseInt(index);
-        document.querySelectorAll('#store_buttons button').forEach(btn => btn.classList.remove('active_tab'));  // ボタン見た目
+
+        document.querySelectorAll('#store_buttons button').forEach(btn => {
+            btn.classList.remove('active_tab');
+        });
+
         event.target.classList.add('active_tab');
-        document.querySelectorAll('.contents').forEach((div, i) => div.classList.toggle('show', i == index));
+
+        document.querySelectorAll('.contents').forEach((div, i) => {
+            div.classList.toggle('show', i == index);
+        });
     }
-})
+});
