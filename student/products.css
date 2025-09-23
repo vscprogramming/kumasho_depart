@@ -4,9 +4,7 @@ html, body {
     margin: 0;
 }
 
-#all {
-    display: flex; 
-}
+#all { display: flex; }
 
 #left {
     width: 17%; height: 100%;
@@ -60,12 +58,10 @@ html, body {
     font-weight: bolder;
 }
 
-#store_buttons button:hover {
-    color: #99f;
-}
+#store_buttons button:hover { color: #99f; }
 
 #store_buttons button.active_tab {
-    /* color: #f70; */
+    color: #f75;
     background-color: #eee3;
 }
 
@@ -83,7 +79,7 @@ html, body {
     position: relative;
 }
 
-img {
+img.company_img {
     width: 100%; height: 100%;
     margin: 0 auto;
     filter: brightness(60%);
@@ -129,37 +125,47 @@ h1.title_text{
     transition: all .3s;
 }
 
-.form_btns:hover {
-    background-color: #4dff4d;
-}
+.form_btns:hover { background-color: #4dff4d; }
 
 .products {
-    width: 100%; height: 100%;
+    width: 100%; height: 240%;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 18px;
+    gap: 7px;
     justify-items: center;
     align-items: center;
 }
 
 .products_card {
-    width: 80%; height: 340px;
+    width: 87%; height: 340px;
     margin: 18px;
     border-radius: 18px;
     background-color: #efe;
-    box-shadow: 3px 3px 3px #333;
+    box-shadow: 0 0 7px #333;
+    position: relative;
+}
+
+/* カード内コンテンツ */
+.products_img {
+    width: 95%; height: 67%;
+    left: 1%;
+    margin: 7px;
+    border-radius: 18px;
+    position: absolute;
+}
+
+.pro_info {
+    position: absolute;
+    width: 100%;
+    top: 70%;
+    margin: 0;
+    text-align: center;
 }
 
 /* スクロールバー */
-#store_buttons::-webkit-scrollbar,
-#products_window::-webkit-scrollbar {
-    width: 10px;
-}
+#store_buttons::-webkit-scrollbar, #products_window::-webkit-scrollbar { width: 10px; }
 
-#store_buttons::-webkit-scrollbar-track,
-#products_window::-webkit-scrollbar-track {
-    background: transparent;
-}
+#store_buttons::-webkit-scrollbar-track, #products_window::-webkit-scrollbar-track { background: transparent; }
 
 #store_buttons::-webkit-scrollbar-thumb {
     background-color: #eee7;
@@ -167,15 +173,11 @@ h1.title_text{
     transition: background-color 3s;
 }
 
-#store_buttons::-webkit-scrollbar-thumb:hover {
-    background-color: #eeea;
-}
+#store_buttons::-webkit-scrollbar-thumb:hover { background-color: #eeea; }
 
 #products_window::-webkit-scrollbar-thumb {
     background-color: #5557;
     border-radius: 180px;
 }
 
-#products_window::-webkit-scrollbar-thumb:hover {
-    background-color: #555a;
-}
+#products_window::-webkit-scrollbar-thumb:hover { background-color: #555a; }

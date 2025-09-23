@@ -11,12 +11,8 @@ var json_data, all_data = [];
 let tab_select;
 
 window.addEventListener('DOMContentLoaded', async () => {
-    // ローディング表示
-
     await json_load();
     await content_generation();
-
-    // ローディング非表示
 });
 
 async function json_load() {
@@ -28,7 +24,7 @@ async function json_load() {
 
             // データ構造変えちゃえ
             json_data.forEach((jd_row, i) => all_data[i + 1] = jd_row);
-            
+
             console.log(all_data);
         } else {
             alert('データの読み込みに失敗しました。\n再読み込みします。');
@@ -71,18 +67,15 @@ function content_generation() {
     for (let c = 0; c < company_count; c++) {
         if (c == 0) {
             const content = document.createElement('div');  // おおもと
-            Object.assign(content, {
-                classList: 'contents'
-            });
+            Object.assign(content, { classList: 'contents' });
 
             // タイトル類生成
             const company_title = document.createElement('div');
-            Object.assign(company_title, {
-                classList: 'company_title'
-            });
+            Object.assign(company_title, { classList: 'company_title' });
 
             const img = document.createElement('img');
             Object.assign(img, {
+                classList: 'company_img',
                 src: 'img/store/home.png',
                 alt: 'ホーム'
             });
@@ -98,18 +91,17 @@ function content_generation() {
             content.appendChild(company_title);  // 最後
 
             // その他コンテンツ
-            
+
             const info = document.createElement('div');
-            Object.assign(info, {
-                classList: 'info'
-            });
+            Object.assign(info, { classList: 'info' });
 
             const info_text = document.createElement('div');
             Object.assign(info_text, {
                 classList: 'info_text',
                 innerHTML: `
                     <style>
-                        h2, h3 { margin: 0;
+                        h2, h3 {
+                            margin: 0;
                             font-family: 'Noto Serif JP', serif;
                         }
                             
@@ -118,6 +110,7 @@ function content_generation() {
                             font-weight: bolder;
                         }
                     </style>
+
                     <h2>第３８回 熊商デパート　事前販売商品一覧サイトです。</h2>
                     <h2>各企業のタブをクリックして、商品をご覧ください。</h2>
                     <h2>購入希望の方は、申し込みフォームにアクセスしてください。</h2>
@@ -133,19 +126,16 @@ function content_generation() {
             products_window.appendChild(content);   // おおもと
         } else {
             const content = document.createElement('div');  // おおもと
-            Object.assign(content, {
-                classList: 'contents'
-            });
+            Object.assign(content, { classList: 'contents' });
             content.dataset.index = c;
 
             // タイトル類生成
             const company_title = document.createElement('div');
-            Object.assign(company_title, {
-                classList: 'company_title'
-            });
+            Object.assign(company_title, { classList: 'company_title' });
 
             const img = document.createElement('img');
             Object.assign(img, {
+                classList: 'company_img',
                 src: all_data[c].img,
                 alt: all_data[c].name
             });
@@ -162,28 +152,42 @@ function content_generation() {
             // formへ飛ぶボタン
             const form_btn = document.createElement('button')
             Object.assign(form_btn, {
-                onclick() {
-                    window.location.href = all_data[c].form_url
-                },
+                onclick() { window.location.href = all_data[c].form_url },
                 textContent: `${all_data[c].name}　注文フォームへ`,
                 classList: 'form_btns'
             })
             content.appendChild(form_btn);  // 最後
 
             // 商品カード生成
-            const products = document.createElement('div');
-            Object.assign(products, {
-                classList: 'products'
-            });
+            const products = document.createElement('div'); // グリッドおおもと
+            Object.assign(products, { classList: 'products' });
 
             for (let p = 0; p < all_data[c].products.length; p++) {
                 const products_card = document.createElement('div');
-                Object.assign(products_card, {
-                    classList: 'products_card',
-                    textContent: all_data[c].products[p].name
-                });
-                products.appendChild(products_card); // グリッドおおもと
+                Object.assign(products_card, { classList: 'products_card' });
 
+                const products_img = document.createElement('img');
+                Object.assign(products_img, {
+                    classList: 'products_img',
+                    src: all_data[c].products[p].img,
+                    alt: all_data[c].products[p].name
+                });
+                products_card.appendChild(products_img);
+
+                const pro_info = document.createElement('p');
+                Object.assign(pro_info, {
+                    classList: 'pro_info',
+                    innerHTML: `
+                        ${all_data[c].products[p].name}
+                        <br>
+                        ¥${all_data[c].products[p].price}
+                        <br>
+                        ${all_data[c].products[p].stock}
+                    `
+                });
+                products_card.appendChild(pro_info);
+
+                products.appendChild(products_card); // グリッドおおもと
             }
 
             content.appendChild(products);  // 最後

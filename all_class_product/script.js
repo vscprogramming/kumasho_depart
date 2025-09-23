@@ -75,6 +75,7 @@ function getStatusClass(status) {
     case '販売中': return 'status-on-sale';
     case '完売': return 'status-sold-out';
     case '仕入準備中': return 'status-prep';
+    case '残りわずか': return 'status-limited';
     default: return '';
   }
 }

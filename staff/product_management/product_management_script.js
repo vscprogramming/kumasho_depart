@@ -42,6 +42,7 @@ console.log(`post用：${gas_url_post}`);
 var json_data;  // データ最適化前
 var all_data = [];    // データ最適化後
 var company_count = 0;    // 企業数の集計
+var tab_contents_div;   // タブのコンテンツ
 
 // タブ用変数
 let tab_select = null;
@@ -186,8 +187,8 @@ async function content_generation(post) {
         document.getElementById('tab_buttons').appendChild(tab_btns);
 
         // 内容
-        const tab_contents_div = document.createElement('div');
-        tab_contents_div.classList.add('tab_content');
+        tab_contents_div = document.createElement('div');
+        tab_contents_div.className = ('tab_content');
         tab_contents_div.dataset.index = c;
         if (c === 0) tab_contents_div.classList.add('show');
 
@@ -229,11 +230,9 @@ async function content_generation(post) {
             // プルダウン生成（販売状況）
             const tab_contents_table_tbody_td_sales = document.createElement('td');
 
-            const tab_contents_table_tbody_td_sales_pulldown = Object.assign(document.createElement('select'), {
-                className: 'tab_contents_table_tbody_td_sales_pulldown'
-            });
+            const tab_contents_table_tbody_td_sales_pulldown = Object.assign(document.createElement('select'), { className: 'tab_contents_table_tbody_td_sales_pulldown' });
 
-            ['販売中', '仕入準備中', '完売'].forEach(sales => {
+            ['販売中', '残りわずか', '仕入準備中', '完売'].forEach(sales => {
                 const pulldown_option = Object.assign(document.createElement('option'), {
                     value: sales,
                     text: sales,
@@ -242,8 +241,8 @@ async function content_generation(post) {
                 tab_contents_table_tbody_td_sales_pulldown.appendChild(pulldown_option);
             });
 
-            tab_contents_table_tbody_td_sales_pulldown.style.backgroundColor = all_data[c].products.sales[p] === '販売中' ? '#aae' : all_data[c].products.sales[p] === '仕入準備中' ? '#aea' : '#eaa';
-            tab_contents_table_tbody_td_sales_pulldown.selectedIndex = all_data[c].products.sales[p] === '販売中' ? 0 : all_data[c].products.sales[p] === '仕入準備中' ? 1 : 2;
+            tab_contents_table_tbody_td_sales_pulldown.style.backgroundColor = all_data[c].products.sales[p] === '販売中' ? '#aae' : all_data[c].products.sales[p] === '残りわずか' ? '#ffa' : all_data[c].products.sales[p] === '仕入準備中' ? '#aea' : '#eaa';
+            tab_contents_table_tbody_td_sales_pulldown.selectedIndex = all_data[c].products.sales[p] === '販売中' ? 0 : all_data[c].products.sales[p] === '残りわずか' ? 1 : all_data[c].products.sales[p] === '仕入準備中' ? 2 : 3;
 
             tab_contents_table_tbody_td_sales_pulldown.dataset.index = `${c}-${p}`;  // プルダウン番地を入力（post用）
 
@@ -302,7 +301,7 @@ async function content_generation(post) {
 
             // ローカルデータの更新
             all_data[pulldown_c].products.sales[pulldown_p] = document.querySelector(`[data-index="${pulldown_dataset}"]`).value;
-            document.querySelector(`[data-index="${pulldown_dataset}"]`).style.backgroundColor = all_data[pulldown_c].products.sales[pulldown_p] === '販売中' ? '#aae' : all_data[pulldown_c].products.sales[pulldown_p] === '仕入準備中' ? '#aea' : '#eaa';
+            document.querySelector(`[data-index="${pulldown_dataset}"]`).style.backgroundColor = all_data[pulldown_c].products.sales[pulldown_p] === '販売中' ? '#aae' : all_data[pulldown_c].products.sales[pulldown_p] === '残りわずか' ? '#ffa' : all_data[pulldown_c].products.sales[pulldown_p] === '仕入準備中' ? '#aea' : '#eaa';
 
             console.log(all_data);
             all_sales_count = 0;
@@ -355,6 +354,8 @@ async function content_generation(post) {
             }
         });
     });
+
+    tab_contents_div.style.maxHeight = `${window.innerHeight - 132.6}px`;
 }
 
 function full_width(num) {
@@ -417,3 +418,5 @@ window.onload = () => {
         });
     }, (Math.floor(Math.random() * 121) + 60) * 1000);
 }
+
+window.addEventListener('resize', () => tab_contents_div.style.maxHeight = `${window.innerHeight - 132.6}px`);

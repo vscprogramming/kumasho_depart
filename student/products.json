@@ -8,7 +8,7 @@
             {
                 "name": "いちごサンド",
                 "img": "img/products/Cafe_Soluce/strawberry_sandwich.png",
-                "price": 0,
+                "price": 200,
                 "stock": "800個"
             },
             {
@@ -678,7 +678,7 @@
                 "stock": "数量制限なし"
             },
             {
-                "name": "王道セット（いちご大福・芋あんパイ・きな粉餅・みたらし団子）",
+                "name": "王道セット（いちご大福・芋あんパイ・きなこ餅・みたらし団子）",
                 "img": "img/products/ebisuya_mochi_honpo/oudo_set.png",
                 "price": 0,
                 "stock": "数量制限なし"
