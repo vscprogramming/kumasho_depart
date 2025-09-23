@@ -138,10 +138,10 @@ table td {
 }
 
 table td:last-child select {
-    width: 53%; height: 60%;
+    width: 53%; height: 70%;
     color: var(--color-bg-dark);
     border-radius: var(--radius);
-    font-size: large;
+    font-size: 2vh;
     text-align: center;
     font-weight: bolder;
     margin-left: 50%;

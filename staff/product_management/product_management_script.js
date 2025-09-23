@@ -190,6 +190,7 @@ async function content_generation(post) {
         tab_contents_div = document.createElement('div');
         tab_contents_div.className = ('tab_content');
         tab_contents_div.dataset.index = c;
+        tab_contents_div.style.maxHeight = `${window.innerHeight - 132.6}px`
         if (c === 0) tab_contents_div.classList.add('show');
 
         // 企業ごとの商品数・完売数の表示
@@ -354,8 +355,6 @@ async function content_generation(post) {
             }
         });
     });
-
-    tab_contents_div.style.maxHeight = `${window.innerHeight - 132.6}px`;
 }
 
 function full_width(num) {
@@ -418,5 +417,4 @@ window.onload = () => {
         });
     }, (Math.floor(Math.random() * 121) + 60) * 1000);
 }
-
-window.addEventListener('resize', () => tab_contents_div.style.maxHeight = `${window.innerHeight - 132.6}px`);
+window.addEventListener('resize', () => document.querySelectorAll('.tab_content').forEach(div => div.style.maxHeight = `${window.innerHeight - 132.6}px`));
