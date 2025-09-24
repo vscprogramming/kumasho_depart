@@ -3,9 +3,12 @@
   const INACTIVITY_TIME = 5000; // 5秒
   const SCROLL_STEP = 1.75; // 1回のスクロール量(px)
   const SCROLL_INTERVAL = 20; // スクロール間隔(ms)
+  const RESTART_DELAY = 3000; // 最下部から戻った後の再開待機時間(ms)
   let inactivityTimer = null;
   let autoScrollTimer = null;
   let isAutoScrolling = false;
+  let restartTimer = null;
+  let justReturnedToTop = false;
 
   function startAutoScroll() {
     if (isAutoScrolling) return;
@@ -14,7 +17,12 @@
       // 最下部判定
       if ((window.innerHeight + window.scrollY) >= document.body.scrollHeight - 2) {
         window.scrollTo({ top: 0, behavior: 'auto' });
-        isAutoScrolling=false
+        stopAutoScroll();
+        justReturnedToTop = true;
+        restartTimer = setTimeout(() => {
+          justReturnedToTop = false;
+          startAutoScroll();
+        }, RESTART_DELAY);
       } else {
         window.scrollBy(0, SCROLL_STEP);
       }
@@ -27,13 +35,19 @@
       clearInterval(autoScrollTimer);
       autoScrollTimer = null;
     }
+    if (restartTimer) {
+      clearTimeout(restartTimer);
+      restartTimer = null;
+    }
   }
 
   function resetInactivityTimer() {
     if (inactivityTimer) clearTimeout(inactivityTimer);
     stopAutoScroll();
     inactivityTimer = setTimeout(() => {
-      startAutoScroll();
+      if (!justReturnedToTop) {
+        startAutoScroll();
+      }
     }, INACTIVITY_TIME);
   }
 
@@ -45,7 +59,7 @@
   // 初期化
   resetInactivityTimer();
 })();
-// ...existing code...
+
 const apiConfigs = [
   { url: "https://script.google.com/macros/s/AKfycbzHsNfnfnOqQpJaD-rSgHRGsfTcxfrA6i2X-O8JhlvKuHLd-SBO3-OTXc6RjEwnNswp/exec", className: "1-1" },
   { url: "https://script.google.com/macros/s/AKfycbyXwQXuoqOi2IvKuCxYI5sqi3Sz2CcuXAFH4etCKF_bT-bpJJ3q65K0mfSV2k6Bixb3oA/exec", className: "1-2" },
