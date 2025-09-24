@@ -1,3 +1,50 @@
+// --- オートスクロール機能 ---
+(function () {
+  const INACTIVITY_TIME = 5000; // 5秒
+  const SCROLL_STEP = 2; // 1回のスクロール量(px)
+  const SCROLL_INTERVAL = 20; // スクロール間隔(ms)
+  let inactivityTimer = null;
+  let autoScrollTimer = null;
+  let isAutoScrolling = false;
+
+  function startAutoScroll() {
+    if (isAutoScrolling) return;
+    isAutoScrolling = true;
+    autoScrollTimer = setInterval(() => {
+      // 最下部判定
+      if ((window.innerHeight + window.scrollY) >= document.body.scrollHeight - 2) {
+        window.scrollTo({ top: 0, behavior: 'auto' });
+      } else {
+        window.scrollBy(0, SCROLL_STEP);
+      }
+    }, SCROLL_INTERVAL);
+  }
+
+  function stopAutoScroll() {
+    isAutoScrolling = false;
+    if (autoScrollTimer) {
+      clearInterval(autoScrollTimer);
+      autoScrollTimer = null;
+    }
+  }
+
+  function resetInactivityTimer() {
+    if (inactivityTimer) clearTimeout(inactivityTimer);
+    stopAutoScroll();
+    inactivityTimer = setTimeout(() => {
+      startAutoScroll();
+    }, INACTIVITY_TIME);
+  }
+
+  // ユーザー操作イベント
+  ['mousemove', 'mousedown', 'keydown', 'touchstart', 'wheel'].forEach(evt => {
+    window.addEventListener(evt, resetInactivityTimer, { passive: true });
+  });
+
+  // 初期化
+  resetInactivityTimer();
+})();
+// ...existing code...
 const apiConfigs = [
   { url: "https://script.google.com/macros/s/AKfycbzHsNfnfnOqQpJaD-rSgHRGsfTcxfrA6i2X-O8JhlvKuHLd-SBO3-OTXc6RjEwnNswp/exec", className: "1-1" },
   { url: "https://script.google.com/macros/s/AKfycbyXwQXuoqOi2IvKuCxYI5sqi3Sz2CcuXAFH4etCKF_bT-bpJJ3q65K0mfSV2k6Bixb3oA/exec", className: "1-2" },
@@ -29,7 +76,7 @@ const apiConfigs = [
 ];
 
 let allProducts = [];
-let currentDisplayMode=`all`;
+let currentDisplayMode = `all`;
 
 async function fetchFromGAS(url) {
   try {
