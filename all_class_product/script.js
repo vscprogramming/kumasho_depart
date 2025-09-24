@@ -1,7 +1,7 @@
 // --- オートスクロール機能 ---
 (function () {
   const INACTIVITY_TIME = 5000; // 5秒
-  const SCROLL_STEP = 2; // 1回のスクロール量(px)
+  const SCROLL_STEP = 1.75; // 1回のスクロール量(px)
   const SCROLL_INTERVAL = 20; // スクロール間隔(ms)
   let inactivityTimer = null;
   let autoScrollTimer = null;
@@ -14,6 +14,7 @@
       // 最下部判定
       if ((window.innerHeight + window.scrollY) >= document.body.scrollHeight - 2) {
         window.scrollTo({ top: 0, behavior: 'auto' });
+        isAutoScrolling=false
       } else {
         window.scrollBy(0, SCROLL_STEP);
       }
