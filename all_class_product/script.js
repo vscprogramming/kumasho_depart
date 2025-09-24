@@ -4,11 +4,13 @@
   const SCROLL_STEP = 1.75; // 1回のスクロール量(px)
   const SCROLL_INTERVAL = 20; // スクロール間隔(ms)
   const RESTART_DELAY = 3000; // 最下部から戻った後の再開待機時間(ms)
+  const WAIT_BEFORE_RETURN_TOP = 5000; // 最下部到達時の待機時間(ms)
   let inactivityTimer = null;
   let autoScrollTimer = null;
   let isAutoScrolling = false;
   let restartTimer = null;
   let justReturnedToTop = false;
+  let waitingToReturnTop = false;
 
   function startAutoScroll() {
     if (isAutoScrolling) return;
@@ -16,13 +18,21 @@
     autoScrollTimer = setInterval(() => {
       // 最下部判定
       if ((window.innerHeight + window.scrollY) >= document.body.scrollHeight - 2) {
-        window.scrollTo({ top: 0, behavior: 'auto' });
-        stopAutoScroll();
-        justReturnedToTop = true;
-        restartTimer = setTimeout(() => {
-          justReturnedToTop = false;
-          startAutoScroll();
-        }, RESTART_DELAY);
+        if (!waitingToReturnTop) {
+          waitingToReturnTop = true;
+          clearInterval(autoScrollTimer);
+          autoScrollTimer = null;
+          setTimeout(() => {
+            window.scrollTo({ top: 0, behavior: 'auto' });
+            stopAutoScroll();
+            justReturnedToTop = true;
+            waitingToReturnTop = false;
+            restartTimer = setTimeout(() => {
+              justReturnedToTop = false;
+              startAutoScroll();
+            }, RESTART_DELAY);
+          }, WAIT_BEFORE_RETURN_TOP);
+        }
       } else {
         window.scrollBy(0, SCROLL_STEP);
       }
@@ -39,6 +49,7 @@
       clearTimeout(restartTimer);
       restartTimer = null;
     }
+    waitingToReturnTop = false;
   }
 
   function resetInactivityTimer() {
