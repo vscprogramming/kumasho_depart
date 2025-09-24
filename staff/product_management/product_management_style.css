@@ -252,7 +252,6 @@ table th:nth-child(2), table td:nth-child(2) { width: 35%; }
     top: 0; left: 0;
     background: rgba(0, 0, 0, 0.5);
     z-index: 9999;
-    /* display: none; */
     position: fixed;
     display: flex;
     align-items: center;
@@ -387,7 +386,6 @@ table th:nth-child(2), table td:nth-child(2) { width: 35%; }
 .tab_content::-webkit-scrollbar-thumb {
     background-color: #f705;
     border-radius: 180px;
-    transition: background-color 3s;
 }
 
 .tab_content::-webkit-scrollbar-thumb:hover { background-color: #f70e; }
