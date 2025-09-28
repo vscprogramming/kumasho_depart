@@ -219,6 +219,7 @@ function content_generation() {
 // タブ切り替え機構
 document.getElementById('store_buttons').addEventListener('click', (event) => {
     if (event.target.tagName === 'BUTTON') {
+        document.getElementById('products_window').scrollTop = 0;
         const index = event.target.dataset.index;
         tab_select = parseInt(index);
 
