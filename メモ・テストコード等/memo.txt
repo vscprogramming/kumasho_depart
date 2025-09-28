@@ -7,14 +7,4 @@
 
 やるべきこと
 ・事前販売、写真・価格情報追加
-・コメント機能とは？
 ・パワポ
-
-
-<!-- <div class="contents">ここから下は企業分
-  <div id="products" style="display: grid;">
-    <div id="products_card">
-
-    </div>
-  </div>
-</div> -->

@@ -480,14 +480,14 @@
         "form_url": "https://docs.google.com/forms/d/e/1FAIpQLSc8Ng2RBkTIejIrmkXvd1hoPdhiQqI9ZJeWAOoDuePGFYld1Q/viewform?entry.1111782218=%E5%B1%B1%E9%B9%BF%E5%92%8C%E6%A0%97%E6%B4%8B%E8%8F%93%E5%AD%90%E5%BA%97An(%E6%9D%8F%EF%BC%89",
         "products": [
             {
-                "name": "山鹿和栗カステラ",
+                "name": "山鹿和栗カステラ　カットサイズ１個入",
                 "img": "img/products/An/marron_castella.png",
                 "price": 0,
                 "stock": "20個"
             },
             {
-                "name": "和栗カステラさくさくラスク",
-                "img": "img/products/An/marron_castella_rusk.png",
+                "name": "マロンパイ",
+                "img": "img/products/An/marron_pie.png",
                 "price": 0,
                 "stock": "20個"
             },
@@ -502,6 +502,12 @@
                 "img": "img/products/An/marron_Fiancie.png",
                 "price": 0,
                 "stock": "20個"
+            },
+            {
+                "name": "栗入りパウンドケーキ（５かけ入り）",
+                "img": "img/products/An/marron_poundcake.png",
+                "price": 0,
+                "stock": "5個"
             }
         ]
     },
@@ -595,61 +601,61 @@
                 "name": "すずなりオリジナルコーヒー５Ｐ",
                 "img": "img/products/michinoeki_suzunari/suzunari_original_coffee.png",
                 "price": 0,
-                "stock": "999個"
+                "stock": "数量制限なし"
             },
             {
                 "name": "珠洲弁クッキー 12枚入り",
                 "img": "img/products/michinoeki_suzunari/suzuben_cookie.png",
                 "price": 0,
-                "stock": "999個"
+                "stock": "数量制限なし"
             },
             {
                 "name": "塩ポテトチップス 65g",
                 "img": "img/products/michinoeki_suzunari/salt_potato_chips.png",
                 "price": 0,
-                "stock": "999個"
+                "stock": "数量制限なし"
             },
             {
                 "name": "ひとくち塩羊羹 12個入り",
                 "img": "img/products/michinoeki_suzunari/salt_sweet_bean_jelly.png",
                 "price": 0,
-                "stock": "999個"
+                "stock": "数量制限なし"
             },
             {
                 "name": "塩どら焼き",
                 "img": "img/products/michinoeki_suzunari/salt_dorayaki.png",
                 "price": 0,
-                "stock": "999個"
+                "stock": "数量制限なし"
             },
             {
                 "name": "太鼓饅頭",
                 "img": "img/products/michinoeki_suzunari/taiko_manju.png",
                 "price": 0,
-                "stock": "999個"
+                "stock": "数量制限なし"
             },
             {
                 "name": "塩マドレーヌ",
                 "img": "img/products/michinoeki_suzunari/salt_madeleine.png",
                 "price": 0,
-                "stock": "999個"
+                "stock": "数量制限なし"
             },
             {
                 "name": "塩マドレーヌ 5個入り",
                 "img": "img/products/michinoeki_suzunari/salt_madeleine_5p.png",
                 "price": 0,
-                "stock": "999個"
+                "stock": "数量制限なし"
             },
             {
                 "name": "珠洲の塩 100g",
                 "img": "img/products/michinoeki_suzunari/suzu_salt.png",
                 "price": 0,
-                "stock": "999個"
+                "stock": "数量制限なし"
             },
             {
                 "name": "しおサイダー飴 90g",
                 "img": "img/products/michinoeki_suzunari/salt_candy.png",
                 "price": 0,
-                "stock": "999個"
+                "stock": "数量制限なし"
             }
         ]
     },

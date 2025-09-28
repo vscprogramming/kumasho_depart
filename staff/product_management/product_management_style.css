@@ -1,18 +1,19 @@
 /* ======= CSS 変数 ======= */
 :root {
     /* カラー */
+    --color-red: #f00;
     --color-orange: #f80;
     --color-orange-hover: #fa0;
     --color-orange-border: #f70;
-    --color-red: #f00;
+    --color-orange-tab-hover: #430;
+    --color-orange-border-scroll: #f70e;
+    --color-orange-border-translucent: #f705;
 
-    --color-bg-dark: #121212;
     --color-bg-mid: #333;
     --color-bg-light: #444;
+    --color-bg-dark: #121212;
 
     --color-text-light: #eee;
-    --color-text-blue: #2f63ff;
-    --color-text-red: #ff3737;
 
     --color-border-gray: #808080;
 
@@ -27,16 +28,16 @@ body { background-color: var(--color-bg-mid); }
 #title {
     width: 99%; height: 95px;
     top: 0; left: 0;
-    border: 7px solid var(--color-bg-dark);
-    background-color: var(--color-bg-dark);
     position: fixed;
     border-bottom: none;
+    border: 7px solid var(--color-bg-dark);
+    background-color: var(--color-bg-dark);
 }
 
 #title_display, p {
     margin: 3px 0 3px 7px;
-    color: var(--color-text-light);
     display: inline-block;
+    color: var(--color-text-light);
 }
 
 #title_display {
@@ -59,49 +60,49 @@ p { font-size: 118%; }
 #tab_buttons {
     top: 0; left: 0;
     width: 99%;
+    display: flex;
+    position: fixed;
     margin-top: 101px;
+    border-bottom: none;
     background-color: var(--color-bg-dark);
     border: 7px solid var(--color-bg-dark);
     border-top: 1px solid var(--color-border-gray);
-    display: flex;
-    position: fixed;
-    border-bottom: none;
 }
 
 #tab_buttons button {
-    border: 1px solid var(--color-border-gray);
-    padding: 6px 24px;
-    border-radius: 7px 7px 0 0;
-    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.7);
-    background-color: var(--color-bg-dark);
-    color: var(--color-text-light);
     font-size: 103%;
-    transition: 0.15s;
     cursor: pointer;
+    padding: 6px 24px;
+    transition: 0.15s;
     font-weight: bolder;
+    border-radius: 7px 7px 0 0;
+    color: var(--color-text-light);
+    background-color: var(--color-bg-dark);
+    border: 1px solid var(--color-border-gray);
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.7);
 }
 
 #tab_buttons button.active_tab {
+    z-index: 3;
     border: 1px solid var(--color-orange);
     background-color: var(--color-orange);
-    z-index: 3;
 }
 
 #tab_buttons button.active_tab:hover { background-color: var(--color-orange); }
-#tab_buttons button:hover { background-color: #430; }
+#tab_buttons button:hover { background-color: var(--color-orange-tab-hover); }
 
 /* ======= タブコンテンツ ======= */
 .tab_content {
     width: 99%; height: auto;
     top: 0; left: 0;
-    overflow-y: auto;
-    overflow-x: hidden;
-    border: 7px solid var(--color-bg-mid);
-    border-top: 1px solid var(--color-border-gray);
-    margin-top: 135px;
-    background-color: var(--color-bg-mid);
     display: none;
     position: fixed;
+    overflow-y: auto;
+    margin-top: 135px;
+    overflow-x: hidden;
+    border: 7px solid var(--color-bg-mid);
+    background-color: var(--color-bg-mid);
+    border-top: 1px solid var(--color-border-gray);
 }
 
 .tab_content.show {
@@ -111,15 +112,14 @@ p { font-size: 118%; }
 
 /* ======= テーブル ======= */
 table {
-    width: 98.5%;
-    height: 34px;
-    box-shadow: var(--shadow);
+    width: 98.5%; height: 34px;
     margin: 7px;
+    font-size: 124%;
+    border-spacing: 0;
+    box-shadow: var(--shadow);
     border-radius: var(--radius);
     color: var(--color-text-light);
     background-color: var(--color-bg-mid);
-    border-spacing: 0;
-    font-size: 124%;
 }
 
 table tr:nth-child(even) { background-color: var(--color-bg-light); }
@@ -139,18 +139,18 @@ table td {
 
 table td:last-child select {
     width: 53%; height: 70%;
-    color: var(--color-bg-dark);
-    border-radius: var(--radius);
     font-size: 2vh;
+    margin-left: 50%;
     text-align: center;
     font-weight: bolder;
-    margin-left: 50%;
+    color: var(--color-bg-dark);
+    border-radius: var(--radius);
     transform: translate(-50%, 0%);
 }
 
 table td:first-child {
-    border-left: 1px solid var(--color-orange);
     padding: 3px 0 3px 18px;
+    border-left: 1px solid var(--color-orange);
 }
 
 table tr:last-child td:first-child { border-bottom-left-radius: var(--radius); }
@@ -160,7 +160,6 @@ table th:nth-child(1), table td:nth-child(1) { width: 65%; }
 table th:nth-child(2), table td:nth-child(2) { width: 35%; }
 
 .company_total_display_text { margin-left: 7px; }
-
 
 .company_total_display_text_company_name {
     font-size: larger;
@@ -175,65 +174,47 @@ table th:nth-child(2), table td:nth-child(2) { width: 35%; }
 /* ======= 上部ボタン ======= */
 .modal_buttons {
     width: 47px; height: 47px;
-    border-radius: var(--radius);
-    box-shadow: var(--shadow);
     margin: 7px;
-    background: var(--color-orange-hover);
-    color: var(--color-text-light);
-    transition: all 0.15s ease;
-    border: none;
     float: right;
+    border: none;
     font-weight: bolder;
+    box-shadow: var(--shadow);
+    transition: all 0.15s ease;
+    border-radius: var(--radius);
+    color: var(--color-text-light);
+    background: var(--color-orange-hover);
 }
 
-#search_icon, #reload_icon{
-    font-size: 34px;
+#search_icon, #reload_icon, #logout_icon {
     opacity: 1;
+    font-size: 34px;
 }
+
+#logout_icon { color: var(--color-red); }
 
 #search_button:hover #search_icon, #reload_button:hover #reload_icon, #logout_button:hover #logout_icon { display: none; }
 
 #search_button:hover::after, #reload_button:hover::after, #logout_button:hover::after {
+    opacity: 1;
     font-size: 20px;
     transition: 0.2s ease;
-    opacity: 1;
 }
 
-#search_button::after {
-    content: '商品検索';
-    font-size: 0;
+#search_button::after, #reload_button::after, #logout_button::after {
     opacity: 0;
-    transform: translate(-50%, -50%);
-    pointer-events: none;
+    font-size: 0;
     position: absolute;
     text-align: center;
-}
-
-#reload_button::after {
-    content: '再読み込み';
-    font-size: 0;
-    opacity: 0;
-    transform: translate(-50%, -50%);
     pointer-events: none;
-    position: absolute;
-    text-align: center;
+    transform: translate(-50%, -50%);
 }
 
-#logout_icon {
-    font-size: 34px;
-    color: var(--color-red);
-    opacity: 1;
-}
+#search_button::after { content: '商品検索'; }
+#reload_button::after { content: '再読み込み'; }
 
 #logout_button::after {
     content: 'ログアウト';
-    font-size: 0;
-    opacity: 0;
-    transform: translate(-50%, -50%);
     color: var(--color-red);
-    pointer-events: none;
-    position: absolute;
-    text-align: center;
 }
 
 .modal_buttons:hover {
@@ -250,35 +231,34 @@ table th:nth-child(2), table td:nth-child(2) { width: 35%; }
 #loading {
     width: 100vw; height: 100vh;
     top: 0; left: 0;
-    background: rgba(0, 0, 0, 0.5);
     z-index: 9999;
-    position: fixed;
     display: flex;
+    position: fixed;
     align-items: center;
     justify-content: center;
+    background: rgba(0, 0, 0, 0.5);
 }
 
 #spinner {
     width: 70px; height: 70px;
     border-radius: 50%;
+    animation: spin 0.7s linear infinite;
     border: 7px solid var(--color-text-light);
     border-top: 7px solid var(--color-orange);
-    animation: spin 0.7s linear infinite;
 }
 
 /* ======= モーダル類 ======= */
-/* 商品検索 */
 #search_modal_back, #logout_modal_back {
     width: 100%; height: 100%;
     top: 0; left: 0;
-    background-color: rgba(0, 0, 0, 0.7);
-    transition: all 0.3s ease;
     z-index: 4;
     opacity: 0;
     display: none;
     position: fixed;
     align-items: center;
     justify-content: center;
+    transition: all 0.3s ease;
+    background-color: rgba(0, 0, 0, 0.7);
 }
 
 #search_modal_back.show, #logout_modal_back.show {
@@ -288,87 +268,79 @@ table th:nth-child(2), table td:nth-child(2) { width: 35%; }
 
 #search_modal, #logout_modal {
     width: 567px; height: 287px;
-    border-radius: var(--radius);
-    box-shadow: var(--shadow);
-    background-color: var(--color-bg-mid);
     z-index: 5;
-    align-items: flex-start;
     position: relative;
+    align-items: flex-start;
+    box-shadow: var(--shadow);
+    border-radius: var(--radius);
+    background-color: var(--color-bg-mid);
 }
 
 #search_input {
     width: 70%; height: 10%;
     top: 50%; left: 50%;
+    position: absolute;
+    color: var(--color-bg-dark);
     transform: translate(-50%, -180%);
     background-color: var(--color-text-light);
-    color: var(--color-bg-dark);
-    position: absolute;
 }
 
 #search, #search_reset, #ok_button, #cancel_button {
     width: 34%; height: 17%;
-    border-radius: var(--radius);
-    box-shadow: var(--shadow);
-    font-size: 24px;
-    background-color: var(--color-orange);
-    color: var(--color-text-light);
-    transition: 0.3s ease;
     z-index: 7;
+    font-size: 24px;
     font-weight: bolder;
+    transition: 0.3s ease;
+    box-shadow: var(--shadow);
+    border-radius: var(--radius);
+    color: var(--color-text-light);
+    background-color: var(--color-orange);
 }
 
 #search { margin-left: 18px; }
 
 #search_reset {
     margin-left: 14%;
-    margin-top: 200px
+    margin-top: 200px;
 }
 
 #search:hover, #search_reset:hover, #ok_button:hover, #cancel_button:hover { background-color: var(--color-orange-hover); }
 
-#search_title::before {
-    content: '商品検索';
+#search_title::before, #logout_check_title::before {
     font-size: 24px;
     margin-left: 7px;
-    color: var(--color-text-light);
     font-weight: bolder;
+    color: var(--color-text-light);
 }
+
+#search_title::before { content: '商品検索'; }
+#logout_check_title::before { content: 'ログアウト確認'; }
 
 #search_title, #logout_check_title {
     width: 100%; height: 13%;
-    border-radius: var(--radius) var(--radius) 0 0;
-    background-color: var(--color-orange);
     z-index: 6;
     position: absolute;
+    background-color: var(--color-orange);
+    border-radius: var(--radius) var(--radius) 0 0;
 }
 
 #search_close_button {
     height: 100%;
+    float: right;
+    border: none;
+    transition: 0.15s;
+    text-align: right;
     border-radius: 0 17px 0 0;
     background-color: #0000;
-    border: none;
     color: var(--color-text-light);
-    float: right;
-    text-align: right;
-    transition: 0.15s;
 }
 
 #search_close_button:hover { background-color: var(--color-red); }
 
-/* ログアウト */
-
 #logout_modal h3 {
-    margin: 18% 0 11% 7px;
-    color: var(--color-text-light);
     font-size: 130%;
-}
-
-#logout_check_title::before {
-    content: 'ログアウト確認';
-    font-size: 24px;
-    margin-left: 7px;
+    margin: 18% 0 11% 31%;
     color: var(--color-text-light);
-    font-weight: bolder;
 }
 
 #ok_button {
@@ -380,12 +352,11 @@ table th:nth-child(2), table td:nth-child(2) { width: 35%; }
 
 /* スクロールバー */
 .tab_content::-webkit-scrollbar { width: 7px; }
-
 .tab_content::-webkit-scrollbar-track { background: transparent; }
 
 .tab_content::-webkit-scrollbar-thumb {
-    background-color: #f705;
     border-radius: 180px;
+    background-color: var(--color-orange-border-translucent);
 }
 
-.tab_content::-webkit-scrollbar-thumb:hover { background-color: #f70e; }
+.tab_content::-webkit-scrollbar-thumb:hover { background-color: var(--color-orange-border-scroll); }

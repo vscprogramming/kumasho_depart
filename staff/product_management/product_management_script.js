@@ -88,14 +88,12 @@ async function gas_Loading(get) {
                     }
                 };
 
-                if ('company_name' in jd_row &&
-                    jd_row.company_name != null) {
+                if ('company_name' in jd_row && jd_row.company_name != null) {
                     all_data[company_count].company_name = jd_row.company_name;
                     company_count++;
                 }
 
-                if ('pdname' in jd_row && 'sales' in jd_row &&
-                    jd_row != null && jd_row.pdname != '') {
+                if ('pdname' in jd_row && 'sales' in jd_row && jd_row != null && jd_row.pdname != '') {
                     all_data[company_count - 1].products.pdname.push(jd_row.pdname);
                     all_data[company_count - 1].products.sales.push(jd_row.sales);
                 }
@@ -452,6 +450,7 @@ window.onload = () => {
     setInterval(async () => {
         // スクロール位置の保存
         let scroll_tops = [];
+
         document.querySelectorAll('.tab_content').forEach((div, i) => {
             scroll_tops[i] = div.scrollTop;
         });
