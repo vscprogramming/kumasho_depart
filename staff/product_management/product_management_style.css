@@ -5,6 +5,7 @@
     --color-orange: #f80;
     --color-orange-hover: #fa0;
     --color-orange-border: #f70;
+    --color-blue-searched: #07f;
     --color-orange-tab-hover: #430;
     --color-orange-border-scroll: #f70e;
     --color-orange-border-translucent: #f705;
@@ -14,7 +15,6 @@
     --color-bg-dark: #121212;
 
     --color-text-light: #eee;
-
     --color-border-gray: #808080;
 
     /* レイアウト */
@@ -159,11 +159,18 @@ table tr:last-child td:last-child { border-bottom-right-radius: var(--radius); }
 table th:nth-child(1), table td:nth-child(1) { width: 65%; }
 table th:nth-child(2), table td:nth-child(2) { width: 35%; }
 
-.company_total_display_text { margin-left: 7px; }
+.company_total_display { margin-left: 7px; }
 
 .company_total_display_text_company_name {
     font-size: larger;
     font-weight: bolder;
+}
+
+.searched_text {
+    float: right;
+    text-align: right;
+    margin-right: 18px;
+    color: var(--color-blue-searched);
 }
 
 .tab_contents_table_tbody_td_sales_pulldown {
@@ -190,6 +197,8 @@ table th:nth-child(2), table td:nth-child(2) { width: 35%; }
     font-size: 34px;
 }
 
+#search_icon.searched { color: var(--color-blue-searched); }
+
 #logout_icon { color: var(--color-red); }
 
 #search_button:hover #search_icon, #reload_button:hover #reload_icon, #logout_button:hover #logout_icon { display: none; }
@@ -210,6 +219,8 @@ table th:nth-child(2), table td:nth-child(2) { width: 35%; }
 }
 
 #search_button::after { content: '商品検索'; }
+#search_button.searched { color: var(--color-blue-searched); }
+
 #reload_button::after { content: '再読み込み'; }
 
 #logout_button::after {

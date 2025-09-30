@@ -3,6 +3,7 @@ console.log(`${class_name}, ${class_number}`);
 console.log(`logged_${class_number}: ${localStorage.getItem(`logged_${class_number}`)}`);
 const fw_cn = full_width(class_number);    // タイトル用
 console.log(`full_width_class_number: ${fw_cn}`);
+
 ['page_title', 'title_display'].forEach(e_id => {
     document.getElementById(e_id).textContent = `${fw_cn[0]}年${fw_cn[1]}組`;
 });
@@ -105,7 +106,7 @@ async function gas_Loading(get) {
             alert('読み込みエラーが発生しました。\n再読み込みします。(2)');
             window.location.reload();
         }
-    } catch(error) {
+    } catch (error) {
         alert('ネットワークエラーが発生しました。\n再読み込みします。');
         window.location.reload();
     }
@@ -118,6 +119,7 @@ async function content_generation(post) {
     // 全体の商品数・完売数を集計
     let all_products_count = 0, all_sales_count = 0;    // すべての商品数, すべての完売数
     let company_products_count, company_sales_count;    // 企業ごとの商品数, 企業ごとの完売数
+    let search_count = 0;   // 絞り込み商品のカウント
 
     let ps_count = {
         products_count: [],
@@ -196,10 +198,23 @@ async function content_generation(post) {
         if (c === 0) tab_contents_div.classList.add('show');
 
         // 企業ごとの商品数・完売数の表示
-        const company_total_display = Object.assign(document.createElement('p'), {
-            className: 'company_total_display_text',
-            innerHTML: `<span class="company_total_display_text_company_name">${all_data[c].company_name}</span>（　商品数：${ps_count.products_count[c]}　／　完売数：${ps_count.sales_count[c]}　）`
+        const company_total_display = Object.assign(document.createElement('div'), {
+            className: 'company_total_display',
+            id: 'company_total_display'
         });
+
+        const company_total_display_text_company_name = Object.assign(document.createElement('p'), {
+            className: 'company_total_display_text_company_name',
+            textContent: all_data[c].company_name
+        });
+
+        const company_total_display_text_products = Object.assign(document.createElement('p'), {
+            className: 'company_total_display_text_products',
+            textContent: `（　商品数：${ps_count.products_count[c]}　／　完売数：${ps_count.sales_count[c]}　）`
+        });
+
+        company_total_display.appendChild(company_total_display_text_company_name);
+        company_total_display.appendChild(company_total_display_text_products);
 
         company_total_display.dataset.index = c;
 
@@ -222,6 +237,7 @@ async function content_generation(post) {
         // tbody部分
         const tab_contents_table_tbody = document.createElement('tbody');
 
+        search_count = 0;
         for (let p = 0; p < all_data[c].products.pdname.length; p++) {
             const tab_contents_table_tbody_tr = document.createElement('tr');
 
@@ -255,9 +271,17 @@ async function content_generation(post) {
             // 検索窓に入力されてるか
             if (document.getElementById('search_input').value.trim() != '') {
                 // 絞り込み
-                if (all_data[c].products.pdname[p].includes(document.getElementById('search_input').value.trim())) tab_contents_table_tbody.appendChild(tab_contents_table_tbody_tr);
+                if (all_data[c].products.pdname[p].includes(document.getElementById('search_input').value.trim())) {
+                    tab_contents_table_tbody.appendChild(tab_contents_table_tbody_tr);
+                    search_count++;
+                }
+
+                document.getElementById('search_icon').classList.add('searched');
+                document.getElementById('search_button').classList.add('searched');
             } else {
                 // 標準
+                document.getElementById('search_icon').classList.remove('searched');
+                document.getElementById('search_button').classList.remove('searched');
                 tab_contents_table_tbody.appendChild(tab_contents_table_tbody_tr);
             }
         }
@@ -281,6 +305,15 @@ async function content_generation(post) {
         tab_contents_div.appendChild(company_total_display);
         tab_contents_div.appendChild(tab_contents_table);
         document.getElementById('tab_contents').appendChild(tab_contents_div);
+
+        if (document.getElementById('search_input').value.trim() != '') {
+            const searched_text = Object.assign(document.createElement('p'), {
+                classList: 'searched_text',
+                textContent: `「${document.getElementById('search_input').value.trim()}」で検索中：${search_count}件見つかりました`
+            });
+
+            document.querySelector(`.company_total_display[data-index="${c}"`).appendChild(searched_text);
+        }
     }
 
     // 初期表示タブの設定・自動再読み込み時のタブ移動制限
@@ -397,6 +430,8 @@ const button_process = [
         handler: async () => {
             document.getElementById('search_input').value = '';
             document.getElementById('search_modal_back').classList.remove('show');
+            document.getElementById('search_icon').classList.remove('searched');
+            document.getElementById('search_button').classList.remove('searched');
             await content_generation(gas_url_post);
         }
     },
