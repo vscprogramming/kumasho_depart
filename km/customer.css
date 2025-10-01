@@ -257,6 +257,33 @@ footer a {
   .tagline {
     font-size: 1.1rem;
   }
+
+  #modal {
+    align-items: flex-end;
+    padding: 0;
+  }
+
+  #modal-content {
+    max-width: 98vw;
+    width: 98vw;
+    min-width: unset;
+    max-height: 70vh;
+    padding: 1rem 0.5rem;
+    border-radius: 1rem 1rem 0 0;
+    font-size: 0.98rem;
+    margin: 0;
+  }
+
+  #modal-body {
+    max-height: 55vh;
+    padding-bottom: 1rem;
+  }
+
+  #modal-close {
+    top: 0.2rem;
+    left: 0.2rem;
+    font-size: 1.7rem;
+  }
 }
 
 body.modal-open {
