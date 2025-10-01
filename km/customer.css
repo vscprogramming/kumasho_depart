@@ -258,22 +258,20 @@ footer a {
     font-size: 1.1rem;
   }
 
-  /* モーダルをスマホでも中央寄せ */
   #modal {
-    align-items: center; /* flex-end → center */
-    justify-content: center;
+    align-items: flex-end;
     padding: 0;
   }
 
   #modal-content {
-    max-width: 95vw;
-    width: 95vw;
+    max-width: 98vw;
+    width: 98vw;
     min-width: unset;
     max-height: 70vh;
-    padding: 1rem;
-    border-radius: 1rem;
+    padding: 1rem 0.5rem;
+    border-radius: 1rem 1rem 0 0;
     font-size: 0.98rem;
-    margin: auto;
+    margin: 0;
   }
 
   #modal-body {
@@ -282,8 +280,8 @@ footer a {
   }
 
   #modal-close {
-    top: 0.5rem;
-    left: 0.5rem;
+    top: 0.2rem;
+    left: 0.2rem;
     font-size: 1.7rem;
   }
 }
@@ -296,16 +294,17 @@ body.modal-open {
   display: none !important;
 }
 
-/* モーダル関連 */
+/* モーダル関連はそのまま維持 */
 #modal {
   position: fixed;
-  top: 0; left: 0;
+  top: 0;
+  left: 0;
   width: 100vw;
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.5);
   display: flex;
   justify-content: center;
-  align-items: center; /* 中央寄せ */
+  align-items: center;
   z-index: 1000;
   overflow: hidden;
 }
@@ -346,4 +345,38 @@ body.modal-open {
   line-height: 1;
   padding: 0;
   display: inline-block;
+}
+
+#modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.4);
+  /* 必要に応じて */
+}
+
+#modal-content {
+  background: #fff;
+  border-radius: 8px;
+  max-width: 95vw;
+  width: 400px;
+  box-sizing: border-box;
+  padding: 1em;
+}
+
+@media (max-width: 600px) {
+  #modal-content {
+    width: 95vw;
+    min-width: unset;
+    max-width: 95vw;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+  }
 }
