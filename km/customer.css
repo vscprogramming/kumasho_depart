@@ -346,3 +346,33 @@ body.modal-open {
   padding: 0;
   display: inline-block;
 }
+
+#modal {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  background: rgba(0,0,0,0.4); /* 必要に応じて */
+}
+#modal-content {
+  background: #fff;
+  border-radius: 8px;
+  max-width: 95vw;
+  width: 400px;
+  box-sizing: border-box;
+  padding: 1em;
+}
+@media (max-width: 600px) {
+  #modal-content {
+    width: 95vw;
+    min-width: unset;
+    max-width: 95vw;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+  }
+}
