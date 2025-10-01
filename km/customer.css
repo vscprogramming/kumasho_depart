@@ -1,14 +1,15 @@
+/* --------- 全体スタイル（元のスタイルを統合） --------- */
 html,
 body {
   height: 100%;
-  overflow-y: auto;
-  overflow-x: hidden;
-  scroll-behavior: auto;
+  margin: 0;
   font-family: 'Noto Serif JP', serif;
   background-color: #f9f7f2;
   color: #333;
-  margin: 0;
   line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: auto;
 }
 
 /* スクロールバーのカスタマイズ（Chrome, Edge, Safari） */
@@ -226,6 +227,7 @@ footer a {
   text-align: center;
 }
 
+/* レスポンシブ（元のルール） */
 @media screen and (max-width: 600px) {
   .product-grid {
     flex-direction: column;
@@ -264,6 +266,7 @@ footer a {
   }
 
   #modal-content {
+    align-self: flex-end;
     max-width: 98vw;
     width: 98vw;
     min-width: unset;
@@ -286,97 +289,150 @@ footer a {
   }
 }
 
-body.modal-open {
-  overflow: hidden !important;
-}
-
+/* 共通ユーティリティ */
 .hidden {
   display: none !important;
 }
 
-/* モーダル関連はそのまま維持 */
-#modal {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba(0, 0, 0, 0.5);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
-  overflow: hidden;
+/* body が modal-open の時に背景スクロールを止める */
+body.modal-open {
+  overflow: hidden !important;
+  touch-action: none;
 }
 
+/* --------- モーダル関連（どのデバイスでも常に中央） --------- */
+/*
+  重要ポイント:
+  - オーバーレイは画面全体をカバー（inset:0）
+  - モーダル本体は position: fixed; left/top: 50%; transform: translate(-50%, -50%);
+    でビューポート中央に固定（スクロールやリサイズでも中央）
+  - 幅に vw を使いつつ max-width で制御。高さは vh を使い max-height で内部スクロール。
+*/
+#modal {
+  position: fixed;
+  inset: 0;
+  /* top:0; right:0; bottom:0; left:0; と同義 */
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+  display: none;
+  /* 表示は .open クラスで制御 */
+  -webkit-overflow-scrolling: touch;
+}
+
+/* 表示状態用ユーティリティ（JSで追加） */
+#modal.open {
+  display: block;
+}
+
+/* モーダル本体をビューポート中央に固定 */
 #modal-content {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
   background: #fff;
   padding: 2rem;
   border-radius: 0.5rem;
-  max-height: 80vh;
-  max-width: 400px;
-  width: 95vw;
-  overflow: visible;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
   color: #333;
-  font-family: 'Noto Serif JP', serif;
-  text-align: center;
+  width: min(92vw, 420px);
+  max-width: 95vw;
+  max-height: calc(100vh - 48px);
+  /* 上下に余白を確保 */
+  overflow: auto;
+  /* 内容が長ければ内部スクロール */
   border: 1px solid #e0ddd7;
-  margin: auto;
-  direction: ltr;
-  position: relative;
+  text-align: center;
+  font-family: 'Noto Serif JP', serif;
+  z-index: 1010;
+  will-change: transform;
+  -webkit-transform: translate(-50%, -50%);
+  /* 安定性向上 */
 }
 
-#modal-body {
-  overflow-y: auto;
-  max-height: 70vh;
+/* モーダルヘッダー / フッター等の補助 */
+#modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+#modal-header h2 {
+  margin: 0;
+  font-size: 1.05rem;
 }
 
 #modal-close {
-  position: absolute;
-  top: 0.5rem;
-  left: 0.5rem;
+  position: relative;
   font-size: 2rem;
   cursor: pointer;
-  z-index: 10;
   background: transparent;
   border: none;
   color: #333;
   line-height: 1;
   padding: 0;
-  display: inline-block;
 }
 
-#modal {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
-  background: rgba(0, 0, 0, 0.4);
-  /* 必要に応じて */
+#modal-body {
+  overflow-y: auto;
+  max-height: calc(100vh - 160px);
+  /* ヘッダ/フッタ分を差し引いた高さで内部スクロール */
+  font-size: 0.98rem;
+  padding-right: 0.25rem;
+  text-align: left;
 }
 
-#modal-content {
-  background: #fff;
-  border-radius: 8px;
-  max-width: 95vw;
-  width: 400px;
-  box-sizing: border-box;
-  padding: 1em;
+#modal-footer {
+  margin-top: 1rem;
+  text-align: right;
 }
 
+/* フォーカスが来たときの視覚フィードバック（アクセシビリティ補助） */
+#modal-content :focus {
+  outline: 3px solid rgba(212, 175, 55, 0.25);
+  outline-offset: 3px;
+}
+
+/* モバイルでの追加調整（中央固定を維持） */
 @media (max-width: 600px) {
   #modal-content {
-    width: 95vw;
-    min-width: unset;
-    max-width: 95vw;
-    left: 0;
-    right: 0;
-    margin: 0 auto;
+    width: 96vw;
+    padding: 1rem;
+    border-radius: 0.8rem;
+    max-height: calc(100vh - 32px);
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  #modal-body {
+    max-height: calc(100vh - 140px);
+  }
+}
+
+/* 補足：モーダル内の大きなイメージ等がある場合に収めやすくする */
+#modal-content img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+/* アニメーション（任意）: フェードインで中央にスケールする感じ */
+#modal.open #modal-content {
+  animation: modalFadeIn 220ms ease-out both;
+}
+
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.98);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
   }
 }
