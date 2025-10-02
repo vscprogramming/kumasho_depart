@@ -36,6 +36,55 @@ document.addEventListener("DOMContentLoaded", () => {
 
       document.getElementById("shop-pr").innerHTML = shop.pr.join("<br>");
 
+      // 混雑状況の表示
+      const crowdElement = document.getElementById("cs");
+      crowdElement.textContent = "ただいまの混雑状況: 取得中...";
+
+      // 混雑状況取得用 GAS URL
+      const crowdUrl = "https://script.googleusercontent.com/a/macros/g.bears.ed.jp/echo?user_content_key=AehSKLjTBZ6qY3SGiGmr1EgEKzrpbr635MZG_fM75h59TcFzt0E8G47YPtdd40xQsCVqusSMHsRSkU0SO1DYf8yTlsT9YXXF9rRfBm-X-uPC_2WaZnhEUjIGR4pV1uEm-t53wtNdAoXpvfOWVVIaoxyKcSdv5nkjOJ98SrahQ-1BU0E8cVQjOZ-GYJoBTYXUGxKFEr1EvPbejbQ6ktMI-wVXEIjnWCAPK5I_aTR3obKpQECLIv_GyMFujgx8MehRqlfItKDCqu2VQGZGjXhTvVHplN3dsYCopNhzKwrRrNrOl-ZNZXvFSnE&lib=MAdEE3doohcxWfv6P4X-ZtiKctFh_LT3R";
+
+      fetch(crowdUrl)
+        .then(response => {
+          if (!response.ok) throw new Error("混雑状況の取得に失敗しました");
+          return response.json();
+        })
+        .then(data => {
+          const crowdInfo = data.find(item => item.company_name?.trim() === shop.company_name?.trim());
+          if (crowdInfo && crowdInfo.crowd_status) {
+            const status = crowdInfo.crowd_status.trim();
+            let message = "";
+            let color = "black";
+
+            if (status.includes("空き")) {
+              message = "ゆったりとお買い物いただけます";
+              color = "lightgreen";
+            } else if (status.includes("やや混雑")) {
+              message = "少し混み合っています。時間に余裕を持ってお越しください";
+              color = "orange";
+            } else if (status.includes("混雑")) {
+              message = "現在大変混み合っています。お時間に注意してご来店ください";
+              color = "red";
+            } else if (status.includes("非営業")){
+              message = "ただいま営業しておりません。";
+              color = "purple";
+            } else{
+              message="混雑状況の詳細は不明です。"
+            }  
+
+            crowdElement.innerHTML = `ただいまの混雑状況: ${status}<br>（${message}）`;
+            crowdElement.style.color = color;
+          } else {
+            crowdElement.textContent = "ただいまの混雑状況: データなし";
+            crowdElement.style.color = "gray";
+          }
+        })
+        .catch(error => {
+          console.error("混雑状況取得エラー:", error);
+          crowdElement.textContent = "ただいまの混雑状況: 取得失敗";
+          crowdElement.style.color = "gray";
+        });
+
+
       // 商品カードの表示
       const productList = document.getElementById("product-list");
       shop.products.forEach(p => {

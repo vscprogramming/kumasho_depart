@@ -32,6 +32,7 @@
         "id": "1-1-2",
         "name": "TATOMIYA EZUKO",
         "catch": "キャッチコピー",
+        "cs":"混雑状況",
         "image": "img/1-1/Cafe.jpg",
         "pr": [
             "PR文１",
@@ -233,7 +234,7 @@
     },
     {
         "id": "1-7-1",
-        "name": "Crepe & …",
+        "name": "Crepe & ...",
         "catch": "キャッチコピー",
         "image": "img/1-1/Cafe.jpg",
         "pr": [
@@ -257,7 +258,7 @@
                 "image": "img/1-1/Cafe03.jpg"
             }
         ],
-        "company_name": "Crepe & …",
+        "company_name": "Crepe & ...",
         "gasUrl": "https://script.google.com/macros/s/AKfycbyZJ2Wk9rsK0VHfUmq41gYMTmYoitdGNoW06cpockjkF6i1pgiYnrUySwN3id_mrK1X/exec"
     },
     {
@@ -1127,7 +1128,7 @@
                 "image": "img/1-1/Cafe03.jpg"
             }
         ],
-        "company_name": "DCMペット＆グリーン 東町店",
+        "company_name": "DCMペット&グリーン 東町店",
         "gasUrl": "https://script.google.com/macros/s/AKfycbwmFwc14PTykOw_jxMYKtqc96_6TidvyZYzuN5-XiYdq8dsRv9blKkWGU42-i2TNJoQDg/exec"
     },
     {

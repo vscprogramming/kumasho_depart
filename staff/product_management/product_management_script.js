@@ -39,13 +39,15 @@ const all_gas_url = new Map([
 ]);
 
 const gas_url_post = all_gas_url.get(class_name), gas_url_get = `${gas_url_post}?sheet=${encodeURIComponent(class_name)}`;
+const gas_url_cs_post = 'https://script.google.com/macros/s/AKfycbwBiG7tOWA76znNUubDih7pL-6ib1HBM8MstCBrN2CWTJjutEOJAYr6EsrPEktwOf7w/exec', gas_url_cs_get = `${gas_url_cs_post}?sheet=${encodeURIComponent('cs')}`;
 console.log(`get用：${gas_url_get}`);
 console.log(`post用：${gas_url_post}`);
 
-var json_data;  // データ最適化前
-var all_data = [];    // データ最適化後
+var json_data, all_data = [];    // データ最適化前・後
+var json_data_cs;   // 混雑
 var company_count = 0;    // 企業数の集計
 var tab_contents_div;   // タブコンテンツ
+var indexOf;
 
 // タブ用変数
 let tab_select = null;
@@ -60,8 +62,9 @@ window.addEventListener('DOMContentLoaded', async () => {
     document.getElementById('loading').style.display = 'flex';    // ローディング表示
 
     if (gas_url_get != null || gas_url_post != null) {
+        await gas_loading_cs(gas_url_cs_get);   // gas（混雑状況）の読み取り
         await gas_Loading(gas_url_get);    // gas読み込み
-        await content_generation(gas_url_post);    // コンテンツ生成
+        await content_generation(gas_url_post, gas_url_cs_post);    // コンテンツ生成
     } else {
         alert('データの読み込みに失敗しました。ログインページに遷移します。');
         window.location.href = '../home/home.html';
@@ -69,6 +72,23 @@ window.addEventListener('DOMContentLoaded', async () => {
 
     document.getElementById('loading').style.display = 'none';
 });
+
+async function gas_loading_cs(get) {
+    try {
+        const response = await fetch(get);
+
+        if (response.ok) {
+            json_data_cs = await response.json();
+        } else {
+            alert('読み込みエラーが発生しました。\n再読み込みします。(cs2)');
+        }
+    } catch (error) {
+        alert('ネットワークエラーが発生しました。\n再読み込みします。');
+        window.location.reload();
+    }
+
+    console.log(json_data_cs);
+}
 
 async function gas_Loading(get) {
     try {
@@ -103,7 +123,7 @@ async function gas_Loading(get) {
             console.log('all_data: ');
             console.log(all_data);
         } else {
-            alert('読み込みエラーが発生しました。\n再読み込みします。(2)');
+            alert('読み込みエラーが発生しました。\n再読み込みします。(all2)');
             window.location.reload();
         }
     } catch (error) {
@@ -112,7 +132,7 @@ async function gas_Loading(get) {
     }
 }
 
-async function content_generation(post) {
+async function content_generation(post, post_cs) {
     // 再読み込み用に初期化
     document.getElementById('total_display').innerHTML = '';
 
@@ -184,6 +204,9 @@ async function content_generation(post) {
 
     // タブの生成
     for (let c = 0; c < company_count; c++) {
+        indexOf = json_data_cs.findIndex(obj => obj.company_name === `${all_data[c].company_name}`);
+        console.log(`index: ${indexOf}`);
+
         // タブ
         const tab_btns = document.createElement('button');
         tab_btns.textContent = all_data[c].company_name;
@@ -192,12 +215,12 @@ async function content_generation(post) {
 
         // 内容
         tab_contents_div = document.createElement('div');
-        tab_contents_div.className = ('tab_content');
+        tab_contents_div.className = 'tab_content';
         tab_contents_div.dataset.index = c;
         tab_contents_div.style.maxHeight = `${window.innerHeight - 132.6}px`
         if (c === 0) tab_contents_div.classList.add('show');
 
-        // 企業ごとの商品数・完売数の表示
+        // 企業ごとの商品数・完売数・混雑状況プルダウンの表示
         const company_total_display = Object.assign(document.createElement('div'), {
             className: 'company_total_display',
             id: 'company_total_display'
@@ -213,8 +236,28 @@ async function content_generation(post) {
             textContent: `（　商品数：${ps_count.products_count[c]}　／　完売数：${ps_count.sales_count[c]}　）`
         });
 
+        const crowd_status_text = Object.assign(document.createElement('p'), {
+            className: 'crowd_status_text',
+            textContent: '混雑状況：　' 
+        })
+        const crowd_status = Object.assign(document.createElement('select'), { className: 'crowd_status_pulldown' });
+
+        ['空き', 'やや混雑', '混雑', '非営業'].forEach(status => {
+            const pulldown_option_cs = Object.assign(document.createElement('option'), {
+                value: status,
+                text: status,
+            });
+
+            crowd_status.appendChild(pulldown_option_cs);
+        });
+
+        crowd_status.style.backgroundColor = json_data_cs[indexOf].crowd_status === '空き' ? '#aae' : json_data_cs[indexOf].crowd_status === 'やや混雑' ? '#ffa' : json_data_cs[indexOf].crowd_status === '混雑' ? '#eaa' : '#c79cff';
+        crowd_status.selectedIndex = json_data_cs[indexOf].crowd_status === '空き' ? 0 : json_data_cs[indexOf].crowd_status === 1 ? '#ffa' : json_data_cs[indexOf].crowd_status === '混雑' ? 2 : 3;
+
         company_total_display.appendChild(company_total_display_text_company_name);
         company_total_display.appendChild(company_total_display_text_products);
+        company_total_display.appendChild(crowd_status_text);
+        company_total_display.appendChild(crowd_status);
 
         company_total_display.dataset.index = c;
 
@@ -394,7 +437,7 @@ async function content_generation(post) {
                     window.location.reload();
                 }
             } else {
-                alert('読み込みエラーが発生しました。\n再読み込みします。(1)');
+                alert('読み込みエラーが発生しました。\n再読み込みします。(all1)');
                 window.location.reload();
             }
         });
@@ -497,7 +540,7 @@ window.onload = () => {
         document.querySelectorAll('.tab_content').forEach((div, i) => {
             if (typeof scroll_tops[i] === 'number') div.scrollTop = scroll_tops[i];
         });
-    }, (Math.floor(Math.random() * 121) + 60) * 1000);
+    }, (180 * 1000));
 }
 
 window.addEventListener('resize', () => document.querySelectorAll('.tab_content').forEach(div => {

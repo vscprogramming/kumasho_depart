@@ -148,6 +148,17 @@ table td:last-child select {
     transform: translate(-50%, 0%);
 }
 
+#company_total_display select {
+    width: 18%;
+    font-size: 2vh;
+    text-align: center;
+    font-weight: bolder;
+    color: var(--color-bg-dark);
+    border-radius: var(--radius);
+}
+
+.crowd_status_text { margin-left: 6%; }
+
 table td:first-child {
     padding: 3px 0 3px 18px;
     border-left: 1px solid var(--color-orange);
@@ -232,6 +243,9 @@ table th:nth-child(2), table td:nth-child(2) { width: 35%; }
     width: 195px; height: 47px;
     cursor: pointer;
 }
+
+/* デバッグ用　必要時　コメントアウト */
+/* #reload_button { display: none; } */
 
 /* ======= ローディングスピナー ======= */
 @keyframes spin {
