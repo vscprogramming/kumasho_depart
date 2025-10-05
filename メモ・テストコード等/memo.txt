@@ -12,6 +12,7 @@
 ・混雑状況を変更するプルダウンを各店舗名の横に配置（読み取り・書き込みできることを確認・まさのでgasを入力）　
 ・gasの実行数の再計算（Excel使用・https://developers.google.com/apps-script/guides/services/quotas?utm_source=chatgpt.com&hl=ja）
 ・スプレッドシートの条件付き書式の再適用〇
+・もしかしたらstaff・all_class_productはデータ配布になる可能性
 
 はるとさん
 ・モーダル表示の最適化
