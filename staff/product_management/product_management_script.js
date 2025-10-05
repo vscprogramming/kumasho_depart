@@ -1,6 +1,13 @@
 const class_name = localStorage.getItem('class_name'), class_number = localStorage.getItem('class_number');
 console.log(`${class_name}, ${class_number}`);
 console.log(`logged_${class_number}: ${localStorage.getItem(`logged_${class_number}`)}`);
+
+// 不正アクセス防止
+if (!localStorage.getItem(`logged_${class_number}`)) {
+    alert('不正なアクセスです。ログインページへ遷移します。');
+    window.location.href = '../home/home.html';
+}
+
 const fw_cn = full_width(class_number);    // タイトル用
 console.log(`full_width_class_number: ${fw_cn}`);
 
@@ -39,7 +46,8 @@ const all_gas_url = new Map([
 ]);
 
 const gas_url_post = all_gas_url.get(class_name), gas_url_get = `${gas_url_post}?sheet=${encodeURIComponent(class_name)}`;
-const gas_url_cs_post = 'https://script.google.com/macros/s/AKfycbwBiG7tOWA76znNUubDih7pL-6ib1HBM8MstCBrN2CWTJjutEOJAYr6EsrPEktwOf7w/exec', gas_url_cs_get = `${gas_url_cs_post}?sheet=${encodeURIComponent('cs')}`;
+const gas_url_cs_post = 'https://script.google.com/macros/s/AKfycbxfxbRGzChgzl5U93fbRllPoDm-SklQz7GvKeNwY__JK81EjwH-HI6LVDi1PdaIUmXW/exec'; // gasurlを更新
+const gas_url_cs_get = `${gas_url_cs_post}?sheet=${encodeURIComponent('cs')}`;
 console.log(`get用：${gas_url_get}`);
 console.log(`post用：${gas_url_post}`);
 
@@ -47,16 +55,10 @@ var json_data, all_data = [];    // データ最適化前・後
 var json_data_cs;   // 混雑
 var company_count = 0;    // 企業数の集計
 var tab_contents_div;   // タブコンテンツ
-var indexOf;
+var indexOf, start_indexOf;
 
 // タブ用変数
 let tab_select = null;
-
-// 不正アクセス防止
-if (!localStorage.getItem(`logged_${class_number}`)) {
-    alert('不正なアクセスです。ログインページへ遷移します。');
-    window.location.href = '../home/home.html';
-}
 
 window.addEventListener('DOMContentLoaded', async () => {
     document.getElementById('loading').style.display = 'flex';    // ローディング表示
@@ -204,8 +206,9 @@ async function content_generation(post, post_cs) {
 
     // タブの生成
     for (let c = 0; c < company_count; c++) {
+        if (c == 0) start_indexOf = json_data_cs.findIndex(obj => obj.company_name === `${all_data[c].company_name}`);
         indexOf = json_data_cs.findIndex(obj => obj.company_name === `${all_data[c].company_name}`);
-        console.log(`index: ${indexOf}`);
+        console.log(`index: ${indexOf}, ${start_indexOf}`);
 
         // タブ
         const tab_btns = document.createElement('button');
@@ -236,9 +239,10 @@ async function content_generation(post, post_cs) {
             textContent: `（　商品数：${ps_count.products_count[c]}　／　完売数：${ps_count.sales_count[c]}　）`
         });
 
+        // 混雑状況プルダウン
         const crowd_status_text = Object.assign(document.createElement('p'), {
             className: 'crowd_status_text',
-            textContent: '混雑状況：　' 
+            textContent: '混雑状況：　'
         })
         const crowd_status = Object.assign(document.createElement('select'), { className: 'crowd_status_pulldown' });
 
@@ -252,7 +256,8 @@ async function content_generation(post, post_cs) {
         });
 
         crowd_status.style.backgroundColor = json_data_cs[indexOf].crowd_status === '空き' ? '#aae' : json_data_cs[indexOf].crowd_status === 'やや混雑' ? '#ffa' : json_data_cs[indexOf].crowd_status === '混雑' ? '#eaa' : '#c79cff';
-        crowd_status.selectedIndex = json_data_cs[indexOf].crowd_status === '空き' ? 0 : json_data_cs[indexOf].crowd_status === 1 ? '#ffa' : json_data_cs[indexOf].crowd_status === '混雑' ? 2 : 3;
+        crowd_status.selectedIndex = json_data_cs[indexOf].crowd_status === '空き' ? 0 : json_data_cs[indexOf].crowd_status === 'やや混雑' ? 1 : json_data_cs[indexOf].crowd_status === '混雑' ? 2 : 3;
+        crowd_status.dataset.index = indexOf;
 
         company_total_display.appendChild(company_total_display_text_company_name);
         company_total_display.appendChild(company_total_display_text_products);
@@ -352,7 +357,7 @@ async function content_generation(post, post_cs) {
         if (document.getElementById('search_input').value.trim() != '') {
             const searched_text = Object.assign(document.createElement('p'), {
                 classList: 'searched_text',
-                textContent: `「${document.getElementById('search_input').value.trim()}」で検索中：${search_count}件見つかりました`
+                textContent: search_count == 0 ? `「${document.getElementById('search_input').value.trim()}」で検索中：商品が見つかりませんでした` : `「${document.getElementById('search_input').value.trim()}」で検索中：${search_count}件見つかりました`
             });
 
             document.querySelector(`.company_total_display[data-index="${c}"`).appendChild(searched_text);
@@ -377,7 +382,44 @@ async function content_generation(post, post_cs) {
         console.log(tab_select);
     }
 
-    // プルダウン変更時 ここから
+    // 混雑状況プルダウン変更時　ここから
+    document.querySelectorAll('.crowd_status_pulldown').forEach(pulldown => {
+        pulldown.addEventListener('change', async (event) => {
+            const pulldown_dataset_cs = event.target.dataset.index;
+            console.log(`${pulldown_dataset_cs}(${pulldown_dataset_cs + 1}社目)`);
+
+            // ローカルデータの更新
+            json_data_cs[pulldown_dataset_cs].crowd_status = document.querySelector(`[data-index="${pulldown_dataset_cs}"]`).value;
+            document.querySelector(`[data-index="${pulldown_dataset_cs}"]`).style.backgroundColor = json_data_cs[pulldown_dataset_cs].crowd_status === '空き' ? '#aae' : json_data_cs[pulldown_dataset_cs].crowd_status === 'やや混雑' ? '#ffa' : json_data_cs[pulldown_dataset_cs].crowd_status === '混雑' ? '#eaa' : '#c79cff';
+
+            console.log(json_data_cs);
+
+            // gasへpostリクエスト
+            const gas_post_data_cs = new URLSearchParams({
+                company_number: pulldown_dataset_cs,
+                crowd_status: json_data_cs[pulldown_dataset_cs].crowd_status
+            });
+
+            const response = await fetch(post_cs, {
+                method: 'POST',
+                body: gas_post_data_cs
+            });
+
+            if (response.ok) {
+                const result = await response.text();
+
+                if (result == 'NG') {
+                    alert('スプレッドシートの更新に失敗しました。\nデータの整合性を保つため、再読み込みします。');
+                    window.location.reload();
+                }
+            } else {
+                alert('読み込みエラーが発生しました。\n再読み込みします。(cs1)');
+                window.location.reload();
+            }
+        });
+    });
+
+    // 販売状況プルダウン変更時 ここから
     document.querySelectorAll('.tab_contents_table_tbody_td_sales_pulldown').forEach(pulldown => {
         pulldown.addEventListener('change', async (event) => {
             const pulldown_dataset = event.target.dataset.index;

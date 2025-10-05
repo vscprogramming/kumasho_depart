@@ -63,5 +63,5 @@ GAS_URL 一覧
         https://script.google.com/macros/s/AKfycbyG279JTr01s2ietRm8QoVsFoAkvJz0yvetyoXhGN6JZ9j_fKwaYDdqlN4qwiD-nZOQ/exec
 
     混雑状況
-        https://script.google.com/macros/s/AKfycbwBiG7tOWA76znNUubDih7pL-6ib1HBM8MstCBrN2CWTJjutEOJAYr6EsrPEktwOf7w/exec
+        https://script.google.com/macros/s/AKfycbxfxbRGzChgzl5U93fbRllPoDm-SklQz7GvKeNwY__JK81EjwH-HI6LVDi1PdaIUmXW/exec
     

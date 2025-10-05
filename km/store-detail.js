@@ -56,7 +56,7 @@ document.addEventListener("DOMContentLoaded", () => {
             let color = "black";
 
             if (status.includes("空き")) {
-              message = "ゆったりとお買い物いただけます";
+              message = "ゆっくりとお買い物いただけます";
               color = "lightgreen";
             } else if (status.includes("やや混雑")) {
               message = "少し混み合っています。時間に余裕を持ってお越しください";
