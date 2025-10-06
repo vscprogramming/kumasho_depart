@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<style>
+    button {
+        width: 180px;
+        height: 70px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        position: absolute;
+        margin: 0;
+        border-radius: 18px;
+        background-color: orange;
+        color: white;
+        font-size: larger;
+        font-weight: bolder;
+    }
+</style>
+
+<body>
+    <button id="button">gas実行開始</button>
+    <script>
+        let OK = 0, NG = 0, ON_else = 0, result;
+        document.getElementById('button').addEventListener('click', async () => {
+            console.log('実行開始');
+            let i;
+            for (i = 1; i <= 10; i++) {
+                result = null;
+                const time = new Date();
+
+                const data = new URLSearchParams({
+                    res_time: `${time.getHours()}:${time.getMinutes()}:${time.getSeconds()}`,
+                    row: i
+                });
+
+                const response = await fetch('https://script.google.com/macros/s/AKfycbykvDLppA5qRdRh6dr33N48jLScaTxen4YqegRyDGtmPKuqdiFOuZavBlrQPdkOl_ZnPA/exec', {
+                    method: 'POST',
+                    body: data
+                });
+
+                if (response.ok) {
+                    const result = await response.text();
+
+                    while (!result) {
+                        await new Promise(resolve => setTimeout(resolve, 70));
+                    }
+
+                    if (result == 'OK') {
+                        OK++;
+                    } else if (result == 'NG') {
+                        NG++;
+                    } else {
+                        ON_else++;
+                    }
+
+                    console.log(`${i}回目の送信が完了しました（${result}）`);
+                } else {
+                    NG++;
+                    console.log(`${i}回目の送信が完了しました（res.ok,NG）`);
+                }
+            }
+            console.log(`${i-1}回の実行が終了しました。（OK:${OK}, NG:${NG}, else: ${ON_else}）`);
+        });
+    </script>
+</body>
+
+</html>
