@@ -10,6 +10,7 @@
     body {
         font-family: Arial, sans-serif;
         margin: 20px;
+        background-color: #000;
     }
 
     button {
@@ -20,6 +21,7 @@
         border-radius: 34px;
         color: white;
         background-color: orange;
+        width: 340px
     }
 
     #result {
@@ -34,138 +36,112 @@
         padding: 10px;
         border: 1px solid #ccc;
         border-radius: 5px;
-        background-color: #f9f9f9;
+        background-color: #333;
         display: flex;
         flex-direction: column;
         overflow-y: auto;
         height: 700px;
         max-height: 700px;
+        color: #eee;
+    }
+
+    #summary {
+        width: 100%;
+        text-align: center;
+        margin-top: 30px;
+        font-size: 18px;
+        color: #eee;
+    }
+
+    #summary div {
+        display: inline-block;
+        background: #333;
+        padding: 16px 32px;
+        border-radius: 12px;
     }
 </style>
 
 <body>
-    <button id="button">GAS実行</button>
+    <center><button id="button">GAS実行</button></center>
     <div id="result">
         <div id="div1" class="divs">test1</div>
         <div id="div2" class="divs">test2</div>
         <div id="div3" class="divs">test3</div>
     </div>
+    <div id="summary"></div>
     <script>
+        const BUSY_COLOR = '#442222'; // ダーク赤
+        const DONE_COLOR = '#223355'; // ダーク青
         const gasurl = [
             'https://script.google.com/macros/s/AKfycbxOjSZ5ZTZuES5HMarbCK50zs0RGNW4GfcQW8Wszc1p-CLJDvghrVq5-VinGZ052iJI6Q/exec',
             'https://script.google.com/macros/s/AKfycbxE11uBTKTaxOggR1JKIlLbqjDHQDppL25OU_ciEkJwb3sLF5y-Esl6chP-oQi4nelUsg/exec',
             'https://script.google.com/macros/s/AKfycbz1vV2zs9QLBilsQlqePGIu5glj4n9KZh7qaDxqya_6WdwY6-YgQbWHotqHa9wYIDHB/exec'
         ];
-
+        const el = id => document.getElementById(id);
+        const pad = (n, z = 2) => String(n).padStart(z, '0');
+        const formatTime = () => {
+            const d = new Date();
+            return `${pad(d.getHours())}:${pad(d.getMinutes())}:${pad(d.getSeconds())}.${pad(d.getMilliseconds(), 3)}`;
+        };
+        const appendLog = (div, text) => {
+            const p = document.createElement('p');
+            p.innerHTML = text + '<br>';
+            div.appendChild(p);
+            div.scrollTop = div.scrollHeight;
+        };
+        async function gasWorker(url, loop, divId) {
+            let success = 0, fail = 0, exec = 0;
+            const div = el(divId);
+            const promises = Array.from({ length: loop }, (_, i) => {
+                const idx = i + 1;
+                return fetch(url)
+                    .then(res => {
+                        exec++;
+                        if (res.ok) success++; else fail++;
+                        appendLog(div, `${formatTime()}　${idx}回目の処理が完了しました（${res.ok ? '成功' : '失敗'}）`);
+                    })
+                    .catch(() => {
+                        exec++;
+                        fail++;
+                        appendLog(div, `${formatTime()}　${idx}回目の処理が完了しました（ネットワークエラー）`);
+                    });
+            });
+            await Promise.all(promises);
+            return { success, fail, exec };
+        }
         document.getElementById('button').addEventListener('click', async () => {
-            const loop = Number(prompt('ループ回数を入力してください', '35000'));
-            let totalSuccess = 0, totalFail = 0, totalExec = 0;
-
-            const [result1, result2, result3] = await Promise.all([
-                gas1(gasurl[0], loop),
-                gas2(gasurl[1], loop),
-                gas3(gasurl[2], loop)
-            ]);
-
-            totalSuccess = result1.success + result2.success + result3.success;
-            totalFail = result1.fail + result2.fail + result3.fail;
-            totalExec = result1.exec + result2.exec + result3.exec;
-
-            console.log(`全体: 成功=${totalSuccess} 失敗=${totalFail} 実行数=${totalExec}`);
-            console.log(`URL1: 成功=${result1.success} 失敗=${result1.fail} 実行数=${result1.exec}`);
-            console.log(`URL2: 成功=${result2.success} 失敗=${result2.fail} 実行数=${result2.exec}`);
-            console.log(`URL3: 成功=${result3.success} 失敗=${result3.fail} 実行数=${result3.exec}`);
+            el('div1').style.backgroundColor = BUSY_COLOR;
+            el('div2').style.backgroundColor = BUSY_COLOR;
+            el('div3').style.backgroundColor = BUSY_COLOR;
+            const loop = Number(prompt('ループ回数を入力してください', '35000')) || 0;
+            const start = Date.now();
+            const p1 = gasWorker(gasurl[0], loop, 'div1').then(r => { el('div1').style.backgroundColor = DONE_COLOR; return r; });
+            const p2 = gasWorker(gasurl[1], loop, 'div2').then(r => { el('div2').style.backgroundColor = DONE_COLOR; return r; });
+            const p3 = gasWorker(gasurl[2], loop, 'div3').then(r => { el('div3').style.backgroundColor = DONE_COLOR; return r; });
+            const [r1, r2, r3] = await Promise.all([p1, p2, p3]);
+            const totals = {
+                success: r1.success + r2.success + r3.success,
+                fail: r1.fail + r2.fail + r3.fail,
+                exec: r1.exec + r2.exec + r3.exec
+            };
+            const elapsedMs = Date.now() - start;
+            const hh = pad(Math.floor(elapsedMs / 3600000));
+            const mm = pad(Math.floor((elapsedMs % 3600000) / 60000));
+            const ss = pad(Math.floor((elapsedMs % 60000) / 1000));
+            const elapsedStr = `${hh}:${mm}:${ss}`;
+            el('summary').innerHTML = `
+                <div style='display:inline-block;background:${DONE_COLOR};padding:16px 32px;border-radius:12px;text-align:left;'>
+                    <b>全体: 成功=${totals.success} 失敗=${totals.fail} 実行数=${totals.exec}</b><br>
+                    <span>URL1: 成功=${r1.success} 失敗=${r1.fail} 実行数=${r1.exec}</span><br>
+                    <span>URL2: 成功=${r2.success} 失敗=${r2.fail} 実行数=${r2.exec}</span><br>
+                    <span>URL3: 成功=${r3.success} 失敗=${r3.fail} 実行数=${r3.exec}</span><br>
+                    <span>経過時間: <b>${elapsedStr}</b></span>
+                </div>`;
+            console.log(`全体: 成功=${totals.success} 失敗=${totals.fail} 実行数=${totals.exec}`);
+            console.log(`URL1: 成功=${r1.success} 失敗=${r1.fail} 実行数=${r1.exec}`);
+            console.log(`URL2: 成功=${r2.success} 失敗=${r2.fail} 実行数=${r2.exec}`);
+            console.log(`URL3: 成功=${r3.success} 失敗=${r3.fail} 実行数=${r3.exec}`);
         });
-
-        async function gas1(url, loop) {
-            let success = 0, fail = 0, exec = 0;
-            const promises = [];
-            for (let i = 1; i <= loop; i++) {
-                const time = new Date();
-                promises.push(
-                    fetch(url)
-                        .then(res => {
-                            exec++;
-                            if (res.ok) success++;
-                            else fail++;
-                            const p = Object.assign(document.createElement('p'), {
-                                innerHTML: `${time.getHours()}:${time.getMinutes()}:${time.getSeconds()}.${time.getMilliseconds()}　${i}回目の処理が完了しました（${res.ok ? '成功' : '失敗'}）<br>`
-                            });
-                            document.getElementById('div1').appendChild(p);
-                        })
-                        .catch(error => {
-                            exec++;
-                            fail++;
-                            const p = Object.assign(document.createElement('p'), {
-                                innerHTML: `${time.getHours()}:${time.getMinutes()}:${time.getSeconds()}.${time.getMilliseconds()}　${i}回目の処理が完了しました（ネットワークエラー）<br>`
-                            });
-                            document.getElementById('div1').appendChild(p);
-                        })
-                );
-            }
-            await Promise.all(promises);
-            return { success, fail, exec };
-        }
-
-        async function gas2(url, loop) {
-            let success = 0, fail = 0, exec = 0;
-            const promises = [];
-            for (let i = 1; i <= loop; i++) {
-                const time = new Date();
-                promises.push(
-                    fetch(url)
-                        .then(res => {
-                            exec++;
-                            if (res.ok) success++;
-                            else fail++;
-                            const p = Object.assign(document.createElement('p'), {
-                                innerHTML: `${time.getHours()}:${time.getMinutes()}:${time.getSeconds()}.${time.getMilliseconds()}　${i}回目の処理が完了しました（${res.ok ? '成功' : '失敗'}）<br>`
-                            });
-                            document.getElementById('div2').appendChild(p);
-                        })
-                        .catch(error => {
-                            exec++;
-                            fail++;
-                            const p = Object.assign(document.createElement('p'), {
-                                innerHTML: `${time.getHours()}:${time.getMinutes()}:${time.getSeconds()}.${time.getMilliseconds()}　${i}回目の処理が完了しました（ネットワークエラー）<br>`
-                            });
-                            document.getElementById('div2').appendChild(p);
-                        })
-                );
-            }
-            await Promise.all(promises);
-            return { success, fail, exec };
-        }
-
-        async function gas3(url, loop) {
-            let success = 0, fail = 0, exec = 0;
-            const promises = [];
-            for (let i = 1; i <= loop; i++) {
-                const time = new Date();
-                promises.push(
-                    fetch(url)
-                        .then(res => {
-                            exec++;
-                            if (res.ok) success++;
-                            else fail++;
-                            const p = Object.assign(document.createElement('p'), {
-                                innerHTML: `${time.getHours()}:${time.getMinutes()}:${time.getSeconds()}.${time.getMilliseconds()}　${i}回目の処理が完了しました（${res.ok ? '成功' : '失敗'}）<br>`
-                            });
-                            document.getElementById('div3').appendChild(p);
-                        })
-                        .catch(error => {
-                            exec++;
-                            fail++;
-                            const p = Object.assign(document.createElement('p'), {
-                                innerHTML: `${time.getHours()}:${time.getMinutes()}:${time.getSeconds()}.${time.getMilliseconds()}　${i}回目の処理が完了しました（ネットワークエラー）<br>`
-                            });
-                            document.getElementById('div3').appendChild(p);
-                        })
-                );
-            }
-            await Promise.all(promises);
-            return { success, fail, exec };
-        }
     </script>
 </body>
 
