@@ -64,9 +64,14 @@
 <body>
     <center><button id="button">GAS実行</button></center>
     <div id="result">
+        <!-- 7並列分のdivを生成 -->
         <div id="div1" class="divs">test1</div>
         <div id="div2" class="divs">test2</div>
         <div id="div3" class="divs">test3</div>
+        <div id="div4" class="divs">test4</div>
+        <div id="div5" class="divs">test5</div>
+        <div id="div6" class="divs">test6</div>
+        <div id="div7" class="divs">test7</div>
     </div>
     <div id="summary"></div>
     <script>
@@ -75,7 +80,11 @@
         const gasurl = [
             'https://script.google.com/macros/s/AKfycbxOjSZ5ZTZuES5HMarbCK50zs0RGNW4GfcQW8Wszc1p-CLJDvghrVq5-VinGZ052iJI6Q/exec',
             'https://script.google.com/macros/s/AKfycbxE11uBTKTaxOggR1JKIlLbqjDHQDppL25OU_ciEkJwb3sLF5y-Esl6chP-oQi4nelUsg/exec',
-            'https://script.google.com/macros/s/AKfycbz1vV2zs9QLBilsQlqePGIu5glj4n9KZh7qaDxqya_6WdwY6-YgQbWHotqHa9wYIDHB/exec'
+            'https://script.google.com/macros/s/AKfycbz1vV2zs9QLBilsQlqePGIu5glj4n9KZh7qaDxqya_6WdwY6-YgQbWHotqHa9wYIDHB/exec',
+            'https://script.google.com/macros/s/AKfycbwqliNSeCAV2CwGgzSxrha6s7jajH6mH5wyxIyv6gZQG0qER4h5eGztD6eSy-NJuqx-/exec',
+            'https://script.google.com/macros/s/AKfycbwn7Z3PJsjzkypue0WBCCZca3jkDX7Zb8iqni3H9mrwWoFRHmcYMdxx7kCwKGTeGfraGQ/exec',
+            'https://script.google.com/macros/s/AKfycbzgjdof-6vHbZUVh53Dcpdo0tLca3J9AK0z2yoUkeK8zBG1y5FMzQOyQeEJkASzDtVwdw/exec',
+            'https://script.google.com/macros/s/AKfycbypDF71212SS0_Q18iyckk_qH1coL12ZZcot354hpPUSt7ehgz_fRGYJCHaKtbBSLyn/exec' 
         ];
         const el = id => document.getElementById(id);
         const pad = (n, z = 2) => String(n).padStart(z, '0');
@@ -110,37 +119,42 @@
             return { success, fail, exec };
         }
         document.getElementById('button').addEventListener('click', async () => {
-            el('div1').style.backgroundColor = BUSY_COLOR;
-            el('div2').style.backgroundColor = BUSY_COLOR;
-            el('div3').style.backgroundColor = BUSY_COLOR;
-            const loop = Number(prompt('ループ回数を入力してください', '35000')) || 0;
+            // 7並列分のdiv色変更
+            for (let i = 1; i <= 7; i++) el(`div${i}`).style.backgroundColor = BUSY_COLOR;
+            const loop = Number(prompt('ループ回数を入力してください', '14300')) || 0;
             const start = Date.now();
-            const p1 = gasWorker(gasurl[0], loop, 'div1').then(r => { el('div1').style.backgroundColor = DONE_COLOR; return r; });
-            const p2 = gasWorker(gasurl[1], loop, 'div2').then(r => { el('div2').style.backgroundColor = DONE_COLOR; return r; });
-            const p3 = gasWorker(gasurl[2], loop, 'div3').then(r => { el('div3').style.backgroundColor = DONE_COLOR; return r; });
-            const [r1, r2, r3] = await Promise.all([p1, p2, p3]);
-            const totals = {
-                success: r1.success + r2.success + r3.success,
-                fail: r1.fail + r2.fail + r3.fail,
-                exec: r1.exec + r2.exec + r3.exec
-            };
+            // 7並列分のPromise生成
+            const workers = gasurl.map((url, i) =>
+                gasWorker(url, loop, `div${i + 1}`).then(r => {
+                    el(`div${i + 1}`).style.backgroundColor = DONE_COLOR;
+                    return r;
+                })
+            );
+            const results = await Promise.all(workers);
+            // 集計
+            const totals = results.reduce((acc, r) => {
+                acc.success += r.success;
+                acc.fail += r.fail;
+                acc.exec += r.exec;
+                return acc;
+            }, { success: 0, fail: 0, exec: 0 });
             const elapsedMs = Date.now() - start;
             const hh = pad(Math.floor(elapsedMs / 3600000));
             const mm = pad(Math.floor((elapsedMs % 3600000) / 60000));
             const ss = pad(Math.floor((elapsedMs % 60000) / 1000));
             const elapsedStr = `${hh}:${mm}:${ss}`;
+            // summary表示
             el('summary').innerHTML = `
                 <div style='display:inline-block;background:${DONE_COLOR};padding:16px 32px;border-radius:12px;text-align:left;'>
                     <b>全体: 成功=${totals.success} 失敗=${totals.fail} 実行数=${totals.exec}</b><br>
-                    <span>URL1: 成功=${r1.success} 失敗=${r1.fail} 実行数=${r1.exec}</span><br>
-                    <span>URL2: 成功=${r2.success} 失敗=${r2.fail} 実行数=${r2.exec}</span><br>
-                    <span>URL3: 成功=${r3.success} 失敗=${r3.fail} 実行数=${r3.exec}</span><br>
+                    ${results.map((r, i) => `<span>URL${i + 1}: 成功=${r.success} 失敗=${r.fail} 実行数=${r.exec}</span><br>`).join('')}
                     <span>経過時間: <b>${elapsedStr}</b></span>
                 </div>`;
+            // console出力
             console.log(`全体: 成功=${totals.success} 失敗=${totals.fail} 実行数=${totals.exec}`);
-            console.log(`URL1: 成功=${r1.success} 失敗=${r1.fail} 実行数=${r1.exec}`);
-            console.log(`URL2: 成功=${r2.success} 失敗=${r2.fail} 実行数=${r2.exec}`);
-            console.log(`URL3: 成功=${r3.success} 失敗=${r3.fail} 実行数=${r3.exec}`);
+            results.forEach((r, i) =>
+                console.log(`URL${i + 1}: 成功=${r.success} 失敗=${r.fail} 実行数=${r.exec}`)
+            );
         });
     </script>
 </body>
