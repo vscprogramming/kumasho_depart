@@ -294,7 +294,7 @@
                     logProgress();
 
                     try {
-                        const response = await fetch(url, { method: "GET", cache: "no-cache", headers: { "X-Request-ID": id } });
+                        const response = await fetch(url);
                         // ここでJSON取得する場合もawaitで統一
                         // 例: const data = await response.json();
                         if (response.ok) {
@@ -339,7 +339,7 @@
         });
 
         byId("fillExample").addEventListener("click", () => {
-            byId("url0").value = "https://script.google.com/macros/s/AKfycbykvDLppA5qRdRh6dr33N48jLScaTxen4YqegRyDGtmPKuqdiFOuZavBlrQPdkOl_ZnPA/exec";
+            byId("url0").value = "https://script.google.com/macros/s/AKfycbyugI_Df_36UbFUyvrDEqWxnN86DgGLBoTKzy-bloVhmBrw2dEyseKgv02-7S0wCQK8bA/exec";
             byId("url1").value = "https://jsonplaceholder.typicode.com/comments";
             byId("url2").value = "https://jsonplaceholder.typicode.com/albums";
             byId("url3").value = "https://jsonplaceholder.typicode.com/photos";
