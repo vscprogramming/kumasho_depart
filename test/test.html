@@ -84,7 +84,7 @@
             'https://script.google.com/macros/s/AKfycbwqliNSeCAV2CwGgzSxrha6s7jajH6mH5wyxIyv6gZQG0qER4h5eGztD6eSy-NJuqx-/exec',
             'https://script.google.com/macros/s/AKfycbwn7Z3PJsjzkypue0WBCCZca3jkDX7Zb8iqni3H9mrwWoFRHmcYMdxx7kCwKGTeGfraGQ/exec',
             'https://script.google.com/macros/s/AKfycbzgjdof-6vHbZUVh53Dcpdo0tLca3J9AK0z2yoUkeK8zBG1y5FMzQOyQeEJkASzDtVwdw/exec',
-            'https://script.google.com/macros/s/AKfycbypDF71212SS0_Q18iyckk_qH1coL12ZZcot354hpPUSt7ehgz_fRGYJCHaKtbBSLyn/exec' 
+            'https://script.google.com/macros/s/AKfycbypDF71212SS0_Q18iyckk_qH1coL12ZZcot354hpPUSt7ehgz_fRGYJCHaKtbBSLyn/exec'
         ];
         const el = id => document.getElementById(id);
         const pad = (n, z = 2) => String(n).padStart(z, '0');
@@ -98,34 +98,39 @@
             div.appendChild(p);
             div.scrollTop = div.scrollHeight;
         };
-        async function gasWorker(url, loop, divId) {
+        async function gasWorker(url, loop, divId, maxConcurrency = 20) {
             let success = 0, fail = 0, exec = 0;
             const div = el(divId);
-            const promises = Array.from({ length: loop }, (_, i) => {
-                const idx = i + 1;
-                return fetch(url)
-                    .then(res => {
-                        exec++;
-                        if (res.ok) success++; else fail++;
-                        appendLog(div, `${formatTime()}　${idx}回目の処理が完了しました（${res.ok ? '成功' : '失敗'}）`);
-                    })
-                    .catch(() => {
-                        exec++;
-                        fail++;
-                        appendLog(div, `${formatTime()}　${idx}回目の処理が完了しました（ネットワークエラー）`);
-                    });
-            });
-            await Promise.all(promises);
+            let idx = 1;
+            async function runBatch(batch) {
+                await Promise.all(batch.map(i =>
+                    fetch(url)
+                        .then(res => {
+                            exec++;
+                            if (res.ok) success++; else fail++;
+                            appendLog(div, `${formatTime()}　${i}回目の処理が完了しました（${res.ok ? '成功' : '失敗'}）`);
+                        })
+                        .catch(() => {
+                            exec++;
+                            fail++;
+                            appendLog(div, `${formatTime()}　${i}回目の処理が完了しました（ネットワークエラー）`);
+                        })
+                ));
+            }
+            while (idx <= loop) {
+                const batch = [];
+                for (let b = 0; b < maxConcurrency && idx <= loop; b++, idx++) batch.push(idx);
+                await runBatch(batch);
+            }
             return { success, fail, exec };
         }
         document.getElementById('button').addEventListener('click', async () => {
-            // 7並列分のdiv色変更
             for (let i = 1; i <= 7; i++) el(`div${i}`).style.backgroundColor = BUSY_COLOR;
             const loop = Number(prompt('ループ回数を入力してください', '14300')) || 0;
             const start = Date.now();
-            // 7並列分のPromise生成
+            const maxConcurrency = 20; // 並列数制限
             const workers = gasurl.map((url, i) =>
-                gasWorker(url, loop, `div${i + 1}`).then(r => {
+                gasWorker(url, loop, `div${i + 1}`, maxConcurrency).then(r => {
                     el(`div${i + 1}`).style.backgroundColor = DONE_COLOR;
                     return r;
                 })
