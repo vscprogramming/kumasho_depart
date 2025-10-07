@@ -1,70 +1,349 @@
 <!DOCTYPE html>
-
 <html lang="ja">
 
 <head>
-    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>高速並列fetch テスト（力押し）</title>
+    <style>
+        :root {
+            --btn-w: 180px;
+            --btn-h: 56px;
+            --gap: 10px;
+            --log-h: 360px;
+            --accent: #ff7a18;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Yu Gothic UI", sans-serif;
+            padding: 18px;
+            background: linear-gradient(180deg, #0f172a 0%, #071133 100%);
+            color: #e6eef8;
+        }
+
+        h1 {
+            margin: 0 0 12px 0;
+            font-size: 20px;
+        }
+
+        .controls {
+            display: flex;
+            gap: var(--gap);
+            align-items: center;
+            margin-bottom: 14px;
+            flex-wrap: wrap;
+        }
+
+        label {
+            font-size: 13px;
+            color: #cfe1ff;
+        }
+
+        input[type="number"],
+        input[type="text"] {
+            padding: 6px 8px;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            background: rgba(255, 255, 255, 0.02);
+            color: inherit;
+        }
+
+        .url-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+
+        .url-box {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .button-row {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-bottom: 10px;
+        }
+
+        button {
+            width: var(--btn-w);
+            height: var(--btn-h);
+            border-radius: 14px;
+            background: linear-gradient(180deg, var(--accent), #ff5623);
+            color: white;
+            font-weight: 700;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.45);
+        }
+
+        button.small {
+            width: auto;
+            height: 38px;
+            padding: 6px 10px;
+            border-radius: 10px;
+            font-weight: 600;
+        }
+
+        .flex-logs {
+            display: flex;
+            gap: 10px;
+            margin-top: 12px;
+        }
+
+        .log {
+            flex: 1;
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 10px;
+            padding: 10px;
+            height: var(--log-h);
+            overflow-y: auto;
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.02);
+            font-size: 13px;
+            line-height: 1.4;
+        }
+
+        .meta {
+            color: #9fb7ff;
+            font-size: 13px;
+            margin-bottom: 6px;
+        }
+
+        .warn {
+            color: #ffd6a5;
+        }
+
+        .small-note {
+            font-size: 12px;
+            color: #a8c2ff;
+            margin-top: 6px;
+        }
+
+        footer {
+            margin-top: 14px;
+            color: #99b7ff;
+            font-size: 12px;
+        }
+    </style>
 </head>
-<style>
-    button {
-        width: 180px;
-        height: 70px;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        position: absolute;
-        margin: 0;
-        border-radius: 18px;
-        background-color: orange;
-        color: white;
-        font-size: larger;
-        font-weight: bolder;
-    }
-</style>
 
 <body>
-    <button id="button">gas実行開始</button>
+    <h1>高速並列 fetch テスト（待ち・間引き無し）</h1>
+
+    <div class="controls">
+        <div>
+            <label for="totalInput">TOTAL（各ボタンごとの合計リクエスト数）</label><br>
+            <input id="totalInput" type="number" value="20020" min="1" step="1" placeholder="例: 100000" />
+        </div>
+        <div>
+            <label for="concurrencyInput">CONCURRENCY（並列ワーカー数）</label><br>
+            <input id="concurrencyInput" type="number" value="1" min="1" step="1" placeholder="例: 32" />
+        </div>
+        <div style="margin-left:auto">
+            <button id="globalClear" class="small" type="button">全ログクリア</button>
+            <button id="fillExample" class="small" type="button">例のURLをセット</button>
+        </div>
+    </div>
+
+    <div class="url-grid" id="urlGrid">
+        <!-- 5つの URL とボタン群。index に対応 -->
+        <div class="url-box">
+            <label for="url0">Index 0 URL</label>
+            <input id="url0" type="text" placeholder="https://.../exec" />
+            <div class="button-row">
+                <button id="button0" type="button">開始 0</button>
+                <button id="stop0" class="small" type="button" disabled>停止</button>
+                <button id="clear0" class="small" type="button">ログ消去</button>
+            </div>
+        </div>
+        <div class="url-box">
+            <label for="url1">Index 1 URL</label>
+            <input id="url1" type="text" placeholder="https://.../exec" />
+            <div class="button-row">
+                <button id="button1" type="button">開始 1</button>
+                <button id="stop1" class="small" type="button" disabled>停止</button>
+                <button id="clear1" class="small" type="button">ログ消去</button>
+            </div>
+        </div>
+        <div class="url-box">
+            <label for="url2">Index 2 URL</label>
+            <input id="url2" type="text" placeholder="https://.../exec" />
+            <div class="button-row">
+                <button id="button2" type="button">開始 2</button>
+                <button id="stop2" class="small" type="button" disabled>停止</button>
+                <button id="clear2" class="small" type="button">ログ消去</button>
+            </div>
+        </div>
+        <div class="url-box">
+            <label for="url3">Index 3 URL</label>
+            <input id="url3" type="text" placeholder="https://.../exec" />
+            <div class="button-row">
+                <button id="button3" type="button">開始 3</button>
+                <button id="stop3" class="small" type="button" disabled>停止</button>
+                <button id="clear3" class="small" type="button">ログ消去</button>
+            </div>
+        </div>
+        <div class="url-box">
+            <label for="url4">Index 4 URL</label>
+            <input id="url4" type="text" placeholder="https://.../exec" />
+            <div class="button-row">
+                <button id="button4" type="button">開始 4</button>
+                <button id="stop4" class="small" type="button" disabled>停止</button>
+                <button id="clear4" class="small" type="button">ログ消去</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="flex-logs">
+        <div id="log0" class="log"></div>
+        <div id="log1" class="log"></div>
+        <div id="log2" class="log"></div>
+        <div id="log3" class="log"></div>
+        <div id="log4" class="log"></div>
+    </div>
+
+    <div class="small-note">
+        <span class="warn">注意:</span>
+        これは「負荷無視・最速優先」のテスト実装だ。サーバやネットワークへの影響、ブラウザの負荷、レート制限・IPブロック等には注意すること。
+    </div>
+
+    <footer>ケリュドラの名にかけて――行け。結果を見せよ。🔥</footer>
+
     <script>
-        let OK = 0, NG = 0, ON_else = 0, result;
-        document.getElementById('button').addEventListener('click', async () => {
-            console.log('実行開始');
-            let i;
-            for (i = 1; i <= 100100; i++) {
-                result = null;
-                const time = new Date();
+        // --- ユーティリティ ---
+        const byId = id => document.getElementById(id);
+        function timeStr(d = new Date()) {
+            const z = v => String(v).padStart(2, '0');
+            return `${z(d.getHours())}:${z(d.getMinutes())}:${z(d.getSeconds())}.${String(d.getMilliseconds()).padStart(3, '0')}`;
+        }
 
-                const data = new URLSearchParams({
-                    res_time: `${time.getHours()}:${time.getMinutes()}:${time.getSeconds()}`,
-                    row: i
-                });
+        // ボタンとログ要素をまとめて扱うためのクラス
+        class FetchTestButton {
+            constructor(index) {
+                this.index = index;
+                this.isRunning = false;
+                this.total = 0;
+                this.success = 0;
+                this.failure = 0;
+                this.stopped = true;
 
-                const response = await fetch('https://script.google.com/macros/s/AKfycbykvDLppA5qRdRh6dr33N48jLScaTxen4YqegRyDGtmPKuqdiFOuZavBlrQPdkOl_ZnPA/exec', {
-                    method: 'POST',
-                    body: data
-                });
+                this.urlInput = byId(`url${index}`);
+                this.logOutput = byId(`log${index}`);
+                this.button = byId(`button${index}`);
+                this.stopButton = byId(`stop${index}`);
+                this.clearButton = byId(`clear${index}`);
 
-                if (response.ok) {
-                    const result = await response.text();
-
-                    while (!result) {
-                        await new Promise(resolve => setTimeout(resolve, 70));
-                    }
-
-                    if (result == 'OK') {
-                        OK++;
-                    } else if (result == 'NG') {
-                        NG++;
-                    } else {
-                        ON_else++;
-                    }
-
-                    console.log(`${i}回目の送信が完了しました（${result}）`);
-                } else {
-                    NG++;
-                    console.log(`${i}回目の送信が完了しました（res.ok,NG）`);
-                }
+                this.button.addEventListener("click", () => this.start());
+                this.stopButton.addEventListener("click", () => this.stop());
+                this.clearButton.addEventListener("click", () => this.clearLog());
             }
-            console.log(`${i-1}回の実行が終了しました。（OK:${OK}, NG:${NG}, else: ${ON_else}）`);
+
+            log(message, isError = false) {
+                const time = timeStr();
+                const className = isError ? "error" : "info";
+                this.logOutput.insertAdjacentHTML("beforeend", `<div class="${className}">${time} - ${message}</div>`);
+                this.logOutput.scrollTop = this.logOutput.scrollHeight;
+            }
+
+            async start() {
+                if (this.isRunning) return;
+                this.isRunning = true;
+                this.stopped = false;
+                this.success = 0;
+                this.failure = 0;
+                this.total = 0;
+                this.logOutput.innerHTML = ""; // ログクリア
+
+                const url = this.urlInput.value.trim();
+                if (!url) {
+                    this.log("URL が未入力です。", true);
+                    this.stop();
+                    return;
+                }
+
+                const total = Math.ceil(parseInt(byId("totalInput").value, 10)) || 1;
+                const concurrency = parseInt(byId("concurrencyInput").value, 10) || 1;
+
+                this.log(`テスト開始: ${total} リクエスト（並列: ${concurrency}）`);
+
+                const fetchPromises = [];
+                for (let i = 0; i < concurrency; i++) {
+                    fetchPromises.push(this.fetchWorker(url, total));
+                }
+
+                await Promise.all(fetchPromises);
+                this.log("全てのリクエストが完了しました。");
+                this.isRunning = false;
+            }
+
+            async fetchWorker(url, total) {
+                const id = `${this.index}-${Date.now()}`;
+                let requestCount = 0;
+                let successCount = 0;
+                let failureCount = 0;
+
+                const logProgress = () => {
+                    this.log(`進捗: ${requestCount}/${total} (成功: ${successCount}, 失敗: ${failureCount})`);
+                };
+
+                while (requestCount < total && !this.stopped) {
+                    requestCount++;
+                    logProgress();
+
+                    try {
+                        const response = await fetch(url, { method: "GET", cache: "no-cache", headers: { "X-Request-ID": id } });
+                        // ここでJSON取得する場合もawaitで統一
+                        // 例: const data = await response.json();
+                        if (response.ok) {
+                            successCount++;
+                            this.log(`成功: ${response.url} (ID: ${id})`);
+                        } else {
+                            failureCount++;
+                            this.log(`失敗（ステータスコード ${response.status}）: ${response.url} (ID: ${id})`, true);
+                        }
+                    } catch (error) {
+                        failureCount++;
+                        this.log(`ネットワークエラー: ${error.message} (ID: ${id})`, true);
+                    }
+
+                    await new Promise(resolve => setTimeout(resolve, 0));
+                }
+
+                this.success += successCount;
+                this.failure += failureCount;
+                this.log(`ワーカー完了（ID: ${id}） - 成功: ${successCount}, 失敗: ${failureCount}`);
+            }
+
+            stop() {
+                this.stopped = true;
+                this.isRunning = false;
+                this.log("テストが停止されました。");
+            }
+
+            clearLog() {
+                this.logOutput.innerHTML = "";
+                this.success = 0;
+                this.failure = 0;
+                this.total = 0;
+            }
+        }
+
+        // --- メイン処理 ---
+        const buttons = [...Array(5)].map((_, i) => new FetchTestButton(i));
+
+        byId("globalClear").addEventListener("click", () => {
+            buttons.forEach(button => button.clearLog());
+        });
+
+        byId("fillExample").addEventListener("click", () => {
+            byId("url0").value = "https://script.google.com/macros/s/AKfycbykvDLppA5qRdRh6dr33N48jLScaTxen4YqegRyDGtmPKuqdiFOuZavBlrQPdkOl_ZnPA/exec";
+            byId("url1").value = "https://jsonplaceholder.typicode.com/comments";
+            byId("url2").value = "https://jsonplaceholder.typicode.com/albums";
+            byId("url3").value = "https://jsonplaceholder.typicode.com/photos";
+            byId("url4").value = "https://jsonplaceholder.typicode.com/todos";
         });
     </script>
 </body>

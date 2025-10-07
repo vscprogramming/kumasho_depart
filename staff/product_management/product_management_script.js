@@ -46,7 +46,7 @@ const all_gas_url = new Map([
 ]);
 
 const gas_url_post = all_gas_url.get(class_name), gas_url_get = `${gas_url_post}?sheet=${encodeURIComponent(class_name)}`;
-const gas_url_cs_post = 'https://script.google.com/macros/s/AKfycbxfxbRGzChgzl5U93fbRllPoDm-SklQz7GvKeNwY__JK81EjwH-HI6LVDi1PdaIUmXW/exec'; // gasurlを更新
+const gas_url_cs_post = 'https://script.google.com/macros/s/AKfycbwT4gS9ZQtDncvbyyHzZewqI-CprzojeoZjXc9jbJ1f1GdyTr611mi9Ja1FSZn7dVtI/exec'; // gasurlを更新
 const gas_url_cs_get = `${gas_url_cs_post}?sheet=${encodeURIComponent('cs')}`;
 console.log(`get用：${gas_url_get}`);
 console.log(`post用：${gas_url_post}`);
