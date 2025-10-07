@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", () => {
       crowdElement.textContent = "ただいまの混雑状況: 取得中...";
 
       // 混雑状況取得用 GAS URL
-      const crowdUrl = "https://script.googleusercontent.com/a/macros/g.bears.ed.jp/echo?user_content_key=AehSKLjTBZ6qY3SGiGmr1EgEKzrpbr635MZG_fM75h59TcFzt0E8G47YPtdd40xQsCVqusSMHsRSkU0SO1DYf8yTlsT9YXXF9rRfBm-X-uPC_2WaZnhEUjIGR4pV1uEm-t53wtNdAoXpvfOWVVIaoxyKcSdv5nkjOJ98SrahQ-1BU0E8cVQjOZ-GYJoBTYXUGxKFEr1EvPbejbQ6ktMI-wVXEIjnWCAPK5I_aTR3obKpQECLIv_GyMFujgx8MehRqlfItKDCqu2VQGZGjXhTvVHplN3dsYCopNhzKwrRrNrOl-ZNZXvFSnE&lib=MAdEE3doohcxWfv6P4X-ZtiKctFh_LT3R";
+      const crowdUrl = "https://script.google.com/macros/s/AKfycbwT4gS9ZQtDncvbyyHzZewqI-CprzojeoZjXc9jbJ1f1GdyTr611mi9Ja1FSZn7dVtI/exec";
 
       fetch(crowdUrl)
         .then(response => {

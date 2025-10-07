@@ -2,349 +2,170 @@
 <html lang="ja">
 
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>高速並列fetch テスト（力押し）</title>
-    <style>
-        :root {
-            --btn-w: 180px;
-            --btn-h: 56px;
-            --gap: 10px;
-            --log-h: 360px;
-            --accent: #ff7a18;
-        }
-
-        body {
-            font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Yu Gothic UI", sans-serif;
-            padding: 18px;
-            background: linear-gradient(180deg, #0f172a 0%, #071133 100%);
-            color: #e6eef8;
-        }
-
-        h1 {
-            margin: 0 0 12px 0;
-            font-size: 20px;
-        }
-
-        .controls {
-            display: flex;
-            gap: var(--gap);
-            align-items: center;
-            margin-bottom: 14px;
-            flex-wrap: wrap;
-        }
-
-        label {
-            font-size: 13px;
-            color: #cfe1ff;
-        }
-
-        input[type="number"],
-        input[type="text"] {
-            padding: 6px 8px;
-            border-radius: 8px;
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            background: rgba(255, 255, 255, 0.02);
-            color: inherit;
-        }
-
-        .url-grid {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 10px;
-            margin-bottom: 10px;
-        }
-
-        .url-box {
-            display: flex;
-            flex-direction: column;
-            gap: 6px;
-        }
-
-        .button-row {
-            display: flex;
-            gap: 8px;
-            flex-wrap: wrap;
-            margin-bottom: 10px;
-        }
-
-        button {
-            width: var(--btn-w);
-            height: var(--btn-h);
-            border-radius: 14px;
-            background: linear-gradient(180deg, var(--accent), #ff5623);
-            color: white;
-            font-weight: 700;
-            border: none;
-            cursor: pointer;
-            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.45);
-        }
-
-        button.small {
-            width: auto;
-            height: 38px;
-            padding: 6px 10px;
-            border-radius: 10px;
-            font-weight: 600;
-        }
-
-        .flex-logs {
-            display: flex;
-            gap: 10px;
-            margin-top: 12px;
-        }
-
-        .log {
-            flex: 1;
-            background: rgba(255, 255, 255, 0.03);
-            border-radius: 10px;
-            padding: 10px;
-            height: var(--log-h);
-            overflow-y: auto;
-            box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.02);
-            font-size: 13px;
-            line-height: 1.4;
-        }
-
-        .meta {
-            color: #9fb7ff;
-            font-size: 13px;
-            margin-bottom: 6px;
-        }
-
-        .warn {
-            color: #ffd6a5;
-        }
-
-        .small-note {
-            font-size: 12px;
-            color: #a8c2ff;
-            margin-top: 6px;
-        }
-
-        footer {
-            margin-top: 14px;
-            color: #99b7ff;
-            font-size: 12px;
-        }
-    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>gas実行数制限検証サイト</title>
 </head>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+    }
+
+    button {
+        padding: 10px 20px;
+        font-size: 16px;
+        margin-bottom: 18px;
+        cursor: pointer;
+        border-radius: 34px;
+        color: white;
+        background-color: orange;
+    }
+
+    #result {
+        display: flex;
+        flex-direction: row;
+        gap: 10px;
+    }
+
+    .divs {
+        flex: 1;
+        margin-bottom: 0;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: #f9f9f9;
+        display: flex;
+        flex-direction: column;
+        overflow-y: auto;
+        height: 700px;
+        max-height: 700px;
+    }
+</style>
 
 <body>
-    <h1>高速並列 fetch テスト（待ち・間引き無し）</h1>
-
-    <div class="controls">
-        <div>
-            <label for="totalInput">TOTAL（各ボタンごとの合計リクエスト数）</label><br>
-            <input id="totalInput" type="number" value="20020" min="1" step="1" placeholder="例: 100000" />
-        </div>
-        <div>
-            <label for="concurrencyInput">CONCURRENCY（並列ワーカー数）</label><br>
-            <input id="concurrencyInput" type="number" value="1" min="1" step="1" placeholder="例: 32" />
-        </div>
-        <div style="margin-left:auto">
-            <button id="globalClear" class="small" type="button">全ログクリア</button>
-            <button id="fillExample" class="small" type="button">例のURLをセット</button>
-        </div>
+    <button id="button">GAS実行</button>
+    <div id="result">
+        <div id="div1" class="divs">test1</div>
+        <div id="div2" class="divs">test2</div>
+        <div id="div3" class="divs">test3</div>
     </div>
-
-    <div class="url-grid" id="urlGrid">
-        <!-- 5つの URL とボタン群。index に対応 -->
-        <div class="url-box">
-            <label for="url0">Index 0 URL</label>
-            <input id="url0" type="text" placeholder="https://.../exec" />
-            <div class="button-row">
-                <button id="button0" type="button">開始 0</button>
-                <button id="stop0" class="small" type="button" disabled>停止</button>
-                <button id="clear0" class="small" type="button">ログ消去</button>
-            </div>
-        </div>
-        <div class="url-box">
-            <label for="url1">Index 1 URL</label>
-            <input id="url1" type="text" placeholder="https://.../exec" />
-            <div class="button-row">
-                <button id="button1" type="button">開始 1</button>
-                <button id="stop1" class="small" type="button" disabled>停止</button>
-                <button id="clear1" class="small" type="button">ログ消去</button>
-            </div>
-        </div>
-        <div class="url-box">
-            <label for="url2">Index 2 URL</label>
-            <input id="url2" type="text" placeholder="https://.../exec" />
-            <div class="button-row">
-                <button id="button2" type="button">開始 2</button>
-                <button id="stop2" class="small" type="button" disabled>停止</button>
-                <button id="clear2" class="small" type="button">ログ消去</button>
-            </div>
-        </div>
-        <div class="url-box">
-            <label for="url3">Index 3 URL</label>
-            <input id="url3" type="text" placeholder="https://.../exec" />
-            <div class="button-row">
-                <button id="button3" type="button">開始 3</button>
-                <button id="stop3" class="small" type="button" disabled>停止</button>
-                <button id="clear3" class="small" type="button">ログ消去</button>
-            </div>
-        </div>
-        <div class="url-box">
-            <label for="url4">Index 4 URL</label>
-            <input id="url4" type="text" placeholder="https://.../exec" />
-            <div class="button-row">
-                <button id="button4" type="button">開始 4</button>
-                <button id="stop4" class="small" type="button" disabled>停止</button>
-                <button id="clear4" class="small" type="button">ログ消去</button>
-            </div>
-        </div>
-    </div>
-
-    <div class="flex-logs">
-        <div id="log0" class="log"></div>
-        <div id="log1" class="log"></div>
-        <div id="log2" class="log"></div>
-        <div id="log3" class="log"></div>
-        <div id="log4" class="log"></div>
-    </div>
-
-    <div class="small-note">
-        <span class="warn">注意:</span>
-        これは「負荷無視・最速優先」のテスト実装だ。サーバやネットワークへの影響、ブラウザの負荷、レート制限・IPブロック等には注意すること。
-    </div>
-
-    <footer>ケリュドラの名にかけて――行け。結果を見せよ。🔥</footer>
-
     <script>
-        // --- ユーティリティ ---
-        const byId = id => document.getElementById(id);
-        function timeStr(d = new Date()) {
-            const z = v => String(v).padStart(2, '0');
-            return `${z(d.getHours())}:${z(d.getMinutes())}:${z(d.getSeconds())}.${String(d.getMilliseconds()).padStart(3, '0')}`;
-        }
+        const gasurl = [
+            'https://script.google.com/macros/s/AKfycbxOjSZ5ZTZuES5HMarbCK50zs0RGNW4GfcQW8Wszc1p-CLJDvghrVq5-VinGZ052iJI6Q/exec',
+            'https://script.google.com/macros/s/AKfycbxE11uBTKTaxOggR1JKIlLbqjDHQDppL25OU_ciEkJwb3sLF5y-Esl6chP-oQi4nelUsg/exec',
+            'https://script.google.com/macros/s/AKfycbz1vV2zs9QLBilsQlqePGIu5glj4n9KZh7qaDxqya_6WdwY6-YgQbWHotqHa9wYIDHB/exec'
+        ];
 
-        // ボタンとログ要素をまとめて扱うためのクラス
-        class FetchTestButton {
-            constructor(index) {
-                this.index = index;
-                this.isRunning = false;
-                this.total = 0;
-                this.success = 0;
-                this.failure = 0;
-                this.stopped = true;
+        document.getElementById('button').addEventListener('click', async () => {
+            const loop = Number(prompt('ループ回数を入力してください', '35000'));
+            let totalSuccess = 0, totalFail = 0, totalExec = 0;
 
-                this.urlInput = byId(`url${index}`);
-                this.logOutput = byId(`log${index}`);
-                this.button = byId(`button${index}`);
-                this.stopButton = byId(`stop${index}`);
-                this.clearButton = byId(`clear${index}`);
+            const [result1, result2, result3] = await Promise.all([
+                gas1(gasurl[0], loop),
+                gas2(gasurl[1], loop),
+                gas3(gasurl[2], loop)
+            ]);
 
-                this.button.addEventListener("click", () => this.start());
-                this.stopButton.addEventListener("click", () => this.stop());
-                this.clearButton.addEventListener("click", () => this.clearLog());
-            }
+            totalSuccess = result1.success + result2.success + result3.success;
+            totalFail = result1.fail + result2.fail + result3.fail;
+            totalExec = result1.exec + result2.exec + result3.exec;
 
-            log(message, isError = false) {
-                const time = timeStr();
-                const className = isError ? "error" : "info";
-                this.logOutput.insertAdjacentHTML("beforeend", `<div class="${className}">${time} - ${message}</div>`);
-                this.logOutput.scrollTop = this.logOutput.scrollHeight;
-            }
-
-            async start() {
-                if (this.isRunning) return;
-                this.isRunning = true;
-                this.stopped = false;
-                this.success = 0;
-                this.failure = 0;
-                this.total = 0;
-                this.logOutput.innerHTML = ""; // ログクリア
-
-                const url = this.urlInput.value.trim();
-                if (!url) {
-                    this.log("URL が未入力です。", true);
-                    this.stop();
-                    return;
-                }
-
-                const total = Math.ceil(parseInt(byId("totalInput").value, 10)) || 1;
-                const concurrency = parseInt(byId("concurrencyInput").value, 10) || 1;
-
-                this.log(`テスト開始: ${total} リクエスト（並列: ${concurrency}）`);
-
-                const fetchPromises = [];
-                for (let i = 0; i < concurrency; i++) {
-                    fetchPromises.push(this.fetchWorker(url, total));
-                }
-
-                await Promise.all(fetchPromises);
-                this.log("全てのリクエストが完了しました。");
-                this.isRunning = false;
-            }
-
-            async fetchWorker(url, total) {
-                const id = `${this.index}-${Date.now()}`;
-                let requestCount = 0;
-                let successCount = 0;
-                let failureCount = 0;
-
-                const logProgress = () => {
-                    this.log(`進捗: ${requestCount}/${total} (成功: ${successCount}, 失敗: ${failureCount})`);
-                };
-
-                while (requestCount < total && !this.stopped) {
-                    requestCount++;
-                    logProgress();
-
-                    try {
-                        const response = await fetch(url);
-                        // ここでJSON取得する場合もawaitで統一
-                        // 例: const data = await response.json();
-                        if (response.ok) {
-                            successCount++;
-                            this.log(`成功: ${response.url} (ID: ${id})`);
-                        } else {
-                            failureCount++;
-                            this.log(`失敗（ステータスコード ${response.status}）: ${response.url} (ID: ${id})`, true);
-                        }
-                    } catch (error) {
-                        failureCount++;
-                        this.log(`ネットワークエラー: ${error.message} (ID: ${id})`, true);
-                    }
-
-                    await new Promise(resolve => setTimeout(resolve, 0));
-                }
-
-                this.success += successCount;
-                this.failure += failureCount;
-                this.log(`ワーカー完了（ID: ${id}） - 成功: ${successCount}, 失敗: ${failureCount}`);
-            }
-
-            stop() {
-                this.stopped = true;
-                this.isRunning = false;
-                this.log("テストが停止されました。");
-            }
-
-            clearLog() {
-                this.logOutput.innerHTML = "";
-                this.success = 0;
-                this.failure = 0;
-                this.total = 0;
-            }
-        }
-
-        // --- メイン処理 ---
-        const buttons = [...Array(5)].map((_, i) => new FetchTestButton(i));
-
-        byId("globalClear").addEventListener("click", () => {
-            buttons.forEach(button => button.clearLog());
+            console.log(`全体: 成功=${totalSuccess} 失敗=${totalFail} 実行数=${totalExec}`);
+            console.log(`URL1: 成功=${result1.success} 失敗=${result1.fail} 実行数=${result1.exec}`);
+            console.log(`URL2: 成功=${result2.success} 失敗=${result2.fail} 実行数=${result2.exec}`);
+            console.log(`URL3: 成功=${result3.success} 失敗=${result3.fail} 実行数=${result3.exec}`);
         });
 
-        byId("fillExample").addEventListener("click", () => {
-            byId("url0").value = "https://script.google.com/macros/s/AKfycbyugI_Df_36UbFUyvrDEqWxnN86DgGLBoTKzy-bloVhmBrw2dEyseKgv02-7S0wCQK8bA/exec";
-            byId("url1").value = "https://jsonplaceholder.typicode.com/comments";
-            byId("url2").value = "https://jsonplaceholder.typicode.com/albums";
-            byId("url3").value = "https://jsonplaceholder.typicode.com/photos";
-            byId("url4").value = "https://jsonplaceholder.typicode.com/todos";
-        });
+        async function gas1(url, loop) {
+            let success = 0, fail = 0, exec = 0;
+            const promises = [];
+            for (let i = 1; i <= loop; i++) {
+                const time = new Date();
+                promises.push(
+                    fetch(url)
+                        .then(res => {
+                            exec++;
+                            if (res.ok) success++;
+                            else fail++;
+                            const p = Object.assign(document.createElement('p'), {
+                                innerHTML: `${time.getHours()}:${time.getMinutes()}:${time.getSeconds()}.${time.getMilliseconds()}　${i}回目の処理が完了しました（${res.ok ? '成功' : '失敗'}）<br>`
+                            });
+                            document.getElementById('div1').appendChild(p);
+                        })
+                        .catch(error => {
+                            exec++;
+                            fail++;
+                            const p = Object.assign(document.createElement('p'), {
+                                innerHTML: `${time.getHours()}:${time.getMinutes()}:${time.getSeconds()}.${time.getMilliseconds()}　${i}回目の処理が完了しました（ネットワークエラー）<br>`
+                            });
+                            document.getElementById('div1').appendChild(p);
+                        })
+                );
+            }
+            await Promise.all(promises);
+            return { success, fail, exec };
+        }
+
+        async function gas2(url, loop) {
+            let success = 0, fail = 0, exec = 0;
+            const promises = [];
+            for (let i = 1; i <= loop; i++) {
+                const time = new Date();
+                promises.push(
+                    fetch(url)
+                        .then(res => {
+                            exec++;
+                            if (res.ok) success++;
+                            else fail++;
+                            const p = Object.assign(document.createElement('p'), {
+                                innerHTML: `${time.getHours()}:${time.getMinutes()}:${time.getSeconds()}.${time.getMilliseconds()}　${i}回目の処理が完了しました（${res.ok ? '成功' : '失敗'}）<br>`
+                            });
+                            document.getElementById('div2').appendChild(p);
+                        })
+                        .catch(error => {
+                            exec++;
+                            fail++;
+                            const p = Object.assign(document.createElement('p'), {
+                                innerHTML: `${time.getHours()}:${time.getMinutes()}:${time.getSeconds()}.${time.getMilliseconds()}　${i}回目の処理が完了しました（ネットワークエラー）<br>`
+                            });
+                            document.getElementById('div2').appendChild(p);
+                        })
+                );
+            }
+            await Promise.all(promises);
+            return { success, fail, exec };
+        }
+
+        async function gas3(url, loop) {
+            let success = 0, fail = 0, exec = 0;
+            const promises = [];
+            for (let i = 1; i <= loop; i++) {
+                const time = new Date();
+                promises.push(
+                    fetch(url)
+                        .then(res => {
+                            exec++;
+                            if (res.ok) success++;
+                            else fail++;
+                            const p = Object.assign(document.createElement('p'), {
+                                innerHTML: `${time.getHours()}:${time.getMinutes()}:${time.getSeconds()}.${time.getMilliseconds()}　${i}回目の処理が完了しました（${res.ok ? '成功' : '失敗'}）<br>`
+                            });
+                            document.getElementById('div3').appendChild(p);
+                        })
+                        .catch(error => {
+                            exec++;
+                            fail++;
+                            const p = Object.assign(document.createElement('p'), {
+                                innerHTML: `${time.getHours()}:${time.getMinutes()}:${time.getSeconds()}.${time.getMilliseconds()}　${i}回目の処理が完了しました（ネットワークエラー）<br>`
+                            });
+                            document.getElementById('div3').appendChild(p);
+                        })
+                );
+            }
+            await Promise.all(promises);
+            return { success, fail, exec };
+        }
     </script>
 </body>
 
