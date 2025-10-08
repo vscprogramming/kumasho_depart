@@ -66,7 +66,7 @@ document.addEventListener("DOMContentLoaded", () => {
               color = "red";
             } else if (status.includes("非営業")){
               message = "ただいま営業しておりません。";
-              color = "purple";
+              color = "#faf";
             } else{
               message="混雑状況の詳細は不明です。"
             }  

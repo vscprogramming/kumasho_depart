@@ -699,13 +699,13 @@
         "products": [
             {
                 "name": "袋入りキャンディー　ぶどうヨーグルト",
-                "img": "img/products/AmeYa/hb.png",
+                "img": "img/products/AmeYa/fb.png",
                 "price": 0,
                 "stock": "40個（1日20個）"
             },
             {
-                "name": "袋入りキャンディー　ピーチヨーグルト",
-                "img": "img/products/AmeYa/hp.png",
+                "name": "袋入りキャンディー　いちご",
+                "img": "img/products/AmeYa/fs.png",
                 "price": 0,
                 "stock": "40個（1日20個）"
             },

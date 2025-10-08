@@ -59,9 +59,9 @@ GAS_URL 一覧
         3-9
             https://script.google.com/macros/s/AKfycbyEHLBgehDKx2n8OztlXKV_V3c71krJc1dIgIE4mM8CdBIYvK6wZb_eb1oi98LzwQQqWw/exec
 
-    パスワード用（まだ変えてません）
-        https://script.google.com/macros/s/AKfycbyG279JTr01s2ietRm8QoVsFoAkvJz0yvetyoXhGN6JZ9j_fKwaYDdqlN4qwiD-nZOQ/exec
+    パスワード用
+        https://script.google.com/macros/s/AKfycbyK7_NC8Dmif7-ZDSDPFDOSCSrtrdVCR7MYq626vwAjBqa82d8aobkBOm8rGmlPFQHy/exec
 
-    混雑状況（まだ変えてません）
-        https://script.google.com/macros/s/AKfycbxfxbRGzChgzl5U93fbRllPoDm-SklQz7GvKeNwY__JK81EjwH-HI6LVDi1PdaIUmXW/exec
+    混雑状況
+        https://script.google.com/macros/s/AKfycbwT4gS9ZQtDncvbyyHzZewqI-CprzojeoZjXc9jbJ1f1GdyTr611mi9Ja1FSZn7dVtI/exec
     
