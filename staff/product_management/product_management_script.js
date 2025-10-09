@@ -213,13 +213,13 @@ async function content_generation(post, post_cs) {
         // タブ
         const tab_btns = document.createElement('button');
         tab_btns.textContent = all_data[c].company_name;
-        tab_btns.dataset.index = c;
+        tab_btns.dataset.t_index = c;
         document.getElementById('tab_buttons').appendChild(tab_btns);
 
         // 内容
         tab_contents_div = document.createElement('div');
         tab_contents_div.className = 'tab_content';
-        tab_contents_div.dataset.index = c;
+        tab_contents_div.dataset.t_index = c;
         tab_contents_div.style.maxHeight = `${window.innerHeight - 132.6}px`
         if (c === 0) tab_contents_div.classList.add('show');
 
@@ -257,14 +257,14 @@ async function content_generation(post, post_cs) {
 
         crowd_status.style.backgroundColor = json_data_cs[indexOf].crowd_status === '空き' ? '#aae' : json_data_cs[indexOf].crowd_status === 'やや混雑' ? '#ffa' : json_data_cs[indexOf].crowd_status === '混雑' ? '#eaa' : '#c79cff';
         crowd_status.selectedIndex = json_data_cs[indexOf].crowd_status === '空き' ? 0 : json_data_cs[indexOf].crowd_status === 'やや混雑' ? 1 : json_data_cs[indexOf].crowd_status === '混雑' ? 2 : 3;
-        crowd_status.dataset.index = indexOf;
+        crowd_status.dataset.c_index = indexOf;
 
         company_total_display.appendChild(company_total_display_text_company_name);
         company_total_display.appendChild(company_total_display_text_products);
         company_total_display.appendChild(crowd_status_text);
         company_total_display.appendChild(crowd_status);
 
-        company_total_display.dataset.index = c;
+        company_total_display.dataset.t_index = c;
 
         // テーブルの作成
         const tab_contents_table = document.createElement('table');    // テーブル全体
@@ -311,7 +311,7 @@ async function content_generation(post, post_cs) {
             tab_contents_table_tbody_td_sales_pulldown.style.backgroundColor = all_data[c].products.sales[p] === '販売中' ? '#aae' : all_data[c].products.sales[p] === '残りわずか' ? '#ffa' : all_data[c].products.sales[p] === '仕入準備中' ? '#aea' : '#eaa';
             tab_contents_table_tbody_td_sales_pulldown.selectedIndex = all_data[c].products.sales[p] === '販売中' ? 0 : all_data[c].products.sales[p] === '残りわずか' ? 1 : all_data[c].products.sales[p] === '仕入準備中' ? 2 : 3;
 
-            tab_contents_table_tbody_td_sales_pulldown.dataset.index = `${c}-${p}`;  // プルダウン番地を入力（post用）
+            tab_contents_table_tbody_td_sales_pulldown.dataset.p_index = `${c}-${p}`;  // プルダウン番地を入力（post用）
 
             tab_contents_table_tbody_td_sales.appendChild(tab_contents_table_tbody_td_sales_pulldown);
             tab_contents_table_tbody_tr.appendChild(tab_contents_table_tbody_td_sales);
@@ -360,7 +360,7 @@ async function content_generation(post, post_cs) {
                 textContent: search_count == 0 ? `「${document.getElementById('search_input').value.trim()}」で検索中：商品が見つかりませんでした` : `「${document.getElementById('search_input').value.trim()}」で検索中：${search_count}件見つかりました`
             });
 
-            document.querySelector(`.company_total_display[data-index="${c}"`).appendChild(searched_text);
+            document.querySelector(`.company_total_display[data-p_index="${c}"`).appendChild(searched_text);
         }
     }
 
@@ -385,12 +385,12 @@ async function content_generation(post, post_cs) {
     // 混雑状況プルダウン変更時　ここから
     document.querySelectorAll('.crowd_status_pulldown').forEach(pulldown => {
         pulldown.addEventListener('change', async (event) => {
-            const pulldown_dataset_cs = event.target.dataset.index;
-            console.log(`${pulldown_dataset_cs}(${pulldown_dataset_cs + 1}社目)`);
+            const pulldown_dataset_cs = event.target.dataset.c_index;
+            console.log(`${pulldown_dataset_cs}(${Number(pulldown_dataset_cs) + 1}社目)`);
 
             // ローカルデータの更新
-            json_data_cs[pulldown_dataset_cs].crowd_status = document.querySelector(`[data-index="${pulldown_dataset_cs}"]`).value;
-            document.querySelector(`[data-index="${pulldown_dataset_cs}"]`).style.backgroundColor = json_data_cs[pulldown_dataset_cs].crowd_status === '空き' ? '#aae' : json_data_cs[pulldown_dataset_cs].crowd_status === 'やや混雑' ? '#ffa' : json_data_cs[pulldown_dataset_cs].crowd_status === '混雑' ? '#eaa' : '#c79cff';
+            json_data_cs[pulldown_dataset_cs].crowd_status = document.querySelector(`[data-c_index="${pulldown_dataset_cs}"]`).value;
+            document.querySelector(`[data-c_index="${pulldown_dataset_cs}"]`).style.backgroundColor = json_data_cs[pulldown_dataset_cs].crowd_status === '空き' ? '#aae' : json_data_cs[pulldown_dataset_cs].crowd_status === 'やや混雑' ? '#ffa' : json_data_cs[pulldown_dataset_cs].crowd_status === '混雑' ? '#eaa' : '#c79cff';
 
             console.log(json_data_cs);
 
@@ -422,13 +422,13 @@ async function content_generation(post, post_cs) {
     // 販売状況プルダウン変更時 ここから
     document.querySelectorAll('.tab_contents_table_tbody_td_sales_pulldown').forEach(pulldown => {
         pulldown.addEventListener('change', async (event) => {
-            const pulldown_dataset = event.target.dataset.index;
+            const pulldown_dataset = event.target.dataset.p_index;
             console.log(`${pulldown_dataset}(${parseInt(pulldown_dataset[0]) + 1}社目, ${parseInt(pulldown_dataset.slice(2)) + 1}番目の商品)`);
             const pulldown_c = parseInt(pulldown_dataset[0]), pulldown_p = parseInt(pulldown_dataset.slice(2));
 
             // ローカルデータの更新
-            all_data[pulldown_c].products.sales[pulldown_p] = document.querySelector(`[data-index="${pulldown_dataset}"]`).value;
-            document.querySelector(`[data-index="${pulldown_dataset}"]`).style.backgroundColor = all_data[pulldown_c].products.sales[pulldown_p] === '販売中' ? '#aae' : all_data[pulldown_c].products.sales[pulldown_p] === '残りわずか' ? '#ffa' : all_data[pulldown_c].products.sales[pulldown_p] === '仕入準備中' ? '#aea' : '#eaa';
+            all_data[pulldown_c].products.sales[pulldown_p] = document.querySelector(`[data-p_index="${pulldown_dataset}"]`).value;
+            document.querySelector(`[data-p_index="${pulldown_dataset}"]`).style.backgroundColor = all_data[pulldown_c].products.sales[pulldown_p] === '販売中' ? '#aae' : all_data[pulldown_c].products.sales[pulldown_p] === '残りわずか' ? '#ffa' : all_data[pulldown_c].products.sales[pulldown_p] === '仕入準備中' ? '#aea' : '#eaa';
 
             console.log(all_data);
             all_sales_count = 0;
@@ -447,7 +447,7 @@ async function content_generation(post, post_cs) {
                 }
 
                 ps_count.sales_count[c] = company_sales_count;
-                const company_total_display_text_update = document.querySelector(`.company_total_display_text[data-index="${c}"]`);
+                const company_total_display_text_update = document.querySelector(`.company_total_display_text[data-p_index="${c}"]`);
                 if (company_total_display_text_update) company_total_display_text_update.innerHTML = `<span class="company_total_display_text_company_name">${all_data[c].company_name}</span>（　商品数：${ps_count.products_count[c]}　／　完売数：${company_sales_count}　）`;
             }
 
@@ -548,7 +548,7 @@ button_process.forEach(button_process => {
 // タブの切り替え機構
 document.getElementById('tab_buttons').addEventListener('click', (event) => {
     if (event.target.tagName === 'BUTTON') {
-        const index = event.target.dataset.index;
+        const index = event.target.dataset.t_index;
         tab_select = parseInt(index);
 
         document.querySelectorAll('#tab_buttons button').forEach(btn => {
