@@ -19,7 +19,7 @@ window.addEventListener('DOMContentLoaded', async () => {
 
 async function json_load() {
     try {
-        const response = await fetch('products.json');
+        const response = await fetch('old.json');
 
         if (response.ok) {
             json_data = await response.json();

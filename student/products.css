@@ -206,9 +206,7 @@ h3.title_text {
     color: #000;
     display: flex;
     flex-direction: column;
-    /* 縦方向に整列 */
     justify-content: center;
-    /* 縦中央揃え */
     height: 45%;
     font-size: 18px;
     border-radius: 7px;
@@ -255,4 +253,86 @@ h3.title_text {
 
 @media (max-width: 600px) {
     #title { display: none; }
+
+    #store_buttons button {
+        width: 100%;
+        border: none;
+        color: #eee;
+        padding: 7px 0;
+        cursor: pointer;
+        font-size: 1.9vw;
+        background-color: #0000;
+        transition: background-color .3s;
+        font-family: 'Noto Serif JP', serif;
+    }
+
+    .home_btn {
+        font-weight: bolder;
+        font-size: 5vw !important;
+    }
+
+    #store_buttons button:hover {
+        color: #99f;
+    }
+
+    #store_buttons button.active_tab {
+        color: #99f;
+        background-color: #eee3;
+    }
+
+    .products {
+        width: 100%;
+        gap: 7px;
+        display: grid;
+        align-items: center;
+        justify-items: center;
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    h1.title_text {
+        top: 50%;
+        width: 76%;
+        font-size: 6vw;
+        font-weight: bolder;
+    }
+
+    h3.title_text {
+        top: 67%;
+        width: auto;
+        font-size: 3vw;
+    }
+    .products_card {
+        width: 95%;
+        height: 700px;
+        margin: 18px;
+        position: relative;
+        border-radius: 18px;
+        background-color: #eef;
+        box-shadow: 0 0 7px #333;
+    }
+
+    .pro_info {
+        top: 200px;
+        left: 50%;
+        bottom: 0;
+        width: 95%;
+        text-align: left;
+        position: absolute;
+        transform: translateX(-50%);
+    }
+
+    .form_btns {
+        width: 95%;
+        margin: 34px;
+        border: none;
+        color: #eee;
+        cursor: pointer;
+        font-size: larger;
+        transition: all .3s;
+        border-radius: 18px;
+        font-weight: bolder;
+        background-color: #77f;
+        box-shadow: 3px 3px 3px #333;
+        font-family: 'Noto Serif JP', serif;
+    }
 }
