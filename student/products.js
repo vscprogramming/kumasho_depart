@@ -198,7 +198,7 @@ function content_generation() {
                 // 販売個数
                 const stock = Object.assign(document.createElement('p'), {
                     classList: 'stock',
-                    textContent: all_data[c].products[p].stock
+                    textContent: `販売数量：　${all_data[c].products[p].stock}`
                 });
                 pro_info.appendChild(stock);
 
