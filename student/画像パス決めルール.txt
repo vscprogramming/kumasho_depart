@@ -1,29 +1,17 @@
 {
-    "id": "店舗ID（数値型・3年9組1店舗目 => 391）",
-    "name": "店舗名",
-    "img": "店舗の写真のパス",
-    "form_url": "フォームのURL",
-    "products": [
-        {
-            "name": "商品名",
-            "img": "商品の写真のパス",
-            "price": "価格（数値型・jsで¥つける",
-            "stock": "在庫数（ほかの情報を付加する可能性があるが数値型）"
-        }
-    ]
-}
-
-{
-    "id": 0,
-    "name": "",
-    "img": "img/store/.png",
+    "id": "",
+    "com_name": "",
+    "com_img": "img/store/.png",
     "form_url": "",
+    "com_desc": "",
     "products": [
         {
-            "name": "",
-            "img": "img/products//.png",
-            "price": 0,
-            "stock": "個"
+            "pro_name": "",
+            "pro_img": "img/products//.png",
+            "price": ,
+            "stock": "",
+            "pro_desc": "",
+            "sales_day": 
         }
     ]
 }

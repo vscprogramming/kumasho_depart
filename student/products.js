@@ -24,7 +24,7 @@ async function json_load() {
         if (response.ok) {
             json_data = await response.json();
 
-            // データ構造変えちゃえ
+            // データ構造変えちゃえ☆彡
             json_data.forEach((jd_row, i) => {
                 all_data[i + 1] = jd_row;
             });
@@ -57,7 +57,7 @@ function content_generation() {
         } else {
             const tab_btns = Object.assign(document.createElement('button'), {
                 className: 'tab_btns',
-                textContent: all_data[c].name
+                textContent: all_data[c].com_name
             });
 
             tab_btns.dataset.index = c;
@@ -103,25 +103,23 @@ function content_generation() {
             Object.assign(info_text, {
                 classList: 'info_text',
                 innerHTML: `
-                    <style>
-                        h2, h3 {
+                    <style>    
+                        .text {
                             margin: 0;
                             font-family: 'Noto Serif JP', serif;
-                        }
-                            
-                        h3 {
-                            color: red;
                             font-weight: bolder;
                         }
                     </style>
 
-                    <h2>第３８回 熊商デパート　事前販売商品一覧サイトです。</h2>
-                    <h2>各企業のタブをクリックして、商品をご覧ください。</h2>
-                    <h2>購入希望の方は、申し込みフォームにアクセスしてください。</h2>
-                    <h3>※商品は数に限りがある場合がございます。注文数が超過した場合は、抽選販売となります。ご了承ください。</h3>
-                    <br>なお、今回の事前販売は以下のようなスケジュールで行います。<br>
-                    <h3>フォーム受付期間：*?月*?日（?）〜*?月*?日（?）</h3>
-                    <h3>抽選結果発表：*?月*?日<br>当選した人にはメールを送信いたします。</h3>
+                    <div class="text">
+                        <h2>第３８回 熊商デパート　事前販売商品一覧サイトです。</h2>
+                        <h2>各企業のタブをクリックして、商品をご覧ください。</h2>
+                        <h2>購入希望の方は、申し込みフォームにアクセスしてください。</h2>
+                        <h3>※商品は数に限りがある場合がございます。注文数が超過した場合は、抽選販売となります。ご了承ください。</h3>
+                        <br>なお、今回の事前販売は以下のようなスケジュールで行います。<br>
+                        <h3>フォーム受付期間：*?月*?日（?）〜*?月*?日（?）</h3>
+                        <h3>抽選結果発表：*?月*?日<br>当選した人にはメールを送信いたします。</h3>
+                    <div>
                 `
             });
             info.appendChild(info_text);
@@ -129,68 +127,89 @@ function content_generation() {
 
             products_window.appendChild(content);   // おおもと
         } else {
-            const content = document.createElement('div');  // おおもと
-            Object.assign(content, { classList: 'contents' });
+            const c_class = `${all_data[c].id[0]} - ${all_data[c].id[1]}`;
+            const content = Object.assign(document.createElement('div'), { classList: 'contents' });  // おおもと
             content.dataset.index = c;
 
             // タイトル類生成
-            const company_title = document.createElement('div');
-            Object.assign(company_title, { classList: 'company_title' });
+            const company_title = Object.assign(document.createElement('div'), { classList: 'company_title' });
 
-            const img = document.createElement('img');
-            Object.assign(img, {
+            const img = Object.assign(document.createElement('img'), {
                 classList: 'company_img',
-                src: all_data[c].img,
-                alt: all_data[c].name
+                src: all_data[c].com_img,
+                alt: all_data[c].com_name
             });
             company_title.appendChild(img);
 
-            const title_text = document.createElement('h1');
-            Object.assign(title_text, {
+            const title_text = Object.assign(document.createElement('h1'), {
                 className: 'title_text',
-                textContent: all_data[c].name
+                textContent: all_data[c].com_name
             });
+
+            const title_class = Object.assign(document.createElement('h3'), {
+                className: 'title_text',
+                textContent: `担当クラス：${c_class}`
+            })
             company_title.appendChild(title_text);
+            company_title.appendChild(title_class);
             content.appendChild(company_title);  // 最後
 
             // formへ飛ぶボタン
-            const form_btn = document.createElement('button')
-            Object.assign(form_btn, {
+            const form_btn = Object.assign(document.createElement('button'), {
                 onclick() {
                     window.location.href = all_data[c].form_url;
                 },
-                textContent: `${all_data[c].name}　注文フォームへ`,
+                textContent: `${all_data[c].com_name}　注文フォームへ`,
                 classList: 'form_btns'
-            })
+            });
             content.appendChild(form_btn);  // 最後
 
             // 商品カード生成
-            const products = document.createElement('div'); // グリッドおおもと
-            Object.assign(products, { classList: 'products' });
+            const products = Object.assign(document.createElement('div'), { classList: 'products' }); // グリッドおおもと
 
             for (let p = 0; p < all_data[c].products.length; p++) {
-                const products_card = document.createElement('div');
-                Object.assign(products_card, { classList: 'products_card' });
+                const products_card = Object.assign(document.createElement('div'), { classList: 'products_card' });
 
-                const products_img = document.createElement('img');
-                Object.assign(products_img, {
+                const products_img = Object.assign(document.createElement('img'), {
                     classList: 'products_img',
-                    src: all_data[c].products[p].img,
-                    alt: all_data[c].products[p].name
+                    src: all_data[c].products[p].pro_img,
+                    alt: all_data[c].products[p].pro_name
                 });
                 products_card.appendChild(products_img);
 
-                const pro_info = document.createElement('p');
-                Object.assign(pro_info, {
-                    classList: 'pro_info',
-                    innerHTML: `
-                        ${all_data[c].products[p].name}
-                        <br>
-                        ¥${all_data[c].products[p].price}
-                        <br>
-                        ${all_data[c].products[p].stock}
-                    `
+                const pro_info = Object.assign(document.createElement('div'), {
+                    classList: 'pro_info'
                 });
+
+                // 商品名
+                const pro_title = Object.assign(document.createElement('h2'), {
+                    classList: 'pro_title',
+                    innerHTML: all_data[c].products[p].pro_name
+                });
+                pro_info.appendChild(pro_title);
+
+                // 商品説明
+                const pro_desc =Object.assign(document.createElement('p'), {
+                    classList: 'pro_desc',
+                    innerHTML: all_data[c].products[p].pro_desc
+                });
+                pro_info.appendChild(pro_desc);
+
+                // 販売個数
+                const stock = Object.assign(document.createElement('p'), {
+                    classList: 'stock',
+                    textContent: all_data[c].products[p].stock
+                });
+                pro_info.appendChild(stock);
+
+                // 販売単価
+                const price = Object.assign(document.createElement('h1'), {
+                    classList: 'price',
+                    textContent: `￥${all_data[c].products[p].price.toLocaleString()}`
+                });
+                pro_info.appendChild(price);
+
+
                 products_card.appendChild(pro_info);
 
                 products.appendChild(products_card); // グリッドおおもと
