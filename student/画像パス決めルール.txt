@@ -1,19 +1,19 @@
 {
-    "id": "",
-    "com_name": "",
-    "com_img": "img/store/.png",
-    "form_url": "",
-    "com_desc": "",
-    "products": [
-        {
-            "pro_name": "",
-            "pro_img": "img/products//.png",
-            "price": ,
-            "stock": "",
-            "pro_desc": "",
-            "sales_day": 
-        }
-    ]
+        "id": "",
+        "com_name": "",
+        "com_img": "img/store/.png",
+        "form_url": "",
+        "com_desc": "",
+        "products": [
+            {
+                "pro_name": "",
+                "pro_img": "img/products//.png",
+                "price": ,
+                "stock": "",
+                "pro_desc": "",
+                "sales_day": 
+            }
+        ]
 }
 
 店舗画像比率：38:13
