@@ -260,8 +260,8 @@ h3.title_text {
         color: #eee;
         padding: 7px 0;
         cursor: pointer;
-        font-size: 1.9vw;
-        background-color: #0000;
+        font-size: 1.7vw;
+        background-color: none;
         transition: background-color .3s;
         font-family: 'Noto Serif JP', serif;
     }
