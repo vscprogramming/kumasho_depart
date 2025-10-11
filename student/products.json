@@ -282,7 +282,7 @@
                 "pro_name": "マドレーヌ　2個入り",
                 "pro_img": "img/products/Boulogne/m2.png",
                 "price": 480,
-                "stock": "1日目限定　50個　※価格が変動する可能性があります",
+                "stock": "1日目限定　50個",
                 "pro_desc": "チョコとはちみつ2種類のしっとりマドレーヌのセット",
                 "sales_day": 1
             },
@@ -290,7 +290,7 @@
                 "pro_name": "クッキー　3枚入り",
                 "pro_img": "img/products/Boulogne/c3.png",
                 "price": 350,
-                "stock": "1日目限定　50個　※価格が変動する可能性があります",
+                "stock": "1日目限定　50個",
                 "pro_desc": "バニラ、チョコチップ、ごまの3種の組み合わせです",
                 "sales_day": 1
             },
@@ -298,7 +298,7 @@
                 "pro_name": "焼菓子詰め合わせ",
                 "pro_img": "img/products/Boulogne/bga.png",
                 "price": 1090,
-                "stock": "1日目限定　30個　※価格が変動する可能性があります",
+                "stock": "1日目限定　30個",
                 "pro_desc": "リーフパイ、クッキー、フランボワーズクッキー、<br>チョコマドレーヌ、板バームクーヘンのセットです",
                 "sales_day": 1
             },
