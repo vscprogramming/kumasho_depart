@@ -102,7 +102,7 @@
                 "pro_img": "img/products/kondo/milk.png",
                 "price": 200,
                 "stock": "両日販売　数量制限なし",
-                "pro_desc": "濃厚でくどすない甘さで爽やかに食べれます",
+                "pro_desc": "濃厚でくどすぎない甘さで爽やかに食べられます",
                 "sales_day": 12
             },
             {
@@ -110,7 +110,7 @@
                 "pro_img": "img/products/kondo/chocolate.png",
                 "price": 200,
                 "stock": "両日販売　数量制限なし",
-                "pro_desc": "濃厚でくどくない甘さで爽やかに食べれます",
+                "pro_desc": "濃厚でくどすぎない甘さで爽やかに食べられます",
                 "sales_day": 12
             }
         ]
@@ -242,7 +242,7 @@
                 "pro_img": "img/products/hitoyoshi_onsen_shop/mdc.png",
                 "price": 760,
                 "stock": "1日目限定　10個",
-                "pro_desc": "球磨栗を使ったほろほろ食感のクッキー",
+                "pro_desc": "球磨栗を使ったほろほろ食感のクッキーです",
                 "sales_day": 1
             }
         ]
@@ -292,7 +292,7 @@
                 "pro_img": "img/products/yatsushiro_yokatoko/tgs.png",
                 "price": 200,
                 "stock": "両日販売　数量制限なし",
-                "pro_desc": "熊本・八代産のトマトと生姜を使った、優しい味わいのスープ。<br>体に染み渡る、ほっとする美味しさです。",
+                "pro_desc": "熊本・八代産のトマトと生姜を使った、優しい味わいのスープです。<br>体に染み渡る、ほっとする美味しさです。",
                 "sales_day": 12
             },
             {
@@ -300,7 +300,7 @@
                 "pro_img": "img/products/yatsushiro_yokatoko/isf.png",
                 "price": 300,
                 "stock": "両日販売　数量制限なし",
-                "pro_desc": "食べられる”い草”を使った、新感覚の胡麻ふりかけ。<br>香ばしい胡麻と相性抜群です。<br>毎日のご飯に彩りと健康を。",
+                "pro_desc": "食べられる”い草”を使った、新感覚の胡麻ふりかけです。<br>香ばしい胡麻と相性抜群です。<br>毎日のご飯に彩りと健康を。",
                 "sales_day": 12
             },
             {
@@ -308,7 +308,7 @@
                 "pro_img": "img/products/yatsushiro_yokatoko/ss.png",
                 "price": 300,
                 "stock": "両日販売　数量制限なし",
-                "pro_desc": "ほんのり塩味がクセになる、爽やかな塩サイダー。<br>すっきりとした甘さで、暑い日やリフレッシュにぴったりです。",
+                "pro_desc": "ほんのり塩味がクセになる、爽やかな塩サイダーです。<br>すっきりとした甘さで、暑い日やリフレッシュにぴったりです。",
                 "sales_day": 12
             },
             {
@@ -316,7 +316,7 @@
                 "pro_img": "img/products/yatsushiro_yokatoko/hm.png",
                 "price": 200,
                 "stock": "両日販売　数量制限なし",
-                "pro_desc": "昔話の「彦一どん」にちなんだ、ユーモアと優しさがたっぷり詰まったモナカ。<br>香ばしい皮と、程よい甘さのあんが絶妙です。",
+                "pro_desc": "昔話の「彦一どん」にちなんだ、ユーモアと優しさがたっぷり詰まったモナカです。<br>香ばしい皮と、程よい甘さのあんが絶妙です。",
                 "sales_day": 12
             },
             {
@@ -324,7 +324,7 @@
                 "pro_img": "img/products/yatsushiro_yokatoko/lcscr.png",
                 "price": 350,
                 "stock": "両日販売　数量制限なし",
-                "pro_desc": "れんこん×辛子明太のピリ辛チップス。<br>おつまみにピッタリ！",
+                "pro_desc": "れんこん×辛子明太のピリ辛チップスです。<br>おつまみにピッタリ！",
                 "sales_day": 12
             },
             {
@@ -332,7 +332,7 @@
                 "pro_img": "img/products/yatsushiro_yokatoko/lcsl.png",
                 "price": 350,
                 "stock": "両日販売　数量制限なし",
-                "pro_desc": "熊本名産・辛子蓮根の味わいをれんこんチップスに凝縮。<br>ピリ辛があとを引く、地元の味を楽しんで",
+                "pro_desc": "熊本名産・辛子蓮根の味わいをれんこんチップスに凝縮しました。<br>ピリ辛があとを引く、地元の味を楽しんで",
                 "sales_day": 12
             },
             {
@@ -364,7 +364,7 @@
                 "pro_img": "img/products/yatsushiro_yokatoko/pj.png",
                 "price": 350,
                 "stock": "両日販売　数量制限なし",
-                "pro_desc": "果実たっぷりの梨ゼリー。<br>自然な甘さでお子様にも安心。",
+                "pro_desc": "果実たっぷりの梨ゼリーです。<br>自然な甘さでお子様にも安心です。",
                 "sales_day": 12
             }
         ]
@@ -381,7 +381,7 @@
                 "pro_img": "img/products/JA_ashikita/src.png",
                 "price": 1700,
                 "stock": "両日販売　15個",
-                "pro_desc": "いちごの果肉をたくさん使った17センチもあるロールケーキ",
+                "pro_desc": "いちごの果肉をたくさん使った17cmもあるロールケーキです",
                 "sales_day": 12
             },
             {
@@ -390,7 +390,7 @@
                 "pro_img": "img/products/JA_ashikita/gyoza.png",
                 "price": 1200,
                 "stock": "両日販売　3個",
-                "pro_desc": "芦北の名産品サラたまちゃんギョーザが冷凍で20個入っている商品",
+                "pro_desc": "芦北の名産品サラたまちゃんギョーザが冷凍で20個入っている商品です",
                 "sales_day": 12
             },
             {
@@ -399,7 +399,7 @@
                 "pro_img": "img/products/JA_ashikita/nsj.png",
                 "price": 500,
                 "stock": "両日販売　50個",
-                "pro_desc": "規格外品で元値よりも安く4から5個入っているデコポンゼリー",
+                "pro_desc": "規格外品で元値よりも安く4～5個入っているデコポンゼリーです",
                 "sales_day": 12
             },
             {
@@ -408,7 +408,7 @@
                 "pro_img": "img/products/JA_ashikita/stdj.png",
                 "price": 600,
                 "stock": "両日販売　10個",
-                "pro_desc": "サラたまちゃんドレッシングの和風味",
+                "pro_desc": "サラたまちゃんドレッシングの和風ドレッシングです",
                 "sales_day": 12
             },
             {
@@ -417,7 +417,7 @@
                 "pro_img": "img/products/JA_ashikita/stds.png",
                 "price": 600,
                 "stock": "両日販売　10個",
-                "pro_desc": "サラたまちゃんドレッシングのごま味",
+                "pro_desc": "サラたまちゃんドレッシングのごま味です",
                 "sales_day": 12
             },
             {
@@ -426,7 +426,7 @@
                 "pro_img": "img/products/JA_ashikita/stdr.png",
                 "price": 600,
                 "stock": "両日販売　10個",
-                "pro_desc": "サラたまちゃんドレッシングのレモン味",
+                "pro_desc": "サラたまちゃんドレッシングのレモン味です",
                 "sales_day": 12
             },
             {
@@ -435,7 +435,7 @@
                 "pro_img": "img/products/JA_ashikita/stdd.png",
                 "price": 600,
                 "stock": "両日販売　10個",
-                "pro_desc": "サラたまちゃんドレッシングのデコポン味",
+                "pro_desc": "サラたまちゃんドレッシングのデコポン味です",
                 "sales_day": 12
             },
             {
@@ -444,7 +444,7 @@
                 "pro_img": "img/products/JA_ashikita/rss.png",
                 "price": 500,
                 "stock": "両日販売　10個",
-                "pro_desc": "レモンに塩ダレを入れたドレッシング",
+                "pro_desc": "レモンに塩ダレを入れたドレッシングです",
                 "sales_day": 12
             },
             {
@@ -453,7 +453,7 @@
                 "pro_img": "img/products/JA_ashikita/ss.png",
                 "price": 1300,
                 "stock": "両日販売　10個",
-                "pro_desc": "でこぽんポン酢、（でこぽん、レモン、ごま、和風ドレッシング）<br>レモン塩ダレのうち3本選べる商品",
+                "pro_desc": "でこぽんポン酢、（でこぽん、レモン、ごま、和風ドレッシング）<br>レモン塩ダレのうち3本選べます",
                 "sales_day": 12
             }
         ]
@@ -470,7 +470,7 @@
                 "pro_img": "img/products/onitsukanissyodo/km.png",
                 "price": 180,
                 "stock": "1日目50個　2日目30個",
-                "pro_desc": "外はカリカリ中はしっとりのかりんとう万十",
+                "pro_desc": "外はカリカリ中はしっとりのかりんとう万十です",
                 "sales_day": 12
             },
             {
@@ -478,7 +478,7 @@
                 "pro_img": "img/products/onitsukanissyodo/asbs.png",
                 "price": 340,
                 "stock": "1日目50個　2日目30個",
-                "pro_desc": "甘じょっぱさがクセになる、やみつきスコーン",
+                "pro_desc": "甘じょっぱさがクセになる、やみつきスコーンです",
                 "sales_day": 12
             },
             {
@@ -486,7 +486,7 @@
                 "pro_img": "img/products/onitsukanissyodo/dorayaki.png",
                 "price": 230,
                 "stock": "両日販売　35個",
-                "pro_desc": "ふんわり生地にあんこが入った甘さ控えめなどらやき",
+                "pro_desc": "ふんわり生地にあんこが入った甘さ控えめなどらやきです",
                 "sales_day": 12
             },
             {
@@ -494,7 +494,7 @@
                 "pro_img": "img/products/onitsukanissyodo/croissant.png",
                 "price": 360,
                 "stock": "両日販売　25個",
-                "pro_desc": "新商品でまだ発売されていないクロワッサン",
+                "pro_desc": "新商品でまだ発売されていないクロワッサンです",
                 "sales_day": 12
             }
         ]
@@ -578,7 +578,7 @@
                 "pro_img": "img/products/kogyokudo/smash.png",
                 "price": 1100,
                 "stock": "1日目限定　10個",
-                "pro_desc": "シンプルなビジュアルの書きやすいシャープペンシル",
+                "pro_desc": "シンプルなビジュアルの書きやすいシャープペンシルです",
                 "sales_day": 1
             },
             {
@@ -603,7 +603,7 @@
                 "pro_img": "img/products/michinoeki_suzunari/soc.png",
                 "price": 800,
                 "stock": "両日販売　数量制限なし",
-                "pro_desc": "酸味が少なく、香りが良い<br>飲みやすいコーヒー",
+                "pro_desc": "酸味が少なく、香りが良い<br>飲みやすいコーヒーです",
                 "sales_day": 12
             },
             {
@@ -611,7 +611,7 @@
                 "pro_img": "img/products/michinoeki_suzunari/sc.png",
                 "price": 750,
                 "stock": "両日販売　数量制限なし",
-                "pro_desc": "珠洲市の方言の珠洲弁がプリントされている<br>可愛いクッキー",
+                "pro_desc": "珠洲市の方言の珠洲弁がプリントされている<br>可愛いクッキーです",
                 "sales_day": 12
             },
             {
@@ -619,7 +619,7 @@
                 "pro_img": "img/products/michinoeki_suzunari/sp.png",
                 "price": 450,
                 "stock": "両日販売　数量制限なし",
-                "pro_desc": "珠洲市の塩を使ったポテチ<br>素材の良さを生かした老若男女問わず楽しめる一品",
+                "pro_desc": "珠洲市の塩を使ったポテチ<br>素材の良さを生かした老若男女問わず楽しめる一品です",
                 "sales_day": 12
             },
             {
@@ -627,7 +627,7 @@
                 "pro_img": "img/products/michinoeki_suzunari/sy.png",
                 "price": 600,
                 "stock": "両日販売　数量制限なし",
-                "pro_desc": "手間暇惜しまない塩を使用して作った羊羹<br>一口サイズで個包装されていて食べやすい",
+                "pro_desc": "手間暇惜しまない塩を使用して作った羊羹<br>一口サイズで個包装されていて食べやすいです",
                 "sales_day": 12
             },
             {
@@ -667,7 +667,7 @@
                 "pro_img": "img/products/michinoeki_suzunari/ss.png",
                 "price": 750,
                 "stock": "両日販売　数量制限なし",
-                "pro_desc": "流下式塩田法により海水を凝縮し、それを炊き上げて仕上げた海水100%の純粋な塩",
+                "pro_desc": "流下式塩田法により海水を凝縮し、それを炊き上げて仕上げた海水100%の純粋な塩です",
                 "sales_day": 12
             },
             {
@@ -675,7 +675,7 @@
                 "pro_img": "img/products/michinoeki_suzunari/ssc.png",
                 "price": 300,
                 "stock": "両日販売　数量制限なし",
-                "pro_desc": "珠洲の塩を使った飴",
+                "pro_desc": "珠洲の塩を使った飴です",
                 "sales_day": 12
             }
         ]
@@ -742,7 +742,7 @@
                 "pro_img": "img/products/Boulogne/m2.png",
                 "price": 480,
                 "stock": "1日目限定　50個",
-                "pro_desc": "チョコとはちみつ2種類のしっとりマドレーヌのセット",
+                "pro_desc": "チョコとはちみつ2種類のしっとりマドレーヌのセットです",
                 "sales_day": 1
             },
             {
@@ -831,7 +831,7 @@
                 "pro_img": "img/products/AmeYa/cs.png",
                 "price": 480,
                 "stock": "1日目限定　40個",
-                "pro_desc": "いちご味の飴",
+                "pro_desc": "いちご味の飴です",
                 "sales_day": 1
             },
             {
@@ -839,7 +839,7 @@
                 "pro_img": "img/products/AmeYa/cg.png",
                 "price": 480,
                 "stock": "1日目限定　40個",
-                "pro_desc": "ぶどう味の飴",
+                "pro_desc": "ぶどう味の飴です",
                 "sales_day": 1
             },
             {
@@ -847,7 +847,7 @@
                 "pro_img": "img/products/AmeYa/sv.png",
                 "price": 390,
                 "stock": "1日目限定　100個",
-                "pro_desc": "サクサクのクッキー",
+                "pro_desc": "バニラ味のサクサクスノーボールです",
                 "sales_day": 1
             }
         ]
