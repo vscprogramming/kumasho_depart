@@ -251,7 +251,7 @@ h3.title_text {
     background-color: #555a;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 800px) {
     #title { display: none; }
 
     #store_buttons button {
