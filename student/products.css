@@ -46,7 +46,9 @@ body {
     transform: translate(-50%, -50%);
 }
 
-#store_modal_button { display: none; }
+#store_modal_button {
+    display: none;
+}
 
 #store_buttons {
     width: 100%;
@@ -91,6 +93,10 @@ body {
     overflow-x: hidden;
     justify-content: center;
     background-color: #fff7dc;
+}
+
+.info {
+    width: 100%;
 }
 
 .company_title {
@@ -264,92 +270,58 @@ h3.title_text {
     }
 
     #store_buttons button {
-        width: 100%;
-        border: none;
-        color: #eee;
-        padding: 7px 0;
-        cursor: pointer;
         font-size: 1.5vw;
-        background-color: none;
-        transition: background-color .3s;
-        font-family: 'Noto Serif JP', serif;
     }
 
     .home_btn {
-        font-weight: bolder;
         font-size: 3vw !important;
     }
 
-    #store_buttons button:hover {
-        color: #99f;
-    }
-
-    #store_buttons button.active_tab {
-        color: #99f;
-        background-color: #eee3;
-    }
-
     .products {
-        width: 100%;
-        gap: 7px;
-        display: grid;
-        align-items: center;
-        justify-items: center;
         grid-template-columns: repeat(1, 1fr);
     }
 
     h1.title_text {
-        top: 50%;
-        width: 76%;
         font-size: 6.3vw;
-        font-weight: bolder;
     }
 
     h3.title_text {
-        top: 67%;
-        width: auto;
         font-size: 2vw;
-    }
-
-    .products_card {
-        width: 95%;
-        height: 700px;
-        margin: 18px;
-        position: relative;
-        border-radius: 18px;
-        background-color: #eef;
-        box-shadow: 0 0 7px #333;
     }
 
     .pro_info {
         top: 335px;
-        left: 50%;
-        bottom: 0;
-        width: 95%;
-        text-align: left;
-        position: absolute;
-        transform: translateX(-50%);
     }
 
     .form_btns {
         width: 95%;
-        margin: 34px;
-        border: none;
-        color: #eee;
-        cursor: pointer;
-        font-size: larger;
-        transition: all .3s;
-        border-radius: 18px;
-        font-weight: bolder;
-        background-color: #77f;
-        box-shadow: 3px 3px 3px #333;
-        font-family: 'Noto Serif JP', serif;
+    }
+}
+
+/* 大画面PC等 */
+@media (min-width: 1700px) {
+    #title h1 {
+        font-size: 2.4vh;
+    }
+
+    .home_btn {
+        font-size: 5vw;
+    }
+
+    .products_card {
+        height: 795px;
+    }
+
+    .pro_info {
+        top: 430px;
     }
 }
 
 /* スマホ */
 @media (max-width: 600px) {
-    html, body, #all {
+    html,
+    body,
+    #all {
         width: 100vw;
         height: 100vh;
     }
@@ -383,8 +355,9 @@ h3.title_text {
         flex-direction: column;
     }
 
-    #title { display: none; }
-
+    #title {
+        display: none;
+    }
 
     #store_modal_button {
         display: flex;
@@ -392,7 +365,8 @@ h3.title_text {
         position: absolute;
         background-color: #7d1f29;
         border: #eee solid 1px;
-        width: 50px; height: 50px;
+        width: 50px;
+        height: 50px;
         font-size: 300%;
         z-index: 9999;
         justify-content: center;
@@ -411,98 +385,49 @@ h3.title_text {
 
     .home_btn {
         margin-top: 60px;
-        font-weight: bolder;
         font-size: 13vw !important;
     }
 
     #store_buttons button {
-        width: 100%;
-        border: none;
-        color: #eee;
-        padding: 7px 0;
-        cursor: pointer;
         font-size: 5vw;
-        background-color: #0000;
-        transition: background-color .3s;
-        font-family: 'Noto Serif JP', serif;
+    }
+
+    #products_window {
+        width: 100%
     }
 
     .company_title {
-        width: 100%;
         height: 34%;
-        position: relative;
     }
 
     img.company_img {
         width: 100vw;
         height: 29vh;
-        margin: 0 auto;
-        filter: brightness(60%);
-    }
-
-    #products_window {
-        width: 100%;
-        height: 100%;
-        max-height: 100%;
-        overflow-y: auto;
-        overflow-x: hidden;
-        justify-content: center;
-        background-color: #fff7dc;
     }
 
     .products {
-        width: 100%;
-        gap: 7px;
-        display: grid;
-        align-items: center;
-        justify-items: center;
         grid-template-columns: repeat(1, 1fr);
     }
 
     h1.title_text {
-        top: 50%;
-        width: 76%;
         font-size: 6vw;
-        font-weight: bolder;
     }
 
     h3.title_text {
-        top: 67%;
-        width: auto;
+        width: 100%;
         font-size: 2.4vw;
     }
+
     .products_card {
-        width: 95%;
         height: 700px;
-        margin: 18px;
-        position: relative;
-        border-radius: 18px;
-        background-color: #eef;
-        box-shadow: 0 0 7px #333;
     }
 
     .pro_info {
         top: 224px;
-        left: 50%;
-        bottom: 0;
-        width: 95%;
-        text-align: left;
-        position: absolute;
-        transform: translateX(-50%);
     }
 
     .form_btns {
         width: 95%;
-        margin: 34px;
-        border: none;
-        color: #eee;
-        cursor: pointer;
         font-size: large;
-        transition: all .3s;
-        border-radius: 18px;
-        font-weight: bolder;
-        background-color: #77f;
-        box-shadow: 3px 3px 3px #333;
-        font-family: 'Noto Serif JP', serif;
     }
 }

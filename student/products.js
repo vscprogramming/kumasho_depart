@@ -80,7 +80,7 @@ function content_generation() {
             const img = document.createElement('img');
             Object.assign(img, {
                 classList: 'company_img',
-                src: 'img/store/home.png',
+                src: 'img/home/home.png',
                 alt: 'ホーム'
             });
             company_title.appendChild(img);
@@ -105,7 +105,7 @@ function content_generation() {
                 innerHTML: `
                     <style>    
                         .text {
-                            margin: 0;
+                            margin: 18px;
                             font-family: 'Noto Serif JP', serif;
                             font-weight: bolder;
                         }
@@ -114,7 +114,7 @@ function content_generation() {
                     <div class="text">
                         <h2>第３８回 熊商デパート　事前販売商品一覧サイトです。</h2>
                         <h2>各企業のタブをクリックして、商品をご覧ください。</h2>
-                        <h2>購入希望の方は、申し込みフォームにアクセスしてください。</h2>      
+                        <h2>購入希望の方は、申し込みフォームにアクセスしてください。</h2>
                     <div>
                 `
             });
