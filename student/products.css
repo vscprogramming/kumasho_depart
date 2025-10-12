@@ -1,31 +1,24 @@
-html,
-body {
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
+html, body {
+    width: 100vw; height: 100vh;
+    top: 0; left: 0;
     margin: 0;
     font-family: 'Noto Serif JP', serif;
 }
 
 #all {
-    width: 100vw;
-    height: 100vh;
+    width: 100vw; height: 100vh;
     display: flex;
 }
 
 #left {
-    width: 17%;
-    height: 100%;
+    width: 17%; height: 100%;
     display: flex;
     flex-direction: column;
 }
 
 #title {
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 18%;
+    width: 100%; height: 18%;
+    top: 0; left: 0;
     margin: 0;
     display: flex;
     position: relative;
@@ -34,8 +27,7 @@ body {
 }
 
 #title h1 {
-    top: 50%;
-    left: 50%;
+    top: 50%; left: 50%;
     margin: 0;
     width: 100%;
     cursor: default;
@@ -46,13 +38,10 @@ body {
     transform: translate(-50%, -50%);
 }
 
-#store_modal_button {
-    display: none;
-}
+#store_modal_button { display: none; }
 
 #store_buttons {
-    width: 100%;
-    height: 100%;
+    width: 100%; height: 100%;
     max-height: 100%;
     overflow-y: auto;
     overflow-x: hidden;
@@ -76,9 +65,7 @@ body {
     font-size: 3vw !important;
 }
 
-#store_buttons button:hover {
-    color: #99f;
-}
+#store_buttons button:hover { color: #99f; }
 
 #store_buttons button.active_tab {
     color: #99f;
@@ -86,8 +73,7 @@ body {
 }
 
 #products_window {
-    width: 83%;
-    height: 100%;
+    width: 83%; height: 100%;
     max-height: 100%;
     overflow-y: auto;
     overflow-x: hidden;
@@ -95,19 +81,15 @@ body {
     background-color: #fff7dc;
 }
 
-.info {
-    width: 100%;
-}
+.info { width: 100%; }
 
 .company_title {
-    width: 100%;
-    height: 50%;
+    width: 100%; height: 50%;
     position: relative;
 }
 
 img.company_img {
-    width: 100%;
-    height: 100%;
+    width: 100%; height: 100%;
     margin: 0 auto;
     filter: brightness(60%);
 }
@@ -138,8 +120,7 @@ h3.title_text {
 
 /* コンテンツ */
 .contents {
-    width: 100%;
-    height: 100%;
+    width: 100%; height: 100%;
     display: none;
 }
 
@@ -164,13 +145,11 @@ h3.title_text {
     font-family: 'Noto Serif JP', serif;
 }
 
-.form_btns:hover {
-    background-color: #55f;
-}
+.form_btns:hover { background-color: #55f; }
 
 .products {
-    width: 100%;
     gap: 7px;
+    width: 100%;
     display: grid;
     align-items: center;
     justify-items: center;
@@ -178,8 +157,7 @@ h3.title_text {
 }
 
 .products_card {
-    width: 95%;
-    height: 700px;
+    width: 95%; height: 700px;
     margin: 18px;
     position: relative;
     border-radius: 18px;
@@ -196,8 +174,7 @@ h3.title_text {
 }
 
 .pro_info {
-    top: 334px;
-    left: 50%;
+    top: 334px; left: 50%;
     bottom: 0;
     width: 95%;
     text-align: left;
@@ -206,148 +183,91 @@ h3.title_text {
 }
 
 .pro_title {
-    font-weight: bolder;
     margin: 0;
+    font-weight: bolder;
 }
 
 .pro_desc {
-    color: #000;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
     height: 45%;
+    display: flex;
+    color: #000;
     font-size: 18px;
     border-radius: 7px;
+    flex-direction: column;
+    justify-content: center;
     border: #77f solid 0.1px;
 }
 
 .stock {
-    font-size: large;
     margin: 0;
+    font-size: large;
 }
 
-.price {
-    color: #f55;
-}
+.price { color: #f55; }
 
 /* スクロールバー */
-#store_buttons::-webkit-scrollbar,
-#products_window::-webkit-scrollbar {
-    width: 10px;
-}
-
-#store_buttons::-webkit-scrollbar-track,
-#products_window::-webkit-scrollbar-track {
-    background: transparent;
-}
+#store_buttons::-webkit-scrollbar, #products_window::-webkit-scrollbar { width: 10px; }
+#store_buttons::-webkit-scrollbar-track, #products_window::-webkit-scrollbar-track { background: transparent; }
 
 #store_buttons::-webkit-scrollbar-thumb {
     border-radius: 180px;
     background-color: #eee7;
 }
 
-#store_buttons::-webkit-scrollbar-thumb:hover {
-    background-color: #eeea;
-}
+#store_buttons::-webkit-scrollbar-thumb:hover { background-color: #eeea; }
 
 #products_window::-webkit-scrollbar-thumb {
     border-radius: 180px;
     background-color: #5557;
 }
 
-#products_window::-webkit-scrollbar-thumb:hover {
-    background-color: #555a;
-}
+#products_window::-webkit-scrollbar-thumb:hover { background-color: #555a; }
 
 /* chrome book 画面分割時 */
 @media (min-width: 650px) and (max-width: 800px) {
-    #title {
-        height: 7%;
-    }
-
-    #title h1 {
-        font-size: 1.48vh;
-    }
-
-    #store_buttons button {
-        font-size: 1.5vw;
-    }
-
-    .home_btn {
-        font-size: 3vw !important;
-    }
-
-    .products {
-        grid-template-columns: repeat(1, 1fr);
-    }
-
-    h1.title_text {
-        font-size: 6.3vw;
-    }
-
-    h3.title_text {
-        font-size: 2vw;
-    }
-
-    .pro_info {
-        top: 335px;
-    }
-
-    .form_btns {
-        width: 95%;
-    }
+    #title { height: 7%; }
+    .pro_info { top: 335px; }
+    .form_btns { width: 95%; }
+    #title h1 { font-size: 1.48vh; }
+    h3.title_text { font-size: 2vw; }
+    h1.title_text { font-size: 6.3vw; }
+    .home_btn { font-size: 3vw !important; }
+    #store_buttons button { font-size: 1.5vw; }
+    .products { grid-template-columns: repeat(1, 1fr); }
 }
 
 /* 大画面PC等 */
 @media (min-width: 1700px) {
-    #title h1 {
-        font-size: 2.4vh;
-    }
-
-    .home_btn {
-        font-size: 5vw;
-    }
-
-    .products_card {
-        height: 795px;
-    }
-
-    .pro_info {
-        top: 430px;
-    }
+    .pro_info { top: 430px; }
+    .home_btn { font-size: 5vw; }
+    #title h1 { font-size: 2.4vh; }
+    .products_card { height: 795px; }
 }
 
 /* スマホ */
 @media (max-width: 600px) {
-    html,
-    body,
-    #all {
-        width: 100vw;
-        height: 100vh;
-    }
+    html, body, #all { width: 100vw; height: 100vh; }
 
     #left {
-        width: 70%;
-        height: 100%;
+        width: 70%; height: 100%;
         display: none;
         flex-direction: column;
     }
 
     #left.show {
+        z-index: 9998;
         display: flex;
         position: absolute;
-        z-index: 9998;
         box-shadow: 0 0 7px #333;
     }
 
     #store_buttons {
-        width: 100%;
-        height: 100%;
+        width: 100%; height: 100%;
+        display: none;
         max-height: 100%;
         overflow-y: auto;
         overflow-x: hidden;
         background-color: #7d1f29;
-        display: none;
     }
 
     #store_buttons.show {
@@ -355,76 +275,45 @@ h3.title_text {
         flex-direction: column;
     }
 
-    #title {
-        display: none;
-    }
+    #title { display: none; }
 
     #store_modal_button {
-        display: flex;
+        width: 50px; height: 50px;
         margin: 0;
-        position: absolute;
-        background-color: #7d1f29;
-        border: #eee solid 1px;
-        width: 50px;
-        height: 50px;
-        font-size: 300%;
         z-index: 9999;
-        justify-content: center;
-        align-items: center;
+        display: flex;
         color: #eee;
+        font-size: 300%;
+        position: absolute;
+        align-items: center;
+        justify-content: center;
         transform: translateX(0);
+        border: #eee solid 1px;
+        background-color: #7d1f29;
     }
 
-    #store_modal_button::before {
-        content: '≡';
-    }
-
-    #store_modal_button.show::before {
-        content: '×';
-    }
+    #store_modal_button::before { content: '≡'; }
+    #store_modal_button.show::before { content: '×'; }
 
     .home_btn {
         margin-top: 60px;
         font-size: 13vw !important;
     }
 
-    #store_buttons button {
-        font-size: 5vw;
-    }
-
-    #products_window {
-        width: 100%
-    }
-
-    .company_title {
-        height: 34%;
-    }
-
-    img.company_img {
-        width: 100vw;
-        height: 29vh;
-    }
-
-    .products {
-        grid-template-columns: repeat(1, 1fr);
-    }
-
-    h1.title_text {
-        font-size: 6vw;
-    }
+    .company_title { height: 34%; }
+    h1.title_text { font-size: 6vw; }
+    #products_window { width: 100%; }
+    #store_buttons button { font-size: 5vw; }
+    img.company_img { width: 100vw; height: 29vh; }
+    .products { grid-template-columns: repeat(1, 1fr); }
 
     h3.title_text {
         width: 100%;
         font-size: 2.4vw;
     }
 
-    .products_card {
-        height: 700px;
-    }
-
-    .pro_info {
-        top: 224px;
-    }
+    .pro_info { top: 224px; }
+    .products_card { height: 700px; }
 
     .form_btns {
         width: 95%;

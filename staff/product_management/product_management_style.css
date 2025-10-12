@@ -53,7 +53,6 @@ body { background-color: var(--color-bg-mid); }
 }
 
 p { font-size: 118%; }
-
 #body { padding-top: 100px; }
 
 /* ======= タブ ======= */
@@ -64,8 +63,8 @@ p { font-size: 118%; }
     position: fixed;
     margin-top: 101px;
     border-bottom: none;
-    background-color: var(--color-bg-dark);
     border: 7px solid var(--color-bg-dark);
+    background-color: var(--color-bg-dark);
     border-top: 1px solid var(--color-border-gray);
 }
 
@@ -88,8 +87,8 @@ p { font-size: 118%; }
     background-color: var(--color-orange);
 }
 
-#tab_buttons button.active_tab:hover { background-color: var(--color-orange); }
 #tab_buttons button:hover { background-color: var(--color-orange-tab-hover); }
+#tab_buttons button.active_tab:hover { background-color: var(--color-orange); }
 
 /* ======= タブコンテンツ ======= */
 .tab_content {
@@ -122,6 +121,7 @@ table {
     background-color: var(--color-bg-mid);
 }
 
+.not_found { text-align: center; }
 table tr:nth-child(even) { background-color: var(--color-bg-light); }
 
 table th {
@@ -129,8 +129,8 @@ table th {
     border: 1px solid var(--color-orange-border);
 }
 
-table th:first-child { border-radius: var(--radius) 0 0 0; }
 table th:last-child { border-radius: 0 var(--radius) 0 0; }
+table th:first-child { border-radius: var(--radius) 0 0 0; }
 
 table td {
     border-right: 1px solid var(--color-orange);
@@ -164,13 +164,11 @@ table td:first-child {
     border-left: 1px solid var(--color-orange);
 }
 
-table tr:last-child td:first-child { border-bottom-left-radius: var(--radius); }
-table tr:last-child td:last-child { border-bottom-right-radius: var(--radius); }
-
+.company_total_display { margin-left: 7px; }
 table th:nth-child(1), table td:nth-child(1) { width: 65%; }
 table th:nth-child(2), table td:nth-child(2) { width: 35%; }
-
-.company_total_display { margin-left: 7px; }
+table tr:last-child td:last-child { border-bottom-right-radius: var(--radius); }
+table tr:last-child td:first-child { border-bottom-left-radius: var(--radius); }
 
 .company_total_display_text_company_name {
     font-size: larger;
@@ -208,10 +206,8 @@ table th:nth-child(2), table td:nth-child(2) { width: 35%; }
     font-size: 34px;
 }
 
-#search_icon.searched { color: var(--color-blue-searched); }
-
 #logout_icon { color: var(--color-red); }
-
+#search_icon.searched { color: var(--color-blue-searched); }
 #search_button:hover #search_icon, #reload_button:hover #reload_icon, #logout_button:hover #logout_icon { display: none; }
 
 #search_button:hover::after, #reload_button:hover::after, #logout_button:hover::after {
@@ -230,9 +226,8 @@ table th:nth-child(2), table td:nth-child(2) { width: 35%; }
 }
 
 #search_button::after { content: '商品検索'; }
-#search_button.searched { color: var(--color-blue-searched); }
-
 #reload_button::after { content: '再読み込み'; }
+#search_button.searched { color: var(--color-blue-searched); }
 
 #logout_button::after {
     content: 'ログアウト';

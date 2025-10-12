@@ -1,6 +1,4 @@
-// ['resize', 'DOMContentLoaded'].forEach(event => {
-//     window.addEventListener(event, () => resize_div());
-// });
+// ['resize', 'DOMContentLoaded'].forEach(event => { window.addEventListener(event, () => resize_div()) });
 
 // function resize_div() {
 //     Object.assign(document.getElementById('all').style, {
@@ -25,11 +23,9 @@ async function json_load() {
             json_data = await response.json();
 
             // データ構造変えちゃえ☆彡
-            json_data.forEach((jd_row, i) => {
-                all_data[i + 1] = jd_row;
-            });
+            json_data.forEach((jd_row, i) => { all_data[i + 1] = jd_row });
 
-            console.log(all_data);
+            // console.log(all_data);
         } else {
             alert('データの読み込みに失敗しました。\n再読み込みします。');
             window.location.reload();
@@ -70,23 +66,19 @@ function content_generation() {
 
     for (let c = 0; c < company_count; c++) {
         if (c == 0) {
-            const content = document.createElement('div');  // おおもと
-            Object.assign(content, { classList: 'contents' });
+            const content = Object.assign(document.createElement('div'), { classList: 'contents' });    // おおもと
 
             // タイトル類生成
-            const company_title = document.createElement('div');
-            Object.assign(company_title, { classList: 'company_title' });
+            const company_title = Object.assign(document.createElement('div'), { classList: 'company_title' });
 
-            const img = document.createElement('img');
-            Object.assign(img, {
+            const img = Object.assign(document.createElement('img'), {
                 classList: 'company_img',
                 src: 'img/home/home.png',
                 alt: 'ホーム'
             });
             company_title.appendChild(img);
 
-            const title_text = document.createElement('h1');
-            Object.assign(title_text, {
+            const title_text = Object.assign(document.createElement('h1'), {
                 className: 'title_text',
                 textContent: 'ホーム'
             });
@@ -95,7 +87,6 @@ function content_generation() {
             content.appendChild(company_title);  // 最後
 
             // その他コンテンツ
-
             const info = document.createElement('div');
             Object.assign(info, { classList: 'info' });
 
@@ -119,8 +110,8 @@ function content_generation() {
                 `
             });
             info.appendChild(info_text);
-            content.appendChild(info);
 
+            content.appendChild(info);
             products_window.appendChild(content);   // おおもと
         } else {
             const c_class = `${all_data[c].id[0]} - ${all_data[c].id[1]}`;
@@ -148,13 +139,12 @@ function content_generation() {
             })
             company_title.appendChild(title_text);
             company_title.appendChild(title_class);
+
             content.appendChild(company_title);  // 最後
 
             // formへ飛ぶボタン
             const form_btn = Object.assign(document.createElement('button'), {
-                onclick() {
-                    window.location.href = all_data[c].form_url;
-                },
+                onclick() { window.location.href = all_data[c].form_url },
                 textContent: `${all_data[c].com_name}　注文フォームへ`,
                 classList: 'form_btns'
             });
@@ -173,9 +163,7 @@ function content_generation() {
                 });
                 products_card.appendChild(products_img);
 
-                const pro_info = Object.assign(document.createElement('div'), {
-                    classList: 'pro_info'
-                });
+                const pro_info = Object.assign(document.createElement('div'), { classList: 'pro_info' });
 
                 // 商品名
                 const pro_title = Object.assign(document.createElement('h2'), {
@@ -205,9 +193,7 @@ function content_generation() {
                 });
                 pro_info.appendChild(price);
 
-
                 products_card.appendChild(pro_info);
-
                 products.appendChild(products_card); // グリッドおおもと
             }
 
@@ -221,13 +207,8 @@ function content_generation() {
         const first_tab = document.querySelector('#store_buttons button');
         if (first_tab) first_tab.click();
     } else if (tab_select >= 0 && tab_select < company_count) {
-        document.querySelectorAll('#store_buttons button').forEach((btn, c) => {
-            btn.classList.toggle('active_tab', c == tab_select);
-        });
-
-        document.querySelectorAll('.contents').forEach((div, c) => {
-            div.classList.toggle('show', c == tab_select);
-        });
+        document.querySelectorAll('#store_buttons button').forEach((btn, c) => { btn.classList.toggle('active_tab', c == tab_select) });
+        document.querySelectorAll('.contents').forEach((div, c) => { div.classList.toggle('show', c == tab_select) });
     }
 }
 
@@ -237,17 +218,9 @@ document.getElementById('store_buttons').addEventListener('click', (event) => {
         document.getElementById('products_window').scrollTop = 0;
         const index = event.target.dataset.index;
         tab_select = parseInt(index);
-
-        document.querySelectorAll('#store_buttons button').forEach(btn => {
-            btn.classList.remove('active_tab');
-        });
-
+        document.querySelectorAll('#store_buttons button').forEach(btn => { btn.classList.remove('active_tab') });
         event.target.classList.add('active_tab');
-
-        document.querySelectorAll('.contents').forEach((div, i) => {
-            div.classList.toggle('show', i == index);
-        });
-
+        document.querySelectorAll('.contents').forEach((div, i) => { div.classList.toggle('show', i == index) });
         document.getElementById('store_modal_button').classList.remove('show');
         document.getElementById('left').classList.remove('show');
         document.getElementById('store_buttons').classList.remove('show');

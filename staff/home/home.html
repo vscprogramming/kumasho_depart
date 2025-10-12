@@ -76,7 +76,6 @@
         }
 
         #grade, #password { width: 100%; }
-
         #grade { text-align: center; }
 
         #class {
@@ -153,6 +152,13 @@
             border: 7px solid var(--color-bg-white);
             border-top: 7px solid var(--color-orange);
         }
+
+        @media (max-width: 1400px) { #class { width: 110%; } }
+
+        @media (min-width: 1700px) {
+            #class { width: 107%; }
+            #container { width: 50% }
+        }
     </style>
 
     <body id="body">
@@ -176,9 +182,7 @@
                     </tr>
 
                     <tr>
-                        <td>
-                            <label for="class">クラス</label>
-                        </td>
+                        <td><label for="class">クラス</label></td>
 
                         <td>
                             <select id="class" name="class" required>
@@ -188,13 +192,8 @@
                     </tr>
 
                     <tr>
-                        <td>
-                            <label for="password">パスワード</label>
-                        </td>
-
-                        <td>
-                            <input type="password" id="password" name="password" placeholder="パスワードを入力してください" required>
-                        </td>
+                        <td><label for="password">パスワード</label></td>
+                        <td><input type="password" id="password" name="password" placeholder="パスワードを入力してください" required></td>
                     </tr>
                 </table>
 
@@ -206,7 +205,7 @@
             <div id="spinner"></div>
         </div>
 
-        <p>v1.8.4</p>   <!-- バージョン情報 -->
+        <p>v1.8.5</p>   <!-- バージョン情報 -->
     </body>
 
     <script>
@@ -246,10 +245,7 @@
             ]
         };
 
-        let id_pass = {
-            id: [],
-            password: []
-        };
+        let id_pass = { id: [], password: [] };
 
         function update_class_options(grade) {
             document.getElementById('password').value = '';
@@ -269,16 +265,10 @@
             document.getElementById('loading').style.display = 'flex';
 
             // ログイン状況のリセット
-            for (let g = 1; g <= 3; g++) {
-                for (let c = 1; c <= 9; c++) {
-                    localStorage.removeItem(`logged_${g}${c}`);
-                }
-            }
+            for (let g = 1; g <= 3; g++) for (let c = 1; c <= 9; c++) localStorage.removeItem(`logged_${g}${c}`);
 
             // プルダウンリストの内容作成
-            document.querySelectorAll('input[name="grade"]').forEach(radio => {
-                radio.addEventListener('change', () => update_class_options(radio.value));
-            });
+            document.querySelectorAll('input[name="grade"]').forEach(radio => { radio.addEventListener('change', () => update_class_options(radio.value)) });
 
             // プルダウンリストが変更されたとき、パスワード欄をリセット
             document.getElementById('class').addEventListener('change', () => document.getElementById('password').value = '');
@@ -289,7 +279,7 @@
 
             if (response.ok) {
                 const json_data = await response.json();
-                console.log(json_data);
+                // console.log(json_data);
 
                 // 扱いやすいデータ配列に変換
                 json_data.forEach(json_data_row => {
@@ -314,7 +304,7 @@
             // フォーム入力の値を取得
             const id = document.getElementById('class').value;
             const password = document.getElementById('password').value;
-            console.log(`class: ${id}, password: ${password}`);
+            // console.log(`class: ${id}, password: ${password}`);
 
             // id探索
             let found_index = id_pass.id.indexOf(id);
@@ -322,19 +312,19 @@
             // 認証処理
             if (found_index !== -1) {
                 if (password === id_pass.password[found_index]) {
-                    console.log('認証成功');
+                    // console.log('認証成功');
                     localStorage.setItem(`logged_${id}`, 'true');
                     localStorage.setItem(`class_name`, `${id[0]}-${id[1]}`);
                     localStorage.setItem(`class_number`, id);
                     window.location.href = '../product_management/product_management.html';
                 } else {
-                    console.error('パスワードが間違っています');
+                    // console.error('パスワードが間違っています');
                     alert('パスワードが間違っています。');
                     document.getElementById('password').value = '';
                     document.getElementById('loading').style.display = 'none';
                 }
             } else {
-                console.error('指定されたIDが見つかりません');
+                // console.error('指定されたIDが見つかりません');
                 alert('指定されたIDが見つかりません。');
                 document.getElementById('loading').style.display = 'none';
             }
