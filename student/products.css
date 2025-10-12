@@ -46,6 +46,8 @@ body {
     transform: translate(-50%, -50%);
 }
 
+#store_modal_button { display: none; }
+
 #store_buttons {
     width: 100%;
     height: 100%;
@@ -61,7 +63,7 @@ body {
     color: #eee;
     padding: 7px 0;
     cursor: pointer;
-    font-size: 1.1vw;
+    font-size: 1.3vw;
     background-color: #0000;
     transition: background-color .3s;
     font-family: 'Noto Serif JP', serif;
@@ -69,7 +71,7 @@ body {
 
 .home_btn {
     font-weight: bolder;
-    font-size: 2vw !important;
+    font-size: 3vw !important;
 }
 
 #store_buttons button:hover {
@@ -125,7 +127,7 @@ h1.title_text {
 h3.title_text {
     top: 67%;
     width: 18%;
-    font-size: 1.3vw;
+    font-size: 1.7vw;
 }
 
 /* コンテンツ */
@@ -251,8 +253,15 @@ h3.title_text {
     background-color: #555a;
 }
 
-@media (max-width: 800px) {
-    #title { display: none; }
+/* chrome book 画面分割時 */
+@media (min-width: 650px) and (max-width: 800px) {
+    #title {
+        height: 7%;
+    }
+
+    #title h1 {
+        font-size: 1.48vh;
+    }
 
     #store_buttons button {
         width: 100%;
@@ -260,7 +269,7 @@ h3.title_text {
         color: #eee;
         padding: 7px 0;
         cursor: pointer;
-        font-size: 1.7vw;
+        font-size: 1.5vw;
         background-color: none;
         transition: background-color .3s;
         font-family: 'Noto Serif JP', serif;
@@ -268,7 +277,7 @@ h3.title_text {
 
     .home_btn {
         font-weight: bolder;
-        font-size: 5vw !important;
+        font-size: 3vw !important;
     }
 
     #store_buttons button:hover {
@@ -292,15 +301,16 @@ h3.title_text {
     h1.title_text {
         top: 50%;
         width: 76%;
-        font-size: 6vw;
+        font-size: 6.3vw;
         font-weight: bolder;
     }
 
     h3.title_text {
         top: 67%;
         width: auto;
-        font-size: 3vw;
+        font-size: 2vw;
     }
+
     .products_card {
         width: 95%;
         height: 700px;
@@ -312,7 +322,7 @@ h3.title_text {
     }
 
     .pro_info {
-        top: 200px;
+        top: 335px;
         left: 50%;
         bottom: 0;
         width: 95%;
@@ -328,6 +338,166 @@ h3.title_text {
         color: #eee;
         cursor: pointer;
         font-size: larger;
+        transition: all .3s;
+        border-radius: 18px;
+        font-weight: bolder;
+        background-color: #77f;
+        box-shadow: 3px 3px 3px #333;
+        font-family: 'Noto Serif JP', serif;
+    }
+}
+
+/* スマホ */
+@media (max-width: 600px) {
+    html, body, #all {
+        width: 100vw;
+        height: 100vh;
+    }
+
+    #left {
+        width: 70%;
+        height: 100%;
+        display: none;
+        flex-direction: column;
+    }
+
+    #left.show {
+        display: flex;
+        position: absolute;
+        z-index: 9998;
+        box-shadow: 0 0 7px #333;
+    }
+
+    #store_buttons {
+        width: 100%;
+        height: 100%;
+        max-height: 100%;
+        overflow-y: auto;
+        overflow-x: hidden;
+        background-color: #7d1f29;
+        display: none;
+    }
+
+    #store_buttons.show {
+        display: flex;
+        flex-direction: column;
+    }
+
+    #title { display: none; }
+
+
+    #store_modal_button {
+        display: flex;
+        margin: 0;
+        position: absolute;
+        background-color: #7d1f29;
+        border: #eee solid 1px;
+        width: 50px; height: 50px;
+        font-size: 300%;
+        z-index: 9999;
+        justify-content: center;
+        align-items: center;
+        color: #eee;
+        transform: translateX(0);
+    }
+
+    #store_modal_button::before {
+        content: '≡';
+    }
+
+    #store_modal_button.show::before {
+        content: '×';
+    }
+
+    .home_btn {
+        margin-top: 60px;
+        font-weight: bolder;
+        font-size: 13vw !important;
+    }
+
+    #store_buttons button {
+        width: 100%;
+        border: none;
+        color: #eee;
+        padding: 7px 0;
+        cursor: pointer;
+        font-size: 5vw;
+        background-color: #0000;
+        transition: background-color .3s;
+        font-family: 'Noto Serif JP', serif;
+    }
+
+    .company_title {
+        width: 100%;
+        height: 34%;
+        position: relative;
+    }
+
+    img.company_img {
+        width: 100vw;
+        height: 29vh;
+        margin: 0 auto;
+        filter: brightness(60%);
+    }
+
+    #products_window {
+        width: 100%;
+        height: 100%;
+        max-height: 100%;
+        overflow-y: auto;
+        overflow-x: hidden;
+        justify-content: center;
+        background-color: #fff7dc;
+    }
+
+    .products {
+        width: 100%;
+        gap: 7px;
+        display: grid;
+        align-items: center;
+        justify-items: center;
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    h1.title_text {
+        top: 50%;
+        width: 76%;
+        font-size: 6vw;
+        font-weight: bolder;
+    }
+
+    h3.title_text {
+        top: 67%;
+        width: auto;
+        font-size: 2.4vw;
+    }
+    .products_card {
+        width: 95%;
+        height: 700px;
+        margin: 18px;
+        position: relative;
+        border-radius: 18px;
+        background-color: #eef;
+        box-shadow: 0 0 7px #333;
+    }
+
+    .pro_info {
+        top: 240px;
+        left: 50%;
+        bottom: 0;
+        width: 95%;
+        text-align: left;
+        position: absolute;
+        transform: translateX(-50%);
+    }
+
+    .form_btns {
+        width: 95%;
+        margin: 34px;
+        border: none;
+        color: #eee;
+        cursor: pointer;
+        font-size: large;
         transition: all .3s;
         border-radius: 18px;
         font-weight: bolder;

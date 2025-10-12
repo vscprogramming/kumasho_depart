@@ -1,13 +1,13 @@
-['resize', 'DOMContentLoaded'].forEach(event => {
-    window.addEventListener(event, () => resize_div());
-});
+// ['resize', 'DOMContentLoaded'].forEach(event => {
+//     window.addEventListener(event, () => resize_div());
+// });
 
-function resize_div() {
-    Object.assign(document.getElementById('all').style, {
-        width: `${window.innerWidth}px`,
-        height: `${window.innerHeight}px`
-    });
-}
+// function resize_div() {
+//     Object.assign(document.getElementById('all').style, {
+//         width: `${window.innerWidth}px`,
+//         height: `${window.innerHeight}px`
+//     });
+// }
 
 var json_data, all_data = [];
 let tab_select;
@@ -247,5 +247,15 @@ document.getElementById('store_buttons').addEventListener('click', (event) => {
         document.querySelectorAll('.contents').forEach((div, i) => {
             div.classList.toggle('show', i == index);
         });
+
+        document.getElementById('store_modal_button').classList.remove('show');
+        document.getElementById('left').classList.remove('show');
+        document.getElementById('store_buttons').classList.remove('show');
     }
+});
+
+document.getElementById('store_modal_button').addEventListener('click', () => {
+    document.getElementById('store_modal_button').classList.toggle('show');
+    document.getElementById('left').classList.toggle('show');
+    document.getElementById('store_buttons').classList.toggle('show');
 });

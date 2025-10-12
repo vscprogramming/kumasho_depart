@@ -532,7 +532,7 @@ const button_process = [
         btn_id: 'cancel_button',
         handler: () => document.getElementById('logout_modal_back').classList.remove('show')
     },
-    {// ログアウト
+    {   // ログアウト
         btn_id: 'ok_button',
         handler: () => {
             localStorage.removeItem(`logged_${class_number}`);
