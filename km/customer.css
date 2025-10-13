@@ -342,7 +342,6 @@ body.modal-open {
   text-align: center;
   border: none;
   position: relative;
-  -webkit-overflow-scrolling: touch; /* smoother scrolling on iOS */
 }
 
 #modal-body {
