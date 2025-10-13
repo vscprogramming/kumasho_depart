@@ -107,14 +107,14 @@ img.company_img {
 
 h1.title_text {
     top: 50%;
-    width: 76%;
+    width: 100%;
     font-size: 5vw;
     font-weight: bolder;
 }
 
 h3.title_text {
     top: 67%;
-    width: 18%;
+    width: 100%;
     font-size: 1.7vw;
 }
 
@@ -227,10 +227,18 @@ h3.title_text {
 @media (min-width: 650px) and (max-width: 800px) {
     #title { height: 7%; }
     .pro_info { top: 335px; }
-    .form_btns { width: 95%; }
     #title h1 { font-size: 1.48vh; }
-    h3.title_text { font-size: 2vw; }
-    h1.title_text { font-size: 6.3vw; }
+
+    h1.title_text {
+        width: 100%;
+        font-size: 6.3vw;
+    }
+
+    h3.title_text {
+        width: 100%;
+        font-size: 2vw;
+    }
+
     .home_btn { font-size: 3vw !important; }
     #store_buttons button { font-size: 1.5vw; }
     .products { grid-template-columns: repeat(1, 1fr); }
@@ -314,7 +322,7 @@ h3.title_text {
 
     .pro_info { top: 224px; }
     .products_card { height: 700px; }
-
+    
     .form_btns {
         width: 95%;
         font-size: large;

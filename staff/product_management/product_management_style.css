@@ -157,7 +157,7 @@ table td:last-child select {
     border-radius: var(--radius);
 }
 
-.crowd_status_text { margin-left: 6%; }
+.crowd_status_text { margin: 0; }
 
 table td:first-child {
     padding: 3px 0 3px 18px;

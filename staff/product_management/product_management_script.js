@@ -225,7 +225,7 @@ async function content_generation(post, post_cs) {
         // 混雑状況プルダウン
         const crowd_status_text = Object.assign(document.createElement('p'), {
             className: 'crowd_status_text',
-            textContent: '混雑状況：　'
+            innerHTML: '混雑状況：　'
         });
 
         const crowd_status = Object.assign(document.createElement('select'), { className: 'crowd_status_pulldown' });
@@ -245,6 +245,7 @@ async function content_generation(post, post_cs) {
 
         company_total_display.appendChild(company_total_display_text_company_name);
         company_total_display.appendChild(company_total_display_text_products);
+        company_total_display.appendChild(document.createElement('br'));
         company_total_display.appendChild(crowd_status_text);
         company_total_display.appendChild(crowd_status);
 

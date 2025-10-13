@@ -67,6 +67,7 @@
         }
 
         #grade, #class, #password {
+            width: auto;
             padding: 12px;
             font-size: 1vw;
             border-radius: var(--radius);
@@ -159,6 +160,32 @@
             #class { width: 107%; }
             #container { width: 50% }
         }
+
+        @media (min-width: 650px) and (max-width: 800px) {
+            #container {
+                width: 77%;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            #grade, #class, #password {
+                font-size: 1.9vw;
+            }
+        }
+
+        @media (min-width: 650px) and (max-width: 700px) {
+            #class {
+                width: 114%;
+            }
+        }
+
+        @media (min-width: 700px) and (max-width: 800px) {
+            #class {
+                width: 113%;
+            }
+        }
     </style>
 
     <body id="body">
@@ -205,7 +232,7 @@
             <div id="spinner"></div>
         </div>
 
-        <p>v1.8.5</p>   <!-- バージョン情報 -->
+        <p>v1.8.6</p>   <!-- バージョン情報 -->
     </body>
 
     <script>
