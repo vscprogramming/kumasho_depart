@@ -306,7 +306,7 @@ document.addEventListener("DOMContentLoaded", () => {
             - 引数: url, retries (最大リトライ回数), timeout (ミリ秒)
             - 戻り値: 成功時は JSON を返す。最終的に失敗すると例外を投げる。
           */
-          async function fetchWithRetryLocal(url, retries = 2, timeout = 8000) {
+          async function fetchWithRetryLocal(url, retries = 2, timeout = 180000) {
             for (let i = 0; i <= retries; i++) {
               const controller = new AbortController();
               const id = setTimeout(() => controller.abort(), timeout);
@@ -338,7 +338,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
           console.info('fetching GAS data for modal from:', shop.gasUrl);
 
-          fetchWithRetryLocal(shop.gasUrl, 2, 7000)
+          fetchWithRetryLocal(shop.gasUrl, 2, 180000)
             .then(response => {
               // already parsed by fetchWithRetryLocal
               return response;
