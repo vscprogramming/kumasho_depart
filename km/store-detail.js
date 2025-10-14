@@ -250,7 +250,7 @@ document.addEventListener("DOMContentLoaded", () => {
           }
           modalProductList.innerHTML = ""; // clear
           const loadingP = document.createElement('p');
-          loadingP.textContent = messages.loading || '読み込み中...';
+          loadingP.textContent = messages.loading || '';
           modalProductList.appendChild(loadingP);
 
           // バックドロップクリックで閉じる
@@ -285,14 +285,14 @@ document.addEventListener("DOMContentLoaded", () => {
             fullOverlay.setAttribute('role', 'status');
             fullOverlay.setAttribute('aria-live', 'polite');
 
+            const msg = document.createElement('div');
+            msg.className = 'loading-message';
+            msg.textContent = '読み込み中です。\n※ネットワークの状況により読み込みに時間がかかる可能性があります';
+            fullOverlay.appendChild(msg);
+
             const spin = document.createElement('div');
             spin.className = 'spinner';
             fullOverlay.appendChild(spin);
-
-            const msg = document.createElement('div');
-            msg.className = 'loading-message';
-            msg.textContent = '読み込み中です。※ネットワークの状況により読み込みに時間がかかる可能性があります';
-            fullOverlay.appendChild(msg);
 
             modal.appendChild(fullOverlay);
           } else {

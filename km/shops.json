@@ -3,7 +3,7 @@
         "id": "1-1-1",
         "name": "Cafe Soluce",
         "catch": "キャッチコピー",
-        "image": "img/1-1/Cafe.jpg",
+        "image": "img/1-1/Cafe.png",
         "pr": [
             "PR文１",
             "PR文２"
@@ -12,17 +12,17 @@
             {
                 "name": "おすすめ商品１",
                 "price": 200,
-                "image": "img/1-1/Cafe01.jpg"
+                "image": "img/1-1/Cafe01.png"
             },
             {
                 "name": "おすすめ商品２",
                 "price": 600,
-                "image": "img/1-1/Cafe02.jpg"
+                "image": "img/1-1/Cafe02.png"
             },
             {
                 "name": "おすすめ商品３",
                 "price": 700,
-                "image": "img/1-1/Cafe03.jpg"
+                "image": "img/1-1/Cafe03.png"
             }
         ],
         "company_name": "Cafe Soluce",
@@ -33,7 +33,7 @@
         "name": "TATOMIYA EZUKO",
         "catch": "キャッチコピー",
         "cs":"混雑状況",
-        "image": "img/1-1/Cafe.jpg",
+        "image": "img/1-1/Cafe.png",
         "pr": [
             "PR文１",
             "PR文２"
@@ -42,17 +42,17 @@
             {
                 "name": "おすすめ商品１",
                 "price": 500,
-                "image": "img/1-1/Cafe01.jpg"
+                "image": "img/1-1/Cafe01.png"
             },
             {
                 "name": "おすすめ商品２",
                 "price": 600,
-                "image": "img/1-1/Cafe02.jpg"
+                "image": "img/1-1/Cafe02.png"
             },
             {
                 "name": "おすすめ商品３",
                 "price": 700,
-                "image": "img/1-1/Cafe03.jpg"
+                "image": "img/1-1/Cafe03.png"
             }
         ],
         "company_name": "TATOMIYA EZUKO",
@@ -62,7 +62,7 @@
         "id": "1-2-1",
         "name": "高田精肉店",
         "catch": "キャッチコピー",
-        "image": "img/1-1/Cafe.jpg",
+        "image": "img/1-3/takada.png",
         "pr": [
             "PR文１",
             "PR文２"
@@ -71,17 +71,17 @@
             {
                 "name": "おすすめ商品１",
                 "price": 500,
-                "image": "img/1-1/Cafe01.jpg"
+                "image": "img/1-1/Cafe01.png"
             },
             {
                 "name": "おすすめ商品２",
                 "price": 600,
-                "image": "img/1-1/Cafe02.jpg"
+                "image": "img/1-1/Cafe02.png"
             },
             {
                 "name": "おすすめ商品３",
                 "price": 700,
-                "imag": "株式会社　甲玉堂/1-1/Cafe03.jpg"
+                "imag": "株式会社　甲玉堂/1-1/Cafe03.png"
             }
         ],
         "company_name": "高田精肉店",
@@ -91,7 +91,7 @@
         "id": "1-3-1",
         "name": "ジューシー",
         "catch": "キャッチコピー",
-        "image": "img/1-1/Cafe.jpg",
+        "image": "img/1-1/Cafe.png",
         "pr": [
             "PR文１",
             "PR文２"
@@ -100,17 +100,17 @@
             {
                 "name": "おすすめ商品１",
                 "price": 500,
-                "image": "img/1-1/Cafe01.jpg"
+                "image": "img/1-1/Cafe01.png"
             },
             {
                 "name": "おすすめ商品２",
                 "price": 600,
-                "image": "img/1-1/Cafe02.jpg"
+                "image": "img/1-1/Cafe02.png"
             },
             {
                 "name": "おすすめ商品３",
                 "price": 700,
-                "image": "img/1-1/Cafe03.jpg"
+                "image": "img/1-1/Cafe03.png"
             }
         ],
         "company_name": "株式会社 ジューシー",
@@ -120,7 +120,7 @@
         "id": "1-4-1",
         "name": "松ノ屋本店",
         "catch": "キャッチコピー",
-        "image": "img/1-1/Cafe.jpg",
+        "image": "img/1-4/matsunoya.png",
         "pr": [
             "PR文１",
             "PR文２"
@@ -129,17 +129,17 @@
             {
                 "name": "おすすめ商品１",
                 "price": 500,
-                "image": "img/1-1/Cafe01.jpg"
+                "image": "img/1-1/Cafe01.png"
             },
             {
                 "name": "おすすめ商品２",
                 "price": 600,
-                "image": "img/1-1/Cafe02.jpg"
+                "image": "img/1-1/Cafe02.png"
             },
             {
                 "name": "おすすめ商品３",
                 "price": 700,
-                "image": "img/1-1/Cafe03.jpg"
+                "image": "img/1-1/Cafe03.png"
             }
         ],
         "company_name": "株式会社 松ノ屋本店",
@@ -149,7 +149,7 @@
         "id": "1-5-1",
         "name": "吉原食品",
         "catch": "キャッチコピー",
-        "image": "img/1-1/Cafe.jpg",
+        "image": "img/1-5/yoshihara.png",
         "pr": [
             "PR文１",
             "PR文２"
@@ -158,17 +158,17 @@
             {
                 "name": "おすすめ商品１",
                 "price": 500,
-                "image": "img/1-1/Cafe01.jpg"
+                "image": "img/1-1/Cafe01.png"
             },
             {
                 "name": "おすすめ商品２",
                 "price": 600,
-                "image": "img/1-1/Cafe02.jpg"
+                "image": "img/1-1/Cafe02.png"
             },
             {
                 "name": "おすすめ商品３",
                 "price": 700,
-                "image": "img/1-1/Cafe03.jpg"
+                "image": "img/1-1/Cafe03.png"
             }
         ],
         "company_name": "有限会社 吉原食品",
@@ -178,7 +178,7 @@
         "id": "1-6-1",
         "name": "林檎堂",
         "catch": "キャッチコピー",
-        "image": "img/1-1/Cafe.jpg",
+        "image": "img/1-1/Cafe.png",
         "pr": [
             "PR文１",
             "PR文２"
@@ -187,17 +187,17 @@
             {
                 "name": "おすすめ商品１",
                 "price": 500,
-                "image": "img/1-1/Cafe01.jpg"
+                "image": "img/1-1/Cafe01.png"
             },
             {
                 "name": "おすすめ商品２",
                 "price": 600,
-                "image": "img/1-1/Cafe02.jpg"
+                "image": "img/1-1/Cafe02.png"
             },
             {
                 "name": "おすすめ商品３",
                 "price": 700,
-                "image": "img/1-1/Cafe03.jpg"
+                "image": "img/1-1/Cafe03.png"
             }
         ],
         "company_name": "株式会社 林檎堂",
@@ -207,7 +207,7 @@
         "id": "1-6-2",
         "name": "近藤製飴本舗",
         "catch": "キャッチコピー",
-        "image": "img/1-1/Cafe.jpg",
+        "image": "img/1-6/kondo.png",
         "pr": [
             "PR文１",
             "PR文２"
@@ -216,17 +216,17 @@
             {
                 "name": "おすすめ商品１",
                 "price": 500,
-                "image": "img/1-1/Cafe01.jpg"
+                "image": "img/1-1/Cafe01.png"
             },
             {
                 "name": "おすすめ商品２",
                 "price": 600,
-                "image": "img/1-1/Cafe02.jpg"
+                "image": "img/1-1/Cafe02.png"
             },
             {
                 "name": "おすすめ商品３",
                 "price": 700,
-                "image": "img/1-1/Cafe03.jpg"
+                "image": "img/1-1/Cafe03.png"
             }
         ],
         "company_name": "近藤製飴本舗",
@@ -236,7 +236,7 @@
         "id": "1-7-1",
         "name": "Crepe & ...",
         "catch": "キャッチコピー",
-        "image": "img/1-1/Cafe.jpg",
+        "image": "img/1-1/Cafe.png",
         "pr": [
             "PR文１",
             "PR文２"
@@ -245,17 +245,17 @@
             {
                 "name": "おすすめ商品１",
                 "price": 500,
-                "image": "img/1-1/Cafe01.jpg"
+                "image": "img/1-1/Cafe01.png"
             },
             {
                 "name": "おすすめ商品２",
                 "price": 600,
-                "image": "img/1-1/Cafe02.jpg"
+                "image": "img/1-1/Cafe02.png"
             },
             {
                 "name": "おすすめ商品３",
                 "price": 700,
-                "image": "img/1-1/Cafe03.jpg"
+                "image": "img/1-1/Cafe03.png"
             }
         ],
         "company_name": "Crepe & ...",
@@ -265,7 +265,7 @@
         "id": "1-7-2",
         "name": "Comida de Batata",
         "catch": "キャッチコピー",
-        "image": "img/1-1/Cafe.jpg",
+        "image": "img/1-1/Cafe.png",
         "pr": [
             "PR文１",
             "PR文２"
@@ -274,17 +274,17 @@
             {
                 "name": "おすすめ商品１",
                 "price": 500,
-                "image": "img/1-1/Cafe01.jpg"
+                "image": "img/1-1/Cafe01.png"
             },
             {
                 "name": "おすすめ商品２",
                 "price": 600,
-                "image": "img/1-1/Cafe02.jpg"
+                "image": "img/1-1/Cafe02.png"
             },
             {
                 "name": "おすすめ商品３",
                 "price": 700,
-                "image": "img/1-1/Cafe03.jpg"
+                "image": "img/1-1/Cafe03.png"
             }
         ],
         "company_name": "Comida de Batata",
@@ -294,7 +294,7 @@
         "id": "1-8-1",
         "name": "鳥平商事",
         "catch": "キャッチコピー",
-        "image": "img/1-1/Cafe.jpg",
+        "image": "img/1-8/aso_torimiya.png",
         "pr": [
             "PR文１",
             "PR文２"
@@ -303,17 +303,17 @@
             {
                 "name": "おすすめ商品１",
                 "price": 500,
-                "image": "img/1-1/Cafe01.jpg"
+                "image": "img/1-1/Cafe01.png"
             },
             {
                 "name": "おすすめ商品２",
                 "price": 600,
-                "image": "img/1-1/Cafe02.jpg"
+                "image": "img/1-1/Cafe02.png"
             },
             {
                 "name": "おすすめ商品３",
                 "price": 700,
-                "image": "img/1-1/Cafe03.jpg"
+                "image": "img/1-1/Cafe03.png"
             }
         ],
         "company_name": "鳥平商事",
@@ -323,7 +323,7 @@
         "id": "1-9-1",
         "name": "糸石家",
         "catch": "キャッチコピー",
-        "image": "img/1-1/Cafe.jpg",
+        "image": "img/1-9/itoishiya.png",
         "pr": [
             "PR文１",
             "PR文２"
@@ -332,17 +332,17 @@
             {
                 "name": "おすすめ商品１",
                 "price": 500,
-                "image": "img/1-1/Cafe01.jpg"
+                "image": "img/1-1/Cafe01.png"
             },
             {
                 "name": "おすすめ商品２",
                 "price": 600,
-                "image": "img/1-1/Cafe02.jpg"
+                "image": "img/1-1/Cafe02.png"
             },
             {
                 "name": "おすすめ商品３",
                 "price": 700,
-                "image": "img/1-1/Cafe03.jpg"
+                "image": "img/1-1/Cafe03.png"
             }
         ],
         "company_name": "糸石家",
@@ -352,7 +352,7 @@
         "id": "2-1-1",
         "name": "人吉温泉物産館",
         "catch": "キャッチコピー",
-        "image": "img/1-1/Cafe.jpg",
+        "image": "img/2-1/hitoyoshi_onsen_shop.png",
         "pr": [
             "PR文１",
             "PR文２"
@@ -361,17 +361,17 @@
             {
                 "name": "おすすめ商品１",
                 "price": 500,
-                "image": "img/1-1/Cafe01.jpg"
+                "image": "img/1-1/Cafe01.png"
             },
             {
                 "name": "おすすめ商品２",
                 "price": 600,
-                "image": "img/1-1/Cafe02.jpg"
+                "image": "img/1-1/Cafe02.png"
             },
             {
                 "name": "おすすめ商品３",
                 "price": 700,
-                "image": "img/1-1/Cafe03.jpg"
+                "image": "img/1-1/Cafe03.png"
             }
         ],
         "company_name": "株式会社りーな２１ 人吉温泉物産館",
@@ -381,7 +381,7 @@
         "id": "2-1-2",
         "name": "球磨川アーティザンズ",
         "catch": "キャッチコピー",
-        "image": "img/1-1/Cafe.jpg",
+        "image": "img/2-1/artisans.png",
         "pr": [
             "PR文１",
             "PR文２"
@@ -390,17 +390,17 @@
             {
                 "name": "おすすめ商品１",
                 "price": 500,
-                "image": "img/1-1/Cafe01.jpg"
+                "image": "img/1-1/Cafe01.png"
             },
             {
                 "name": "おすすめ商品２",
                 "price": 600,
-                "image": "img/1-1/Cafe02.jpg"
+                "image": "img/1-1/Cafe02.png"
             },
             {
                 "name": "おすすめ商品３",
                 "price": 700,
-                "image": "img/1-1/Cafe03.jpg"
+                "image": "img/1-1/Cafe03.png"
             }
         ],
         "company_name": "合同会社 球磨川アーティザンズ",
@@ -410,7 +410,7 @@
         "id": "2-2-1",
         "name": "田舎惣菜 樂や",
         "catch": "キャッチコピー",
-        "image": "img/1-1/Cafe.jpg",
+        "image": "img/1-1/Cafe.png",
         "pr": [
             "PR文１",
             "PR文２"
@@ -419,17 +419,17 @@
             {
                 "name": "おすすめ商品１",
                 "price": 500,
-                "image": "img/1-1/Cafe01.jpg"
+                "image": "img/1-1/Cafe01.png"
             },
             {
                 "name": "おすすめ商品２",
                 "price": 600,
-                "image": "img/1-1/Cafe02.jpg"
+                "image": "img/1-1/Cafe02.png"
             },
             {
                 "name": "おすすめ商品３",
                 "price": 700,
-                "image": "img/1-1/Cafe03.jpg"
+                "image": "img/1-1/Cafe03.png"
             }
         ],
         "company_name": "田舎惣菜 樂や",
@@ -439,7 +439,7 @@
         "id": "2-2-2",
         "name": "阿蘇とり宮",
         "catch": "キャッチコピー",
-        "image": "img/1-1/Cafe.jpg",
+        "image": "img/2-2/aso_torimiya.png",
         "pr": [
             "PR文１",
             "PR文２"
@@ -448,17 +448,17 @@
             {
                 "name": "おすすめ商品１",
                 "price": 500,
-                "image": "img/1-1/Cafe01.jpg"
+                "image": "img/1-1/Cafe01.png"
             },
             {
                 "name": "おすすめ商品２",
                 "price": 600,
-                "image": "img/1-1/Cafe02.jpg"
+                "image": "img/1-1/Cafe02.png"
             },
             {
                 "name": "おすすめ商品３",
                 "price": 700,
-                "image": "img/1-1/Cafe03.jpg"
+                "image": "img/1-1/Cafe03.png"
             }
         ],
         "company_name": "阿蘇とり宮",
@@ -468,7 +468,7 @@
         "id": "2-3-1",
         "name": "八代よかとこ物産館",
         "catch": "キャッチコピー",
-        "image": "img/1-1/Cafe.jpg",
+        "image": "img/2-3/yatsushiro_yokatoko.png",
         "pr": [
             "PR文１",
             "PR文２"
@@ -477,17 +477,17 @@
             {
                 "name": "おすすめ商品１",
                 "price": 500,
-                "image": "img/1-1/Cafe01.jpg"
+                "image": "img/1-1/Cafe01.png"
             },
             {
                 "name": "おすすめ商品２",
                 "price": 600,
-                "image": "img/1-1/Cafe02.jpg"
+                "image": "img/1-1/Cafe02.png"
             },
             {
                 "name": "おすすめ商品３",
                 "price": 700,
-                "image": "img/1-1/Cafe03.jpg"
+                "image": "img/1-1/Cafe03.png"
             }
         ],
         "company_name": "八代よかとこ物産館",
@@ -497,7 +497,7 @@
         "id": "2-3-2",
         "name": "井上産業",
         "catch": "キャッチコピー",
-        "image": "img/1-1/Cafe.jpg",
+        "image": "img/2-3/inoue.png",
         "pr": [
             "PR文１",
             "PR文２"
@@ -506,17 +506,17 @@
             {
                 "name": "おすすめ商品１",
                 "price": 500,
-                "image": "img/1-1/Cafe01.jpg"
+                "image": "img/1-1/Cafe01.png"
             },
             {
                 "name": "おすすめ商品２",
                 "price": 600,
-                "image": "img/1-1/Cafe02.jpg"
+                "image": "img/1-1/Cafe02.png"
             },
             {
                 "name": "おすすめ商品３",
                 "price": 700,
-                "image": "img/1-1/Cafe03.jpg"
+                "image": "img/1-1/Cafe03.png"
             }
         ],
         "company_name": "有限会社 井上産業",
@@ -526,7 +526,7 @@
         "id": "2-3-3",
         "name": "はちゆい",
         "catch": "キャッチコピー",
-        "image": "img/1-1/Cafe.jpg",
+        "image": "img/1-1/Cafe.png",
         "pr": [
             "PR文１",
             "PR文２"
@@ -535,17 +535,17 @@
             {
                 "name": "おすすめ商品１",
                 "price": 500,
-                "image": "img/1-1/Cafe01.jpg"
+                "image": "img/1-1/Cafe01.png"
             },
             {
                 "name": "おすすめ商品２",
                 "price": 600,
-                "image": "img/1-1/Cafe02.jpg"
+                "image": "img/1-1/Cafe02.png"
             },
             {
                 "name": "おすすめ商品３",
                 "price": 700,
-                "image": "img/1-1/Cafe03.jpg"
+                "image": "img/1-1/Cafe03.png"
             }
         ],
         "company_name": "はちゆい",
@@ -555,7 +555,7 @@
         "id": "2-4-1",
         "name": "鬼塚日昭堂",
         "catch": "キャッチコピー",
-        "image": "img/1-1/Cafe.jpg",
+        "image": "img/2-4/onitsukanissyodo.png",
         "pr": [
             "PR文１",
             "PR文２"
@@ -564,17 +564,17 @@
             {
                 "name": "おすすめ商品１",
                 "price": 500,
-                "image": "img/1-1/Cafe01.jpg"
+                "image": "img/1-1/Cafe01.png"
             },
             {
                 "name": "おすすめ商品２",
                 "price": 600,
-                "image": "img/1-1/Cafe02.jpg"
+                "image": "img/1-1/Cafe02.png"
             },
             {
                 "name": "おすすめ商品３",
                 "price": 700,
-                "image": "img/1-1/Cafe03.jpg"
+                "image": "img/1-1/Cafe03.png"
             }
         ],
         "company_name": "鬼塚日昭堂",
@@ -584,7 +584,7 @@
         "id": "2-4-2",
         "name": "ＪＡあしきた",
         "catch": "キャッチコピー",
-        "image": "img/1-1/Cafe.jpg",
+        "image": "img/2-4/JA_ashikita.png",
         "pr": [
             "PR文１",
             "PR文２"
@@ -593,17 +593,17 @@
             {
                 "name": "おすすめ商品１",
                 "price": 500,
-                "image": "img/1-1/Cafe01.jpg"
+                "image": "img/1-1/Cafe01.png"
             },
             {
                 "name": "おすすめ商品２",
                 "price": 600,
-                "image": "img/1-1/Cafe02.jpg"
+                "image": "img/1-1/Cafe02.png"
             },
             {
                 "name": "おすすめ商品３",
                 "price": 700,
-                "image": "img/1-1/Cafe03.jpg"
+                "image": "img/1-1/Cafe03.png"
             }
         ],
         "company_name": "あしきた農業協同組合（ＪＡあしきた）",
@@ -613,7 +613,7 @@
         "id": "2-5-1",
         "name": "宝餅本舗",
         "catch": "キャッチコピー",
-        "image": "img/1-1/Cafe.jpg",
+        "image": "img/1-1/Cafe.png",
         "pr": [
             "PR文１",
             "PR文２"
@@ -622,17 +622,17 @@
             {
                 "name": "おすすめ商品１",
                 "price": 500,
-                "image": "img/1-1/Cafe01.jpg"
+                "image": "img/1-1/Cafe01.png"
             },
             {
                 "name": "おすすめ商品２",
                 "price": 600,
-                "image": "img/1-1/Cafe02.jpg"
+                "image": "img/1-1/Cafe02.png"
             },
             {
                 "name": "おすすめ商品３",
                 "price": 700,
-                "image": "img/1-1/Cafe03.jpg"
+                "image": "img/1-1/Cafe03.png"
             }
         ],
         "company_name": "宝餅本舗",
@@ -642,7 +642,7 @@
         "id": "2-5-2",
         "name": "天栄食品",
         "catch": "キャッチコピー",
-        "image": "img/1-1/Cafe.jpg",
+        "image": "img/1-1/Cafe.png",
         "pr": [
             "PR文１",
             "PR文２"
@@ -651,17 +651,17 @@
             {
                 "name": "おすすめ商品１",
                 "price": 500,
-                "image": "img/1-1/Cafe01.jpg"
+                "image": "img/1-1/Cafe01.png"
             },
             {
                 "name": "おすすめ商品２",
                 "price": 600,
-                "image": "img/1-1/Cafe02.jpg"
+                "image": "img/1-1/Cafe02.png"
             },
             {
                 "name": "おすすめ商品３",
                 "price": 700,
-                "image": "img/1-1/Cafe03.jpg"
+                "image": "img/1-1/Cafe03.png"
             }
         ],
         "company_name": "天栄食品",
@@ -671,7 +671,7 @@
         "id": "2-5-3",
         "name": "春風庵",
         "catch": "キャッチコピー",
-        "image": "img/1-1/Cafe.jpg",
+        "image": "img/1-1/Cafe.png",
         "pr": [
             "PR文１",
             "PR文２"
@@ -680,17 +680,17 @@
             {
                 "name": "おすすめ商品１",
                 "price": 500,
-                "image": "img/1-1/Cafe01.jpg"
+                "image": "img/1-1/Cafe01.png"
             },
             {
                 "name": "おすすめ商品２",
                 "price": 600,
-                "image": "img/1-1/Cafe02.jpg"
+                "image": "img/1-1/Cafe02.png"
             },
             {
                 "name": "おすすめ商品３",
                 "price": 700,
-                "image": "img/1-1/Cafe03.jpg"
+                "image": "img/1-1/Cafe03.png"
             }
         ],
         "company_name": "春風庵",
@@ -700,7 +700,7 @@
         "id": "2-5-4",
         "name": "松下蒲鉾店",
         "catch": "キャッチコピー",
-        "image": "img/1-1/Cafe.jpg",
+        "image": "img/1-1/Cafe.png",
         "pr": [
             "PR文１",
             "PR文２"
@@ -709,17 +709,17 @@
             {
                 "name": "おすすめ商品１",
                 "price": 500,
-                "image": "img/1-1/Cafe01.jpg"
+                "image": "img/1-1/Cafe01.png"
             },
             {
                 "name": "おすすめ商品２",
                 "price": 600,
-                "image": "img/1-1/Cafe02.jpg"
+                "image": "img/1-1/Cafe02.png"
             },
             {
                 "name": "おすすめ商品３",
                 "price": 700,
-                "image": "img/1-1/Cafe03.jpg"
+                "image": "img/1-1/Cafe03.png"
             }
         ],
         "company_name": "株式会社 松下蒲鉾店",
@@ -729,7 +729,7 @@
         "id": "2-6-1",
         "name": "むすび屋 えん",
         "catch": "キャッチコピー",
-        "image": "img/1-1/Cafe.jpg",
+        "image": "img/1-1/Cafe.png",
         "pr": [
             "PR文１",
             "PR文２"
@@ -738,17 +738,17 @@
             {
                 "name": "おすすめ商品１",
                 "price": 500,
-                "image": "img/1-1/Cafe01.jpg"
+                "image": "img/1-1/Cafe01.png"
             },
             {
                 "name": "おすすめ商品２",
                 "price": 600,
-                "image": "img/1-1/Cafe02.jpg"
+                "image": "img/1-1/Cafe02.png"
             },
             {
                 "name": "おすすめ商品３",
                 "price": 700,
-                "image": "img/1-1/Cafe03.jpg"
+                "image": "img/1-1/Cafe03.png"
             }
         ],
         "company_name": "むすび屋 えん",
@@ -758,7 +758,7 @@
         "id": "2-6-2",
         "name": "山鹿和栗洋菓子店Ａｎ（杏）",
         "catch": "キャッチコピー",
-        "image": "img/1-1/Cafe.jpg",
+        "image": "img/2-6/An.png",
         "pr": [
             "PR文１",
             "PR文２"
@@ -767,17 +767,17 @@
             {
                 "name": "おすすめ商品１",
                 "price": 500,
-                "image": "img/1-1/Cafe01.jpg"
+                "image": "img/1-1/Cafe01.png"
             },
             {
                 "name": "おすすめ商品２",
                 "price": 600,
-                "image": "img/1-1/Cafe02.jpg"
+                "image": "img/1-1/Cafe02.png"
             },
             {
                 "name": "おすすめ商品３",
                 "price": 700,
-                "image": "img/1-1/Cafe03.jpg"
+                "image": "img/1-1/Cafe03.png"
             }
         ],
         "company_name": "山鹿和栗洋菓子店Ａｎ（杏） ／ 株式会社 あんず",
@@ -787,7 +787,7 @@
         "id": "2-6-3",
         "name": "コッコファーム",
         "catch": "キャッチコピー",
-        "image": "img/1-1/Cafe.jpg",
+        "image": "img/1-1/Cafe.png",
         "pr": [
             "PR文１",
             "PR文２"
@@ -796,17 +796,17 @@
             {
                 "name": "おすすめ商品１",
                 "price": 500,
-                "image": "img/1-1/Cafe01.jpg"
+                "image": "img/1-1/Cafe01.png"
             },
             {
                 "name": "おすすめ商品２",
                 "price": 600,
-                "image": "img/1-1/Cafe02.jpg"
+                "image": "img/1-1/Cafe02.png"
             },
             {
                 "name": "おすすめ商品３",
                 "price": 700,
-                "image": "img/1-1/Cafe03.jpg"
+                "image": "img/1-1/Cafe03.png"
             }
         ],
         "company_name": "コッコファーム",
@@ -816,7 +816,7 @@
         "id": "2-7-1",
         "name": "宇土マリーナおこしき館",
         "catch": "キャッチコピー",
-        "image": "img/1-1/Cafe.jpg",
+        "image": "img/1-1/Cafe.png",
         "pr": [
             "PR文１",
             "PR文２"
@@ -825,17 +825,17 @@
             {
                 "name": "おすすめ商品１",
                 "price": 500,
-                "image": "img/1-1/Cafe01.jpg"
+                "image": "img/1-1/Cafe01.png"
             },
             {
                 "name": "おすすめ商品２",
                 "price": 600,
-                "image": "img/1-1/Cafe02.jpg"
+                "image": "img/1-1/Cafe02.png"
             },
             {
                 "name": "おすすめ商品３",
                 "price": 700,
-                "image": "img/1-1/Cafe03.jpg"
+                "image": "img/1-1/Cafe03.png"
             }
         ],
         "company_name": "宇土マリーナおこしき館",
@@ -845,7 +845,7 @@
         "id": "2-7-2",
         "name": "宇城彩館",
         "catch": "キャッチコピー",
-        "image": "img/1-1/Cafe.jpg",
+        "image": "img/1-1/Cafe.png",
         "pr": [
             "PR文１",
             "PR文２"
@@ -854,17 +854,17 @@
             {
                 "name": "おすすめ商品１",
                 "price": 500,
-                "image": "img/1-1/Cafe01.jpg"
+                "image": "img/1-1/Cafe01.png"
             },
             {
                 "name": "おすすめ商品２",
                 "price": 600,
-                "image": "img/1-1/Cafe02.jpg"
+                "image": "img/1-1/Cafe02.png"
             },
             {
                 "name": "おすすめ商品３",
                 "price": 700,
-                "image": "img/1-1/Cafe03.jpg"
+                "image": "img/1-1/Cafe03.png"
             }
         ],
         "company_name": "宇城彩館",
@@ -874,7 +874,7 @@
         "id": "2-7-3",
         "name": "杉本本店",
         "catch": "キャッチコピー",
-        "image": "img/1-1/Cafe.jpg",
+        "image": "img/1-1/Cafe.png",
         "pr": [
             "PR文１",
             "PR文２"
@@ -883,17 +883,17 @@
             {
                 "name": "おすすめ商品１",
                 "price": 500,
-                "image": "img/1-1/Cafe01.jpg"
+                "image": "img/1-1/Cafe01.png"
             },
             {
                 "name": "おすすめ商品２",
                 "price": 600,
-                "image": "img/1-1/Cafe02.jpg"
+                "image": "img/1-1/Cafe02.png"
             },
             {
                 "name": "おすすめ商品３",
                 "price": 700,
-                "image": "img/1-1/Cafe03.jpg"
+                "image": "img/1-1/Cafe03.png"
             }
         ],
         "company_name": "杉本本店",
@@ -903,7 +903,7 @@
         "id": "2-8-1",
         "name": "肥後そう川",
         "catch": "キャッチコピー",
-        "image": "img/1-1/Cafe.jpg",
+        "image": "img/2-8/higo_soukawa.png",
         "pr": [
             "PR文１",
             "PR文２"
@@ -912,17 +912,17 @@
             {
                 "name": "おすすめ商品１",
                 "price": 500,
-                "image": "img/1-1/Cafe01.jpg"
+                "image": "img/1-1/Cafe01.png"
             },
             {
                 "name": "おすすめ商品２",
                 "price": 600,
-                "image": "img/1-1/Cafe02.jpg"
+                "image": "img/1-1/Cafe02.png"
             },
             {
                 "name": "おすすめ商品３",
                 "price": 700,
-                "image": "img/1-1/Cafe03.jpg"
+                "image": "img/1-1/Cafe03.png"
             }
         ],
         "company_name": "（有）肥後そう川",
@@ -932,7 +932,7 @@
         "id": "2-8-2",
         "name": "スイーツ工房きこり",
         "catch": "キャッチコピー",
-        "image": "img/1-1/Cafe.jpg",
+        "image": "img/2-8/sweets_shop_kikori.png",
         "pr": [
             "PR文１",
             "PR文２"
@@ -941,17 +941,17 @@
             {
                 "name": "おすすめ商品１",
                 "price": 500,
-                "image": "img/1-1/Cafe01.jpg"
+                "image": "img/1-1/Cafe01.png"
             },
             {
                 "name": "おすすめ商品２",
                 "price": 600,
-                "image": "img/1-1/Cafe02.jpg"
+                "image": "img/1-1/Cafe02.png"
             },
             {
                 "name": "おすすめ商品３",
                 "price": 700,
-                "image": "img/1-1/Cafe03.jpg"
+                "image": "img/1-1/Cafe03.png"
             }
         ],
         "company_name": "株式会社きこり（スイーツ工房きこり）",
@@ -961,7 +961,7 @@
         "id": "2-8-3",
         "name": "Greentea.Lab",
         "catch": "キャッチコピー",
-        "image": "img/1-1/Cafe.jpg",
+        "image": "img/2-8/Greentea_Lab.png",
         "pr": [
             "PR文１",
             "PR文２"
@@ -970,17 +970,17 @@
             {
                 "name": "おすすめ商品１",
                 "price": 500,
-                "image": "img/1-1/Cafe01.jpg"
+                "image": "img/1-1/Cafe01.png"
             },
             {
                 "name": "おすすめ商品２",
                 "price": 600,
-                "image": "img/1-1/Cafe02.jpg"
+                "image": "img/1-1/Cafe02.png"
             },
             {
                 "name": "おすすめ商品３",
                 "price": 700,
-                "image": "img/1-1/Cafe03.jpg"
+                "image": "img/1-1/Cafe03.png"
             }
         ],
         "company_name": "Greentea.Lab 株式会社お茶の富沢",
@@ -990,7 +990,7 @@
         "id": "2-9-1",
         "name": "たまララ",
         "catch": "キャッチコピー",
-        "image": "img/1-1/Cafe.jpg",
+        "image": "img/1-1/Cafe.png",
         "pr": [
             "PR文１",
             "PR文２"
@@ -999,17 +999,17 @@
             {
                 "name": "おすすめ商品１",
                 "price": 500,
-                "image": "img/1-1/Cafe01.jpg"
+                "image": "img/1-1/Cafe01.png"
             },
             {
                 "name": "おすすめ商品２",
                 "price": 600,
-                "image": "img/1-1/Cafe02.jpg"
+                "image": "img/1-1/Cafe02.png"
             },
             {
                 "name": "おすすめ商品３",
                 "price": 700,
-                "image": "img/1-1/Cafe03.jpg"
+                "image": "img/1-1/Cafe03.png"
             }
         ],
         "company_name": "一般社団法人 玉名観光協会 観光ホットプラザ「たまララ」",
@@ -1019,7 +1019,7 @@
         "id": "2-9-2",
         "name": "万幸堂",
         "catch": "キャッチコピー",
-        "image": "img/1-1/Cafe.jpg",
+        "image": "img/1-1/Cafe.png",
         "pr": [
             "PR文１",
             "PR文２"
@@ -1028,17 +1028,17 @@
             {
                 "name": "おすすめ商品１",
                 "price": 500,
-                "image": "img/1-1/Cafe01.jpg"
+                "image": "img/1-1/Cafe01.png"
             },
             {
                 "name": "おすすめ商品２",
                 "price": 600,
-                "image": "img/1-1/Cafe02.jpg"
+                "image": "img/1-1/Cafe02.png"
             },
             {
                 "name": "おすすめ商品３",
                 "price": 700,
-                "image": "img/1-1/Cafe03.jpg"
+                "image": "img/1-1/Cafe03.png"
             }
         ],
         "company_name": "万幸堂",
@@ -1048,7 +1048,7 @@
         "id": "3-1-1",
         "name": "merry shop",
         "catch": "キャッチコピー",
-        "image": "img/1-1/Cafe.jpg",
+        "image": "img/1-1/Cafe.png",
         "pr": [
             "PR文１",
             "PR文２"
@@ -1057,17 +1057,17 @@
             {
                 "name": "おすすめ商品１",
                 "price": 500,
-                "image": "img/1-1/Cafe01.jpg"
+                "image": "img/1-1/Cafe01.png"
             },
             {
                 "name": "おすすめ商品２",
                 "price": 600,
-                "image": "img/1-1/Cafe02.jpg"
+                "image": "img/1-1/Cafe02.png"
             },
             {
                 "name": "おすすめ商品３",
                 "price": 700,
-                "image": "img/1-1/Cafe03.jpg"
+                "image": "img/1-1/Cafe03.png"
             }
         ],
         "company_name": "merry shop",
@@ -1077,7 +1077,7 @@
         "id": "3-1-2",
         "name": "甲玉堂",
         "catch": "キャッチコピー",
-        "image": "img/1-1/Cafe.jpg",
+        "image": "img/1-1/Cafe.png",
         "pr": [
             "PR文１",
             "PR文２"
@@ -1086,17 +1086,17 @@
             {
                 "name": "おすすめ商品１",
                 "price": 500,
-                "image": "img/1-1/Cafe01.jpg"
+                "image": "img/1-1/Cafe01.png"
             },
             {
                 "name": "おすすめ商品２",
                 "price": 600,
-                "image": "img/1-1/Cafe02.jpg"
+                "image": "img/1-1/Cafe02.png"
             },
             {
                 "name": "おすすめ商品３",
                 "price": 700,
-                "image": "img/1-1/Cafe03.jpg"
+                "image": "img/1-1/Cafe03.png"
             }
         ],
         "company_name": "株式会社 甲玉堂",
@@ -1106,7 +1106,7 @@
         "id": "3-2-1",
         "name": "DCMペット＆グリーン",
         "catch": "キャッチコピー",
-        "image": "img/1-1/Cafe.jpg",
+        "image": "img/1-1/Cafe.png",
         "pr": [
             "PR文１",
             "PR文２"
@@ -1115,17 +1115,17 @@
             {
                 "name": "おすすめ商品１",
                 "price": 500,
-                "image": "img/1-1/Cafe01.jpg"
+                "image": "img/1-1/Cafe01.png"
             },
             {
                 "name": "おすすめ商品２",
                 "price": 600,
-                "image": "img/1-1/Cafe02.jpg"
+                "image": "img/1-1/Cafe02.png"
             },
             {
                 "name": "おすすめ商品３",
                 "price": 700,
-                "image": "img/1-1/Cafe03.jpg"
+                "image": "img/1-1/Cafe03.png"
             }
         ],
         "company_name": "DCMペット&グリーン 東町店",
@@ -1135,7 +1135,7 @@
         "id": "3-2-2",
         "name": "シガキ食品",
         "catch": "キャッチコピー",
-        "image": "img/1-1/Cafe.jpg",
+        "image": "img/1-1/Cafe.png",
         "pr": [
             "PR文１",
             "PR文２"
@@ -1144,17 +1144,17 @@
             {
                 "name": "おすすめ商品１",
                 "price": 500,
-                "image": "img/1-1/Cafe01.jpg"
+                "image": "img/1-1/Cafe01.png"
             },
             {
                 "name": "おすすめ商品２",
                 "price": 600,
-                "image": "img/1-1/Cafe02.jpg"
+                "image": "img/1-1/Cafe02.png"
             },
             {
                 "name": "おすすめ商品３",
                 "price": 700,
-                "image": "img/1-1/Cafe03.jpg"
+                "image": "img/1-1/Cafe03.png"
             }
         ],
         "company_name": "合資会社 シガキ食品",
@@ -1164,7 +1164,7 @@
         "id": "3-3-1",
         "name": "道の駅　すずなり",
         "catch": "キャッチコピー",
-        "image": "img/1-1/Cafe.jpg",
+        "image": "img/1-1/Cafe.png",
         "pr": [
             "PR文１",
             "PR文２"
@@ -1173,17 +1173,17 @@
             {
                 "name": "おすすめ商品１",
                 "price": 500,
-                "image": "img/1-1/Cafe01.jpg"
+                "image": "img/1-1/Cafe01.png"
             },
             {
                 "name": "おすすめ商品２",
                 "price": 600,
-                "image": "img/1-1/Cafe02.jpg"
+                "image": "img/1-1/Cafe02.png"
             },
             {
                 "name": "おすすめ商品３",
                 "price": 700,
-                "image": "img/1-1/Cafe03.jpg"
+                "image": "img/1-1/Cafe03.png"
             }
         ],
         "company_name": "石川県復興支援 道の駅 すずなり",
@@ -1193,7 +1193,7 @@
         "id": "3-3-2",
         "name": "南九州月星",
         "catch": "キャッチコピー",
-        "image": "img/1-1/Cafe.jpg",
+        "image": "img/1-1/Cafe.png",
         "pr": [
             "PR文１",
             "PR文２"
@@ -1202,17 +1202,17 @@
             {
                 "name": "おすすめ商品１",
                 "price": 500,
-                "image": "img/1-1/Cafe01.jpg"
+                "image": "img/1-1/Cafe01.png"
             },
             {
                 "name": "おすすめ商品２",
                 "price": 600,
-                "image": "img/1-1/Cafe02.jpg"
+                "image": "img/1-1/Cafe02.png"
             },
             {
                 "name": "おすすめ商品３",
                 "price": 700,
-                "image": "img/1-1/Cafe03.jpg"
+                "image": "img/1-1/Cafe03.png"
             }
         ],
         "company_name": "南九州月星 株式会社",
@@ -1222,7 +1222,7 @@
         "id": "3-4-1",
         "name": "松合食品",
         "catch": "キャッチコピー",
-        "image": "img/1-1/Cafe.jpg",
+        "image": "img/1-1/Cafe.png",
         "pr": [
             "PR文１",
             "PR文２"
@@ -1231,17 +1231,17 @@
             {
                 "name": "おすすめ商品１",
                 "price": 500,
-                "image": "img/1-1/Cafe01.jpg"
+                "image": "img/1-1/Cafe01.png"
             },
             {
                 "name": "おすすめ商品２",
                 "price": 600,
-                "image": "img/1-1/Cafe02.jpg"
+                "image": "img/1-1/Cafe02.png"
             },
             {
                 "name": "おすすめ商品３",
                 "price": 700,
-                "image": "img/1-1/Cafe03.jpg"
+                "image": "img/1-1/Cafe03.png"
             }
         ],
         "company_name": "松合食品 株式会社",
@@ -1251,7 +1251,7 @@
         "id": "3-4-2",
         "name": "肥後製油",
         "catch": "キャッチコピー",
-        "image": "img/1-1/Cafe.jpg",
+        "image": "img/1-1/Cafe.png",
         "pr": [
             "PR文１",
             "PR文２"
@@ -1260,17 +1260,17 @@
             {
                 "name": "おすすめ商品１",
                 "price": 500,
-                "image": "img/1-1/Cafe01.jpg"
+                "image": "img/1-1/Cafe01.png"
             },
             {
                 "name": "おすすめ商品２",
                 "price": 600,
-                "image": "img/1-1/Cafe02.jpg"
+                "image": "img/1-1/Cafe02.png"
             },
             {
                 "name": "おすすめ商品３",
                 "price": 700,
-                "image": "img/1-1/Cafe03.jpg"
+                "image": "img/1-1/Cafe03.png"
             }
         ],
         "company_name": "肥後製油 株式会社",
@@ -1280,7 +1280,7 @@
         "id": "3-5-1",
         "name": "えびす屋餅本舗",
         "catch": "キャッチコピー",
-        "image": "img/1-1/Cafe.jpg",
+        "image": "img/1-1/Cafe.png",
         "pr": [
             "PR文１",
             "PR文２"
@@ -1289,17 +1289,17 @@
             {
                 "name": "おすすめ商品１",
                 "price": 500,
-                "image": "img/1-1/Cafe01.jpg"
+                "image": "img/1-1/Cafe01.png"
             },
             {
                 "name": "おすすめ商品２",
                 "price": 600,
-                "image": "img/1-1/Cafe02.jpg"
+                "image": "img/1-1/Cafe02.png"
             },
             {
                 "name": "おすすめ商品３",
                 "price": 700,
-                "image": "img/1-1/Cafe03.jpg"
+                "image": "img/1-1/Cafe03.png"
             }
         ],
         "company_name": "えびす屋餅本舗",
@@ -1309,7 +1309,7 @@
         "id": "3-6-1",
         "name": "ブローニュの森",
         "catch": "キャッチコピー",
-        "image": "img/1-1/Cafe.jpg",
+        "image": "img/1-1/Cafe.png",
         "pr": [
             "PR文１",
             "PR文２"
@@ -1318,17 +1318,17 @@
             {
                 "name": "おすすめ商品１",
                 "price": 500,
-                "image": "img/1-1/Cafe01.jpg"
+                "image": "img/1-1/Cafe01.png"
             },
             {
                 "name": "おすすめ商品２",
                 "price": 600,
-                "image": "img/1-1/Cafe02.jpg"
+                "image": "img/1-1/Cafe02.png"
             },
             {
                 "name": "おすすめ商品３",
                 "price": 700,
-                "image": "img/1-1/Cafe03.jpg"
+                "image": "img/1-1/Cafe03.png"
             }
         ],
         "company_name": "有限会社 欧風菓子の店 ブローニュの森",
@@ -1338,7 +1338,7 @@
         "id": "3-7-1",
         "name": "市川製茶園",
         "catch": "キャッチコピー",
-        "image": "img/1-1/Cafe.jpg",
+        "image": "img/1-1/Cafe.png",
         "pr": [
             "PR文１",
             "PR文２"
@@ -1347,17 +1347,17 @@
             {
                 "name": "おすすめ商品１",
                 "price": 500,
-                "image": "img/1-1/Cafe01.jpg"
+                "image": "img/1-1/Cafe01.png"
             },
             {
                 "name": "おすすめ商品２",
                 "price": 600,
-                "image": "img/1-1/Cafe02.jpg"
+                "image": "img/1-1/Cafe02.png"
             },
             {
                 "name": "おすすめ商品３",
                 "price": 700,
-                "image": "img/1-1/Cafe03.jpg"
+                "image": "img/1-1/Cafe03.png"
             }
         ],
         "company_name": "市川製茶園",
@@ -1367,7 +1367,7 @@
         "id": "3-7-2",
         "name": "コデラ",
         "catch": "キャッチコピー",
-        "image": "img/1-1/Cafe.jpg",
+        "image": "img/1-1/Cafe.png",
         "pr": [
             "PR文１",
             "PR文２"
@@ -1376,17 +1376,17 @@
             {
                 "name": "おすすめ商品１",
                 "price": 500,
-                "image": "img/1-1/Cafe01.jpg"
+                "image": "img/1-1/Cafe01.png"
             },
             {
                 "name": "おすすめ商品２",
                 "price": 600,
-                "image": "img/1-1/Cafe02.jpg"
+                "image": "img/1-1/Cafe02.png"
             },
             {
                 "name": "おすすめ商品３",
                 "price": 700,
-                "image": "img/1-1/Cafe03.jpg"
+                "image": "img/1-1/Cafe03.png"
             }
         ],
         "company_name": "有限会社 コデラ",
@@ -1396,7 +1396,7 @@
         "id": "3-8-1",
         "name": "ゆうステーション熊本",
         "catch": "キャッチコピー",
-        "image": "img/1-1/Cafe.jpg",
+        "image": "img/1-1/Cafe.png",
         "pr": [
             "PR文１",
             "PR文２"
@@ -1405,17 +1405,17 @@
             {
                 "name": "おすすめ商品１",
                 "price": 500,
-                "image": "img/1-1/Cafe01.jpg"
+                "image": "img/1-1/Cafe01.png"
             },
             {
                 "name": "おすすめ商品２",
                 "price": 600,
-                "image": "img/1-1/Cafe02.jpg"
+                "image": "img/1-1/Cafe02.png"
             },
             {
                 "name": "おすすめ商品３",
                 "price": 700,
-                "image": "img/1-1/Cafe03.jpg"
+                "image": "img/1-1/Cafe03.png"
             }
         ],
         "company_name": "ＮＰＯ法人 ゆうステーション熊本",
@@ -1425,7 +1425,7 @@
         "id": "3-8-2",
         "name": "アトリエ Green Sea",
         "catch": "キャッチコピー",
-        "image": "img/1-1/Cafe.jpg",
+        "image": "img/1-1/Cafe.png",
         "pr": [
             "PR文１",
             "PR文２"
@@ -1434,17 +1434,17 @@
             {
                 "name": "おすすめ商品１",
                 "price": 500,
-                "image": "img/1-1/Cafe01.jpg"
+                "image": "img/1-1/Cafe01.png"
             },
             {
                 "name": "おすすめ商品２",
                 "price": 600,
-                "image": "img/1-1/Cafe02.jpg"
+                "image": "img/1-1/Cafe02.png"
             },
             {
                 "name": "おすすめ商品３",
                 "price": 700,
-                "image": "img/1-1/Cafe03.jpg"
+                "image": "img/1-1/Cafe03.png"
             }
         ],
         "company_name": "アトリエ Green Sea",
@@ -1454,7 +1454,7 @@
         "id": "3-9-1",
         "name": "AmeYa",
         "catch": "キャッチコピー",
-        "image": "img/1-1/Cafe.jpg",
+        "image": "img/1-1/Cafe.png",
         "pr": [
             "PR文１",
             "PR文２"
@@ -1463,17 +1463,17 @@
             {
                 "name": "おすすめ商品１",
                 "price": 500,
-                "image": "img/1-1/Cafe01.jpg"
+                "image": "img/1-1/Cafe01.png"
             },
             {
                 "name": "おすすめ商品２",
                 "price": 600,
-                "image": "img/1-1/Cafe02.jpg"
+                "image": "img/1-1/Cafe02.png"
             },
             {
                 "name": "おすすめ商品３",
                 "price": 700,
-                "image": "img/1-1/Cafe03.jpg"
+                "image": "img/1-1/Cafe03.png"
             }
         ],
         "company_name": "AmeYa",
@@ -1483,7 +1483,7 @@
         "id": "3-9-2",
         "name": "三国屋",
         "catch": "キャッチコピー",
-        "image": "img/1-1/Cafe.jpg",
+        "image": "img/1-1/Cafe.png",
         "pr": [
             "PR文１",
             "PR文２"
@@ -1492,17 +1492,17 @@
             {
                 "name": "おすすめ商品１",
                 "price": 500,
-                "image": "img/1-1/Cafe01.jpg"
+                "image": "img/1-1/Cafe01.png"
             },
             {
                 "name": "おすすめ商品２",
                 "price": 600,
-                "image": "img/1-1/Cafe02.jpg"
+                "image": "img/1-1/Cafe02.png"
             },
             {
                 "name": "おすすめ商品３",
                 "price": 700,
-                "image": "img/1-1/Cafe03.jpg"
+                "image": "img/1-1/Cafe03.png"
             }
         ],
         "company_name": "株式会社 三国屋",

@@ -503,7 +503,7 @@
         "id": "281",
         "com_name": "Greentea.Lab",
         "com_img": "img/store/Greentea_Lab.png",
-        "form_url": "",
+        "form_url": "https://docs.google.com/forms/d/e/1FAIpQLSc8Ng2RBkTIejIrmkXvd1hoPdhiQqI9ZJeWAOoDuePGFYld1Q/viewform?usp=pp_url&entry.1111782218=Greentea.Lab",
         "com_desc": "",
         "products": [
             {
@@ -562,7 +562,7 @@
         "id": "311",
         "com_name": "甲玉堂",
         "com_img": "img/store/kogyokudo.png",
-        "form_url": "",
+        "form_url": "https://docs.google.com/forms/d/e/1FAIpQLSc8Ng2RBkTIejIrmkXvd1hoPdhiQqI9ZJeWAOoDuePGFYld1Q/viewform?usp=pp_url&entry.1111782218=%E7%94%B2%E7%8E%89%E5%A0%82",
         "com_desc": "",
         "products": [
             {
@@ -595,7 +595,7 @@
         "id": "331",
         "com_name": "道の駅　すずなり",
         "com_img": "img/store/michinoeki_suzunari.png",
-        "form_url": "",
+        "form_url": "https://docs.google.com/forms/d/e/1FAIpQLSc8Ng2RBkTIejIrmkXvd1hoPdhiQqI9ZJeWAOoDuePGFYld1Q/viewform?usp=pp_url&entry.1111782218=%E9%81%93%E3%81%AE%E9%A7%85%E3%81%99%E3%81%9A%E3%81%AA%E3%82%8A",
         "com_desc": "",
         "products": [
             {
@@ -607,7 +607,7 @@
                 "sales_day": 12
             },
             {
-                "pro_name": "珠洲クッキー　12枚入り",
+                "pro_name": "スズ弁クッキー　12枚入り",
                 "pro_img": "img/products/michinoeki_suzunari/sc.png",
                 "price": 750,
                 "stock": "両日販売　数量制限なし",
@@ -684,7 +684,7 @@
         "id": "341",
         "com_name": "松合食品",
         "com_img": "img/store/matsuai.png",
-        "form_url": "",
+        "form_url": "https://docs.google.com/forms/d/e/1FAIpQLSc8Ng2RBkTIejIrmkXvd1hoPdhiQqI9ZJeWAOoDuePGFYld1Q/viewform?usp=pp_url&entry.1111782218=%E6%9D%BE%E5%90%88%E9%A3%9F%E5%93%81",
         "com_desc": "",
         "products": [
             {
@@ -734,7 +734,7 @@
         "id": "361",
         "com_name": "ブローニュの森",
         "com_img": "img/store/Boulogne.png",
-        "form_url": "",
+        "form_url": "https://docs.google.com/forms/d/e/1FAIpQLSc8Ng2RBkTIejIrmkXvd1hoPdhiQqI9ZJeWAOoDuePGFYld1Q/viewform?usp=pp_url&entry.1111782218=%E3%83%96%E3%83%AD%E3%83%BC%E3%83%8B%E3%83%A5%E3%81%AE%E6%A3%AE",
         "com_desc": "",
         "products": [
             {
