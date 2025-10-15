@@ -230,7 +230,7 @@
         "com_desc": "",
         "products": [
             {
-                "pro_name": "シェリーケーキ",
+                "pro_name": "人吉シェリーケーキ",
                 "pro_img": "img/products/hitoyoshi_onsen_shop/sc.png",
                 "price": 1650,
                 "stock": "1日目限定　10個",
@@ -321,7 +321,7 @@
             },
             {
                 "pro_name": "れんこんチップス（辛子明太）",
-                "pro_img": "img/products/yatsushiro_yokatoko/lcscr.png",
+                "pro_img": "img/products/yatsushiro_yokatoko/lc.png",
                 "price": 350,
                 "stock": "両日販売　数量制限なし",
                 "pro_desc": "れんこん×辛子明太のピリ辛チップスです。<br>おつまみにピッタリ！",
@@ -329,7 +329,7 @@
             },
             {
                 "pro_name": "れんこんチップス（辛子蓮根）",
-                "pro_img": "img/products/yatsushiro_yokatoko/lcsl.png",
+                "pro_img": "img/products/yatsushiro_yokatoko/lc.png",
                 "price": 350,
                 "stock": "両日販売　数量制限なし",
                 "pro_desc": "熊本名産・辛子蓮根の味わいをれんこんチップスに凝縮しました。<br>ピリ辛があとを引く、地元の味を楽しんで",
@@ -404,7 +404,7 @@
             },
             {
             
-                "pro_name": "サラたまちゃんドレッシング（和風）",
+                "pro_name": "サラたまちゃん和風ドレッシング",
                 "pro_img": "img/products/JA_ashikita/stdj.png",
                 "price": 600,
                 "stock": "両日販売　10個",
@@ -413,7 +413,7 @@
             },
             {
             
-                "pro_name": "サラたまちゃんドレッシング（ごま）",
+                "pro_name": "サラたまちゃんごまドレッシング",
                 "pro_img": "img/products/JA_ashikita/stds.png",
                 "price": 600,
                 "stock": "両日販売　10個",
@@ -422,7 +422,7 @@
             },
             {
             
-                "pro_name": "サラたまちゃんドレッシング（レモン）",
+                "pro_name": "サラたまちゃんレモンドレッシング",
                 "pro_img": "img/products/JA_ashikita/stdr.png",
                 "price": 600,
                 "stock": "両日販売　10個",
@@ -431,7 +431,7 @@
             },
             {
             
-                "pro_name": "サラたまちゃんドレッシング（デコポン）",
+                "pro_name": "サラたまちゃんでこぽんドレッシング",
                 "pro_img": "img/products/JA_ashikita/stdd.png",
                 "price": 600,
                 "stock": "両日販売　10個",
@@ -445,15 +445,6 @@
                 "price": 500,
                 "stock": "両日販売　10個",
                 "pro_desc": "レモンに塩ダレを入れたドレッシングです",
-                "sales_day": 12
-            },
-            {
-            
-                "pro_name": "調味料セット　3本",
-                "pro_img": "img/products/JA_ashikita/ss.png",
-                "price": 1300,
-                "stock": "両日販売　10個",
-                "pro_desc": "でこぽんポン酢、（でこぽん、レモン、ごま、和風ドレッシング）<br>レモン塩ダレのうち3本選べます",
                 "sales_day": 12
             }
         ]
@@ -689,10 +680,18 @@
         "products": [
             {
                 "pro_name": "にんにく味噌",
-                "pro_img": "img/products/matsuai/gm.png",
+                "pro_img": "img/products/matsuai/glm.png",
                 "price": 580,
                 "stock": "両日販売　数量制限なし",
-                "pro_desc": "にんにくと味噌をあわせた商品です",
+                "pro_desc": "にんにくと味噌をあわせた商品です。<br>ごはんのお供に最適です。",
+                "sales_day": 12
+            },
+            {
+                "pro_name": "しょうが味噌",
+                "pro_img": "img/products/matsuai/ggm.png",
+                "price": 590,
+                "stock": "両日販売　数量制限なし",
+                "pro_desc": "しょうがと味噌をあわせた商品です。<br>ごはんのお供に最適です。",
                 "sales_day": 12
             }
         ]

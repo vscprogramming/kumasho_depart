@@ -167,10 +167,16 @@ h3.title_text {
 
 /* カード内コンテンツ */
 .products_img {
-    width: 95%;
-    margin: 2.5%;
+    width: auto; height: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 2.5% 0;
+    max-width: 95%;
+    display: block;
+    max-height: 300px;
     position: absolute;
     border-radius: 18px;
+    object-fit: contain;
 }
 
 .pro_info {
@@ -250,6 +256,7 @@ h3.title_text {
     .home_btn { font-size: 5vw; }
     #title h1 { font-size: 2.4vh; }
     .products_card { height: 795px; }
+    .products_img { max-height: 370px; }
 }
 
 /* スマホ */
@@ -314,6 +321,7 @@ h3.title_text {
     #store_buttons button { font-size: 5vw; }
     img.company_img { width: 100vw; height: 29vh; }
     .products { grid-template-columns: repeat(1, 1fr); }
+    .products_img { max-height: 200px; }
 
     h3.title_text {
         width: 100%;
