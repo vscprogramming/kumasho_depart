@@ -1,4 +1,5 @@
 const class_name = localStorage.getItem('class_name'), class_number = localStorage.getItem('class_number');
+
 // console.log(`${class_name}, ${class_number}`);
 // console.log(`logged_${class_number}: ${localStorage.getItem(`logged_${class_number}`)}`);
 
@@ -8,7 +9,14 @@ if (!localStorage.getItem(`logged_${class_number}`)) {
     window.location.href = '../home/home.html';
 }
 
-const fw_cn = full_width(class_number);    // タイトル用
+// 半角数字を全角に
+const fw_cn = ((num) => {
+    const number = ['１', '２', '３', '４', '５', '６', '７', '８', '９'];
+    let result = '';
+    for (let c of String(num)) result += number[parseInt(c) - 1];
+    return result;
+})(class_number);
+
 // console.log(`full_width_class_number: ${fw_cn}`);
 
 ['page_title', 'title_display'].forEach(e_id => { document.getElementById(e_id).textContent = `${fw_cn[0]}年${fw_cn[1]}組` });
@@ -46,24 +54,26 @@ const all_gas_url = new Map([
 const gas_url_post = all_gas_url.get(class_name), gas_url_get = `${gas_url_post}?sheet=${encodeURIComponent(class_name)}`;
 const gas_url_cs_post = 'https://script.google.com/macros/s/AKfycbwT4gS9ZQtDncvbyyHzZewqI-CprzojeoZjXc9jbJ1f1GdyTr611mi9Ja1FSZn7dVtI/exec';
 const gas_url_cs_get = `${gas_url_cs_post}?sheet=${encodeURIComponent('cs')}`;
+
 // console.log(`get用：${gas_url_get}`);
 // console.log(`post用：${gas_url_post}`);
 
-var json_data, all_data = [];    // データ最適化前・後
+var json_data, all_data = [];   // データ最適化前・後
 var json_data_cs;   // 混雑状況
-var company_count = 0;    // 企業数の集計
+var company_count = 0;  // 企業数の集計
 var tab_contents_div;   // タブコンテンツ
-var indexOf, start_indexOf;
-
-// タブ用変数
-let tab_select = null;
+var indexOf, start_indexOf; // 混雑状況用
+let tab_select = null;  // タブ用変数
 
 window.addEventListener('DOMContentLoaded', async () => {
-    document.getElementById('loading').style.display = 'flex';    // ローディング表示
+    // 要素処理を一括適用
+    element_process.forEach(element_process => { document.getElementById(element_process.element_id).addEventListener(element_process.event, element_process.handler) });
+
+    document.getElementById('loading').style.display = 'flex';  // ローディング表示
 
     if (gas_url_get != null || gas_url_post != null || gas_url_cs_get != null || gas_url_cs_post != null) {
         await gas_loading_cs(gas_url_cs_get);   // gas（混雑状況）の読み取り
-        await gas_Loading(gas_url_get);    // gas読み込み
+        await gas_Loading(gas_url_get); // gas読み込み
         await content_generation(gas_url_post, gas_url_cs_post);    // コンテンツ生成
     } else {
         alert('データの読み込みに失敗しました。ログインページに遷移します。');
@@ -130,8 +140,7 @@ async function content_generation(post, post_cs) {
     let all_products_count = 0, all_sales_count = 0;    // すべての商品数, すべての完売数
     let company_products_count, company_sales_count;    // 企業ごとの商品数, 企業ごとの完売数
     let search_count = 0;   // 絞り込み商品のカウント
-
-    let ps_count = { products_count: [], sales_count: [] };
+    let ps_count = { products_count: [], sales_count: [] }; // 商品数・完売数
 
     for (let c = 0; c < all_data.length; c++) {
         company_products_count = 0;
@@ -191,6 +200,7 @@ async function content_generation(post, post_cs) {
     for (let c = 0; c < company_count; c++) {
         if (c == 0) start_indexOf = json_data_cs.findIndex(obj => obj.company_name === `${all_data[c].company_name}`);
         indexOf = json_data_cs.findIndex(obj => obj.company_name === `${all_data[c].company_name}`);
+
         // console.log(`index: ${indexOf}, ${start_indexOf}`);
 
         // タブ
@@ -212,11 +222,13 @@ async function content_generation(post, post_cs) {
             id: 'company_total_display'
         });
 
+        // 企業名
         const company_total_display_text_company_name = Object.assign(document.createElement('p'), {
             className: 'company_total_display_text_company_name',
             textContent: all_data[c].company_name
         });
 
+        // 企業ごとの商品数・完売数
         const company_total_display_text_products = Object.assign(document.createElement('p'), {
             className: 'company_total_display_text_products',
             textContent: `（　商品数：${ps_count.products_count[c]}　／　完売数：${ps_count.sales_count[c]}　）`
@@ -312,7 +324,7 @@ async function content_generation(post, post_cs) {
 
                 document.getElementById('search_icon').classList.add('searched');
                 document.getElementById('search_button').classList.add('searched');
-            } else {
+            } else {    
                 // 標準
                 document.getElementById('search_icon').classList.remove('searched');
                 document.getElementById('search_button').classList.remove('searched');
@@ -358,6 +370,7 @@ async function content_generation(post, post_cs) {
     } else if (tab_select >= 0 && tab_select < company_count) {
         document.querySelectorAll('#tab_buttons button').forEach((btn, c) => { btn.classList.toggle('active_tab', c == tab_select) });
         document.querySelectorAll('.tab_content').forEach((div, c) => { div.classList.toggle('show', c == tab_select) });
+
         // console.log('tab_select');
         // console.log(tab_select);
     }
@@ -366,6 +379,7 @@ async function content_generation(post, post_cs) {
     document.querySelectorAll('.crowd_status_pulldown').forEach(pulldown => {
         pulldown.addEventListener('change', async (event) => {
             const pulldown_dataset_cs = event.target.dataset.c_index;
+
             // console.log(`${pulldown_dataset_cs}(${Number(pulldown_dataset_cs) + 1}社目)`);
 
             // ローカルデータの更新
@@ -403,14 +417,16 @@ async function content_generation(post, post_cs) {
     document.querySelectorAll('.tab_contents_table_tbody_td_sales_pulldown').forEach(pulldown => {
         pulldown.addEventListener('change', async (event) => {
             const pulldown_dataset = event.target.dataset.p_index;
-            // console.log(`${pulldown_dataset}(${parseInt(pulldown_dataset[0]) + 1}社目, ${parseInt(pulldown_dataset.slice(2)) + 1}番目の商品)`);
             const pulldown_c = parseInt(pulldown_dataset[0]), pulldown_p = parseInt(pulldown_dataset.slice(2));
+
+            // console.log(`${pulldown_dataset}(${parseInt(pulldown_dataset[0]) + 1}社目, ${parseInt(pulldown_dataset.slice(2)) + 1}番目の商品)`);
 
             // ローカルデータの更新
             all_data[pulldown_c].products.sales[pulldown_p] = document.querySelector(`[data-p_index="${pulldown_dataset}"]`).value;
             document.querySelector(`[data-p_index="${pulldown_dataset}"]`).style.backgroundColor = all_data[pulldown_c].products.sales[pulldown_p] === '販売中' ? '#aae' : all_data[pulldown_c].products.sales[pulldown_p] === '残りわずか' ? '#ffa' : all_data[pulldown_c].products.sales[pulldown_p] === '仕入準備中' ? '#aea' : '#eaa';
 
             // console.log(all_data);
+            
             all_sales_count = 0;
 
             for (let c = 0; c < all_data.length; c++) {
@@ -466,33 +482,29 @@ async function content_generation(post, post_cs) {
     });
 }
 
-// 半角数字を全角に
-function full_width(num) {
-    const number = ['１', '２', '３', '４', '５', '６', '７', '８', '９'];
-    let result = '';
-    for (let c of num) result += number[parseInt(c) - 1];
-    return result;
-}
-
 // その他の処理等
-const button_process = [
+const element_process = [
     {   // 検索開く
-        btn_id: 'search_button',
+        element_id: 'search_button',
+        event: 'click',
         handler: () => document.getElementById('search_modal_back').classList.add('show')
     },
-    {   // 検索閉じる
-        btn_id: 'search_close_button',
-        handler: () => document.getElementById('search_modal_back').classList.remove('show')
-    },
     {   // 検索実行
-        btn_id: 'search',
+        element_id: 'search',
+        event: 'click',
         handler: async () => {
             document.getElementById('search_modal_back').classList.remove('show');
             await content_generation(gas_url_post);
         }
     },
+    {   // 検索閉じる
+        element_id: 'search_close_button',
+        event: 'click',
+        handler: () => document.getElementById('search_modal_back').classList.remove('show')
+    },
     {   // 検索リセット
-        btn_id: 'search_reset',
+        element_id: 'search_reset',
+        event: 'click',
         handler: async () => {
             document.getElementById('search_input').value = '';
             document.getElementById('search_modal_back').classList.remove('show');
@@ -502,40 +514,55 @@ const button_process = [
         }
     },
     {   // リロード
-        btn_id: 'reload_button',
+        element_id: 'reload_button',
+        event: 'click',
         handler: () => window.location.reload()
     },
     {   // ログアウト確認
-        btn_id: 'logout_button',
+        element_id: 'logout_button',
+        event: 'click',
         handler: () => document.getElementById('logout_modal_back').classList.add('show')
     },
     {   // ログアウトキャンセル
-        btn_id: 'cancel_button',
+        element_id: 'cancel_button',
+        event: 'click',
         handler: () => document.getElementById('logout_modal_back').classList.remove('show')
     },
     {   // ログアウト
-        btn_id: 'ok_button',
+        element_id: 'ok_button',
+        event: 'click',
         handler: () => {
             localStorage.removeItem(`logged_${class_number}`);
             window.location.href = '../home/home.html';
         }
+    },
+    {   // Enterキーで検索実行
+        element_id: 'search_input',
+        event: 'keydown',
+        handler: async (event) => {
+            if (event.key === 'Enter') {
+                event.preventDefault();
+                document.getElementById('search_modal_back').classList.remove('show');
+                await content_generation(gas_url_post);
+            }
+        }
+    },
+    {   // タブの切り替え機構
+        element_id: 'tab_buttons',
+        event: 'click',
+        handler: (event) => {
+            if (event.target.tagName === 'BUTTON') {
+                const index = event.target.dataset.t_index;
+                tab_select = parseInt(index);
+                document.querySelectorAll('#tab_buttons button').forEach(btn => { btn.classList.remove('active_tab') });
+                event.target.classList.add('active_tab');
+                document.querySelectorAll('.tab_content').forEach((div, i) => { div.classList.toggle('show', i == index) });
+            }
+
+            // console.log(`tab_select: ${tab_select}`);
+        }
     }
 ];
-
-button_process.forEach(button_process => { document.getElementById(button_process.btn_id).addEventListener('click', button_process.handler) });
-
-// タブの切り替え機構
-document.getElementById('tab_buttons').addEventListener('click', (event) => {
-    if (event.target.tagName === 'BUTTON') {
-        const index = event.target.dataset.t_index;
-        tab_select = parseInt(index);
-        document.querySelectorAll('#tab_buttons button').forEach(btn => { btn.classList.remove('active_tab') });
-        event.target.classList.add('active_tab');
-        document.querySelectorAll('.tab_content').forEach((div, i) => { div.classList.toggle('show', i == index) });
-    }
-
-    // console.log(`tab_select: ${tab_select}`);
-});
 
 // 自動再読み込み
 window.onload = () => {
