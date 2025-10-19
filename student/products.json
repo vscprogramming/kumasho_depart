@@ -36,7 +36,7 @@
                 "pro_img": "img/products/matsunoya/fn.png",
                 "price": 350,
                 "stock": "両日販売　数量制限なし",
-                "pro_desc": "味が濃ゆくとても美味しい焼きそばです。<br>具材もたっぷりで満足感があります。",
+                "pro_desc": "味が濃くとても美味しい焼きそばです。<br>具材もたっぷりで満足感があります。",
                 "sales_day": 12
             },
             {
@@ -385,7 +385,6 @@
                 "sales_day": 12
             },
             {
-            
                 "pro_name": "ギョーザ　20個入り",
                 "pro_img": "img/products/JA_ashikita/gyoza.png",
                 "price": 1200,
@@ -394,7 +393,6 @@
                 "sales_day": 12
             },
             {
-            
                 "pro_name": "規格外ゼリー",
                 "pro_img": "img/products/JA_ashikita/nsj.png",
                 "price": 500,
@@ -403,7 +401,6 @@
                 "sales_day": 12
             },
             {
-            
                 "pro_name": "サラたまちゃん和風ドレッシング",
                 "pro_img": "img/products/JA_ashikita/stdj.png",
                 "price": 600,
@@ -412,7 +409,6 @@
                 "sales_day": 12
             },
             {
-            
                 "pro_name": "サラたまちゃんごまドレッシング",
                 "pro_img": "img/products/JA_ashikita/stds.png",
                 "price": 600,
@@ -421,7 +417,6 @@
                 "sales_day": 12
             },
             {
-            
                 "pro_name": "サラたまちゃんレモンドレッシング",
                 "pro_img": "img/products/JA_ashikita/stdr.png",
                 "price": 600,
@@ -430,7 +425,6 @@
                 "sales_day": 12
             },
             {
-            
                 "pro_name": "サラたまちゃんでこぽんドレッシング",
                 "pro_img": "img/products/JA_ashikita/stdd.png",
                 "price": 600,
@@ -439,7 +433,6 @@
                 "sales_day": 12
             },
             {
-            
                 "pro_name": "レモン塩だれ",
                 "pro_img": "img/products/JA_ashikita/rss.png",
                 "price": 500,
@@ -546,6 +539,40 @@
                 "stock": "1日目限定　20個",
                 "pro_desc": "九州産の小麦と2種類の九州産野菜を練り込み、手延べ製法で仕上げ、煮込むことで野菜のチカラを引き出し、スープも美味しく寒い時期にも身体が温まります！",
                 "sales_day": 1
+            }
+        ]
+    },
+    {
+        "id": "291",
+        "com_name": "観光ホットプラザ　たまララ",
+        "com_img": "img/store/tamarara.png",
+        "form_url": "https://docs.google.com/forms/d/e/1FAIpQLSc8Ng2RBkTIejIrmkXvd1hoPdhiQqI9ZJeWAOoDuePGFYld1Q/viewform?entry.1111782218=%E8%A6%B3%E5%85%89%E3%83%9B%E3%83%83%E3%83%88%E3%83%97%E3%83%A9%E3%82%B6%E3%81%9F%E3%81%BE%E3%83%A9%E3%83%A9",
+        "com_desc": "",
+        "products": [
+            {
+                "pro_name": "キャラメルラスク",
+                "pro_img": "img/products/tamarara/cr.png",
+                "price": 280,
+                "stock": "両日販売　100個",
+                "pro_desc": "サクサクのラスクをたっぷりのキャラメルで贅沢に包み込みました。<br>様々な食感が楽しめ、甘くてちょっぴりほろ苦い味わいが食べ始めるととまりません。",
+                "sales_day": 12
+            }
+        ]
+    },
+    {
+        "id": "292",
+        "com_name": "万幸堂",
+        "com_img": "img/store/mankodo.png",
+        "form_url": "https://docs.google.com/forms/d/e/1FAIpQLSc8Ng2RBkTIejIrmkXvd1hoPdhiQqI9ZJeWAOoDuePGFYld1Q/viewform?entry.1111782218=%E4%B8%87%E5%B9%B8%E5%A0%82",
+        "com_desc": "",
+        "products": [
+            {
+                "pro_name": "メロンパン",
+                "pro_img": "img/products/mankodo/mb.png",
+                "price": 220,
+                "stock": "両日販売　数量制限なし",
+                "pro_desc": "クッキーの上に砂糖がかかっていないので、甘すぎないメロンパンです。<br>昔なつかしい素朴な味です。",
+                "sales_day": 12
             }
         ]
     },

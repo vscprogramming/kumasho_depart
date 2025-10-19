@@ -26,6 +26,7 @@ async function json_load() {
             json_data.forEach((jd_row, i) => { all_data[i + 1] = jd_row });
 
             // console.log(all_data);
+
         } else {
             alert('データの読み込みに失敗しました。\n再読み込みします。');
             window.location.reload();
@@ -37,7 +38,7 @@ async function json_load() {
 }
 
 function content_generation() {
-    const company_count = all_data.length; // 企業数
+    const company_count = all_data.length;  // 企業数
     // タブボタン生成
     const store_buttons = document.getElementById('store_buttons');
 
@@ -84,7 +85,7 @@ function content_generation() {
             });
             company_title.appendChild(title_text);
 
-            content.appendChild(company_title);  // 最後
+            content.appendChild(company_title); // 最後
 
             // その他コンテンツ
             const info = document.createElement('div');
@@ -115,7 +116,7 @@ function content_generation() {
             products_window.appendChild(content);   // おおもと
         } else {
             const c_class = `${all_data[c].id[0]} - ${all_data[c].id[1]}`;
-            const content = Object.assign(document.createElement('div'), { classList: 'contents' });  // おおもと
+            const content = Object.assign(document.createElement('div'), { classList: 'contents' });    // おおもと
             content.dataset.index = c;
 
             // タイトル類生成
@@ -136,11 +137,11 @@ function content_generation() {
             const title_class = Object.assign(document.createElement('h3'), {
                 className: 'title_text',
                 textContent: `担当クラス：${c_class}`
-            })
+            });
             company_title.appendChild(title_text);
             company_title.appendChild(title_class);
 
-            content.appendChild(company_title);  // 最後
+            content.appendChild(company_title); // 最後
 
             // formへ飛ぶボタン
             const form_btn = Object.assign(document.createElement('button'), {
@@ -151,7 +152,7 @@ function content_generation() {
             content.appendChild(form_btn);  // 最後
 
             // 商品カード生成
-            const products = Object.assign(document.createElement('div'), { classList: 'products' }); // グリッドおおもと
+            const products = Object.assign(document.createElement('div'), { classList: 'products' });   // グリッドおおもと
 
             for (let p = 0; p < all_data[c].products.length; p++) {
                 const products_card = Object.assign(document.createElement('div'), { classList: 'products_card' });
@@ -194,7 +195,7 @@ function content_generation() {
                 pro_info.appendChild(price);
 
                 products_card.appendChild(pro_info);
-                products.appendChild(products_card); // グリッドおおもと
+                products.appendChild(products_card);    // グリッドおおもと
             }
 
             content.appendChild(products);  // 最後

@@ -87,7 +87,7 @@ async function gas_loading_cs(get) {
     try {
         const response = await fetch(get);
         if (response.ok) json_data_cs = await response.json();
-        else alert('読み込みエラーが発生しました。\n再読み込みします。(cs2)');
+        else alert('読み込みエラーが発生しました。\n再読み込みします。(cs leading error)');
     } catch (error) {
         alert('ネットワークエラーが発生しました。\n再読み込みします。');
         window.location.reload();
@@ -122,8 +122,9 @@ async function gas_Loading(get) {
 
             // console.log('all_data: ');
             // console.log(all_data);
+
         } else {
-            alert('読み込みエラーが発生しました。\n再読み込みします。(all2)');
+            alert('読み込みエラーが発生しました。\n再読み込みします。(all leading error)');
             window.location.reload();
         }
     } catch (error) {
@@ -324,7 +325,7 @@ async function content_generation(post, post_cs) {
 
                 document.getElementById('search_icon').classList.add('searched');
                 document.getElementById('search_button').classList.add('searched');
-            } else {    
+            } else {
                 // 標準
                 document.getElementById('search_icon').classList.remove('searched');
                 document.getElementById('search_button').classList.remove('searched');
@@ -407,7 +408,7 @@ async function content_generation(post, post_cs) {
                     window.location.reload();
                 }
             } else {
-                alert('読み込みエラーが発生しました。\n再読み込みします。(cs1)');
+                alert('読み込みエラーが発生しました。\n再読み込みします。(cs update error)');
                 window.location.reload();
             }
         });
@@ -426,7 +427,7 @@ async function content_generation(post, post_cs) {
             document.querySelector(`[data-p_index="${pulldown_dataset}"]`).style.backgroundColor = all_data[pulldown_c].products.sales[pulldown_p] === '販売中' ? '#aae' : all_data[pulldown_c].products.sales[pulldown_p] === '残りわずか' ? '#ffa' : all_data[pulldown_c].products.sales[pulldown_p] === '仕入準備中' ? '#aea' : '#eaa';
 
             // console.log(all_data);
-            
+
             all_sales_count = 0;
 
             for (let c = 0; c < all_data.length; c++) {
@@ -475,7 +476,7 @@ async function content_generation(post, post_cs) {
                     window.location.reload();
                 }
             } else {
-                alert('読み込みエラーが発生しました。\n再読み込みします。(all1)');
+                alert('読み込みエラーが発生しました。\n再読み込みします。(all update error)');
                 window.location.reload();
             }
         });
