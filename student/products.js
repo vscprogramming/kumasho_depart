@@ -152,7 +152,7 @@ function content_generation() {
 
             // formへ飛ぶボタン
             const form_btn = Object.assign(document.createElement('button'), {
-                onclick() { window.location.href = all_data[c].form_url },
+                onclick() { window.open(all_data[c].form_url, '_blank') },
                 innerHTML: `${all_data[c].com_name}<br>注文フォームへ`,
                 classList: 'form_btns'
             });
