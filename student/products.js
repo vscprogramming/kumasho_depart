@@ -101,6 +101,8 @@ function content_generation() {
                             font-family: 'Noto Serif JP', serif;
                             font-weight: bolder;
                         }
+
+                        .class { color: red; }
                     </style>
 
                     <div class="text">
@@ -108,8 +110,10 @@ function content_generation() {
                         <h2>各企業のタブをクリックして、商品をご覧ください。</h2>
                         <h2>購入希望の方は、申し込みフォームにアクセスしてください。</h2>
 
-                        <h2>画像挿入が間に合っていなく、レイアウトが崩れている箇所があります。</h2>
-                        <h2>サイト公開までには画像を挿入します。ご了承ください</h2>
+                        <br><br><br>
+
+                        <h2 class="warn">画像挿入が間に合っていなく、レイアウトが崩れている箇所があります。</h2>
+                        <h2 class="warn">サイト公開までには画像を挿入します。ご了承ください</h2>
                     <div>
                 `
             });
