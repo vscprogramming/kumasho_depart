@@ -58,7 +58,7 @@
             },
             {
                 "pro_name": "おこわ",
-                "pro_img": "img/products/matsunoya/sr.png",
+                "pro_img": "img/home/no_image.png",
                 "price": 400,
                 "stock": "両日販売　数量制限なし",
                 "pro_desc": "ふっくらしていてあたたまるおいしいおこわです。<br>優しい味で具材もたっぷりです。<br>山菜を美味しく味わえるおこわです。",
@@ -125,7 +125,7 @@
         "products": [
             {
                 "pro_name": "ソースマヨ",
-                "pro_img": "img/products/kondo/salm.png",
+                "pro_img": "img/home/no_image.png",
                 "price": 400,
                 "stock": "両日販売　数量制限なし",
                 "pro_desc": "冬にでも食べたいと思えるアイスで、ミルクは濃厚かつ爽やかな味わい。<br>チョコは甘くてくどくない食べ心地。",
@@ -133,7 +133,7 @@
             },
             {
                 "pro_name": "塩マヨ",
-                "pro_img": "img/products/kondo/saum.png",
+                "pro_img": "img/home/no_image.png",
                 "price": 400,
                 "stock": "両日販売　数量制限なし",
                 "pro_desc": "甘くて美味しい。",
@@ -150,7 +150,7 @@
         "products": [
             {
                 "pro_name": "プレーン（カップ）",
-                "pro_img": "img/products/ringodo/pc.png",
+                "pro_img": "img/products/ringodo/plain.png",
                 "price": 600,
                 "stock": "両日販売　数量制限なし",
                 "pro_desc": "",
@@ -158,7 +158,7 @@
             },
             {
                 "pro_name": "プレーン（ホール）",
-                "pro_img": "img/products/ringodo/ph.png",
+                "pro_img": "img/products/ringodo/plain.png",
                 "price": 600,
                 "stock": "両日販売　数量制限なし",
                 "pro_desc": "",
@@ -174,7 +174,7 @@
             },
             {
                 "pro_name": "ホワイトチョコ（ホール）",
-                "pro_img": "img/products/ringodo/wh.png",
+                "pro_img": "img/products/ringodo/wc.png",
                 "price": 700,
                 "stock": "両日販売　数量制限なし",
                 "pro_desc": "濃厚でくどすぎない甘さ、爽やかに食べれる。",
@@ -460,7 +460,7 @@
             },
             {
                 "pro_name": "マロン・デ・ショコラ",
-                "pro_img": "img/products/hitoyoshi_onsen_shop/mdc.png",
+                "pro_img": "img/home/no_image.png",
                 "price": 760,
                 "stock": "1日目限定　10個",
                 "pro_desc": "球磨栗を使ったほろほろ食感のクッキーです。",
@@ -551,7 +551,7 @@
             },
             {
                 "pro_name": "塩サイダー",
-                "pro_img": "img/products/yatsushiro_yokatoko/ss.png",
+                "pro_img": "img/home/no_image.png",
                 "price": 300,
                 "stock": "両日販売　数量制限なし",
                 "pro_desc": "ほんのり塩味がクセになる、爽やかな塩サイダー。<br>すっきりな甘さで、暑い日やリフレッシュにぴったり。",
@@ -599,7 +599,7 @@
             },
             {
                 "pro_name": "梨ゼリー",
-                "pro_img": "img/products/yatsushiro_yokatoko/pj.png",
+                "pro_img": "img/home/no_image.png",
                 "price": 350,
                 "stock": "両日販売　数量制限なし",
                 "pro_desc": "果実たっぷりの梨ゼリー。<br>自然な甘さでお子様にも安心。",
@@ -680,7 +680,7 @@
             },
             {
                 "pro_name": "規格外ゼリー",
-                "pro_img": "img/products/JA_ashikita/nsj.png",
+                "pro_img": "img/home/no_image.png",
                 "price": 500,
                 "stock": "両日販売　1日あたり50個",
                 "pro_desc": "規格外品で元値よりも安く4～5個入っているデコポンゼリー。",
@@ -704,7 +704,7 @@
             },
             {
                 "pro_name": "調味料3本セット",
-                "pro_img": "img/products/JA_ashikita/3set.png",
+                "pro_img": "img/home/no_image.png",
                 "price": 1300,
                 "stock": "両日販売　1日あたり10個",
                 "pro_desc": "でこぽんポン酢、<br>（でこぽん、レモン、ごま、和風ドレッシング）<br>レモン塩ダレのうち3本選べる商品。",
@@ -867,7 +867,7 @@
             },
             {
                 "pro_name": "朱治郎天",
-                "pro_img": "img/products/matsushita/syujiro.png",
+                "pro_img": "img/home/no_image.png",
                 "price": "【未入力】",
                 "stock": "1日目限定　20個",
                 "pro_desc": "",
@@ -942,7 +942,7 @@
             },
             {
                 "pro_name": "カステララスク",
-                "pro_img": "img/products/An/cr.png",
+                "pro_img": "img/home/no_image.png",
                 "price": 250,
                 "stock": "両日販売　1日当たり10個",
                 "pro_desc": "山鹿産の和栗を使った、やさしい甘さのカステララスク。<br>サクッと香ばしい食感と、ほのかな栗の風味が広がります。",
@@ -958,7 +958,7 @@
             },
             {
                 "pro_name": "栗あんパイ",
-                "pro_img": "img/products/An/map.png",
+                "pro_img": "img/home/no_image.png",
                 "price": 350,
                 "stock": "両日販売　1日当たり10個",
                 "pro_desc": "特性の栗あんで、山鹿和栗の甘露煮をパイ生地に包んで焼き上げました。",
@@ -966,7 +966,7 @@
             },
             {
                 "pro_name": "栗コロ（栗フィナンシェ）",
-                "pro_img": "img/products/An/mc.png",
+                "pro_img": "img/home/no_image.png",
                 "price": 250,
                 "stock": "両日販売　1日あたり10個",
                 "pro_desc": "自家製山鹿和栗ペーストをバター風味たっぷりのフィナンシェ生地に練り込んで焼き上げました。<br>手土産にもぴったりです。",
@@ -1024,7 +1024,7 @@
         "products": [
             {
                 "pro_name": "BBQスパイス",
-                "pro_img": "img/products/uto_marina/.png",
+                "pro_img": "img/home/no_image.png",
                 "price": "【未入力】",
                 "stock": "両日販売　数量制限なし",
                 "pro_desc": "BBQのときに役立つソース。",
@@ -1032,7 +1032,7 @@
             },
             {
                 "pro_name": "海苔三種類",
-                "pro_img": "img/products/uto_marina/.png",
+                "pro_img": "img/home/no_image.png",
                 "price": "【未入力】",
                 "stock": "両日販売　数量制限なし",
                 "pro_desc": "とても美味しい海苔！",
@@ -1057,7 +1057,7 @@
             },
             {
                 "pro_name": "お抹茶番茶",
-                "pro_img": "img/products/Greentea_Lab/mb.png",
+                "pro_img": "img/home/no_image.png",
                 "price": 1950,
                 "stock": "1日目限定　数量制限なし",
                 "pro_desc": "",
@@ -1065,7 +1065,7 @@
             },
             {
                 "pro_name": "大福茶",
-                "pro_img": "img/products/Greentea_Lab/dt.png",
+                "pro_img": "img/home/no_image.png",
                 "price": 1080,
                 "stock": "1日目限定　数量制限なし",
                 "pro_desc": "",
@@ -1073,7 +1073,7 @@
             },
             {
                 "pro_name": "茶蜜（chamitu）",
-                "pro_img": "img/products/Greentea_Lab/chamitu.png",
+                "pro_img": "img/home/no_image.png",
                 "price": 1300,
                 "stock": "1日目限定　数量制限なし",
                 "pro_desc": "",
@@ -1123,7 +1123,7 @@
             },
             {
                 "pro_name": "潤生ゆく麺＆くる麺セット",
-                "pro_img": "img/products/higo_soukawa/yk_set.png",
+                "pro_img": "img/home/no_image.png",
                 "price": 1600,
                 "stock": "2日目限定　20個",
                 "pro_desc": "",
@@ -1329,7 +1329,7 @@
             },
             {
                 "pro_name": "フルーツ大福セット",
-                "pro_img": "img/products/ebisuya/fds.png",
+                "pro_img": "img/home/no_image.png",
                 "price": 1090,
                 "stock": "両日販売　数量制限なし",
                 "pro_desc": "生徒販売限定のセットです！<br>（いちご大福、みかん大福、キウイ大福、パイン大福）<br>のフルーツ盛り沢山の大福たちを集めました！！",
@@ -1354,7 +1354,7 @@
         "products": [
             {
                 "pro_name": "アクリルキーホルダー（13種）",
-                "pro_img": "img/products/Boulogne/ac.png",
+                "pro_img": "img/home/no_image.png",
                 "price": 300,
                 "stock": "1日目限定　数量制限なし",
                 "pro_desc": "前回（2024年）までの熊商デパートで販売したアクリルキーホルダーです。",
@@ -1362,7 +1362,7 @@
             },
             {
                 "pro_name": "クッキー　3枚入り",
-                "pro_img": "img/products/Boulogne/c3.png",
+                "pro_img": "img/home/no_image.png",
                 "price": 350,
                 "stock": "1日目限定　50個",
                 "pro_desc": "バニラ、チョコチップ、ごまの3種の組み合わせです。",
@@ -1378,7 +1378,7 @@
             },
             {
                 "pro_name": "熊商部活ユニフォームアクリルキーホルダー（サッカー）",
-                "pro_img": "img/products/Boulogne/kcuks.png",
+                "pro_img": "img/home/no_image.png",
                 "price": 300,
                 "stock": "1日目限定　数量制限なし",
                 "pro_desc": "熊商サッカー部のユニフォームのアクリルキーホルダーです。",
@@ -1394,7 +1394,7 @@
             },
             {
                 "pro_name": "熊商部活ユニフォームアクリルキーホルダー（バレー）",
-                "pro_img": "img/products/Boulogne/kcukv.png",
+                "pro_img": "img/home/no_image.png",
                 "price": 300,
                 "stock": "1日目限定　数量制限なし",
                 "pro_desc": "熊商バレー部のユニフォームのアクリルキーホルダーです。",
@@ -1418,7 +1418,7 @@
             },
             {
                 "pro_name": "熊商部活ユニフォームアクリルキーホルダー（陸上）",
-                "pro_img": "img/products/Boulogne/kcukt.png",
+                "pro_img": "img/home/no_image.png",
                 "price": 300,
                 "stock": "1日目限定　数量制限なし",
                 "pro_desc": "熊商陸上部のユニフォームのアクリルキーホルダーです。",
@@ -1426,7 +1426,7 @@
             },
             {
                 "pro_name": "焼菓子詰め合わせ",
-                "pro_img": "img/products/Boulogne/bga.png",
+                "pro_img": "img/home/no_image.png",
                 "price": 1090,
                 "stock": "1日目限定　30個",
                 "pro_desc": "（リーフパイ、クッキー、フランボワーズクッキー、チョコマドレーヌ、板バームクーヘン）<br>のセットです。",
@@ -1446,7 +1446,7 @@
                 "pro_img": "img/products/AmeYa/cs.png",
                 "price": 480,
                 "stock": "1日目限定　40個",
-                "pro_desc": "いちご味の飴です。",
+                "pro_desc": "全て天然の色素を使った、いちご味の手作りキャンディーです。",
                 "sales_day": 1
             },
             {
@@ -1454,7 +1454,7 @@
                 "pro_img": "img/products/AmeYa/cg.png",
                 "price": 480,
                 "stock": "1日目限定　40個",
-                "pro_desc": "ぶどう味の飴です。",
+                "pro_desc": "全て天然の色素を使った、ぶどう味の手作りキャンディーです。",
                 "sales_day": 1
             },
             {
@@ -1462,7 +1462,7 @@
                 "pro_img": "img/products/AmeYa/sv.png",
                 "price": 390,
                 "stock": "1日目限定　100個",
-                "pro_desc": "バニラ味のサクサクスノーボールです。",
+                "pro_desc": "粉糖をまぶしたバニラ味でサクサクのスノーボールです。",
                 "sales_day": 1
             }
         ]
