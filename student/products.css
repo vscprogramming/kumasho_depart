@@ -65,10 +65,10 @@ html, body {
     font-size: 3vw !important;
 }
 
-#store_buttons button:hover { color: #99f; }
+#store_buttons button:hover { color: #f70; }
 
 #store_buttons button.active_tab {
-    color: #99f;
+    color: #f70;
     background-color: #eee3;
 }
 
@@ -101,7 +101,6 @@ img.company_img {
     cursor: default;
     position: absolute;
     text-align: center;
-    text-shadow: 5px 5px 5px #88e;
     transform: translate(-50%, -50%);
 }
 
@@ -140,12 +139,12 @@ h3.title_text {
     font-size: larger;
     border-radius: 18px;
     font-weight: bolder;
-    background-color: #77f;
+    background-color: #f70;
     box-shadow: 3px 3px 3px #333;
     font-family: 'Noto Serif JP', serif;
 }
 
-.form_btns:hover { background-color: #55f; }
+.form_btns:hover { background-color: #f50; }
 
 .products {
     gap: 7px;
@@ -161,7 +160,6 @@ h3.title_text {
     margin: 18px;
     position: relative;
     border-radius: 18px;
-    background-color: #eef;
     box-shadow: 0 0 7px #333;
 }
 
@@ -201,7 +199,6 @@ h3.title_text {
     border-radius: 7px;
     flex-direction: column;
     justify-content: center;
-    border: #77f solid 0.1px;
 }
 
 .stock {
@@ -233,7 +230,7 @@ h3.title_text {
 @media (min-width: 650px) and (max-width: 800px) {
     #title { height: 7%; }
     .pro_info { top: 335px; }
-    #title h1 { font-size: 1.47vh; }
+    #title h1 { font-size: 1.38vh; }
 
     h1.title_text {
         width: 100%;
@@ -246,7 +243,7 @@ h3.title_text {
     }
 
     .home_btn { font-size: 3vw !important; }
-    #store_buttons button { font-size: 1.3vw; }
+    #store_buttons button { font-size: 1.2vw; }
     .form_btns { width: 50%; }
     .products { grid-template-columns: repeat(1, 1fr); }
 }

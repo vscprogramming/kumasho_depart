@@ -238,7 +238,7 @@ async function content_generation(post, post_cs) {
         // 混雑状況プルダウン
         const crowd_status_text = Object.assign(document.createElement('p'), {
             className: 'crowd_status_text',
-            innerHTML: '混雑状況：　'
+            innerHTML: '営業状況：　'
         });
 
         const crowd_status = Object.assign(document.createElement('select'), { className: 'crowd_status_pulldown' });

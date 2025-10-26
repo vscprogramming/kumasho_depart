@@ -83,6 +83,7 @@ function content_generation() {
                 className: 'title_text',
                 textContent: 'ホーム'
             });
+            Object.assign(title_text.style, { textShadow: '7px 7px 7px #f70' });
             company_title.appendChild(title_text);
 
             content.appendChild(company_title); // 最後
@@ -140,11 +141,13 @@ function content_generation() {
                 className: 'title_text',
                 textContent: all_data[c].com_name
             });
+            Object.assign(title_text.style, { textShadow: `7px 7px 7px ${all_data[c].id[0] === '1' ? '#77f' : all_data[c].id[0] === '2' ? '#f77' : all_data[c].id[0] === '3' ? '#7f7' : '#f70'}` });
 
             const title_class = Object.assign(document.createElement('h3'), {
                 className: 'title_text',
                 textContent: `担当クラス：${c_class}`
             });
+            Object.assign(title_class.style, { textShadow: `7px 7px 7px ${all_data[c].id[0] === '1' ? '#77f' : all_data[c].id[0] === '2' ? '#f77' : all_data[c].id[0] === '3' ? '#7f7' : '#f70'}` });
             company_title.appendChild(title_text);
             company_title.appendChild(title_class);
 
@@ -163,6 +166,7 @@ function content_generation() {
 
             for (let p = 0; p < all_data[c].products.length; p++) {
                 const products_card = Object.assign(document.createElement('div'), { classList: 'products_card' });
+                Object.assign(products_card.style, { backgroundColor: all_data[c].id[0] === '1' ? '#eef' : all_data[c].id[0] === '2' ? '#fee' : all_data[c].id[0] === '3' ? '#efe' : '#ffe1c6' });
 
                 const products_img = Object.assign(document.createElement('img'), {
                     classList: 'products_img',
@@ -185,6 +189,7 @@ function content_generation() {
                     classList: 'pro_desc',
                     innerHTML: all_data[c].products[p].pro_desc
                 });
+                Object.assign(pro_desc.style, { border: `${all_data[c].id[0] === '1' ? '#77f' : all_data[c].id[0] === '2' ? '#f77' : all_data[c].id[0] === '3' ? '#7f7' : '#f70'} solid 0.7px` });
                 pro_info.appendChild(pro_desc);
 
                 // 販売個数
