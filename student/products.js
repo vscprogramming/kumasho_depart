@@ -159,6 +159,10 @@ function content_generation() {
                 innerHTML: `${all_data[c].com_name}<br>注文フォームへ`,
                 classList: 'form_btns'
             });
+            Object.assign(form_btn.style, {
+                backgroundColor: all_data[c].id[0] === '1' ? '#77f' : all_data[c].id[0] === '2' ? '#f77' : all_data[c].id[0] === '3' ? '#7f7' : '#f70',
+                color: all_data[c].id[0] === '3' ? '#333' : '#eee'
+            })
             content.appendChild(form_btn);  // 最後
 
             // 商品カード生成

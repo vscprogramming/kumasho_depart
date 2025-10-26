@@ -139,12 +139,11 @@ h3.title_text {
     font-size: larger;
     border-radius: 18px;
     font-weight: bolder;
-    background-color: #f70;
     box-shadow: 3px 3px 3px #333;
     font-family: 'Noto Serif JP', serif;
 }
 
-.form_btns:hover { background-color: #f50; }
+.form_btns:hover { filter: brightness(93%); }
 
 .products {
     gap: 7px;
