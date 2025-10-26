@@ -1,12 +1,3 @@
-// ['resize', 'DOMContentLoaded'].forEach(event => { window.addEventListener(event, () => resize_div()) });
-
-// function resize_div() {
-//     Object.assign(document.getElementById('all').style, {
-//         width: `${window.innerWidth}px`,
-//         height: `${window.innerHeight}px`
-//     });
-// }
-
 var json_data, all_data = [];
 let tab_select;
 
@@ -26,7 +17,6 @@ async function json_load() {
             json_data.forEach((jd_row, i) => { all_data[i + 1] = jd_row });
 
             // console.log(all_data);
-
         } else {
             alert('データの読み込みに失敗しました。\n再読み込みします。');
             window.location.reload();
@@ -42,177 +32,110 @@ function content_generation() {
     // タブボタン生成
     const store_buttons = document.getElementById('store_buttons');
 
-    for (let c = 0; c < company_count; c++) {
-        if (c == 0) {
-            const home_btn = Object.assign(document.createElement('button'), {
-                className: 'home_btn',
-                textContent: 'ホーム'
-            });
+    for (let c = 1; c < company_count; c++) {
+        const tab_btns = Object.assign(document.createElement('button'), {
+            className: 'tab_btns',
+            textContent: all_data[c].com_name
+        });
 
-            home_btn.dataset.index = c;
-            store_buttons.appendChild(home_btn);
-        } else {
-            const tab_btns = Object.assign(document.createElement('button'), {
-                className: 'tab_btns',
-                textContent: all_data[c].com_name
-            });
-
-            tab_btns.dataset.index = c;
-            store_buttons.appendChild(tab_btns);
-        }
+        tab_btns.dataset.index = c;
+        store_buttons.appendChild(tab_btns);
     }
 
     // 企業データの生成
     const products_window = document.getElementById('products_window');
 
-    for (let c = 0; c < company_count; c++) {
-        if (c == 0) {
-            const content = Object.assign(document.createElement('div'), { classList: 'contents' });    // おおもと
+    for (let c = 1; c < company_count; c++) {
+        const c_class = `${all_data[c].id[0]} - ${all_data[c].id[1]}`;
+        const content = Object.assign(document.createElement('div'), { classList: 'contents' });    // おおもと
+        content.dataset.index = c;
 
-            // タイトル類生成
-            const company_title = Object.assign(document.createElement('div'), { classList: 'company_title' });
+        // タイトル類生成
+        const company_title = Object.assign(document.createElement('div'), { classList: 'company_title' });
 
-            const img = Object.assign(document.createElement('img'), {
-                classList: 'company_img',
-                src: 'img/home/home.png',
-                alt: 'ホーム'
+        const img = Object.assign(document.createElement('img'), {
+            classList: 'company_img',
+            src: all_data[c].com_img,
+            alt: all_data[c].com_name
+        });
+        company_title.appendChild(img);
+
+        const title_text = Object.assign(document.createElement('h1'), {
+            className: 'title_text',
+            textContent: all_data[c].com_name
+        });
+        Object.assign(title_text.style, { textShadow: `7px 7px 7px ${all_data[c].id[0] === '1' ? '#77f' : all_data[c].id[0] === '2' ? '#f77' : all_data[c].id[0] === '3' ? '#7f7' : '#f70'}` });
+
+        const title_class = Object.assign(document.createElement('h3'), {
+            className: 'title_text',
+            textContent: `担当クラス：${c_class}`
+        });
+        Object.assign(title_class.style, { textShadow: `7px 7px 7px ${all_data[c].id[0] === '1' ? '#77f' : all_data[c].id[0] === '2' ? '#f77' : all_data[c].id[0] === '3' ? '#7f7' : '#f70'}` });
+        company_title.appendChild(title_text);
+        company_title.appendChild(title_class);
+
+        content.appendChild(company_title); // 最後
+
+        // formへ飛ぶボタン
+        const form_btn = Object.assign(document.createElement('button'), {
+            onclick() { window.open(all_data[c].form_url, '_blank') },
+            innerHTML: `${all_data[c].com_name}<br>注文フォームへ`,
+            classList: 'form_btns'
+        });
+        Object.assign(form_btn.style, {
+            backgroundColor: all_data[c].id[0] === '1' ? '#77f' : all_data[c].id[0] === '2' ? '#f77' : all_data[c].id[0] === '3' ? '#7f7' : '#f70',
+            color: all_data[c].id[0] === '3' ? '#333' : '#eee'
+        })
+        content.appendChild(form_btn);  // 最後
+
+        // 商品カード生成
+        const products = Object.assign(document.createElement('div'), { classList: 'products' });   // グリッドおおもと
+
+        for (let p = 0; p < all_data[c].products.length; p++) {
+            const products_card = Object.assign(document.createElement('div'), { classList: 'products_card' });
+            Object.assign(products_card.style, { backgroundColor: all_data[c].id[0] === '1' ? '#eef' : all_data[c].id[0] === '2' ? '#fee' : all_data[c].id[0] === '3' ? '#efe' : '#ffe1c6' });
+
+            const products_img = Object.assign(document.createElement('img'), {
+                classList: 'products_img',
+                src: all_data[c].products[p].pro_img,
+                alt: all_data[c].products[p].pro_name
             });
-            company_title.appendChild(img);
+            products_card.appendChild(products_img);
 
-            const title_text = Object.assign(document.createElement('h1'), {
-                className: 'title_text',
-                textContent: 'ホーム'
+            const pro_info = Object.assign(document.createElement('div'), { classList: 'pro_info' });
+
+            // 商品名
+            const pro_title = Object.assign(document.createElement('h2'), {
+                classList: 'pro_title',
+                innerHTML: all_data[c].products[p].pro_name
             });
-            Object.assign(title_text.style, { textShadow: '7px 7px 7px #f70' });
-            company_title.appendChild(title_text);
+            pro_info.appendChild(pro_title);
 
-            content.appendChild(company_title); // 最後
-
-            // その他コンテンツ
-            const info = document.createElement('div');
-            Object.assign(info, { classList: 'info' });
-
-            const info_text = document.createElement('div');
-            Object.assign(info_text, {
-                classList: 'info_text',
-                innerHTML: `
-                    <style>    
-                        .text {
-                            margin: 18px;
-                            font-family: 'Noto Serif JP', serif;
-                            font-weight: bolder;
-                        }
-
-                        .class { color: red; }
-                    </style>
-
-                    <div class="text">
-                        <h2>第３８回 熊商デパート　生徒販売商品一覧サイトです。</h2>
-                        <h2>各企業のタブをクリックして、商品をご覧ください。</h2>
-                        <h2>購入希望の方は、申し込みフォームにアクセスしてください。</h2>
-
-                        <br><br><br>
-
-                        <h2 class="warn">画像挿入がされていなくレイアウトが崩れている箇所があります。</h2>
-                        <h2 class="warn">サイト公開までには整えます。ご了承ください。</h2>
-                    <div>
-                `
+            // 商品説明
+            const pro_desc = Object.assign(document.createElement('p'), {
+                classList: 'pro_desc',
+                innerHTML: all_data[c].products[p].pro_desc
             });
-            info.appendChild(info_text);
+            Object.assign(pro_desc.style, { border: `${all_data[c].id[0] === '1' ? '#77f' : all_data[c].id[0] === '2' ? '#f77' : all_data[c].id[0] === '3' ? '#7f7' : '#f70'} solid 0.7px` });
+            pro_info.appendChild(pro_desc);
 
-            content.appendChild(info);
-            products_window.appendChild(content);   // おおもと
-        } else {
-            const c_class = `${all_data[c].id[0]} - ${all_data[c].id[1]}`;
-            const content = Object.assign(document.createElement('div'), { classList: 'contents' });    // おおもと
-            content.dataset.index = c;
-
-            // タイトル類生成
-            const company_title = Object.assign(document.createElement('div'), { classList: 'company_title' });
-
-            const img = Object.assign(document.createElement('img'), {
-                classList: 'company_img',
-                src: all_data[c].com_img,
-                alt: all_data[c].com_name
+            // 販売個数
+            const stock = Object.assign(document.createElement('p'), {
+                classList: 'stock',
+                textContent: `${all_data[c].products[p].stock}`
             });
-            company_title.appendChild(img);
+            pro_info.appendChild(stock);
 
-            const title_text = Object.assign(document.createElement('h1'), {
-                className: 'title_text',
-                textContent: all_data[c].com_name
+            // 販売単価
+            const price = Object.assign(document.createElement('h1'), {
+                classList: 'price',
+                textContent: `￥${all_data[c].products[p].price.toLocaleString()}`
             });
-            Object.assign(title_text.style, { textShadow: `7px 7px 7px ${all_data[c].id[0] === '1' ? '#77f' : all_data[c].id[0] === '2' ? '#f77' : all_data[c].id[0] === '3' ? '#7f7' : '#f70'}` });
+            pro_info.appendChild(price);
 
-            const title_class = Object.assign(document.createElement('h3'), {
-                className: 'title_text',
-                textContent: `担当クラス：${c_class}`
-            });
-            Object.assign(title_class.style, { textShadow: `7px 7px 7px ${all_data[c].id[0] === '1' ? '#77f' : all_data[c].id[0] === '2' ? '#f77' : all_data[c].id[0] === '3' ? '#7f7' : '#f70'}` });
-            company_title.appendChild(title_text);
-            company_title.appendChild(title_class);
+            products_card.appendChild(pro_info);
+            products.appendChild(products_card);    // グリッドおおもと
 
-            content.appendChild(company_title); // 最後
-
-            // formへ飛ぶボタン
-            const form_btn = Object.assign(document.createElement('button'), {
-                onclick() { window.open(all_data[c].form_url, '_blank') },
-                innerHTML: `${all_data[c].com_name}<br>注文フォームへ`,
-                classList: 'form_btns'
-            });
-            Object.assign(form_btn.style, {
-                backgroundColor: all_data[c].id[0] === '1' ? '#77f' : all_data[c].id[0] === '2' ? '#f77' : all_data[c].id[0] === '3' ? '#7f7' : '#f70',
-                color: all_data[c].id[0] === '3' ? '#333' : '#eee'
-            })
-            content.appendChild(form_btn);  // 最後
-
-            // 商品カード生成
-            const products = Object.assign(document.createElement('div'), { classList: 'products' });   // グリッドおおもと
-
-            for (let p = 0; p < all_data[c].products.length; p++) {
-                const products_card = Object.assign(document.createElement('div'), { classList: 'products_card' });
-                Object.assign(products_card.style, { backgroundColor: all_data[c].id[0] === '1' ? '#eef' : all_data[c].id[0] === '2' ? '#fee' : all_data[c].id[0] === '3' ? '#efe' : '#ffe1c6' });
-
-                const products_img = Object.assign(document.createElement('img'), {
-                    classList: 'products_img',
-                    src: all_data[c].products[p].pro_img,
-                    alt: all_data[c].products[p].pro_name
-                });
-                products_card.appendChild(products_img);
-
-                const pro_info = Object.assign(document.createElement('div'), { classList: 'pro_info' });
-
-                // 商品名
-                const pro_title = Object.assign(document.createElement('h2'), {
-                    classList: 'pro_title',
-                    innerHTML: all_data[c].products[p].pro_name
-                });
-                pro_info.appendChild(pro_title);
-
-                // 商品説明
-                const pro_desc =Object.assign(document.createElement('p'), {
-                    classList: 'pro_desc',
-                    innerHTML: all_data[c].products[p].pro_desc
-                });
-                Object.assign(pro_desc.style, { border: `${all_data[c].id[0] === '1' ? '#77f' : all_data[c].id[0] === '2' ? '#f77' : all_data[c].id[0] === '3' ? '#7f7' : '#f70'} solid 0.7px` });
-                pro_info.appendChild(pro_desc);
-
-                // 販売個数
-                const stock = Object.assign(document.createElement('p'), {
-                    classList: 'stock',
-                    textContent: `${all_data[c].products[p].stock}`
-                });
-                pro_info.appendChild(stock);
-
-                // 販売単価
-                const price = Object.assign(document.createElement('h1'), {
-                    classList: 'price',
-                    textContent: `￥${all_data[c].products[p].price.toLocaleString()}`
-                });
-                pro_info.appendChild(price);
-
-                products_card.appendChild(pro_info);
-                products.appendChild(products_card);    // グリッドおおもと
-            }
 
             content.appendChild(products);  // 最後
             products_window.appendChild(content);   // おおもと

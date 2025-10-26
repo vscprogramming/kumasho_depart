@@ -113,7 +113,6 @@
                 "pro_desc": "肉万十です。",
                 "sales_day": 12
             }
-            
         ]
     },
     {
@@ -128,7 +127,7 @@
                 "pro_img": "img/home/no_image.png",
                 "price": 400,
                 "stock": "両日販売　数量制限なし",
-                "pro_desc": "冬にでも食べたいと思えるアイスで、ミルクは濃厚かつ爽やかな味わい。<br>チョコは甘くてくどくない食べ心地。",
+                "pro_desc": "",
                 "sales_day": 12
             },
             {
@@ -136,7 +135,7 @@
                 "pro_img": "img/home/no_image.png",
                 "price": 400,
                 "stock": "両日販売　数量制限なし",
-                "pro_desc": "甘くて美味しい。",
+                "pro_desc": "",
                 "sales_day": 12
             }
         ]
@@ -154,7 +153,7 @@
                 "price": 600,
                 "stock": "両日販売　数量制限なし",
                 "pro_desc": "",
-                "sales_day": 12 
+                "sales_day": 12
             },
             {
                 "pro_name": "プレーン（ホール）",
@@ -162,23 +161,23 @@
                 "price": 600,
                 "stock": "両日販売　数量制限なし",
                 "pro_desc": "",
-                "sales_day": 12 
+                "sales_day": 12
             },
             {
                 "pro_name": "ホワイトチョコ（カップ）",
                 "pro_img": "img/products/ringodo/wc.png",
                 "price": 780,
                 "stock": "両日販売　数量制限なし",
-                "pro_desc": "プレーンはシンプルな味わいチョコは甘くて美味しい。",
-                "sales_day": 12 
+                "pro_desc": "",
+                "sales_day": 12
             },
             {
                 "pro_name": "ホワイトチョコ（ホール）",
                 "pro_img": "img/products/ringodo/wc.png",
                 "price": 700,
                 "stock": "両日販売　数量制限なし",
-                "pro_desc": "濃厚でくどすぎない甘さ、爽やかに食べれる。",
-                "sales_day": 12 
+                "pro_desc": "",
+                "sales_day": 12
             }
         ]
     },

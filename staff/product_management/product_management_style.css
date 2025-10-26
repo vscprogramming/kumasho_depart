@@ -5,7 +5,7 @@
     --color-orange: #f80;
     --color-orange-hover: #fa0;
     --color-orange-border: #f70;
-    --color-blue-searched: #07f;
+    --color-blue-searched: #05f;
     --color-orange-tab-hover: #430;
     --color-orange-border-scroll: #f70e;
     --color-orange-border-translucent: #f705;
@@ -26,8 +26,8 @@
 body { background-color: var(--color-bg-mid); }
 
 #title {
+    inset: 0;
     width: 99%; height: 95px;
-    top: 0; left: 0;
     position: fixed;
     border-bottom: none;
     border: 7px solid var(--color-bg-dark);
@@ -69,8 +69,8 @@ p { font-size: 118%; }
 }
 
 #tab_buttons button {
-    font-size: 103%;
     cursor: pointer;
+    font-size: 103%;
     padding: 6px 24px;
     transition: 0.15s;
     font-weight: bolder;
@@ -92,13 +92,12 @@ p { font-size: 118%; }
 
 /* ======= タブコンテンツ ======= */
 .tab_content {
+    inset: 0;
     width: 99%; height: auto;
-    top: 0; left: 0;
+    overflow: hidden auto;
     display: none;
     position: fixed;
-    overflow-y: auto;
     margin-top: 135px;
-    overflow-x: hidden;
     border: 7px solid var(--color-bg-mid);
     background-color: var(--color-bg-mid);
     border-top: 1px solid var(--color-border-gray);
@@ -167,8 +166,8 @@ table td:first-child {
 .company_total_display { margin-left: 7px; }
 table th:nth-child(1), table td:nth-child(1) { width: 65%; }
 table th:nth-child(2), table td:nth-child(2) { width: 35%; }
-table tr:last-child td:last-child { border-bottom-right-radius: var(--radius); }
-table tr:last-child td:first-child { border-bottom-left-radius: var(--radius); }
+table tr:last-child td:last-child { border-radius: 0 0 var(--radius) 0; }
+table tr:last-child td:first-child { border-radius: 0 0 0 var(--radius); }
 
 .company_total_display_text_company_name {
     font-size: larger;
@@ -249,8 +248,8 @@ table tr:last-child td:first-child { border-bottom-left-radius: var(--radius); }
 }
 
 #loading {
+    inset: 0;
     width: 100vw; height: 100vh;
-    top: 0; left: 0;
     z-index: 9999;
     display: flex;
     position: fixed;
@@ -269,10 +268,10 @@ table tr:last-child td:first-child { border-bottom-left-radius: var(--radius); }
 
 /* ======= モーダル類 ======= */
 #search_modal_back, #logout_modal_back {
+    inset: 0;
     width: 100%; height: 100%;
-    top: 0; left: 0;
-    z-index: 4;
     opacity: 0;
+    z-index: 4;
     display: none;
     position: fixed;
     align-items: center;
@@ -297,8 +296,8 @@ table tr:last-child td:first-child { border-bottom-left-radius: var(--radius); }
 }
 
 #search_input {
+    inset: 50% 0 0 50%;
     width: 70%; height: 10%;
-    top: 50%; left: 50%;
     position: absolute;
     color: var(--color-bg-dark);
     transform: translate(-50%, -180%);
@@ -318,12 +317,7 @@ table tr:last-child td:first-child { border-bottom-left-radius: var(--radius); }
 }
 
 #search { margin-left: 18px; }
-
-#search_reset {
-    margin-left: 14%;
-    margin-top: 200px;
-}
-
+#search_reset { margin: 200px 0 0 14%; }
 #search:hover, #search_reset:hover, #ok_button:hover, #cancel_button:hover { background-color: var(--color-orange-hover); }
 
 #search_title::before, #logout_check_title::before {
@@ -345,8 +339,8 @@ table tr:last-child td:first-child { border-bottom-left-radius: var(--radius); }
 }
 
 #search_close_button {
-    height: 100%;
     float: right;
+    height: 100%;
     border: none;
     transition: 0.15s;
     text-align: right;

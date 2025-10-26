@@ -38,17 +38,17 @@
         input { cursor: pointer; }
 
         p {
-            top: 100%; left: 100%;
             margin: 0;
             position: absolute;
+            top: 100%; left: 100%;
             color: var(--color-text-light);
             transform: translate(-100%, -100%);
         }
 
         /* ======= コンテナー ======= */
         #container {
-            top: 50%; left: 50%;
             width: 56.7%;
+            top: 50%; left: 50%;
             padding: 36px 24px;
             position: absolute;
             text-align: center;
@@ -77,8 +77,8 @@
             background-color: var(--color-bg-white);
         }
 
-        #grade, #password { width: 100%; }
         #grade { text-align: center; }
+        #grade, #password { width: 100%; }
 
         #class {
             width: 108%;
@@ -138,7 +138,7 @@
 
         #loading {
             width: 100vw; height: 100vh;
-            top: 0; left: 0;
+            inset: 0;
             z-index: 9999;
             display: flex;
             position: fixed;
@@ -163,30 +163,13 @@
         }
 
         @media (min-width: 650px) and (max-width: 800px) {
-            #container {
-                width: 77%;
-            }
-
-            h1 {
-                font-size: 2rem;
-            }
-
-            #grade, #class, #password {
-                font-size: 1.9vw;
-            }
+            h1 { font-size: 2rem; }
+            #container { width: 77%; }
+            #grade, #class, #password { font-size: 1.9vw; }
         }
 
-        @media (min-width: 650px) and (max-width: 700px) {
-            #class {
-                width: 114%;
-            }
-        }
-
-        @media (min-width: 700px) and (max-width: 800px) {
-            #class {
-                width: 113%;
-            }
-        }
+        @media (min-width: 650px) and (max-width: 700px) { #class { width: 114%; } }
+        @media (min-width: 700px) and (max-width: 800px) { #class { width: 113%; } }
     </style>
 
     <body id="body">
