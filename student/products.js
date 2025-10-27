@@ -46,7 +46,10 @@ function content_generation() {
     const products_window = document.getElementById('products_window');
 
     for (let c = 1; c < company_count; c++) {
-        const c_class = `${all_data[c].id[0]} - ${all_data[c].id[1]}`;
+        const o_store = new Map([
+            [400, 'マーケティング部']
+        ]);
+        const c_class = Number(all_data[c].id) <= 400 ? o_store.get(Number(all_data[c].id)) : `${all_data[c].id[0]} - ${all_data[c].id[1]}`;
         const content = Object.assign(document.createElement('div'), { classList: 'contents' });    // おおもと
         content.dataset.index = c;
 

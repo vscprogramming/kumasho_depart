@@ -407,7 +407,6 @@ table tr, table th { font-weight: normal; }
 
 /* スマホ */
 @media (max-width: 600px) {
-
     html,
     body,
     #all {
@@ -482,7 +481,19 @@ table tr, table th { font-weight: normal; }
 
     h1.title_text,
     .home_text h1 {
-        font-size: 6vw;
+        font-size: 6.7vw;
+    }
+
+    .info p {
+        font-size: 5vw;
+    }
+
+    table {
+        font-size: 3vw;
+    }
+
+    table tr, table th {
+        font-size: 2.6vw;
     }
 
     #products_window {

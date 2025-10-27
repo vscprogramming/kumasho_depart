@@ -1176,7 +1176,7 @@
                 "pro_img": "img/home/no_image.png",
                 "price": "",
                 "stock": "",
-                "pro_desc": "10月30日に情報が確定します。<br>情報の確定までしばらくお待ち下さい。",
+                "pro_desc": "10月30日に情報が確定します。<br>情報更新までしばらくお待ち下さい。",
                 "sales_day": 12
             }
         ]
@@ -1447,6 +1447,23 @@
                 "stock": "1日目限定　100個",
                 "pro_desc": "粉糖をまぶしたバニラ味でサクサクのスノーボールです。",
                 "sales_day": 1
+            }
+        ]
+    },
+    {
+        "id": "400",
+        "com_name": "山崎製パン",
+        "com_img": "img/store/yamazaki.png",
+        "form_url": "",
+        "com_desc": "",
+        "products": [
+            {
+                "pro_name": "商品情報未確定",
+                "pro_img": "img/home/no_image.png",
+                "price": "",
+                "stock": "",
+                "pro_desc": "情報が確定していません。<br>情報更新までしばらくお待ち下さい。",
+                "sales_day": 12
             }
         ]
     }
