@@ -19,15 +19,15 @@
 
     /* レイアウト */
     --radius: 18px;
-    --shadow: 7px 7px 7px rgba(0, 0, 0, 0.7);
+    --shadow: 7px 7px 7px #000000b3;
 }
 
 /* ======= ベース ======= */
 body { background-color: var(--color-bg-mid); }
 
 #title {
-    inset: 0;
     width: 99%; height: 95px;
+    inset: 0;
     position: fixed;
     border-bottom: none;
     border: 7px solid var(--color-bg-dark);
@@ -78,7 +78,7 @@ p { font-size: 118%; }
     color: var(--color-text-light);
     background-color: var(--color-bg-dark);
     border: 1px solid var(--color-border-gray);
-    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.7);
+    box-shadow: 3px 3px 3px #000000b3;
 }
 
 #tab_buttons button.active_tab {
@@ -92,12 +92,12 @@ p { font-size: 118%; }
 
 /* ======= タブコンテンツ ======= */
 .tab_content {
-    inset: 0;
     width: 99%; height: auto;
-    overflow: hidden auto;
+    inset: 0;
     display: none;
     position: fixed;
     margin-top: 135px;
+    overflow: hidden auto;
     border: 7px solid var(--color-bg-mid);
     background-color: var(--color-bg-mid);
     border-top: 1px solid var(--color-border-gray);
@@ -248,14 +248,14 @@ table tr:last-child td:first-child { border-radius: 0 0 0 var(--radius); }
 }
 
 #loading {
-    inset: 0;
     width: 100vw; height: 100vh;
+    inset: 0;
     z-index: 9999;
     display: flex;
     position: fixed;
     align-items: center;
     justify-content: center;
-    background: rgba(0, 0, 0, 0.5);
+    background: #00000080;
 }
 
 #spinner {
@@ -268,8 +268,8 @@ table tr:last-child td:first-child { border-radius: 0 0 0 var(--radius); }
 
 /* ======= モーダル類 ======= */
 #search_modal_back, #logout_modal_back {
-    inset: 0;
     width: 100%; height: 100%;
+    inset: 0;
     opacity: 0;
     z-index: 4;
     display: none;
@@ -277,7 +277,7 @@ table tr:last-child td:first-child { border-radius: 0 0 0 var(--radius); }
     align-items: center;
     justify-content: center;
     transition: all 0.3s ease;
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: #000000b3;
 }
 
 #search_modal_back.show, #logout_modal_back.show {
@@ -296,8 +296,8 @@ table tr:last-child td:first-child { border-radius: 0 0 0 var(--radius); }
 }
 
 #search_input {
-    inset: 50% 0 0 50%;
     width: 70%; height: 10%;
+    inset: 50% 0 0 50%;
     position: absolute;
     color: var(--color-bg-dark);
     transform: translate(-50%, -180%);

@@ -25,8 +25,8 @@
             /* レイアウト */
             --radius: 18px;
             --radius-large: 34px;
-            --shadow-light: 7px 7px 7px rgba(0, 0, 0, 0.05);
-            --shadow-strong: 7px 7px 7px rgba(0, 0, 0, 0.7);
+            --shadow-light: 7px 7px 7px #0000000d;
+            --shadow-strong: 7px 7px 7px #000000b3;
         }
 
         /* ======= ベース =======  */
@@ -112,8 +112,8 @@
         #login_button:hover {
             cursor: pointer;
             transform: translateY(-50%, -50%);
+            box-shadow: 3px 3px 3px #0000004d;
             background: var(--color-orange-hover);
-            box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.3);
         }
 
         /* ======= テーブル ======= */
@@ -144,7 +144,7 @@
             position: fixed;
             align-items: center;
             justify-content: center;
-            background: rgba(0, 0, 0, 0.5);
+            background: #00000080;
         }
 
         #spinner {
