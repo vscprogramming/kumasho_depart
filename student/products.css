@@ -294,7 +294,6 @@ thead th:last-child {
 
 table {
     width: 99%;
-    font-weight: normal;
     border-collapse: separate;
     border: 2px solid #ffb366;
     box-shadow: 7px 7px 12px #f904;
@@ -332,6 +331,8 @@ tbody td {
 tbody tr:nth-child(even) {
     background-color: #ffe0bc;
 }
+
+table tr, table th { font-weight: normal; }
 
 
 /* chrome book 画面分割時 */

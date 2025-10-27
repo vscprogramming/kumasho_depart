@@ -1172,7 +1172,7 @@
         "com_desc": "",
         "products": [
             {
-                "pro_name": "商品情報が確定していないため、一時的に削除しています。",
+                "pro_name": "商品情報未確定",
                 "pro_img": "img/home/no_image.png",
                 "price": "",
                 "stock": "",
