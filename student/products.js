@@ -129,7 +129,7 @@ function content_generation() {
             // 販売単価
             const price = Object.assign(document.createElement('h1'), {
                 classList: 'price',
-                textContent: `￥${all_data[c].products[p].price.toLocaleString()}`
+                textContent: typeof all_data[c].products[p].price === 'number' ? `￥${all_data[c].products[p].price.toLocaleString()}` : all_data[c].products[p].price
             });
             pro_info.appendChild(price);
 

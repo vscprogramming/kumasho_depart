@@ -770,7 +770,7 @@
             {
                 "pro_name": "かりん",
                 "pro_img": "img/products/shunpuan/karin.png",
-                "price": "【未入力】",
+                "price": "【未確定】",
                 "stock": "1日目限定　30個",
                 "pro_desc": "",
                 "sales_day": 1
@@ -778,7 +778,7 @@
             {
                 "pro_name": "チョコ和風ロール",
                 "pro_img": "img/products/shunpuan/cjr.png",
-                "price": "【未入力】",
+                "price": "【未確定】",
                 "stock": "1日目限定　30個",
                 "pro_desc": "",
                 "sales_day": 1
@@ -786,7 +786,7 @@
             {
                 "pro_name": "どら焼き",
                 "pro_img": "img/products/shunpuan/dorayaki.png",
-                "price": "【未入力】",
+                "price": "【未確定】",
                 "stock": "1日目限定　30個",
                 "pro_desc": "",
                 "sales_day": 1
@@ -794,7 +794,7 @@
             {
                 "pro_name": "天草名物　みそまんじゅう",
                 "pro_img": "img/products/shunpuan/mm.png",
-                "price": "【未入力】",
+                "price": "【未確定】",
                 "stock": "1日目限定　50個",
                 "pro_desc": "",
                 "sales_day": 1
@@ -802,7 +802,7 @@
             {
                 "pro_name": "うまか最中",
                 "pro_img": "img/products/shunpuan/monaca.png",
-                "price": "【未入力】",
+                "price": "【未確定】",
                 "stock": "1日目限定　15個",
                 "pro_desc": "",
                 "sales_day": 1
@@ -810,7 +810,7 @@
             {
                 "pro_name": "わらび餅",
                 "pro_img": "img/products/shunpuan/wm.png",
-                "price": "【未入力】",
+                "price": "【未確定】",
                 "stock": "1日目限定　5個",
                 "pro_desc": "",
                 "sales_day": 1
@@ -818,7 +818,7 @@
             {
                 "pro_name": "花しんじゅ",
                 "pro_img": "img/products/shunpuan/hs.png",
-                "price": "【未入力】",
+                "price": "【未確定】",
                 "stock": "1日目限定　20個",
                 "pro_desc": "",
                 "sales_day": 1
@@ -826,7 +826,7 @@
             {
                 "pro_name": "野釜の瀬戸",
                 "pro_img": "img/products/shunpuan/ys.png",
-                "price": "【未入力】",
+                "price": "【未確定】",
                 "stock": "1日目限定　30個",
                 "pro_desc": "",
                 "sales_day": 1
@@ -843,7 +843,7 @@
             {
                 "pro_name": "じゃこ天",
                 "pro_img": "img/products/matsushita/jako.png",
-                "price": "【未入力】",
+                "price": "【未確定】",
                 "stock": "1日目限定　20個",
                 "pro_desc": "",
                 "sales_day": 1
@@ -851,7 +851,7 @@
             {
                 "pro_name": "タコ天",
                 "pro_img": "img/products/matsushita/tako.png",
-                "price": "【未入力】",
+                "price": "【未確定】",
                 "stock": "1日目限定　20個",
                 "pro_desc": "",
                 "sales_day": 1
@@ -859,7 +859,7 @@
             {
                 "pro_name": "元気！ニラ玉天（ちぎり揚げ）",
                 "pro_img": "img/products/matsushita/nira.png",
-                "price": "【未入力】",
+                "price": "【未確定】",
                 "stock": "1日目限定　20個",
                 "pro_desc": "",
                 "sales_day": 1
@@ -867,7 +867,7 @@
             {
                 "pro_name": "朱治郎天",
                 "pro_img": "img/home/no_image.png",
-                "price": "【未入力】",
+                "price": "【未確定】",
                 "stock": "1日目限定　20個",
                 "pro_desc": "",
                 "sales_day": 1
@@ -884,7 +884,7 @@
             {
                 "pro_name": "ふわふわ削りぶし　天日あじ",
                 "pro_img": "img/products/tennei/aji.png",
-                "price": "【未入力】",
+                "price": "【未確定】",
                 "stock": "1日目限定　100個",
                 "pro_desc": "",
                 "sales_day": 1
@@ -901,7 +901,7 @@
             {
                 "pro_name": "こっぱ餅",
                 "pro_img": "img/products/takaramochi/koppa.png",
-                "price": "【未入力】",
+                "price": "【未確定】",
                 "stock": "1日目限定　30個",
                 "pro_desc": "",
                 "sales_day": 1
@@ -909,7 +909,7 @@
             {
                 "pro_name": "黒糖こっぱ餅",
                 "pro_img": "img/products/takaramochi/bskoppa.png",
-                "price": "【未入力】",
+                "price": "【未確定】",
                 "stock": "1日目限定　25個",
                 "pro_desc": "",
                 "sales_day": 1
@@ -917,7 +917,7 @@
             {
                 "pro_name": "紫いもこっぱ餅",
                 "pro_img": "img/products/takaramochi/ppkoppa.png",
-                "price": "【未入力】",
+                "price": "【未確定】",
                 "stock": "1日目限定　25個",
                 "pro_desc": "",
                 "sales_day": 1
@@ -983,7 +983,7 @@
             {
                 "pro_name": "いちご",
                 "pro_img": "img/products/ukisaikan/strawberry.png",
-                "price": "【未入力】",
+                "price": "【未確定】",
                 "stock": "両日販売　数量制限なし",
                 "pro_desc": "熟して真っ赤！見た目も味も素敵！",
                 "sales_day": 12
@@ -991,7 +991,7 @@
             {
                 "pro_name": "デコポン",
                 "pro_img": "img/products/ukisaikan/dekopon.png",
-                "price": "【未入力】",
+                "price": "【未確定】",
                 "stock": "両日販売　数量制限なし",
                 "pro_desc": "とても甘いおすすめみかん！",
                 "sales_day": 12
@@ -999,7 +999,7 @@
             {
                 "pro_name": "とまと",
                 "pro_img": "img/products/ukisaikan/tomato.png",
-                "price": "【未入力】",
+                "price": "【未確定】",
                 "stock": "両日販売　数量制限なし",
                 "pro_desc": "酸味と甘味がいいマッチ！",
                 "sales_day": 12
@@ -1007,7 +1007,7 @@
             {
                 "pro_name": "メロン",
                 "pro_img": "img/products/ukisaikan/melon.png",
-                "price": "【未入力】",
+                "price": "【未確定】",
                 "stock": "両日販売　数量制限なし",
                 "pro_desc": "甘くて濃い！おすすめの品！",
                 "sales_day": 12
@@ -1024,7 +1024,7 @@
             {
                 "pro_name": "BBQスパイス",
                 "pro_img": "img/home/no_image.png",
-                "price": "【未入力】",
+                "price": "【未確定】",
                 "stock": "両日販売　数量制限なし",
                 "pro_desc": "BBQのときに役立つソース。",
                 "sales_day": 12
@@ -1032,7 +1032,7 @@
             {
                 "pro_name": "海苔三種類",
                 "pro_img": "img/home/no_image.png",
-                "price": "【未入力】",
+                "price": "【未確定】",
                 "stock": "両日販売　数量制限なし",
                 "pro_desc": "とても美味しい海苔！",
                 "sales_day": 12
@@ -1168,32 +1168,16 @@
         "id": "311",
         "com_name": "甲玉堂",
         "com_img": "img/store/kogyokudo.png",
-        "form_url": "https://docs.google.com/forms/d/e/1FAIpQLSc8Ng2RBkTIejIrmkXvd1hoPdhiQqI9ZJeWAOoDuePGFYld1Q/viewform?usp=pp_url&entry.1111782218=%E7%94%B2%E7%8E%89%E5%A0%82",
+        "form_url": "",
         "com_desc": "",
         "products": [
             {
-                "pro_name": "PG-METAL350",
-                "pro_img": "img/products/kogyokudo/PG.png",
-                "price": 550,
-                "stock": "1日目限定　15個",
-                "pro_desc": "シャープペンシル。<br>お手頃価格で、普段の勉強時に！",
-                "sales_day": 1
-            },
-            {
-                "pro_name": "オリジナルセット（7色）",
-                "pro_img": "img/products/kogyokudo/os.png",
-                "price": 1500,
-                "stock": "1日目限定　15個",
-                "pro_desc": "7色のラメ入りのペンが入っています。<br>バリエーション豊富！",
-                "sales_day": 1
-            },
-            {
-                "pro_name": "スマッシュ",
-                "pro_img": "img/products/kogyokudo/smash.png",
-                "price": 1100,
-                "stock": "1日目限定　10個",
-                "pro_desc": "シンプルなビジュアルの書きやすいシャープペンシル。",
-                "sales_day": 1
+                "pro_name": "商品情報が確定していないため、一時的に削除しています。",
+                "pro_img": "img/home/no_image.png",
+                "price": "",
+                "stock": "",
+                "pro_desc": "10月30日に情報が確定します。<br>情報の確定までしばらくお待ち下さい。",
+                "sales_day": 12
             }
         ]
     },
