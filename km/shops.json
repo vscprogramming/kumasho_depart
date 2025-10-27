@@ -91,7 +91,7 @@
         "id": "1-3-1",
         "name": "ジューシー",
         "catch": "キャッチコピー",
-        "image": "img/1-1/Cafe.png",
+        "image": "../student/img/store/juicy.png",
         "pr": [
             "PR文１",
             "PR文２"
@@ -178,7 +178,7 @@
         "id": "1-6-1",
         "name": "林檎堂",
         "catch": "キャッチコピー",
-        "image": "img/1-1/Cafe.png",
+        "image": "../student/img/store/ringodo.png",
         "pr": [
             "PR文１",
             "PR文２"
@@ -236,7 +236,7 @@
         "id": "1-7-1",
         "name": "Crepe & ...",
         "catch": "キャッチコピー",
-        "image": "img/1-1/Cafe.png",
+        "image": "../student/img/store/crepe.png",
         "pr": [
             "PR文１",
             "PR文２"
@@ -265,7 +265,7 @@
         "id": "1-7-2",
         "name": "Comida de Batata",
         "catch": "キャッチコピー",
-        "image": "img/1-1/Cafe.png",
+        "image": "../student/img/store/cdb.png",
         "pr": [
             "PR文１",
             "PR文２"
@@ -294,7 +294,7 @@
         "id": "1-8-1",
         "name": "鳥平商事",
         "catch": "キャッチコピー",
-        "image": "img/1-8/aso_torimiya.png",
+        "image": "../student/img/store/torihei.png",
         "pr": [
             "PR文１",
             "PR文２"
@@ -613,7 +613,7 @@
         "id": "2-5-1",
         "name": "宝餅本舗",
         "catch": "キャッチコピー",
-        "image": "img/1-1/Cafe.png",
+        "image": "../student/img/store/takaramochi.png",
         "pr": [
             "PR文１",
             "PR文２"
@@ -642,7 +642,7 @@
         "id": "2-5-2",
         "name": "天栄食品",
         "catch": "キャッチコピー",
-        "image": "img/1-1/Cafe.png",
+        "image": "../student/img/store/tennei.png",
         "pr": [
             "PR文１",
             "PR文２"
@@ -671,7 +671,7 @@
         "id": "2-5-3",
         "name": "春風庵",
         "catch": "キャッチコピー",
-        "image": "img/1-1/Cafe.png",
+        "image": "../student/img/store/shunpuan.png",
         "pr": [
             "PR文１",
             "PR文２"
@@ -700,7 +700,7 @@
         "id": "2-5-4",
         "name": "松下蒲鉾店",
         "catch": "キャッチコピー",
-        "image": "img/1-1/Cafe.png",
+        "image": "../student/img/store/matsushita.png",
         "pr": [
             "PR文１",
             "PR文２"
@@ -729,7 +729,7 @@
         "id": "2-6-1",
         "name": "むすび屋 えん",
         "catch": "キャッチコピー",
-        "image": "img/1-1/Cafe.png",
+        "image": "../student/img/store/en.png",
         "pr": [
             "PR文１",
             "PR文２"
@@ -816,7 +816,7 @@
         "id": "2-7-1",
         "name": "宇土マリーナおこしき館",
         "catch": "キャッチコピー",
-        "image": "img/1-1/Cafe.png",
+        "image": "../student/img/store/uto_marina.png",
         "pr": [
             "PR文１",
             "PR文２"
@@ -845,7 +845,7 @@
         "id": "2-7-2",
         "name": "宇城彩館",
         "catch": "キャッチコピー",
-        "image": "img/1-1/Cafe.png",
+        "image": "../student/img/store/ukisaikan.png",
         "pr": [
             "PR文１",
             "PR文２"
@@ -990,7 +990,7 @@
         "id": "2-9-1",
         "name": "たまララ",
         "catch": "キャッチコピー",
-        "image": "img/1-1/Cafe.png",
+        "image": "../student/img/store/tamarara.png",
         "pr": [
             "PR文１",
             "PR文２"
@@ -1019,7 +1019,7 @@
         "id": "2-9-2",
         "name": "万幸堂",
         "catch": "キャッチコピー",
-        "image": "img/1-1/Cafe.png",
+        "image": "../student/img/store/mankodo.png",
         "pr": [
             "PR文１",
             "PR文２"
@@ -1077,7 +1077,7 @@
         "id": "3-1-2",
         "name": "甲玉堂",
         "catch": "キャッチコピー",
-        "image": "img/1-1/Cafe.png",
+        "image": "../student/img/store/kogyokudo.png",
         "pr": [
             "PR文１",
             "PR文２"
@@ -1164,7 +1164,7 @@
         "id": "3-3-1",
         "name": "道の駅　すずなり",
         "catch": "キャッチコピー",
-        "image": "img/1-1/Cafe.png",
+        "image": "../student/img/store/michinoeki_suzunari.png",
         "pr": [
             "PR文１",
             "PR文２"
@@ -1222,7 +1222,7 @@
         "id": "3-4-1",
         "name": "松合食品",
         "catch": "キャッチコピー",
-        "image": "img/1-1/Cafe.png",
+        "image": "../student/img/store/matsuai.png",
         "pr": [
             "PR文１",
             "PR文２"
@@ -1280,7 +1280,7 @@
         "id": "3-5-1",
         "name": "えびす屋餅本舗",
         "catch": "キャッチコピー",
-        "image": "img/1-1/Cafe.png",
+        "image": "../student/img/store/ebisuya.png",
         "pr": [
             "PR文１",
             "PR文２"
@@ -1309,7 +1309,7 @@
         "id": "3-6-1",
         "name": "ブローニュの森",
         "catch": "キャッチコピー",
-        "image": "img/1-1/Cafe.png",
+        "image": "../student/img/store/Boulogne.png",
         "pr": [
             "PR文１",
             "PR文２"
@@ -1454,7 +1454,7 @@
         "id": "3-9-1",
         "name": "AmeYa",
         "catch": "キャッチコピー",
-        "image": "img/1-1/Cafe.png",
+        "image": "../student/img/store/AmeYa.png",
         "pr": [
             "PR文１",
             "PR文２"
