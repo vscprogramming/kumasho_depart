@@ -263,6 +263,7 @@ async function content_generation(post, post_cs) {
         company_total_display.appendChild(crowd_status);
 
         company_total_display.dataset.t_index = c;
+        company_total_display_text_products.dataset.t_index = c;
 
         // テーブルの作成
         const tab_contents_table = document.createElement('table');    // テーブル全体
@@ -444,8 +445,8 @@ async function content_generation(post, post_cs) {
                 }
 
                 ps_count.sales_count[c] = company_sales_count;
-                const company_total_display_text_update = document.querySelector(`.company_total_display_text[data-p_index="${c}"]`);
-                if (company_total_display_text_update) company_total_display_text_update.innerHTML = `<span class="company_total_display_text_company_name">${all_data[c].company_name}</span>（　商品数：${ps_count.products_count[c]}　／　完売数：${company_sales_count}　）`;
+                const company_total_display_text_update = document.querySelector(`.company_total_display_text_products[data-t_index="${c}"]`);
+                if (company_total_display_text_update) company_total_display_text_update.innerHTML = `（　商品数：${ps_count.products_count[c]}　／　完売数：${company_sales_count}　）`;
             }
 
             total_display.innerHTML = `企業数：${company_count}　／　商品数合計：${all_products_count}　／　完売数合計：${all_sales_count}`;
