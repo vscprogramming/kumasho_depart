@@ -15,8 +15,13 @@
     "class": "1-3"
   },
   {
-    "name": "AmeYa",
+    "name": "商品3",
     "store": "AmeYa",
     "class": "3-9"
+  },
+  {
+    "name": "商品1",
+    "store": "春風庵",
+    "class": "2-5"
   }
 ]
