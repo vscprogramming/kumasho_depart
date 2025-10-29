@@ -280,7 +280,7 @@
             {
                 "pro_name": "アサイーボウル",
                 "pro_img": "img/products/crepe/ab_adb.png",
-                "price": 150,
+                "price": 230,
                 "stock": "両日販売　数量制限なし",
                 "pro_desc": "流行りのアサイーボウル。",
                 "sales_day": 12
@@ -288,7 +288,7 @@
             {
                 "pro_name": "あんバター（開発商品）",
                 "pro_img": "img/products/crepe/ab_adb.png",
-                "price": 150,
+                "price": 230,
                 "stock": "両日販売　数量制限なし",
                 "pro_desc": "あんバター。",
                 "sales_day": 12
@@ -296,7 +296,7 @@
             {
                 "pro_name": "いちご",
                 "pro_img": "img/products/crepe/sb.png",
-                "price": 150,
+                "price": 230,
                 "stock": "両日販売　数量制限なし",
                 "pro_desc": "クリームの中にフレッシュな熊本産いちごをトッピング。",
                 "sales_day": 12
@@ -304,7 +304,7 @@
             {
                 "pro_name": "クッキーアンドクリーム",
                 "pro_img": "img/products/crepe/cac.png",
-                "price": 150,
+                "price": 230,
                 "stock": "両日販売　数量制限なし",
                 "pro_desc": "クッキーアンドクリーム。",
                 "sales_day": 12
@@ -312,7 +312,7 @@
             {
                 "pro_name": "ダブルチョコ",
                 "pro_img": "img/products/crepe/dc.png",
-                "price": 150,
+                "price": 230,
                 "stock": "両日販売　数量制限なし",
                 "pro_desc": "チョコクリームの中にチョコスプレー。<br>チョコ好きにはたまらない一品。",
                 "sales_day": 12
@@ -320,7 +320,7 @@
             {
                 "pro_name": "チョコバナナ",
                 "pro_img": "img/products/crepe/cb.png",
-                "price": 150,
+                "price": 230,
                 "stock": "両日販売　数量制限なし",
                 "pro_desc": "クリームのなかにフレッシュな完熟バナナをトッピング。",
                 "sales_day": 12
@@ -328,7 +328,7 @@
             {
                 "pro_name": "抹茶小倉",
                 "pro_img": "img/products/crepe/ta.png",
-                "price": 150,
+                "price": 230,
                 "stock": "両日販売　数量制限なし",
                 "pro_desc": "抹茶クリームにつぶあんをトッピング。",
                 "sales_day": 12
@@ -1272,6 +1272,31 @@
     },
     {
         "id": "341",
+        "com_name": "肥後製油",
+        "com_img": "img/store/higo_oil.png",
+        "form_url": "https://docs.google.com/forms/d/e/1FAIpQLSc8Ng2RBkTIejIrmkXvd1hoPdhiQqI9ZJeWAOoDuePGFYld1Q/viewform?entry.1111782218=%E8%82%A5%E5%BE%8C%E8%A3%BD%E6%B2%B9",
+        "com_desc": "",
+        "products": [
+            {
+                "pro_name": "トマトと菜種油",
+                "pro_img": "img/home/no_image.png",
+                "price": 1300,
+                "stock": "1日目限定　数量制限なし",
+                "pro_desc": "",
+                "sales_day": 1
+            },
+            {
+                "pro_name": "だし菜種油",
+                "pro_img": "img/home/no_image.png",
+                "price": 900,
+                "stock": "1日目限定　数量制限なし",
+                "pro_desc": "",
+                "sales_day": 1
+            }
+        ]
+    },
+    {
+        "id": "342",
         "com_name": "松合食品",
         "com_img": "img/store/matsuai.png",
         "form_url": "https://docs.google.com/forms/d/e/1FAIpQLSc8Ng2RBkTIejIrmkXvd1hoPdhiQqI9ZJeWAOoDuePGFYld1Q/viewform?usp=pp_url&entry.1111782218=%E6%9D%BE%E5%90%88%E9%A3%9F%E5%93%81",
@@ -1336,14 +1361,6 @@
         "com_desc": "",
         "products": [
             {
-                "pro_name": "アクリルキーホルダー（13種）",
-                "pro_img": "img/home/no_image.png",
-                "price": 300,
-                "stock": "1日目限定　数量制限なし",
-                "pro_desc": "前回（2024年）までの熊商デパートで販売したアクリルキーホルダーです。",
-                "sales_day": 1
-            },
-            {
                 "pro_name": "クッキー　3枚入り",
                 "pro_img": "img/home/no_image.png",
                 "price": 350,
@@ -1353,7 +1370,7 @@
             },
             {
                 "pro_name": "マドレーヌ　2個入り",
-                "pro_img": "img/products/Boulogne/m2.png",
+                "pro_img": "img/home/no_image.png",
                 "price": 480,
                 "stock": "1日目限定　50個",
                 "pro_desc": "チョコとはちみつの2種類のしっとりマドレーヌのセット。",
@@ -1361,7 +1378,7 @@
             },
             {
                 "pro_name": "熊商部活ユニフォームアクリルキーホルダー（サッカー）",
-                "pro_img": "img/home/no_image.png",
+                "pro_img": "img/products/Boulogne/kcuks.png",
                 "price": 300,
                 "stock": "1日目限定　数量制限なし",
                 "pro_desc": "熊商サッカー部のユニフォームのアクリルキーホルダーです。",
@@ -1377,7 +1394,7 @@
             },
             {
                 "pro_name": "熊商部活ユニフォームアクリルキーホルダー（バレー）",
-                "pro_img": "img/home/no_image.png",
+                "pro_img": "img/products/Boulogne/kcukv.png",
                 "price": 300,
                 "stock": "1日目限定　数量制限なし",
                 "pro_desc": "熊商バレー部のユニフォームのアクリルキーホルダーです。",
@@ -1401,7 +1418,7 @@
             },
             {
                 "pro_name": "熊商部活ユニフォームアクリルキーホルダー（陸上）",
-                "pro_img": "img/home/no_image.png",
+                "pro_img": "img/products/Boulogne/kcuktf.png",
                 "price": 300,
                 "stock": "1日目限定　数量制限なし",
                 "pro_desc": "熊商陸上部のユニフォームのアクリルキーホルダーです。",
@@ -1413,6 +1430,118 @@
                 "price": 1090,
                 "stock": "1日目限定　30個",
                 "pro_desc": "（リーフパイ、クッキー、フランボワーズクッキー、チョコマドレーヌ、板バームクーヘン）<br>のセットです。",
+                "sales_day": 1
+            },
+            {
+                "pro_name": "アクリルキーホルダー（コラボ①）",
+                "pro_img": "img/products/Boulogne/acc.png",
+                "price": 300,
+                "stock": "1日目限定　数量制限なし",
+                "pro_desc": "熊商とブローニュのコラボアクリルキーホルダーです。<br>※商品名の連番と画像内の連番が対応しています。",
+                "sales_day": 1
+            },
+            {
+                "pro_name": "アクリルキーホルダー（コラボ②）",
+                "pro_img": "img/products/Boulogne/acc.png",
+                "price": 300,
+                "stock": "1日目限定　数量制限なし",
+                "pro_desc": "熊商とブローニュのコラボアクリルキーホルダーです。<br>※商品名の連番と画像内の連番が対応しています。",
+                "sales_day": 1
+            },
+            {
+                "pro_name": "アクリルキーホルダー（コラボ③）",
+                "pro_img": "img/products/Boulogne/acc.png",
+                "price": 300,
+                "stock": "1日目限定　数量制限なし",
+                "pro_desc": "熊商とブローニュのコラボアクリルキーホルダーです。<br>※商品名の連番と画像内の連番が対応しています。",
+                "sales_day": 1
+            },
+            {
+                "pro_name": "アクリルキーホルダー（コラボ④）",
+                "pro_img": "img/products/Boulogne/acc.png",
+                "price": 300,
+                "stock": "1日目限定　数量制限なし",
+                "pro_desc": "熊商とブローニュのコラボアクリルキーホルダーです。<br>※商品名の連番と画像内の連番が対応しています。",
+                "sales_day": 1
+            },
+            {
+                "pro_name": "アクリルキーホルダー（コラボ⑤）",
+                "pro_img": "img/products/Boulogne/acc.png",
+                "price": 300,
+                "stock": "1日目限定　数量制限なし",
+                "pro_desc": "熊商とブローニュのコラボアクリルキーホルダーです。<br>※商品名の連番と画像内の連番が対応しています。",
+                "sales_day": 1
+            },
+            {
+                "pro_name": "アクリルキーホルダー（コラボ⑥）",
+                "pro_img": "img/products/Boulogne/acc.png",
+                "price": 300,
+                "stock": "1日目限定　数量制限なし",
+                "pro_desc": "熊商とブローニュのコラボアクリルキーホルダーです。<br>※商品名の連番と画像内の連番が対応しています。",
+                "sales_day": 1
+            },
+            {
+                "pro_name": "アクリルキーホルダー（コラボ⑦）",
+                "pro_img": "img/products/Boulogne/acc.png",
+                "price": 300,
+                "stock": "1日目限定　数量制限なし",
+                "pro_desc": "熊商とブローニュのコラボアクリルキーホルダーです。<br>※商品名の連番と画像内の連番が対応しています。",
+                "sales_day": 1
+            },
+            {
+                "pro_name": "アクリルキーホルダー（コラボ⑧）",
+                "pro_img": "img/products/Boulogne/acc.png",
+                "price": 300,
+                "stock": "1日目限定　数量制限なし",
+                "pro_desc": "熊商とブローニュのコラボアクリルキーホルダーです。<br>※商品名の連番と画像内の連番が対応しています。",
+                "sales_day": 1
+            },
+            {
+                "pro_name": "アクリルキーホルダー（ブローニュの森①）",
+                "pro_img": "img/products/Boulogne/acb.png",
+                "price": 300,
+                "stock": "1日目限定　数量制限なし",
+                "pro_desc": "ブローニュの森の商品の画像のアクリルキーホルダーです。<br>※商品名の連番と画像内の連番が対応しています。",
+                "sales_day": 1
+            },
+            {
+                "pro_name": "アクリルキーホルダー（ブローニュの森②）",
+                "pro_img": "img/products/Boulogne/acb.png",
+                "price": 300,
+                "stock": "1日目限定　数量制限なし",
+                "pro_desc": "ブローニュの森の商品の画像のアクリルキーホルダーです。<br>※商品名の連番と画像内の連番が対応しています。",
+                "sales_day": 1
+            },
+            {
+                "pro_name": "アクリルキーホルダー（ブローニュの森③）",
+                "pro_img": "img/products/Boulogne/acb.png",
+                "price": 300,
+                "stock": "1日目限定　数量制限なし",
+                "pro_desc": "ブローニュの森の商品の画像のアクリルキーホルダーです。<br>※商品名の連番と画像内の連番が対応しています。",
+                "sales_day": 1
+            },
+            {
+                "pro_name": "アクリルキーホルダー（ブローニュの森④）",
+                "pro_img": "img/products/Boulogne/acb.png",
+                "price": 300,
+                "stock": "1日目限定　数量制限なし",
+                "pro_desc": "ブローニュの森の商品の画像のアクリルキーホルダーです。<br>※商品名の連番と画像内の連番が対応しています。",
+                "sales_day": 1
+            },
+            {
+                "pro_name": "アクリルキーホルダー（ブローニュの森⑤）",
+                "pro_img": "img/products/Boulogne/acb.png",
+                "price": 300,
+                "stock": "1日目限定　数量制限なし",
+                "pro_desc": "ブローニュの森の商品の画像のアクリルキーホルダーです。<br>※商品名の連番と画像内の連番が対応しています。",
+                "sales_day": 1
+            },
+            {
+                "pro_name": "アクリルキーホルダー（ブローニュの森⑥）",
+                "pro_img": "img/products/Boulogne/acb.png",
+                "price": 300,
+                "stock": "1日目限定　数量制限なし",
+                "pro_desc": "ブローニュの森の商品の画像のアクリルキーホルダーです。<br>※商品名の連番と画像内の連番が対応しています。",
                 "sales_day": 1
             }
         ]
@@ -1458,11 +1587,11 @@
         "com_desc": "",
         "products": [
             {
-                "pro_name": "商品情報未確定",
-                "pro_img": "img/home/no_image.png",
-                "price": "",
-                "stock": "",
-                "pro_desc": "情報が確定していません。<br>情報更新までしばらくお待ち下さい。",
+                "pro_name": "ランチパック「くりくりマロン」",
+                "pro_img": "img/products/yamazaki/marron.png",
+                "price": 150,
+                "stock": "両日販売　数量制限なし",
+                "pro_desc": "　山崎製パンコラボ第3弾！<br>　熊本県産和栗を使った「和栗クリームとマロンあんのサンド」と「和栗クリームと和栗ホイップのサンド」の2種類を味わうことができるアソートランチパックになっています。<br>※熊本城の復興・復旧として、売り上げ1個につき1円が熊本市に寄付されます。",
                 "sales_day": 12
             }
         ]
