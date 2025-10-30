@@ -686,17 +686,9 @@
                 "sales_day": 12
             },
             {
-                "pro_name": "みなまた茶ティーバッグ",
-                "pro_img": "img/products/JA_ashikita/mtb.png",
-                "price": 900,
-                "stock": "両日販売　1日あたり10個",
-                "pro_desc": "みなまた茶のティーバッグが入っている商品。<br>3g×20。",
-                "sales_day": 12
-            },
-            {
                 "pro_name": "水俣特上玉緑茶",
                 "pro_img": "img/products/JA_ashikita/mtbt.png",
-                "price": 900,
+                "price": 1000,
                 "stock": "両日販売　1日あたり10個",
                 "pro_desc": "水俣の美味しいお茶です。",
                 "sales_day": 12
@@ -1010,6 +1002,14 @@
                 "price": "【未確定】",
                 "stock": "両日販売　数量制限なし",
                 "pro_desc": "甘くて濃い！おすすめの品！",
+                "sales_day": 12
+            },
+            {
+                "pro_name": "トマトチップス",
+                "pro_img": "img/products/ukisaikan/tc.png",
+                "price": 440,
+                "stock": "両日販売　数量制限なし",
+                "pro_desc": "9月末から販売中の新商品！友達とシェアして食べられる大きさ!!<br>トマト味!?ナポリタン味!?",
                 "sales_day": 12
             }
         ]

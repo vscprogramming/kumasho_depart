@@ -71,7 +71,7 @@ function content_generation() {
 
         const title_class = Object.assign(document.createElement('h3'), {
             className: 'title_text',
-            textContent: `担当クラス：${c_class}`
+            textContent: `担当クラス・部：${c_class}`
         });
         Object.assign(title_class.style, { textShadow: `7px 7px 7px ${all_data[c].id[0] === '1' ? '#77f' : all_data[c].id[0] === '2' ? '#f77' : all_data[c].id[0] === '3' ? '#7f7' : '#f70'}` });
         company_title.appendChild(title_text);
@@ -88,7 +88,7 @@ function content_generation() {
         Object.assign(form_btn.style, {
             backgroundColor: all_data[c].id[0] === '1' ? '#77f' : all_data[c].id[0] === '2' ? '#f77' : all_data[c].id[0] === '3' ? '#7f7' : '#f70',
             color: all_data[c].id[0] === '3' ? '#333' : '#eee'
-        })
+        });
         content.appendChild(form_btn);  // 最後
 
         // 商品カード生成
