@@ -1011,6 +1011,14 @@
                 "stock": "両日販売　数量制限なし",
                 "pro_desc": "9月末から販売中の新商品！友達とシェアして食べられる大きさ!!<br>トマト味!?ナポリタン味!?",
                 "sales_day": 12
+            },
+            {
+                "pro_name": "のり（味付け）",
+                "pro_img": "img/home/no_image.png",
+                "price": 600,
+                "stock": "両日販売　数量制限なし",
+                "pro_desc": "箸が進む！！ご飯に合う！！とても美味しいです",
+                "sales_day": 12
             }
         ]
     },
@@ -1035,6 +1043,38 @@
                 "price": "【未確定】",
                 "stock": "両日販売　数量制限なし",
                 "pro_desc": "とても美味しい海苔！",
+                "sales_day": 12
+            },
+            {
+                "pro_name": "のり（焼き）",
+                "pro_img": "img/home/no_image.png",
+                "price": 600,
+                "stock": "両日販売　数量制限なし",
+                "pro_desc": "パリパリでおにぎりと相性抜群！！！",
+                "sales_day": 12
+            },
+            {
+                "pro_name": "ふりかけ",
+                "pro_img": "img/home/no_image.png",
+                "price": 700,
+                "stock": "両日販売　数量制限なし",
+                "pro_desc": "出来立てご飯やおにぎりと相性抜群です！！",
+                "sales_day": 12
+            },
+            {
+                "pro_name": "ほりにしスパイス",
+                "pro_img": "img/home/no_image.png",
+                "price": 750,
+                "stock": "両日販売　数量制限なし",
+                "pro_desc": "某焼肉店でも使用されている最高のBBQスパイス！",
+                "sales_day": 12
+            },
+            {
+                "pro_name": "メロンパン",
+                "pro_img": "img/home/no_image.png",
+                "price": 220,
+                "stock": "両日販売　数量制限なし",
+                "pro_desc": "あまっ！さくっ！うまっ！やすっ！",
                 "sales_day": 12
             }
         ]
