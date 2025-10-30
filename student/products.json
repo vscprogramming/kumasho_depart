@@ -124,18 +124,18 @@
         "products": [
             {
                 "pro_name": "ソースマヨ",
-                "pro_img": "img/home/no_image.png",
+                "pro_img": "img/products/kondo/saum.png",
                 "price": 400,
                 "stock": "両日販売　数量制限なし",
-                "pro_desc": "",
+                "pro_desc": "まずは定番のソースマヨ、濃い味が癖になる！",
                 "sales_day": 12
             },
             {
                 "pro_name": "塩マヨ",
-                "pro_img": "img/home/no_image.png",
+                "pro_img": "img/products/kondo/salm.png",
                 "price": 400,
                 "stock": "両日販売　数量制限なし",
-                "pro_desc": "",
+                "pro_desc": "さっぱりとした味わい、何度も食べれる！",
                 "sales_day": 12
             }
         ]
@@ -152,7 +152,7 @@
                 "pro_img": "img/products/ringodo/plain.png",
                 "price": 680,
                 "stock": "両日販売　数量制限なし",
-                "pro_desc": "",
+                "pro_desc": "甘くて美味しい、みずみずしくて食べやすい！",
                 "sales_day": 12
             },
             {
@@ -160,7 +160,7 @@
                 "pro_img": "img/products/ringodo/plain.png",
                 "price": 600,
                 "stock": "両日販売　数量制限なし",
-                "pro_desc": "",
+                "pro_desc": "甘くて美味しい、みずみずしくて食べやすい！",
                 "sales_day": 12
             },
             {
@@ -168,7 +168,7 @@
                 "pro_img": "img/products/ringodo/wc.png",
                 "price": 780,
                 "stock": "両日販売　数量制限なし",
-                "pro_desc": "",
+                "pro_desc": "カリッとした食感が楽しくて甘党にはぴったし！",
                 "sales_day": 12
             },
             {
@@ -176,7 +176,7 @@
                 "pro_img": "img/products/ringodo/wc.png",
                 "price": 700,
                 "stock": "両日販売　数量制限なし",
-                "pro_desc": "",
+                "pro_desc": "カリッとした食感が楽しくて甘党にはぴったし！",
                 "sales_day": 12
             }
         ]
