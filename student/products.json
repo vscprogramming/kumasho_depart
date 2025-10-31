@@ -998,22 +998,6 @@
         "com_desc": "",
         "products": [
             {
-                "pro_name": "BBQスパイス",
-                "pro_img": "img/home/no_image.png",
-                "price": "【未確定】",
-                "stock": "両日販売　数量制限なし",
-                "pro_desc": "BBQのときに役立つソース。",
-                "sales_day": 12
-            },
-            {
-                "pro_name": "海苔三種類",
-                "pro_img": "img/home/no_image.png",
-                "price": "【未確定】",
-                "stock": "両日販売　数量制限なし",
-                "pro_desc": "とても美味しい海苔！",
-                "sales_day": 12
-            },
-            {
                 "pro_name": "のり（焼き）",
                 "pro_img": "img/home/no_image.png",
                 "price": 600,
@@ -1209,6 +1193,14 @@
                 "price": 350,
                 "stock": "両日販売　数量制限なし",
                 "pro_desc": "授業や勉強のときに！",
+                "sales_day": 12
+            },
+            {
+                "pro_name": "フエキくんグルー",
+                "pro_img": "img/products/kogyokudo/fueki.png",
+                "price": 350,
+                "stock": "両日販売　数量制限なし",
+                "pro_desc": "大人気キャラクターのフエキくんののり<br>スティック状だから使いやすい！",
                 "sales_day": 12
             }
         ]
