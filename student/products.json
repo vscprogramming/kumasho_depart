@@ -1208,15 +1208,39 @@
         "id": "311",
         "com_name": "甲玉堂",
         "com_img": "img/store/kogyokudo.png",
-        "form_url": "",
+        "form_url": "https://docs.google.com/forms/d/e/1FAIpQLSc8Ng2RBkTIejIrmkXvd1hoPdhiQqI9ZJeWAOoDuePGFYld1Q/viewform?entry.1111782218=%E7%94%B2%E7%8E%89%E5%A0%82",
         "com_desc": "",
         "products": [
             {
-                "pro_name": "商品情報未確定",
-                "pro_img": "img/home/no_image.png",
-                "price": "",
-                "stock": "",
-                "pro_desc": "10月30日に情報が確定します。<br>情報更新までしばらくお待ち下さい。",
+                "pro_name": "PG-METAL350（ホワイト）0.3",
+                "pro_img": "img/products/kogyokudo/PG_.3w.png",
+                "price": 350,
+                "stock": "両日販売　数量制限なし",
+                "pro_desc": "使いやすく買いやすいシャープペンシル！学校で使おう！",
+                "sales_day": 12
+            },
+            {
+                "pro_name": "PG-METAL350（ブラック）0.3",
+                "pro_img": "img/products/kogyokudo/PG_.3b.png",
+                "price": 350,
+                "stock": "両日販売　数量制限なし",
+                "pro_desc": "書きやすく使いやすいシャープペンシル大人気ブラック！",
+                "sales_day": 12
+            },
+            {
+                "pro_name": "PG-METAL350（ブラック）0.5",
+                "pro_img": "img/products/kogyokudo/PG_.5b.png",
+                "price": 350,
+                "stock": "両日販売　数量制限なし",
+                "pro_desc": "学校でも家でもたくさん使えます！",
+                "sales_day": 12
+            },
+            {
+                "pro_name": "PG-METAL350（ダークブルー）0.5",
+                "pro_img": "img/products/kogyokudo/PG_.5db.png",
+                "price": 350,
+                "stock": "両日販売　数量制限なし",
+                "pro_desc": "授業や勉強のときに！",
                 "sales_day": 12
             }
         ]
