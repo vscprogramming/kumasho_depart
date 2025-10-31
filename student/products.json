@@ -1064,7 +1064,7 @@
             },
             {
                 "pro_name": "茶蜜（chamitu）",
-                "pro_img": "img/home/no_image.png",
+                "pro_img": "img/products/Greentea_Lab/chamitu.png",
                 "price": 1300,
                 "stock": "1日目限定　数量制限なし",
                 "pro_desc": "",
@@ -1113,11 +1113,11 @@
                 "sales_day": 1
             },
             {
-                "pro_name": "潤生ゆく麺＆くる麺セット",
-                "pro_img": "img/home/no_image.png",
+                "pro_name": "潤生ゆく年＆くる年セット",
+                "pro_img": "img/products/higo_soukawa/yk_set.png",
                 "price": 1600,
                 "stock": "2日目限定　20個",
-                "pro_desc": "",
+                "pro_desc": "長く続く長寿を願い、拓ける未来に目出鯛（めでたい）を！<br>熊本県産の小麦と赤穂の塩・国産鯛を使った潤生のうどんと蕎麦のセット。<br>煮込んで麺からの旨味（蕎麦・鯛・赤穂塩）をだしとして利用しています。",
                 "sales_day": 1
             }
         ]
