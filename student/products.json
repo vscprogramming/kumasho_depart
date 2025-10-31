@@ -917,7 +917,7 @@
         ]
     },
     {
-        "id": "262",
+        "id": "261",
         "com_name": "山鹿和栗洋菓子店An（杏）",
         "com_img": "img/store/An.png",
         "form_url": "https://docs.google.com/forms/d/e/1FAIpQLSc8Ng2RBkTIejIrmkXvd1hoPdhiQqI9ZJeWAOoDuePGFYld1Q/viewform?usp=pp_url&entry.1111782218=%E5%B1%B1%E9%B9%BF%E5%92%8C%E6%A0%97%E6%B4%8B%E8%8F%93%E5%AD%90%E5%BA%97An(%E6%9D%8F%EF%BC%89",
@@ -933,7 +933,7 @@
             },
             {
                 "pro_name": "カステララスク",
-                "pro_img": "img/home/no_image.png",
+                "pro_img": "img/products/An/cr.png",
                 "price": 250,
                 "stock": "両日販売　1日当たり10個",
                 "pro_desc": "山鹿産の和栗を使った、やさしい甘さのカステララスク。<br>サクッと香ばしい食感と、ほのかな栗の風味が広がります。",
@@ -949,7 +949,7 @@
             },
             {
                 "pro_name": "栗あんパイ",
-                "pro_img": "img/home/no_image.png",
+                "pro_img": "img/products/An/map.png",
                 "price": 350,
                 "stock": "両日販売　1日当たり10個",
                 "pro_desc": "特性の栗あんで、山鹿和栗の甘露煮をパイ生地に包んで焼き上げました。",
@@ -957,7 +957,7 @@
             },
             {
                 "pro_name": "栗コロ（栗フィナンシェ）",
-                "pro_img": "img/home/no_image.png",
+                "pro_img": "img/products/An/mc.png",
                 "price": 250,
                 "stock": "両日販売　1日あたり10個",
                 "pro_desc": "自家製山鹿和栗ペーストをバター風味たっぷりのフィナンシェ生地に練り込んで焼き上げました。<br>手土産にもぴったりです。",
@@ -973,38 +973,6 @@
         "com_desc": "",
         "products": [
             {
-                "pro_name": "いちご",
-                "pro_img": "img/products/ukisaikan/strawberry.png",
-                "price": "【未確定】",
-                "stock": "両日販売　数量制限なし",
-                "pro_desc": "熟して真っ赤！見た目も味も素敵！",
-                "sales_day": 12
-            },
-            {
-                "pro_name": "デコポン",
-                "pro_img": "img/products/ukisaikan/dekopon.png",
-                "price": "【未確定】",
-                "stock": "両日販売　数量制限なし",
-                "pro_desc": "とても甘いおすすめみかん！",
-                "sales_day": 12
-            },
-            {
-                "pro_name": "とまと",
-                "pro_img": "img/products/ukisaikan/tomato.png",
-                "price": "【未確定】",
-                "stock": "両日販売　数量制限なし",
-                "pro_desc": "酸味と甘味がいいマッチ！",
-                "sales_day": 12
-            },
-            {
-                "pro_name": "メロン",
-                "pro_img": "img/products/ukisaikan/melon.png",
-                "price": "【未確定】",
-                "stock": "両日販売　数量制限なし",
-                "pro_desc": "甘くて濃い！おすすめの品！",
-                "sales_day": 12
-            },
-            {
                 "pro_name": "トマトチップス",
                 "pro_img": "img/products/ukisaikan/tc.png",
                 "price": 440,
@@ -1014,7 +982,7 @@
             },
             {
                 "pro_name": "のり（味付け）",
-                "pro_img": "img/home/no_image.png",
+                "pro_img": "img/products/ukisaikan/an.png",
                 "price": 600,
                 "stock": "両日販売　数量制限なし",
                 "pro_desc": "箸が進む！！ご飯に合う！！とても美味しいです",
