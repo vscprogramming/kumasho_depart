@@ -314,7 +314,6 @@ tbody tr:nth-child(even) { background-color: #ffe0bc; }
     .pro_info { top: 224px; }
     .info p { font-size: 5vw; }
     .company_title { height: 34%; }
-    #store_buttons { max-height: 200vh; height: 200vh;}
     .products_card { height: 700px; }
     #products_window { width: 100%; }
     .products_img { max-height: 200px; }
@@ -326,6 +325,7 @@ tbody tr:nth-child(even) { background-color: #ffe0bc; }
     h1.title_text, .home_text h1 { font-size: 6.7vw; }
     #store_modal_button.show::before { content: '×'; }
     .products { grid-template-columns: repeat(1, 1fr); }
+    #store_buttons { max-height: 200vh; height: 200vh; }
 
     #left {
         width: 70%; height: 100%;
@@ -364,7 +364,7 @@ tbody tr:nth-child(even) { background-color: #ffe0bc; }
         align-items: center;
         justify-content: center;
         transform: translateX(0);
-        border: #eee solid 1px;
+        border: 1px solid #eee;
         background-color: #7d1f29;
     }
 

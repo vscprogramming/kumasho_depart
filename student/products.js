@@ -14,7 +14,7 @@ async function json_load() {
             json_data = await response.json();
 
             // データ構造変えちゃえ☆彡
-            json_data.forEach((jd_row, i) => { all_data[i + 1] = jd_row });
+            json_data.forEach((jd_row, i) => all_data[i + 1] = jd_row);
 
             // console.log(all_data);
         } else {
