@@ -979,14 +979,6 @@
                 "stock": "両日販売　数量制限なし",
                 "pro_desc": "9月末から販売中の新商品！友達とシェアして食べられる大きさ!!<br>トマト味!?ナポリタン味!?",
                 "sales_day": 12
-            },
-            {
-                "pro_name": "のり（味付け）",
-                "pro_img": "img/products/ukisaikan/an.png",
-                "price": 600,
-                "stock": "両日販売　数量制限なし",
-                "pro_desc": "箸が進む！！ご飯に合う！！とても美味しいです",
-                "sales_day": 12
             }
         ]
     },
@@ -997,6 +989,14 @@
         "form_url": "https://docs.google.com/forms/d/e/1FAIpQLSc8Ng2RBkTIejIrmkXvd1hoPdhiQqI9ZJeWAOoDuePGFYld1Q/viewform?usp=pp_url&entry.1111782218=%E5%AE%87%E5%9C%9F%E3%83%9E%E3%83%AA%E3%83%BC%E3%83%8A",
         "com_desc": "",
         "products": [
+            {
+                "pro_name": "のり（味付け）",
+                "pro_img": "img/products/uto_marina/an.png",
+                "price": 600,
+                "stock": "両日販売　数量制限なし",
+                "pro_desc": "箸が進む！！ご飯に合う！！とても美味しいです",
+                "sales_day": 12
+            },
             {
                 "pro_name": "のり（焼き）",
                 "pro_img": "img/home/no_image.png",
