@@ -1,0 +1,16 @@
+{
+                "pro_name": "わらびもち",
+                "pro_img": "img/products/shunpuan/wm.png",
+                "price": "【未確定】",
+                "stock": "1日目限定　5個",
+                "pro_desc": "本わらび粉を使用したツルンとしていてもちもちした餅に焦がしきなこがかかったお菓子。",
+                "sales_day": 1
+            },
+            {
+                "pro_name": "花真珠",
+                "pro_img": "img/products/shunpuan/hs.png",
+                "price": "【未確定】",
+                "stock": "1日目限定　20個",
+                "pro_desc": "ふわっとやわらかな蒸した生地に、舌触りなめらかなこだわったカスタードクリームを入れた洋風なお菓子です。",
+                "sales_day": 1
+            },

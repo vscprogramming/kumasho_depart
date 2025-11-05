@@ -762,7 +762,7 @@
             {
                 "pro_name": "かりん",
                 "pro_img": "img/products/shunpuan/karin.png",
-                "price": "【未確定】",
+                "price": 140,
                 "stock": "1日目限定　30個",
                 "pro_desc": "外はカリッ、中はしっとりしたこしあんが入った大人気商品です。",
                 "sales_day": 1
@@ -770,15 +770,15 @@
             {
                 "pro_name": "チョコ和風ロール",
                 "pro_img": "img/products/shunpuan/cjr.png",
-                "price": "【未確定】",
+                "price": 170,
                 "stock": "1日目限定　30個",
                 "pro_desc": "流行りのロールケーキを和テイストにしたようなお菓子で、しっとりしたきめ細やかな生地に、柔らかなきんとん餡を巻き仕上げて食べやすくカットした、見た目も可愛い人気の逸品です。",
                 "sales_day": 1
             },
             {
-                "pro_name": "どら焼き",
+                "pro_name": "どらやき",
                 "pro_img": "img/products/shunpuan/dorayaki.png",
-                "price": "【未確定】",
+                "price": 150,
                 "stock": "1日目限定　30個",
                 "pro_desc": "豆をじっくりゆっくり煮立たせて風味を損なわないように作り上げた春風庵特製のつぶあんを、一枚一枚丁寧に焼き上げたふっくらな皮にふんだんに挟んだ自慢の逸品です。",
                 "sales_day": 1
@@ -786,7 +786,7 @@
             {
                 "pro_name": "みそまんじゅう",
                 "pro_img": "img/products/shunpuan/mm.png",
-                "price": "【未確定】",
+                "price": 100,
                 "stock": "1日目限定　50個",
                 "pro_desc": "あんは厳選した麦味噌が練りこまれ、ほんのりとした塩気が白あんの甘さを引き立てるお菓子です。",
                 "sales_day": 1
@@ -794,31 +794,15 @@
             {
                 "pro_name": "もなか",
                 "pro_img": "img/products/shunpuan/monaca.png",
-                "price": "【未確定】",
+                "price": 150,
                 "stock": "1日目限定　15個",
                 "pro_desc": "春風庵自慢の自家製つぶあんと、しっかり焼き上げた最中種の相性が絶品です。<br>シンプルなので、つぶあんの美味しさが際立ちます。",
                 "sales_day": 1
             },
             {
-                "pro_name": "わらびもち",
-                "pro_img": "img/products/shunpuan/wm.png",
-                "price": "【未確定】",
-                "stock": "1日目限定　5個",
-                "pro_desc": "本わらび粉を使用したツルンとしていてもちもちした餅に焦がしきなこがかかったお菓子。",
-                "sales_day": 1
-            },
-            {
-                "pro_name": "花真珠",
-                "pro_img": "img/products/shunpuan/hs.png",
-                "price": "【未確定】",
-                "stock": "1日目限定　20個",
-                "pro_desc": "ふわっとやわらかな蒸した生地に、舌触りなめらかなこだわったカスタードクリームを入れた洋風なお菓子です。",
-                "sales_day": 1
-            },
-            {
                 "pro_name": "野釜の瀬戸",
                 "pro_img": "img/products/shunpuan/ys.png",
-                "price": "【未確定】",
+                "price": 170,
                 "stock": "1日目限定　30個",
                 "pro_desc": "天草にある野釜島の瀬戸の渦を表現した商品で、ほのかな抹茶風味の和ロールです。",
                 "sales_day": 1
