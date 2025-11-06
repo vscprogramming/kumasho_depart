@@ -1452,9 +1452,9 @@
     },
     {
         "id": "3-9-1",
-        "name": "AmeYa",
+        "name": "Ameya",
         "catch": "キャッチコピー",
-        "image": "../student/img/store/AmeYa.png",
+        "image": "../student/img/store/Ameya.png",
         "pr": [
             "PR文１",
             "PR文２"
@@ -1476,7 +1476,7 @@
                 "image": "img/1-1/Cafe03.png"
             }
         ],
-        "company_name": "AmeYa",
+        "company_name": "Ameya",
         "gasUrl": "https://script.google.com/macros/s/AKfycbyEHLBgehDKx2n8OztlXKV_V3c71krJc1dIgIE4mM8CdBIYvK6wZb_eb1oi98LzwQQqWw/exec"
     },
     {

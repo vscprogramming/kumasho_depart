@@ -1548,14 +1548,14 @@
     },
     {
         "id": "391",
-        "com_name": "AmeYa",
-        "com_img": "img/store/AmeYa.png",
+        "com_name": "Ameya",
+        "com_img": "img/store/Ameya.png",
         "form_url": "https://docs.google.com/forms/d/e/1FAIpQLSc8Ng2RBkTIejIrmkXvd1hoPdhiQqI9ZJeWAOoDuePGFYld1Q/viewform?entry.1111782218=AmeYa",
         "com_desc": "",
         "products": [
             {
                 "pro_name": "キャンディーパック（いちご）",
-                "pro_img": "img/products/AmeYa/cs.png",
+                "pro_img": "img/products/Ameya/cs.png",
                 "price": 480,
                 "stock": "1日目限定　40個",
                 "pro_desc": "全て天然の色素を使った、いちご味の手作りキャンディーです。",
@@ -1563,7 +1563,7 @@
             },
             {
                 "pro_name": "キャンディーパック（ぶどう）",
-                "pro_img": "img/products/AmeYa/cg.png",
+                "pro_img": "img/products/Ameya/cg.png",
                 "price": 480,
                 "stock": "1日目限定　40個",
                 "pro_desc": "全て天然の色素を使った、ぶどう味の手作りキャンディーです。",
@@ -1571,7 +1571,7 @@
             },
             {
                 "pro_name": "スノーボール（バニラ）",
-                "pro_img": "img/products/AmeYa/sv.png",
+                "pro_img": "img/products/Ameya/sv.png",
                 "price": 390,
                 "stock": "1日目限定　100個",
                 "pro_desc": "粉糖をまぶしたバニラ味でサクサクのスノーボールです。",
