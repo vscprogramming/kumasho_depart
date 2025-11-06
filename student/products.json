@@ -386,7 +386,7 @@
             {
                 "pro_name": "えびマヨ",
                 "pro_img": "img/products/itoishiya/sm.png",
-                "price": 350,
+                "price": 330,
                 "stock": "1日目限定　100個",
                 "pro_desc": "揚げたての魚のすり身にマヨネーズ風味のえびを合わせた、アツアツで楽しめる商品です。",
                 "sales_day": 1
@@ -394,7 +394,7 @@
             {
                 "pro_name": "チーズ揚げ",
                 "pro_img": "img/products/itoishiya/cf.png",
-                "price": 350,
+                "price": 330,
                 "stock": "1日目限定　200個",
                 "pro_desc": "揚げたて熱々のかまぼこを頬張ると、中からチーズがとろけ出す名物です。",
                 "sales_day": 1
