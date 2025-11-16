@@ -51,9 +51,8 @@ const all_gas_url = new Map([
     ['3-9', 'https://script.google.com/macros/s/AKfycbyEHLBgehDKx2n8OztlXKV_V3c71krJc1dIgIE4mM8CdBIYvK6wZb_eb1oi98LzwQQqWw/exec']
 ]);
 
-const gas_url_post = all_gas_url.get(class_name), gas_url_get = `${gas_url_post}?sheet=${encodeURIComponent(class_name)}`;
-const gas_url_cs_post = 'https://script.google.com/macros/s/AKfycbwT4gS9ZQtDncvbyyHzZewqI-CprzojeoZjXc9jbJ1f1GdyTr611mi9Ja1FSZn7dVtI/exec';
-const gas_url_cs_get = `${gas_url_cs_post}?sheet=${encodeURIComponent('cs')}`;
+const gas_url_post = all_gas_url.get(class_name);
+const gas_url_get = `${gas_url_post}?sheet=${encodeURIComponent(class_name)}`;
 
 // console.log(`get用：${gas_url_get}`);
 // console.log(`post用：${gas_url_post}`);
@@ -64,6 +63,7 @@ var company_count = 0;  // 企業数の集計
 var tab_contents_div;   // タブコンテンツ
 var indexOf, start_indexOf; // 混雑状況用
 let tab_select = null;  // タブ用変数
+var search_text = new Array(10).fill(null);    // 検索窓に入力された値を保存する配列
 
 window.addEventListener('DOMContentLoaded', async () => {
     // 要素処理を一括適用
@@ -71,10 +71,10 @@ window.addEventListener('DOMContentLoaded', async () => {
 
     document.getElementById('loading').style.display = 'flex';  // ローディング表示
 
-    if (gas_url_get != null || gas_url_post != null || gas_url_cs_get != null || gas_url_cs_post != null) {
-        await gas_loading_cs(gas_url_cs_get);   // gas（混雑状況）の読み取り
+    if (gas_url_get != null || gas_url_post != null) {
+        await gas_loading_cs();   // gas（混雑状況）の読み取り
         await gas_Loading(gas_url_get); // gas読み込み
-        await content_generation(gas_url_post, gas_url_cs_post);    // コンテンツ生成
+        await content_generation(gas_url_post);    // コンテンツ生成
     } else {
         alert('データの読み込みに失敗しました。ログインページに遷移します。');
         window.location.href = '../home/home.html';
@@ -83,9 +83,9 @@ window.addEventListener('DOMContentLoaded', async () => {
     document.getElementById('loading').style.display = 'none';
 });
 
-async function gas_loading_cs(get) {
+async function gas_loading_cs() {
     try {
-        const response = await fetch(get);
+        const response = await fetch(`https://script.google.com/macros/s/AKfycbwT4gS9ZQtDncvbyyHzZewqI-CprzojeoZjXc9jbJ1f1GdyTr611mi9Ja1FSZn7dVtI/exec?sheet=${encodeURIComponent('cs')}`);
         if (response.ok) json_data_cs = await response.json();
         else alert('読み込みエラーが発生しました。\n再読み込みします。(cs leading error)');
     } catch (error) {
@@ -133,7 +133,7 @@ async function gas_Loading(get) {
     }
 }
 
-async function content_generation(post, post_cs) {
+async function content_generation(post) {
     // 再読み込み用に初期化
     document.getElementById('total_display').innerHTML = '';
 
@@ -317,9 +317,9 @@ async function content_generation(post, post_cs) {
             tab_contents_table_tbody_tr.appendChild(tab_contents_table_tbody_td_sales);
 
             // 検索窓に入力されてるか
-            if (document.getElementById('search_input').value.trim() != '') {
+            if (search_text[c] != null) {
                 // 絞り込み
-                if (all_data[c].products.pdname[p].includes(document.getElementById('search_input').value.trim())) {
+                if (all_data[c].products.pdname[p].includes(search_text[c])) {
                     tab_contents_table_tbody.appendChild(tab_contents_table_tbody_tr);
                     search_count++;
                 }
@@ -339,6 +339,7 @@ async function content_generation(post, post_cs) {
             const notFound = document.createElement('tr');
 
             const td = Object.assign(document.createElement('td'), {
+                id: 'not_found',
                 classList: 'not_found',
                 colSpan: 2,
                 textContent: '該当する商品が見つかりませんでした。'
@@ -354,10 +355,10 @@ async function content_generation(post, post_cs) {
         tab_contents_div.appendChild(tab_contents_table);
         document.getElementById('tab_contents').appendChild(tab_contents_div);
 
-        if (document.getElementById('search_input').value.trim() != '') {
+        if (search_text[c] != null) {
             const searched_text = Object.assign(document.createElement('p'), {
                 classList: 'searched_text',
-                textContent: search_count == 0 ? `「${document.getElementById('search_input').value.trim()}」で検索中：商品が見つかりませんでした` : `「${document.getElementById('search_input').value.trim()}」で検索中：${search_count}件見つかりました`
+                textContent: search_count == 0 ? `「${search_text[c].trim()}」で検索中：商品が見つかりませんでした` : `「${search_text[c].trim()}」で検索中：${search_count}件見つかりました`
             });
 
             document.querySelector(`.company_total_display[data-t_index="${c}"`).appendChild(searched_text);
@@ -373,8 +374,7 @@ async function content_generation(post, post_cs) {
         document.querySelectorAll('#tab_buttons button').forEach((btn, c) => { btn.classList.toggle('active_tab', c == tab_select) });
         document.querySelectorAll('.tab_content').forEach((div, c) => { div.classList.toggle('show', c == tab_select) });
 
-        // console.log('tab_select');
-        // console.log(tab_select);
+        console.log(`tab_select: ${tab_select}`);
     }
 
     // 混雑状況プルダウン変更時　ここから
@@ -391,15 +391,22 @@ async function content_generation(post, post_cs) {
             // console.log(json_data_cs);
 
             // gasへpostリクエスト
+            // console.log(pulldown_dataset_cs);
+            // console.log(json_data_cs[pulldown_dataset_cs].crowd_status);
+
             const gas_post_data_cs = new URLSearchParams({
                 company_number: pulldown_dataset_cs,
                 crowd_status: json_data_cs[pulldown_dataset_cs].crowd_status
             });
 
-            const response = await fetch(post_cs, {
+            // console.log(gas_post_data_cs);
+
+            const response = await fetch('https://script.google.com/macros/s/AKfycbwT4gS9ZQtDncvbyyHzZewqI-CprzojeoZjXc9jbJ1f1GdyTr611mi9Ja1FSZn7dVtI/exec', {
                 method: 'POST',
                 body: gas_post_data_cs
             });
+
+            // console.log(response);
 
             if (response.ok) {
                 const result = await response.text();
@@ -489,15 +496,22 @@ const element_process = [
     {   // 検索開く
         element_id: 'search_button',
         event: 'click',
-        handler: () => document.getElementById('search_modal_back').classList.add('show')
+        handler: () => {
+            document.getElementById('search_input').value = search_text[tab_select];
+            document.getElementById('search_modal_back').classList.add('show');
+        }
     },
     {   // 検索実行
-        element_id: 'search',
-        event: 'click',
-        handler: async () => {
+        element_id: 'search_form',
+        event: 'submit',
+        handler: async (event) => {
+            event.preventDefault();
+            if (document.getElementById('search_input').value === '') search_text[tab_select] = null;
+            else search_text[tab_select] = document.getElementById('search_input').value.trim();
+            console.log(search_text);
             document.getElementById('search_modal_back').classList.remove('show');
             await content_generation(gas_url_post);
-        }
+        } 
     },
     {   // 検索閉じる
         element_id: 'search_close_button',
@@ -509,6 +523,8 @@ const element_process = [
         event: 'click',
         handler: async () => {
             document.getElementById('search_input').value = '';
+            search_text = new Array(10).fill(null);
+            console.log(search_text);
             document.getElementById('search_modal_back').classList.remove('show');
             document.getElementById('search_icon').classList.remove('searched');
             document.getElementById('search_button').classList.remove('searched');
@@ -538,17 +554,6 @@ const element_process = [
             window.location.href = '../home/home.html';
         }
     },
-    {   // Enterキーで検索実行
-        element_id: 'search_input',
-        event: 'keydown',
-        handler: async (event) => {
-            if (event.key === 'Enter') {
-                event.preventDefault();
-                document.getElementById('search_modal_back').classList.remove('show');
-                await content_generation(gas_url_post);
-            }
-        }
-    },
     {   // タブの切り替え機構
         element_id: 'tab_buttons',
         event: 'click',
@@ -561,7 +566,7 @@ const element_process = [
                 document.querySelectorAll('.tab_content').forEach((div, i) => { div.classList.toggle('show', i == index) });
             }
 
-            // console.log(`tab_select: ${tab_select}`);
+            console.log(`tab_select: ${tab_select}`);
         }
     }
 ];
@@ -580,7 +585,8 @@ window.onload = () => {
         document.querySelectorAll('.tab_content').forEach((div, i) => {
             if (typeof scroll_tops[i] === 'number') div.scrollTop = scroll_tops[i];
         });
-    }, (Math.floor(Math.random() * (180 - 60 + 1) + 60) * 1000));
+        // Math.random() * (180 - 60 + 1) + 60) * 1000
+    }, (Math.floor(Math.random() * 121 + 60) * 1000));
 }
 
 window.addEventListener('resize', () => document.querySelectorAll('.tab_content').forEach(div => { div.style.maxHeight = `${window.innerHeight - 132.6}px` }));
