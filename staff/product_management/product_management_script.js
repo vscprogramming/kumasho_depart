@@ -1,7 +1,7 @@
 const class_name = localStorage.getItem('class_name'), class_number = localStorage.getItem('class_number');
 
-// console.log(`${class_name}, ${class_number}`);
-// console.log(`logged_${class_number}: ${localStorage.getItem(`logged_${class_number}`)}`);
+// console.debug(`${class_name}, ${class_number}`);
+// console.debug(`logged_${class_number}: ${localStorage.getItem(`logged_${class_number}`)}`);
 
 // 不正アクセス防止
 if (!localStorage.getItem(`logged_${class_number}`)) {
@@ -17,7 +17,7 @@ const fw_cn = ((num) => {
     return result;
 })(class_number);
 
-// console.log(`full_width_class_number: ${fw_cn}`);
+// console.debug(`full_width_class_number: ${fw_cn}`);
 
 ['page_title', 'title_display'].forEach(e_id => { document.getElementById(e_id).textContent = `${fw_cn[0]}年${fw_cn[1]}組` });
 
@@ -54,8 +54,8 @@ const all_gas_url = new Map([
 const gas_url_post = all_gas_url.get(class_name);
 const gas_url_get = `${gas_url_post}?sheet=${encodeURIComponent(class_name)}`;
 
-// console.log(`get用：${gas_url_get}`);
-// console.log(`post用：${gas_url_post}`);
+// console.debug(`get用：${gas_url_get}`);
+// console.debug(`post用：${gas_url_post}`);
 
 var json_data, all_data = [];   // データ最適化前・後
 var json_data_cs;   // 混雑状況
@@ -84,53 +84,75 @@ window.addEventListener('DOMContentLoaded', async () => {
 });
 
 async function gas_loading_cs() {
-    try {
-        const response = await fetch(`https://script.google.com/macros/s/AKfycbwT4gS9ZQtDncvbyyHzZewqI-CprzojeoZjXc9jbJ1f1GdyTr611mi9Ja1FSZn7dVtI/exec?sheet=${encodeURIComponent('cs')}`);
-        if (response.ok) json_data_cs = await response.json();
-        else alert('読み込みエラーが発生しました。\n再読み込みします。(cs leading error)');
-    } catch (error) {
-        alert('ネットワークエラーが発生しました。\n再読み込みします。');
-        window.location.reload();
+    let retry_count = 1;
+    while (retry_count <= 3) {
+        try {
+            const response = await fetch(`https://script.google.com/macros/s/AKfycbwT4gS9ZQtDncvbyyHzZewqI-CprzojeoZjXc9jbJ1f1GdyTr611mi9Ja1FSZn7dVtI/exec?sheet=${encodeURIComponent('cs')}`);
+
+            if (response.ok) {
+                json_data_cs = await response.json();
+                
+                // console.debug(json_data_cs);
+
+                return;
+            } else {
+                alert(`読み込みエラーが発生しました。\n再試行します。\n（${retry_count}/3, cs load error）`);
+                retry_count++;
+            }
+        } catch (error) {
+            alert(`ネットワークエラーが発生しました。\n再試行します。\n（${retry_count}/3, cs net error）`);
+            retry_count++;
+        }
+
     }
 
-    // console.log(json_data_cs);
+    alert('営業状況データが読み取れませんでした。\nネットワーク接続をもう一度確認して再読み込みして下さい。\nこの表示が何度も表示される場合は開発者にお問い合わせください。\nOKをクリックすると再読み込みを行います。');
+    window.location.reload();
 }
 
 async function gas_Loading(get) {
-    try {
-        const response = await fetch(get);
+    let retry_count = 1;
 
-        if (response.ok) {
-            json_data = await response.json();
-            all_data = [];
-            company_count = 0;
+    while (retry_count <= 3) {
+        try {
+            const response = await fetch(get);
 
-            // 扱いやすいデータ構造に変換
-            json_data.forEach(jd_row => {
-                all_data[company_count] = { company_name: '', products: { pdname: [], sales: [] } };
+            if (response.ok) {
+                json_data = await response.json();
+                all_data = [];
+                company_count = 0;
 
-                if ('company_name' in jd_row && jd_row.company_name != null) {
-                    all_data[company_count].company_name = jd_row.company_name;
-                    company_count++;
-                }
+                // 扱いやすいデータ構造に変換
+                json_data.forEach(jd_row => {
+                    all_data[company_count] = { company_name: '', products: { pdname: [], sales: [] } };
 
-                if ('pdname' in jd_row && 'sales' in jd_row && jd_row != null && jd_row.pdname != '') {
-                    all_data[company_count - 1].products.pdname.push(jd_row.pdname);
-                    all_data[company_count - 1].products.sales.push(jd_row.sales);
-                }
-            });
+                    if ('company_name' in jd_row && jd_row.company_name != null) {
+                        all_data[company_count].company_name = jd_row.company_name;
+                        company_count++;
+                    }
 
-            // console.log('all_data: ');
-            // console.log(all_data);
+                    if ('pdname' in jd_row && 'sales' in jd_row && jd_row != null && jd_row.pdname != '') {
+                        all_data[company_count - 1].products.pdname.push(jd_row.pdname);
+                        all_data[company_count - 1].products.sales.push(jd_row.sales);
+                    }
+                });
 
-        } else {
-            alert('読み込みエラーが発生しました。\n再読み込みします。(all leading error)');
-            window.location.reload();
+                // console.debug('all_data: ');
+                // console.debug(all_data);
+
+                return;
+            } else {
+                alert(`読み込みエラーが発生しました。\n再試行します。\n（${retry_count}/3, all load error）`);
+                retry_count++;
+            }
+        } catch (error) {
+            alert(`ネットワークエラーが発生しました。\n再試行します。\n（${retry_count}/3, all net error）`);
+            retry_count++;
         }
-    } catch (error) {
-        alert('ネットワークエラーが発生しました。\n再読み込みします。');
-        window.location.reload();
     }
+
+    alert('全商品データが読み取れませんでした。\nネットワーク接続をもう一度確認して再読み込みして下さい。\nこの表示が何度も表示される場合は開発者にお問い合わせください。\nOKをクリックすると再読み込みを行います。');
+    window.location.reload();
 }
 
 async function content_generation(post) {
@@ -161,11 +183,11 @@ async function content_generation(post) {
         ps_count.sales_count.push(company_sales_count);
     }
 
-    // console.log(`企業数: ${company_count}`)
-    // console.log(`商品数: ${all_products_count}`);
-    // console.log(`完売数: ${all_sales_count}`);
-    // console.log('ps_count: ');
-    // console.log(ps_count);
+    // console.debug(`企業数: ${company_count}`)
+    // console.debug(`商品数: ${all_products_count}`);
+    // console.debug(`完売数: ${all_sales_count}`);
+    // console.debug('ps_count: ');
+    // console.debug(ps_count);
 
     // 全体の商品数・完売数を表示
     const total_display = Object.assign(document.createElement('p'), {
@@ -202,7 +224,7 @@ async function content_generation(post) {
         if (c == 0) start_indexOf = json_data_cs.findIndex(obj => obj.company_name === `${all_data[c].company_name}`);
         indexOf = json_data_cs.findIndex(obj => obj.company_name === `${all_data[c].company_name}`);
 
-        // console.log(`index: ${indexOf}, ${start_indexOf}`);
+        // console.debug(`index: ${indexOf}, ${start_indexOf}`);
 
         // タブ
         const tab_btns = document.createElement('button');
@@ -214,7 +236,7 @@ async function content_generation(post) {
         tab_contents_div = document.createElement('div');
         tab_contents_div.className = 'tab_content';
         tab_contents_div.dataset.t_index = c;
-        tab_contents_div.style.maxHeight = `${window.innerHeight - 132.6}px`
+        tab_contents_div.style.maxHeight = `${window.innerHeight - 132.6}px`;
         if (c === 0) tab_contents_div.classList.add('show');
 
         // 企業ごとの商品数・完売数・混雑状況プルダウンの表示
@@ -374,7 +396,18 @@ async function content_generation(post) {
         document.querySelectorAll('#tab_buttons button').forEach((btn, c) => { btn.classList.toggle('active_tab', c == tab_select) });
         document.querySelectorAll('.tab_content').forEach((div, c) => { div.classList.toggle('show', c == tab_select) });
 
-        console.log(`tab_select: ${tab_select}`);
+        // console.debug(`tab_select: ${tab_select}`);
+    }
+
+    // 検索見た目適用
+    if (search_text[tab_select] != null) {
+        // 検索時
+        document.getElementById('search_icon').classList.add('searched');
+        document.getElementById('search_button').classList.add('searched');
+    } else {
+        // 標準
+        document.getElementById('search_icon').classList.remove('searched');
+        document.getElementById('search_button').classList.remove('searched');
     }
 
     // 混雑状況プルダウン変更時　ここから
@@ -382,31 +415,31 @@ async function content_generation(post) {
         pulldown.addEventListener('change', async (event) => {
             const pulldown_dataset_cs = event.target.dataset.c_index;
 
-            // console.log(`${pulldown_dataset_cs}(${Number(pulldown_dataset_cs) + 1}社目)`);
+            // console.debug(`${pulldown_dataset_cs}(${Number(pulldown_dataset_cs) + 1}社目)`);
 
             // ローカルデータの更新
             json_data_cs[pulldown_dataset_cs].crowd_status = document.querySelector(`[data-c_index="${pulldown_dataset_cs}"]`).value;
             document.querySelector(`[data-c_index="${pulldown_dataset_cs}"]`).style.backgroundColor = json_data_cs[pulldown_dataset_cs].crowd_status === '空き' ? '#aae' : json_data_cs[pulldown_dataset_cs].crowd_status === 'やや混雑' ? '#ffa' : json_data_cs[pulldown_dataset_cs].crowd_status === '混雑' ? '#eaa' : '#c79cff';
 
-            // console.log(json_data_cs);
+            // console.debug(json_data_cs);
 
             // gasへpostリクエスト
-            // console.log(pulldown_dataset_cs);
-            // console.log(json_data_cs[pulldown_dataset_cs].crowd_status);
+            // console.debug(pulldown_dataset_cs);
+            // console.debug(json_data_cs[pulldown_dataset_cs].crowd_status);
 
             const gas_post_data_cs = new URLSearchParams({
                 company_number: pulldown_dataset_cs,
                 crowd_status: json_data_cs[pulldown_dataset_cs].crowd_status
             });
 
-            // console.log(gas_post_data_cs);
+            // console.debug(gas_post_data_cs);
 
             const response = await fetch('https://script.google.com/macros/s/AKfycbwT4gS9ZQtDncvbyyHzZewqI-CprzojeoZjXc9jbJ1f1GdyTr611mi9Ja1FSZn7dVtI/exec', {
                 method: 'POST',
                 body: gas_post_data_cs
             });
 
-            // console.log(response);
+            // console.debug(response);
 
             if (response.ok) {
                 const result = await response.text();
@@ -428,13 +461,13 @@ async function content_generation(post) {
             const pulldown_dataset = event.target.dataset.p_index;
             const pulldown_c = parseInt(pulldown_dataset[0]), pulldown_p = parseInt(pulldown_dataset.slice(2));
 
-            // console.log(`${pulldown_dataset}(${parseInt(pulldown_dataset[0]) + 1}社目, ${parseInt(pulldown_dataset.slice(2)) + 1}番目の商品)`);
+            // console.debug(`${pulldown_dataset}(${parseInt(pulldown_dataset[0]) + 1}社目, ${parseInt(pulldown_dataset.slice(2)) + 1}番目の商品)`);
 
             // ローカルデータの更新
             all_data[pulldown_c].products.sales[pulldown_p] = document.querySelector(`[data-p_index="${pulldown_dataset}"]`).value;
             document.querySelector(`[data-p_index="${pulldown_dataset}"]`).style.backgroundColor = all_data[pulldown_c].products.sales[pulldown_p] === '販売中' ? '#aae' : all_data[pulldown_c].products.sales[pulldown_p] === '残りわずか' ? '#ffa' : all_data[pulldown_c].products.sales[pulldown_p] === '仕入準備中' ? '#aea' : '#eaa';
 
-            // console.log(all_data);
+            // console.debug(all_data);
 
             all_sales_count = 0;
 
@@ -458,11 +491,11 @@ async function content_generation(post) {
 
             total_display.innerHTML = `企業数：${company_count}　／　商品数合計：${all_products_count}　／　完売数合計：${all_sales_count}`;
 
-            // console.log(`企業数: ${company_count}`);
-            // console.log(`商品数: ${all_products_count}`);
-            // console.log(`完売数: ${all_sales_count}`);
-            // console.log('ps_count: ');
-            // console.log(ps_count);
+            // console.debug(`企業数: ${company_count}`);
+            // console.debug(`商品数: ${all_products_count}`);
+            // console.debug(`完売数: ${all_sales_count}`);
+            // console.debug('ps_count: ');
+            // console.debug(ps_count);
 
             // gasへpostリクエスト
             const gas_post_data = new URLSearchParams({
@@ -508,7 +541,9 @@ const element_process = [
             event.preventDefault();
             if (document.getElementById('search_input').value === '') search_text[tab_select] = null;
             else search_text[tab_select] = document.getElementById('search_input').value.trim();
-            console.log(search_text);
+
+            // console.debug(search_text);
+
             document.getElementById('search_modal_back').classList.remove('show');
             await content_generation(gas_url_post);
         } 
@@ -518,13 +553,30 @@ const element_process = [
         event: 'click',
         handler: () => document.getElementById('search_modal_back').classList.remove('show')
     },
-    {   // 検索リセット
-        element_id: 'search_reset',
+    {   // 全ての検索リセット
+        element_id: 'search_all_reset',
         event: 'click',
         handler: async () => {
             document.getElementById('search_input').value = '';
             search_text = new Array(10).fill(null);
-            console.log(search_text);
+
+            // console.debug(search_text);
+
+            document.getElementById('search_modal_back').classList.remove('show');
+            document.getElementById('search_icon').classList.remove('searched');
+            document.getElementById('search_button').classList.remove('searched');
+            await content_generation(gas_url_post);
+        }
+    },
+    {   // 店舗ごとの検索リセット
+        element_id: 'search_reset',
+        event: 'click',
+        handler: async () => {
+            document.getElementById('search_input').value = '';
+            search_text[tab_select] = null;
+
+            // console.debug(search_text);
+
             document.getElementById('search_modal_back').classList.remove('show');
             document.getElementById('search_icon').classList.remove('searched');
             document.getElementById('search_button').classList.remove('searched');
@@ -566,7 +618,18 @@ const element_process = [
                 document.querySelectorAll('.tab_content').forEach((div, i) => { div.classList.toggle('show', i == index) });
             }
 
-            console.log(`tab_select: ${tab_select}`);
+            // console.debug(`tab_select: ${tab_select}`);
+
+            // 検索見た目適用
+            if (search_text[tab_select] != null) {
+                // 検索時
+                document.getElementById('search_icon').classList.add('searched');
+                document.getElementById('search_button').classList.add('searched');
+            } else {
+                // 標準
+                document.getElementById('search_icon').classList.remove('searched');
+                document.getElementById('search_button').classList.remove('searched');
+            }
         }
     }
 ];

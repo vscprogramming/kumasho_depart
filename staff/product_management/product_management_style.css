@@ -1,7 +1,7 @@
 /* ======= CSS 変数 ======= */
 :root {
     /* カラー */
-    --color-red: #f00;
+    --color-red: #e00;
     --color-orange: #f80;
     --color-orange-hover: #fa0;
     --color-orange-border: #f70;
@@ -26,8 +26,8 @@
 body { background-color: var(--color-bg-mid); }
 
 #title {
+    top: 0; left: 0;
     width: 99%; height: 95px;
-    inset: 0;
     position: fixed;
     border-bottom: none;
     border: 7px solid var(--color-bg-dark);
@@ -198,7 +198,7 @@ table tr:last-child td:first-child { border-radius: 0 0 0 var(--radius); }
     border: none;
     font-weight: bolder;
     box-shadow: var(--shadow);
-    transition: all 0.15s ease;
+    transition: all 0.15s;
     border-radius: var(--radius);
     color: var(--color-text-light);
     background: var(--color-orange-hover);
@@ -252,8 +252,8 @@ table tr:last-child td:first-child { border-radius: 0 0 0 var(--radius); }
 }
 
 #loading {
+    top: 0; left: 0;
     width: 100vw; height: 100vh;
-    inset: 0;
     z-index: 9999;
     display: flex;
     position: fixed;
@@ -272,8 +272,8 @@ table tr:last-child td:first-child { border-radius: 0 0 0 var(--radius); }
 
 /* ======= モーダル類 ======= */
 #search_modal_back, #logout_modal_back {
+    top: 0; left: 0;
     width: 100%; height: 100%;
-    inset: 0;
     opacity: 0;
     z-index: 4;
     display: none;
@@ -300,18 +300,18 @@ table tr:last-child td:first-child { border-radius: 0 0 0 var(--radius); }
 }
 
 #search_input {
+    top: 50%; left: 50%;
     width: 70%; height: 10%;
-    inset: 50% 0 0 50%;
     position: absolute;
+    border-radius: 7px;
     color: var(--color-bg-dark);
     transform: translate(-50%, -180%);
     background-color: var(--color-text-light);
 }
 
-#search, #search_reset, #ok_button, #cancel_button {
-    width: 34%; height: 17%;
+#search, #search_reset, #search_all_reset, #ok_button, #cancel_button {
+    width: 34%;
     z-index: 7;
-    font-size: 24px;
     font-weight: bolder;
     transition: 0.3s ease;
     box-shadow: var(--shadow);
@@ -320,9 +320,29 @@ table tr:last-child td:first-child { border-radius: 0 0 0 var(--radius); }
     background-color: var(--color-orange);
 }
 
-#search { margin-left: 18px; }
-#search_reset { margin: 200px 0 0 14%; }
-#search:hover, #search_reset:hover, #ok_button:hover, #cancel_button:hover { background-color: var(--color-orange-hover); }
+#search, #search_reset, #search_all_reset {
+    height: 38px;
+    font-size: 14px;
+}
+
+#ok_button, #cancel_button {
+    height: 18%;
+    font-size: 24px;
+}
+
+#search {
+    font-size: 24px;
+    margin: 160px 0 20px 50%;
+    transform: translateX(-50%);
+    color: var(--color-blue-searched);
+}
+
+#search_all_reset {
+    margin-left: 16%;
+    color: var(--color-red);
+}
+
+#search:hover, #search_reset:hover, #search_all_reset:hover, #ok_button:hover, #cancel_button:hover { background-color: var(--color-orange-hover); }
 
 #search_title::before, #logout_check_title::before {
     font-size: 24px;
