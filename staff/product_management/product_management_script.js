@@ -433,25 +433,37 @@ async function content_generation(post) {
             });
 
             // console.debug(gas_post_data_cs);
+            let retry_count = 1;
+            while (retry_count <= 3) { 
+                try {
+                    const response = await fetch('https://script.google.com/macros/s/AKfycbwT4gS9ZQtDncvbyyHzZewqI-CprzojeoZjXc9jbJ1f1GdyTr611mi9Ja1FSZn7dVtI/exec', {
+                        method: 'POST',
+                        body: gas_post_data_cs
+                    });
 
-            const response = await fetch('https://script.google.com/macros/s/AKfycbwT4gS9ZQtDncvbyyHzZewqI-CprzojeoZjXc9jbJ1f1GdyTr611mi9Ja1FSZn7dVtI/exec', {
-                method: 'POST',
-                body: gas_post_data_cs
-            });
+                    // console.debug(response);
 
-            // console.debug(response);
+                    if (response.ok) {
+                        const result = await response.text();
 
-            if (response.ok) {
-                const result = await response.text();
-
-                if (result == 'NG') {
-                    alert('スプレッドシートの更新に失敗しました。\nデータの整合性を保つため、再読み込みします。');
-                    window.location.reload();
+                        if (result == 'OK') {
+                            return;
+                        } else {
+                            alert(`販売状況の更新に失敗しました。\n再試行します。\n（${retry_count}/3, cs update error）`);
+                            retry_count++;
+                        }
+                    } else {
+                        alert(`販売状況の更新に失敗しました。\n再試行します。\n（${retry_count}/3, cs update error）`);
+                        retry_count++;
+                    }
+                } catch (error) {
+                    alert(`ネットワークエラーが発生しました。\n再試行します。\n（${retry_count}/3, cs update net error）`);
+                    retry_count++;
                 }
-            } else {
-                alert('読み込みエラーが発生しました。\n再読み込みします。(cs update error)');
-                window.location.reload();
             }
+
+            alert('営業状況の更新に失敗しました。\nネットワーク接続をもう一度確認して再読み込みして下さい。\nこの表示が何度も表示される場合は開発者にお問い合わせください。\nOKをクリックすると再読み込みを行います。');
+            window.location.reload();
         });
     });
 
@@ -504,20 +516,33 @@ async function content_generation(post) {
                 sales: all_data[pulldown_c].products.sales[pulldown_p]
             });
 
-            const response = await fetch(post, {
-                method: 'POST',
-                body: gas_post_data
-            });
+            let retry_count = 1;
+            while (retry_count <= 3) {
+                try {
+                    const response = await fetch(post, {
+                        method: 'POST',
+                        body: gas_post_data
+                    });
 
-            if (response.ok) {
-                const result = await response.text();
+                    if (response.ok) {
+                        const result = await response.text();
 
-                if (result == 'NG') {
-                    alert('スプレッドシートの更新に失敗しました。\nデータの整合性を保つため、再読み込みします。');
-                    window.location.reload();
+                        if (result == 'OK') {
+                            return;
+                        } else {
+                            alert(`販売状況の更新に失敗しました。\n再試行します。\n（${retry_count}/3, all update error）`);
+                            retry_count++;
+                        }
+                    } else {
+                        alert(`販売状況の更新に失敗しました。\n再試行します。\n（${retry_count}/3, all update error）`);
+                        retry_count++;
+                    }
+                } catch (error) {
+                    alert(`ネットワークエラーが発生しました。\n再試行します。\n（${retry_count}/3, all update net error）`);
+                    retry_count++;
                 }
-            } else {
-                alert('読み込みエラーが発生しました。\n再読み込みします。(all update error)');
+
+                alert('販売状況の更新に失敗しました。\nネットワーク接続をもう一度確認して再読み込みして下さい。\nこの表示が何度も表示される場合は開発者にお問い合わせください。\nOKをクリックすると再読み込みを行います。');
                 window.location.reload();
             }
         });
@@ -642,14 +667,14 @@ window.onload = () => {
         document.querySelectorAll('.tab_content').forEach((div, i) => { scroll_tops[i] = div.scrollTop; });
 
         // 自動再読み込み処理
+        await gas_loading_cs();
         await gas_Loading(gas_url_get);
         await content_generation(gas_url_post);
 
         document.querySelectorAll('.tab_content').forEach((div, i) => {
             if (typeof scroll_tops[i] === 'number') div.scrollTop = scroll_tops[i];
         });
-        // Math.random() * (180 - 60 + 1) + 60) * 1000
-    }, (Math.floor(Math.random() * 121 + 60) * 1000));
+    }, (Math.floor(Math.random() * (180 - 60 + 1) + 60) * 1000));
 }
 
 window.addEventListener('resize', () => document.querySelectorAll('.tab_content').forEach(div => { div.style.maxHeight = `${window.innerHeight - 132.6}px` }));
