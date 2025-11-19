@@ -784,35 +784,6 @@
         "gasUrl": "https://script.google.com/macros/s/AKfycbwq_DMzG-GnyhOT7XwqhQ_13e3BA--RV7P4HdjfMeETomzRPwO8TH_XWdVJMesfCeq5/exec"
     },
     {
-        "id": "2-6-3",
-        "name": "コッコファーム",
-        "catch": "キャッチコピー",
-        "image": "img/1-1/Cafe.png",
-        "pr": [
-            "PR文１",
-            "PR文２"
-        ],
-        "products": [
-            {
-                "name": "おすすめ商品１",
-                "price": 500,
-                "image": "img/1-1/Cafe01.png"
-            },
-            {
-                "name": "おすすめ商品２",
-                "price": 600,
-                "image": "img/1-1/Cafe02.png"
-            },
-            {
-                "name": "おすすめ商品３",
-                "price": 700,
-                "image": "img/1-1/Cafe03.png"
-            }
-        ],
-        "company_name": "コッコファーム",
-        "gasUrl": "https://script.google.com/macros/s/AKfycbwq_DMzG-GnyhOT7XwqhQ_13e3BA--RV7P4HdjfMeETomzRPwO8TH_XWdVJMesfCeq5/exec"
-    },
-    {
         "id": "2-7-1",
         "name": "宇土マリーナおこしき館",
         "catch": "キャッチコピー",
