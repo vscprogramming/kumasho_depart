@@ -188,15 +188,17 @@ document.addEventListener("DOMContentLoaded", async () => {
         const status = crowdMap.get(company) || 'データなし';
 
         let message = '';
+        let message2='';
         let color = 'black';
         if (status.includes('空き')) {
-          message = 'ゆったりとお買い物いただけます';
-          color = 'lightgreen';
+          message = 'ゆったりと';
+          message2 = 'お買い物いただけます';
+          color = '#1a1';
         } else if (status.includes('やや混雑')) {
           message = '少し混み合っています';
           color = 'orange';
         } else if (status.includes('混雑')) {
-          message = '現在大変混み合っています';
+          message = '大変混み合っています';
           color = 'red';
         } else if (status.includes('非営業')) {
           message = '営業していません';
@@ -205,9 +207,12 @@ document.addEventListener("DOMContentLoaded", async () => {
           message = '混雑状況不明';
           color = 'gray';
         }
-
         crowdText.style.color = color;
-        crowdText.textContent = `混雑状況: ${status} （${message}）`;
+        if (status.includes('空き')){
+          crowdText.innerHTML = `混雑状況: ${status} <br>（${message}<br>${message2}）`;
+        } else { 
+          crowdText.innerHTML = `混雑状況: ${status} <br>（${message}）`;
+        }
       });
     }).catch(err => {
       console.error('混雑情報更新エラー:', err);
