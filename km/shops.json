@@ -10,19 +10,9 @@
         ],
         "products": [
             {
-                "name": "おすすめ商品１",
-                "price": 200,
+                "name": "レモンソーダ",
+                "price": 450,
                 "image": "img/1-1/Cafe01.png"
-            },
-            {
-                "name": "おすすめ商品２",
-                "price": 600,
-                "image": "img/1-1/Cafe02.png"
-            },
-            {
-                "name": "おすすめ商品３",
-                "price": 700,
-                "image": "img/1-1/Cafe03.png"
             }
         ],
         "company_name": "Cafe Soluce",
@@ -40,21 +30,11 @@
         ],
         "products": [
             {
-                "name": "おすすめ商品１",
-                "price": 500,
+                "name": "いちごサンド",
+                "price": 580,
                 "image": "img/1-1/Cafe01.png"
-            },
-            {
-                "name": "おすすめ商品２",
-                "price": 600,
-                "image": "img/1-1/Cafe02.png"
-            },
-            {
-                "name": "おすすめ商品３",
-                "price": 700,
-                "image": "img/1-1/Cafe03.png"
             }
-        ],
+        ],    
         "company_name": "TATOMIYA EZUKO",
         "gasUrl": "https://script.google.com/macros/s/AKfycbzHsNfnfnOqQpJaD-rSgHRGsfTcxfrA6i2X-O8JhlvKuHLd-SBO3-OTXc6RjEwnNswp/exec"
     },
@@ -69,19 +49,9 @@
         ],
         "products": [
             {
-                "name": "おすすめ商品１",
-                "price": 500,
+                "name": "にらメンコ",
+                "price": 300,
                 "image": "img/1-1/Cafe01.png"
-            },
-            {
-                "name": "おすすめ商品２",
-                "price": 600,
-                "image": "img/1-1/Cafe02.png"
-            },
-            {
-                "name": "おすすめ商品３",
-                "price": 700,
-                "imag": "株式会社　甲玉堂/1-1/Cafe03.png"
             }
         ],
         "company_name": "高田精肉店",
@@ -98,19 +68,9 @@
         ],
         "products": [
             {
-                "name": "おすすめ商品１",
-                "price": 500,
+                "name": "デコポンパイ",
+                "price": 350,
                 "image": "img/1-1/Cafe01.png"
-            },
-            {
-                "name": "おすすめ商品２",
-                "price": 600,
-                "image": "img/1-1/Cafe02.png"
-            },
-            {
-                "name": "おすすめ商品３",
-                "price": 700,
-                "image": "img/1-1/Cafe03.png"
             }
         ],
         "company_name": "株式会社 ジューシー",
@@ -185,17 +145,17 @@
         ],
         "products": [
             {
-                "name": "おすすめ商品１",
+                "name": "塩キャラメル",
                 "price": 500,
                 "image": "img/1-1/Cafe01.png"
             },
             {
-                "name": "おすすめ商品２",
+                "name": "ホワイトチョコ",
                 "price": 600,
                 "image": "img/1-1/Cafe02.png"
             },
             {
-                "name": "おすすめ商品３",
+                "name": "プレーン",
                 "price": 700,
                 "image": "img/1-1/Cafe03.png"
             }
@@ -214,19 +174,9 @@
         ],
         "products": [
             {
-                "name": "おすすめ商品１",
+                "name": "ポン酢マヨ",
                 "price": 500,
                 "image": "img/1-1/Cafe01.png"
-            },
-            {
-                "name": "おすすめ商品２",
-                "price": 600,
-                "image": "img/1-1/Cafe02.png"
-            },
-            {
-                "name": "おすすめ商品３",
-                "price": 700,
-                "image": "img/1-1/Cafe03.png"
             }
         ],
         "company_name": "近藤製飴本舗",
@@ -243,19 +193,9 @@
         ],
         "products": [
             {
-                "name": "おすすめ商品１",
-                "price": 500,
+                "name": "ダブルチョコ",
+                "price": 260,
                 "image": "img/1-1/Cafe01.png"
-            },
-            {
-                "name": "おすすめ商品２",
-                "price": 600,
-                "image": "img/1-1/Cafe02.png"
-            },
-            {
-                "name": "おすすめ商品３",
-                "price": 700,
-                "image": "img/1-1/Cafe03.png"
             }
         ],
         "company_name": "Crepe & ...",
@@ -272,19 +212,9 @@
         ],
         "products": [
             {
-                "name": "おすすめ商品１",
-                "price": 500,
+                "name": "キャラメルソフト",
+                "price": 300,
                 "image": "img/1-1/Cafe01.png"
-            },
-            {
-                "name": "おすすめ商品２",
-                "price": 600,
-                "image": "img/1-1/Cafe02.png"
-            },
-            {
-                "name": "おすすめ商品３",
-                "price": 700,
-                "image": "img/1-1/Cafe03.png"
             }
         ],
         "company_name": "Comida de Batata",
@@ -417,19 +347,9 @@
         ],
         "products": [
             {
-                "name": "おすすめ商品１",
+                "name": "落花生豆腐",
                 "price": 500,
                 "image": "img/1-1/Cafe01.png"
-            },
-            {
-                "name": "おすすめ商品２",
-                "price": 600,
-                "image": "img/1-1/Cafe02.png"
-            },
-            {
-                "name": "おすすめ商品３",
-                "price": 700,
-                "image": "img/1-1/Cafe03.png"
             }
         ],
         "company_name": "田舎惣菜 樂や",
@@ -446,19 +366,9 @@
         ],
         "products": [
             {
-                "name": "おすすめ商品１",
+                "name": "馬ロッケ",
                 "price": 500,
                 "image": "img/1-1/Cafe01.png"
-            },
-            {
-                "name": "おすすめ商品２",
-                "price": 600,
-                "image": "img/1-1/Cafe02.png"
-            },
-            {
-                "name": "おすすめ商品３",
-                "price": 700,
-                "image": "img/1-1/Cafe03.png"
             }
         ],
         "company_name": "阿蘇とり宮",
@@ -475,19 +385,9 @@
         ],
         "products": [
             {
-                "name": "おすすめ商品１",
+                "name": "熊商よかとこセット",
                 "price": 500,
                 "image": "img/1-1/Cafe01.png"
-            },
-            {
-                "name": "おすすめ商品２",
-                "price": 600,
-                "image": "img/1-1/Cafe02.png"
-            },
-            {
-                "name": "おすすめ商品３",
-                "price": 700,
-                "image": "img/1-1/Cafe03.png"
             }
         ],
         "company_name": "八代よかとこ物産館",
@@ -504,19 +404,9 @@
         ],
         "products": [
             {
-                "name": "おすすめ商品１",
+                "name": "ねこちぐら",
                 "price": 500,
                 "image": "img/1-1/Cafe01.png"
-            },
-            {
-                "name": "おすすめ商品２",
-                "price": 600,
-                "image": "img/1-1/Cafe02.png"
-            },
-            {
-                "name": "おすすめ商品３",
-                "price": 700,
-                "image": "img/1-1/Cafe03.png"
             }
         ],
         "company_name": "有限会社 井上産業",
@@ -533,19 +423,9 @@
         ],
         "products": [
             {
-                "name": "おすすめ商品１",
+                "name": "ココシャイン",
                 "price": 500,
                 "image": "img/1-1/Cafe01.png"
-            },
-            {
-                "name": "おすすめ商品２",
-                "price": 600,
-                "image": "img/1-1/Cafe02.png"
-            },
-            {
-                "name": "おすすめ商品３",
-                "price": 700,
-                "image": "img/1-1/Cafe03.png"
             }
         ],
         "company_name": "はちゆい",
@@ -562,19 +442,9 @@
         ],
         "products": [
             {
-                "name": "おすすめ商品１",
-                "price": 500,
+                "name": "かりんとう万十",
+                "price": 180,
                 "image": "img/1-1/Cafe01.png"
-            },
-            {
-                "name": "おすすめ商品２",
-                "price": 600,
-                "image": "img/1-1/Cafe02.png"
-            },
-            {
-                "name": "おすすめ商品３",
-                "price": 700,
-                "image": "img/1-1/Cafe03.png"
             }
         ],
         "company_name": "鬼塚日昭堂",
@@ -591,19 +461,9 @@
         ],
         "products": [
             {
-                "name": "おすすめ商品１",
-                "price": 500,
+                "name": "サラたまちゃんギョーザ",
+                "price": 1200,
                 "image": "img/1-1/Cafe01.png"
-            },
-            {
-                "name": "おすすめ商品２",
-                "price": 600,
-                "image": "img/1-1/Cafe02.png"
-            },
-            {
-                "name": "おすすめ商品３",
-                "price": 700,
-                "image": "img/1-1/Cafe03.png"
             }
         ],
         "company_name": "あしきた農業協同組合（ＪＡあしきた）",
@@ -620,19 +480,9 @@
         ],
         "products": [
             {
-                "name": "おすすめ商品１",
-                "price": 500,
+                "name": "こっぱ餅",
+                "price": 750,
                 "image": "img/1-1/Cafe01.png"
-            },
-            {
-                "name": "おすすめ商品２",
-                "price": 600,
-                "image": "img/1-1/Cafe02.png"
-            },
-            {
-                "name": "おすすめ商品３",
-                "price": 700,
-                "image": "img/1-1/Cafe03.png"
             }
         ],
         "company_name": "宝餅本舗",
@@ -649,19 +499,9 @@
         ],
         "products": [
             {
-                "name": "おすすめ商品１",
-                "price": 500,
+                "name": "ふわふわ削りぶし　さば",
+                "price": 260,
                 "image": "img/1-1/Cafe01.png"
-            },
-            {
-                "name": "おすすめ商品２",
-                "price": 600,
-                "image": "img/1-1/Cafe02.png"
-            },
-            {
-                "name": "おすすめ商品３",
-                "price": 700,
-                "image": "img/1-1/Cafe03.png"
             }
         ],
         "company_name": "天栄食品",
@@ -678,19 +518,9 @@
         ],
         "products": [
             {
-                "name": "おすすめ商品１",
-                "price": 500,
+                "name": "みそまんじゅう",
+                "price": 100,
                 "image": "img/1-1/Cafe01.png"
-            },
-            {
-                "name": "おすすめ商品２",
-                "price": 600,
-                "image": "img/1-1/Cafe02.png"
-            },
-            {
-                "name": "おすすめ商品３",
-                "price": 700,
-                "image": "img/1-1/Cafe03.png"
             }
         ],
         "company_name": "春風庵",
@@ -707,19 +537,9 @@
         ],
         "products": [
             {
-                "name": "おすすめ商品１",
-                "price": 500,
+                "name": "たこ天",
+                "price": 400,
                 "image": "img/1-1/Cafe01.png"
-            },
-            {
-                "name": "おすすめ商品２",
-                "price": 600,
-                "image": "img/1-1/Cafe02.png"
-            },
-            {
-                "name": "おすすめ商品３",
-                "price": 700,
-                "image": "img/1-1/Cafe03.png"
             }
         ],
         "company_name": "株式会社 松下蒲鉾店",
@@ -736,19 +556,9 @@
         ],
         "products": [
             {
-                "name": "おすすめ商品１",
+                "name": "あか牛ハンバーグおむすび",
                 "price": 500,
                 "image": "img/1-1/Cafe01.png"
-            },
-            {
-                "name": "おすすめ商品２",
-                "price": 600,
-                "image": "img/1-1/Cafe02.png"
-            },
-            {
-                "name": "おすすめ商品３",
-                "price": 700,
-                "image": "img/1-1/Cafe03.png"
             }
         ],
         "company_name": "むすび屋 えん",
@@ -765,19 +575,9 @@
         ],
         "products": [
             {
-                "name": "おすすめ商品１",
-                "price": 500,
+                "name": "丸ごとマロンパイ",
+                "price": 350,
                 "image": "img/1-1/Cafe01.png"
-            },
-            {
-                "name": "おすすめ商品２",
-                "price": 600,
-                "image": "img/1-1/Cafe02.png"
-            },
-            {
-                "name": "おすすめ商品３",
-                "price": 700,
-                "image": "img/1-1/Cafe03.png"
             }
         ],
         "company_name": "山鹿和栗洋菓子店Ａｎ（杏） ／ 株式会社 あんず",
@@ -794,19 +594,9 @@
         ],
         "products": [
             {
-                "name": "おすすめ商品１",
-                "price": 500,
+                "name": "メロンパン",
+                "price": 220,
                 "image": "img/1-1/Cafe01.png"
-            },
-            {
-                "name": "おすすめ商品２",
-                "price": 600,
-                "image": "img/1-1/Cafe02.png"
-            },
-            {
-                "name": "おすすめ商品３",
-                "price": 700,
-                "image": "img/1-1/Cafe03.png"
             }
         ],
         "company_name": "宇土マリーナおこしき館",
@@ -823,19 +613,9 @@
         ],
         "products": [
             {
-                "name": "おすすめ商品１",
+                "name": "デコポン",
                 "price": 500,
                 "image": "img/1-1/Cafe01.png"
-            },
-            {
-                "name": "おすすめ商品２",
-                "price": 600,
-                "image": "img/1-1/Cafe02.png"
-            },
-            {
-                "name": "おすすめ商品３",
-                "price": 700,
-                "image": "img/1-1/Cafe03.png"
             }
         ],
         "company_name": "宇城彩館",
@@ -852,19 +632,9 @@
         ],
         "products": [
             {
-                "name": "おすすめ商品１",
-                "price": 500,
+                "name": "樺姫牛ぎゅうざ",
+                "price": 1500,
                 "image": "img/1-1/Cafe01.png"
-            },
-            {
-                "name": "おすすめ商品２",
-                "price": 600,
-                "image": "img/1-1/Cafe02.png"
-            },
-            {
-                "name": "おすすめ商品３",
-                "price": 700,
-                "image": "img/1-1/Cafe03.png"
             }
         ],
         "company_name": "杉本本店",
@@ -881,21 +651,11 @@
         ],
         "products": [
             {
-                "name": "おすすめ商品１",
-                "price": 500,
+                "name": "乾ごぼうとしょうがのあったかセット",
+                "price": 1500,
                 "image": "img/1-1/Cafe01.png"
-            },
-            {
-                "name": "おすすめ商品２",
-                "price": 600,
-                "image": "img/1-1/Cafe02.png"
-            },
-            {
-                "name": "おすすめ商品３",
-                "price": 700,
-                "image": "img/1-1/Cafe03.png"
             }
-        ],
+        ],    
         "company_name": "（有）肥後そう川",
         "gasUrl": "https://script.google.com/macros/s/AKfycbw0xmJy66CXDGQAU-qMrge3_b4dy4GM1oX0Xj8ZgYnLbI3baqQqLl6C7JRrO8rsA_Do/exec"
     },
@@ -910,19 +670,9 @@
         ],
         "products": [
             {
-                "name": "おすすめ商品１",
-                "price": 500,
+                "name": "美里プリン",
+                "price": 440,
                 "image": "img/1-1/Cafe01.png"
-            },
-            {
-                "name": "おすすめ商品２",
-                "price": 600,
-                "image": "img/1-1/Cafe02.png"
-            },
-            {
-                "name": "おすすめ商品３",
-                "price": 700,
-                "image": "img/1-1/Cafe03.png"
             }
         ],
         "company_name": "株式会社きこり（スイーツ工房きこり）",
@@ -939,19 +689,9 @@
         ],
         "products": [
             {
-                "name": "おすすめ商品１",
-                "price": 500,
+                "name": "茶蜜",
+                "price": 1300,
                 "image": "img/1-1/Cafe01.png"
-            },
-            {
-                "name": "おすすめ商品２",
-                "price": 600,
-                "image": "img/1-1/Cafe02.png"
-            },
-            {
-                "name": "おすすめ商品３",
-                "price": 700,
-                "image": "img/1-1/Cafe03.png"
             }
         ],
         "company_name": "Greentea.Lab 株式会社お茶の富沢",
@@ -968,19 +708,9 @@
         ],
         "products": [
             {
-                "name": "おすすめ商品１",
-                "price": 500,
+                "name": "あぁ！玉名ラーメン",
+                "price": 380,
                 "image": "img/1-1/Cafe01.png"
-            },
-            {
-                "name": "おすすめ商品２",
-                "price": 600,
-                "image": "img/1-1/Cafe02.png"
-            },
-            {
-                "name": "おすすめ商品３",
-                "price": 700,
-                "image": "img/1-1/Cafe03.png"
             }
         ],
         "company_name": "一般社団法人 玉名観光協会 観光ホットプラザ「たまララ」",
@@ -997,19 +727,9 @@
         ],
         "products": [
             {
-                "name": "おすすめ商品１",
-                "price": 500,
+                "name": "メロンパン（プレーン）",
+                "price": 220,
                 "image": "img/1-1/Cafe01.png"
-            },
-            {
-                "name": "おすすめ商品２",
-                "price": 600,
-                "image": "img/1-1/Cafe02.png"
-            },
-            {
-                "name": "おすすめ商品３",
-                "price": 700,
-                "image": "img/1-1/Cafe03.png"
             }
         ],
         "company_name": "万幸堂",
@@ -1084,19 +804,14 @@
         ],
         "products": [
             {
-                "name": "おすすめ商品１",
+                "name": "ポインセチア",
                 "price": 500,
                 "image": "img/1-1/Cafe01.png"
             },
             {
-                "name": "おすすめ商品２",
+                "name": "シクラメン",
                 "price": 600,
                 "image": "img/1-1/Cafe02.png"
-            },
-            {
-                "name": "おすすめ商品３",
-                "price": 700,
-                "image": "img/1-1/Cafe03.png"
             }
         ],
         "company_name": "DCMペット&グリーン 東町店",
@@ -1113,19 +828,9 @@
         ],
         "products": [
             {
-                "name": "おすすめ商品１",
+                "name": "甘酒",
                 "price": 500,
                 "image": "img/1-1/Cafe01.png"
-            },
-            {
-                "name": "おすすめ商品２",
-                "price": 600,
-                "image": "img/1-1/Cafe02.png"
-            },
-            {
-                "name": "おすすめ商品３",
-                "price": 700,
-                "image": "img/1-1/Cafe03.png"
             }
         ],
         "company_name": "合資会社 シガキ食品",
@@ -1142,17 +847,17 @@
         ],
         "products": [
             {
-                "name": "おすすめ商品１",
+                "name": "塩マドレーヌ",
                 "price": 500,
                 "image": "img/1-1/Cafe01.png"
             },
             {
-                "name": "おすすめ商品２",
+                "name": "塩どら焼き",
                 "price": 600,
                 "image": "img/1-1/Cafe02.png"
             },
             {
-                "name": "おすすめ商品３",
+                "name": "太鼓饅頭",
                 "price": 700,
                 "image": "img/1-1/Cafe03.png"
             }
@@ -1171,19 +876,9 @@
         ],
         "products": [
             {
-                "name": "おすすめ商品１",
-                "price": 500,
+                "name": "オーストリッチエアソール",
+                "price": 1500,
                 "image": "img/1-1/Cafe01.png"
-            },
-            {
-                "name": "おすすめ商品２",
-                "price": 600,
-                "image": "img/1-1/Cafe02.png"
-            },
-            {
-                "name": "おすすめ商品３",
-                "price": 700,
-                "image": "img/1-1/Cafe03.png"
             }
         ],
         "company_name": "南九州月星 株式会社",
@@ -1200,19 +895,9 @@
         ],
         "products": [
             {
-                "name": "おすすめ商品１",
-                "price": 500,
+                "name": "てんこ盛り味噌",
+                "price": 1380,
                 "image": "img/1-1/Cafe01.png"
-            },
-            {
-                "name": "おすすめ商品２",
-                "price": 600,
-                "image": "img/1-1/Cafe02.png"
-            },
-            {
-                "name": "おすすめ商品３",
-                "price": 700,
-                "image": "img/1-1/Cafe03.png"
             }
         ],
         "company_name": "松合食品 株式会社",
@@ -1229,19 +914,9 @@
         ],
         "products": [
             {
-                "name": "おすすめ商品１",
-                "price": 500,
+                "name": "だし菜種油",
+                "price": 900,
                 "image": "img/1-1/Cafe01.png"
-            },
-            {
-                "name": "おすすめ商品２",
-                "price": 600,
-                "image": "img/1-1/Cafe02.png"
-            },
-            {
-                "name": "おすすめ商品３",
-                "price": 700,
-                "image": "img/1-1/Cafe03.png"
             }
         ],
         "company_name": "肥後製油 株式会社",
@@ -1258,19 +933,9 @@
         ],
         "products": [
             {
-                "name": "おすすめ商品１",
-                "price": 500,
+                "name": "いちご大福",
+                "price": 250,
                 "image": "img/1-1/Cafe01.png"
-            },
-            {
-                "name": "おすすめ商品２",
-                "price": 600,
-                "image": "img/1-1/Cafe02.png"
-            },
-            {
-                "name": "おすすめ商品３",
-                "price": 700,
-                "image": "img/1-1/Cafe03.png"
             }
         ],
         "company_name": "えびす屋餅本舗",
@@ -1425,26 +1090,16 @@
         "id": "3-9-1",
         "name": "Ameya",
         "catch": "キャッチコピー",
-        "image": "../student/img/store/Ameya.png",
+        "image": "../student/img/store/ameya.png",
         "pr": [
             "PR文１",
             "PR文２"
         ],
         "products": [
             {
-                "name": "おすすめ商品１",
+                "name": "熊商デパートオリジナルキャンディー",
                 "price": 500,
                 "image": "img/1-1/Cafe01.png"
-            },
-            {
-                "name": "おすすめ商品２",
-                "price": 600,
-                "image": "img/1-1/Cafe02.png"
-            },
-            {
-                "name": "おすすめ商品３",
-                "price": 700,
-                "image": "img/1-1/Cafe03.png"
             }
         ],
         "company_name": "Ameya",
@@ -1461,19 +1116,9 @@
         ],
         "products": [
             {
-                "name": "おすすめ商品１",
+                "name": "招福干支",
                 "price": 500,
                 "image": "img/1-1/Cafe01.png"
-            },
-            {
-                "name": "おすすめ商品２",
-                "price": 600,
-                "image": "img/1-1/Cafe02.png"
-            },
-            {
-                "name": "おすすめ商品３",
-                "price": 700,
-                "image": "img/1-1/Cafe03.png"
             }
         ],
         "company_name": "株式会社 三国屋",
