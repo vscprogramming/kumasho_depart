@@ -3,7 +3,7 @@
         "id": "1-1-1",
         "name": "Cafe Soluce",
         "catch": "キャッチコピー",
-        "image": "../share/img/store/",
+        "image": "../share/img/store/cafe.png",
         "pr": [
             "PR文１",
             "PR文２"
@@ -12,7 +12,7 @@
             {
                 "name": "レモンソーダ",
                 "price": 450,
-                "image": "../share/img/products/recommended//.png"
+                "image": "../share/img/products/recommended/cafe/rs.png"
             }
         ],
         "company_name": "Cafe Soluce",
@@ -22,8 +22,7 @@
         "id": "1-1-2",
         "name": "TATOMIYA EZUKO",
         "catch": "キャッチコピー",
-        "cs":"混雑状況",
-        "image": "../share/img/store/",
+        "image": "../share/img/store/TATOMIYA.png",
         "pr": [
             "PR文１",
             "PR文２"
@@ -32,9 +31,9 @@
             {
                 "name": "いちごサンド",
                 "price": 580,
-                "image": "../share/img/products/recommended//.png"
+                "image": "../share/img/products/recommended/TATOMIYA/ss.png"
             }
-        ],    
+        ],
         "company_name": "TATOMIYA EZUKO",
         "gasUrl": "https://script.google.com/macros/s/AKfycbzHsNfnfnOqQpJaD-rSgHRGsfTcxfrA6i2X-O8JhlvKuHLd-SBO3-OTXc6RjEwnNswp/exec"
     },
@@ -51,7 +50,7 @@
             {
                 "name": "にらメンコ",
                 "price": 300,
-                "image": "../share/img/products/recommended/takada/.png"
+                "image": "../share/img/products/recommended/takada/nm.png"
             }
         ],
         "company_name": "高田精肉店",
@@ -73,7 +72,7 @@
                 "image": "../share/img/products/recommended/juicy/.png"
             }
         ],
-        "company_name": "株式会社 ジューシー",
+        "company_name": "ジューシー",
         "gasUrl": "https://script.google.com/macros/s/AKfycbzMAAW1BHqbmXCv3VK3PZZGTZlILpN2Idz0ejX-KwiC0taaUKehSrhzX6rsDjUokX3xMw/exec"
     },
     {
@@ -87,12 +86,12 @@
         ],
         "products": [
             {
-                "name": "おすすめ商品１",
+                "name": "焼きそば",
                 "price": 500,
-                "image": "../share/img/products/recommended/matsunoya/.png"
+                "image": "../share/img/products/recommended/matsunoya/ys.png"
             }
         ],
-        "company_name": "株式会社 松ノ屋本店",
+        "company_name": "松ノ屋本店",
         "gasUrl": "https://script.google.com/macros/s/AKfycbz2xNt-rGReQ0E6UOpQ5V9uNyFfb5HSMKqUaa9g-99kExVJz3n8DKtysbmtK7GIIebn/exec"
     },
     {
@@ -106,12 +105,12 @@
         ],
         "products": [
             {
-                "name": "おすすめ商品１",
+                "name": "キムチたくあん万十",
                 "price": 500,
-                "image": "../share/img/products/recommended/yoshihara/.png"
+                "image": "../share/img/products/recommended/yoshihara/ktm.png"
             }
         ],
-        "company_name": "有限会社 吉原食品",
+        "company_name": "吉原食品",
         "gasUrl": "https://script.google.com/macros/s/AKfycbzNvt0g4hJI6ZIXOB5iuWFfcLk4aNHtzCTprHQpAangwuGe3r1vVkwZO8aiMuwLtKSHqQ/exec"
     },
     {
@@ -127,20 +126,20 @@
             {
                 "name": "塩キャラメル",
                 "price": 500,
-                "image": "../share/img/products/recommended/ringodo/.png"
+                "image": "../share/img/products/recommended/ringodo/sc.png"
             },
             {
                 "name": "ホワイトチョコ",
                 "price": 600,
-                "image": "../share/img/products/recommended/ringodo/.png"
+                "image": "../share/img/products/recommended/ringodo/wc.png"
             },
             {
                 "name": "プレーン",
                 "price": 700,
-                "image": "../share/img/products/recommended/ringodo/.png"
+                "image": "../share/img/products/recommended/ringodo/p.png"
             }
         ],
-        "company_name": "株式会社 林檎堂",
+        "company_name": "林檎堂",
         "gasUrl": "https://script.google.com/macros/s/AKfycby4ijWRrgG4xcIeOHUoGq-nV5a4CUSHbovnFP5zlDyNyN4Omin1r-4caw08gMoZibhl/exec"
     },
     {
@@ -156,7 +155,7 @@
             {
                 "name": "ポン酢マヨ",
                 "price": 500,
-                "image": "../share/img/products/recommended/kondo/.png"
+                "image": "../share/img/products/recommended/kondo/pm.png"
             }
         ],
         "company_name": "近藤製飴本舗",
@@ -175,7 +174,7 @@
             {
                 "name": "ダブルチョコ",
                 "price": 260,
-                "image": "../share/img/products/recommended/crepe/.png"
+                "image": "../share/img/products/recommended/crepe/dc.png"
             }
         ],
         "company_name": "Crepe & ...",
@@ -194,7 +193,7 @@
             {
                 "name": "キャラメルソフト",
                 "price": 300,
-                "image": "../share/img/products/recommended/cdb/.png"
+                "image": "../share/img/products/recommended/cdb/cs.png"
             }
         ],
         "company_name": "Comida de Batata",
@@ -211,9 +210,14 @@
         ],
         "products": [
             {
-                "name": "おすすめ商品１",
-                "price": 500,
-                "image": "../share/img/products/recommended/torihei/.png"
+                "name": "つくね",
+                "price": 130,
+                "image": "../share/img/products/recommended/torihei/tt.png"
+            },
+            {
+                "name": "鳥身",
+                "price": 130,
+                "image": "../share/img/products/recommended/torihei/tt.png"
             }
         ],
         "company_name": "鳥平商事",
@@ -230,9 +234,9 @@
         ],
         "products": [
             {
-                "name": "おすすめ商品１",
+                "name": "チーズ揚げ",
                 "price": 500,
-                "image": "../share/img/products/recommended/itoishiya/.png"
+                "image": "../share/img/products/recommended/itoishiya/fc.png"
             }
         ],
         "company_name": "糸石家",
@@ -254,7 +258,7 @@
                 "image": "../share/img/products/recommended/hitoyoshi_onsen_shop/.png"
             }
         ],
-        "company_name": "株式会社りーな２１ 人吉温泉物産館",
+        "company_name": "人吉温泉物産館",
         "gasUrl": "https://script.google.com/macros/s/AKfycbxnl4XompT1ZQlZhByBYitPlopkrSCUHOcO5VImTwmLIiU-886O_m6wCpHb13yjskLp/exec"
     },
     {
@@ -273,14 +277,14 @@
                 "image": "../share/img/products/recommended/artisans/.png"
             }
         ],
-        "company_name": "合同会社 球磨川アーティザンズ",
+        "company_name": "球磨川アーティザンズ",
         "gasUrl": "https://script.google.com/macros/s/AKfycbxnl4XompT1ZQlZhByBYitPlopkrSCUHOcO5VImTwmLIiU-886O_m6wCpHb13yjskLp/exec"
     },
     {
         "id": "2-2-1",
         "name": "田舎惣菜 樂や",
         "catch": "キャッチコピー",
-        "image": "../share/img/store/",
+        "image": "../share/img/store/gakuya.png",
         "pr": [
             "PR文１",
             "PR文２"
@@ -289,7 +293,7 @@
             {
                 "name": "落花生豆腐",
                 "price": 500,
-                "image": "../share/img/products/recommended//.png"
+                "image": "../share/img/products/recommended/gakuya/rd.png"
             }
         ],
         "company_name": "田舎惣菜 樂や",
@@ -308,7 +312,7 @@
             {
                 "name": "馬ロッケ",
                 "price": 500,
-                "image": "../share/img/products/recommended/torimiya/.png"
+                "image": "../share/img/products/recommended/torimiya/hc.png"
             }
         ],
         "company_name": "阿蘇とり宮",
@@ -327,7 +331,7 @@
             {
                 "name": "熊商よかとこセット",
                 "price": 500,
-                "image": "../share/img/products/recommended/yatsushiro_yokatoko/.png"
+                "image": "../share/img/products/recommended/yatsushiro_yokatoko/ks.png"
             }
         ],
         "company_name": "八代よかとこ物産館",
@@ -346,17 +350,17 @@
             {
                 "name": "ねこちぐら",
                 "price": 500,
-                "image": "../share/img/products/recommended/inoue/.png"
+                "image": "../share/img/products/recommended/inoue/n.png"
             }
         ],
-        "company_name": "有限会社 井上産業",
+        "company_name": "井上産業",
         "gasUrl": "https://script.google.com/macros/s/AKfycbxiO8OP0D1WIRNj_7Ik5EJaFaVo6lY0IZ34Azd6nFv1OwbrMtIympaKWAo8LofNSncjeg/exec"
     },
     {
         "id": "2-3-3",
         "name": "はちゆい",
         "catch": "キャッチコピー",
-        "image": "../share/img/store/",
+        "image": "../share/img/home/no_image.png",
         "pr": [
             "PR文１",
             "PR文２"
@@ -365,7 +369,7 @@
             {
                 "name": "ココシャイン",
                 "price": 500,
-                "image": "../share/img/products/recommended//.png"
+                "image": "../share/img/products/recommended/hatiyui/tj.png"
             }
         ],
         "company_name": "はちゆい",
@@ -384,7 +388,7 @@
             {
                 "name": "かりんとう万十",
                 "price": 180,
-                "image": "../share/img/products/recommended/onitsukanissyodo/.png"
+                "image": "../share/img/products/recommended/onitsukanissyodo/km.png"
             }
         ],
         "company_name": "鬼塚日昭堂",
@@ -403,10 +407,10 @@
             {
                 "name": "サラたまちゃんギョーザ",
                 "price": 1200,
-                "image": "../share/img/products/recommended/JA_ashikita/.png"
+                "image": "../share/img/products/recommended/JA_ashikita/gyoza.png"
             }
         ],
-        "company_name": "あしきた農業協同組合（ＪＡあしきた）",
+        "company_name": "ＪＡあしきた",
         "gasUrl": "https://script.google.com/macros/s/AKfycbw0dGht80ag03xSmTLCfSpUamPnYmrPILEgHBrz0JO1RRaRIHhy6xuprgtEFiDM3ClJHA/exec"
     },
     {
@@ -422,7 +426,7 @@
             {
                 "name": "こっぱ餅",
                 "price": 750,
-                "image": "../share/img/products/recommended/takaramoch/.png"
+                "image": "../share/img/products/recommended/takaramoch/koppa.png"
             }
         ],
         "company_name": "宝餅本舗",
@@ -441,7 +445,7 @@
             {
                 "name": "ふわふわ削りぶし　さば",
                 "price": 260,
-                "image": "../share/img/products/recommended/tennei/.png"
+                "image": "../share/img/products/recommended/tennei/saba.png"
             }
         ],
         "company_name": "天栄食品",
@@ -460,7 +464,7 @@
             {
                 "name": "みそまんじゅう",
                 "price": 100,
-                "image": "../share/img/products/recommended/shunpuan/.png"
+                "image": "../share/img/products/recommended/shunpuan/mm.png"
             }
         ],
         "company_name": "春風庵",
@@ -479,10 +483,10 @@
             {
                 "name": "たこ天",
                 "price": 400,
-                "image": "../share/img/products/recommended/matsushita/.png"
+                "image": "../share/img/products/recommended/matsushita/nira.png"
             }
         ],
-        "company_name": "株式会社 松下蒲鉾店",
+        "company_name": "松下蒲鉾店",
         "gasUrl": "https://script.google.com/macros/s/AKfycbwKiEErOb1Vq5akQQYhnn01UprfUpJTUGiobnljq8Jql5miANCasut_bppOumXMQeB0/exec"
     },
     {
@@ -498,7 +502,7 @@
             {
                 "name": "あか牛ハンバーグおむすび",
                 "price": 500,
-                "image": "../share/img/products/recommended/en/.png"
+                "image": "../share/img/products/recommended/en/bo.png"
             }
         ],
         "company_name": "むすび屋 えん",
@@ -517,10 +521,10 @@
             {
                 "name": "丸ごとマロンパイ",
                 "price": 350,
-                "image": "../share/img/products/recommended/An/.png"
+                "image": "../share/img/products/recommended/An/mp.png"
             }
         ],
-        "company_name": "山鹿和栗洋菓子店Ａｎ（杏） ／ 株式会社 あんず",
+        "company_name": "山鹿和栗洋菓子店Ａｎ（杏）",
         "gasUrl": "https://script.google.com/macros/s/AKfycbwq_DMzG-GnyhOT7XwqhQ_13e3BA--RV7P4HdjfMeETomzRPwO8TH_XWdVJMesfCeq5/exec"
     },
     {
@@ -536,7 +540,7 @@
             {
                 "name": "メロンパン",
                 "price": 220,
-                "image": "../share/img/products/recommended/uto_marina/.png"
+                "image": "../share/img/products/recommended/uto_marina/mb.png"
             }
         ],
         "company_name": "宇土マリーナおこしき館",
@@ -565,7 +569,7 @@
         "id": "2-7-3",
         "name": "杉本本店",
         "catch": "キャッチコピー",
-        "image": "../share/img/store/",
+        "image": "../share/img/store/sugimoto.png",
         "pr": [
             "PR文１",
             "PR文２"
@@ -574,7 +578,7 @@
             {
                 "name": "樺姫牛ぎゅうざ",
                 "price": 1500,
-                "image": "../share/img/products/recommended//.png"
+                "image": "../share/img/products/recommended/sugimoto/.png"
             }
         ],
         "company_name": "杉本本店",
@@ -595,8 +599,8 @@
                 "price": 1500,
                 "image": "../share/img/products/recommended/higo_soukawa/.png"
             }
-        ],    
-        "company_name": "（有）肥後そう川",
+        ],
+        "company_name": "肥後そう川",
         "gasUrl": "https://script.google.com/macros/s/AKfycbw0xmJy66CXDGQAU-qMrge3_b4dy4GM1oX0Xj8ZgYnLbI3baqQqLl6C7JRrO8rsA_Do/exec"
     },
     {
@@ -615,7 +619,7 @@
                 "image": "../share/img/products/recommended/sweets_shop_kikori/.png"
             }
         ],
-        "company_name": "株式会社きこり（スイーツ工房きこり）",
+        "company_name": "スイーツ工房きこり",
         "gasUrl": "https://script.google.com/macros/s/AKfycbw0xmJy66CXDGQAU-qMrge3_b4dy4GM1oX0Xj8ZgYnLbI3baqQqLl6C7JRrO8rsA_Do/exec"
     },
     {
@@ -634,12 +638,12 @@
                 "image": "../share/img/products/recommended/Greentea_Lab/.png"
             }
         ],
-        "company_name": "Greentea.Lab 株式会社お茶の富沢",
+        "company_name": "Greentea.Lab",
         "gasUrl": "https://script.google.com/macros/s/AKfycbw0xmJy66CXDGQAU-qMrge3_b4dy4GM1oX0Xj8ZgYnLbI3baqQqLl6C7JRrO8rsA_Do/exec"
     },
     {
         "id": "2-9-1",
-        "name": "たまララ",
+        "name": "観光ホットプラザ　たまララ",
         "catch": "キャッチコピー",
         "image": "../share/img/store/tamarara.png",
         "pr": [
@@ -653,7 +657,7 @@
                 "image": "../share/img/products/recommended/tamarara/.png"
             }
         ],
-        "company_name": "一般社団法人 玉名観光協会 観光ホットプラザ「たまララ」",
+        "company_name": "観光ホットプラザ たまララ",
         "gasUrl": "https://script.google.com/macros/s/AKfycbzPHA0i_IGINSjDtkzW0ryAEkHP7mWvxl60hV6xUhmHYAWtaPT5V8-rDECxx-3LHwggzA/exec"
     },
     {
@@ -679,7 +683,7 @@
         "id": "3-1-1",
         "name": "merry shop",
         "catch": "キャッチコピー",
-        "image": "../share/img/store/",
+        "image": "../share/img/home/no_image.png",
         "pr": [
             "PR文１",
             "PR文２"
@@ -688,7 +692,7 @@
             {
                 "name": "おすすめ商品１",
                 "price": 500,
-                "image": "../share/img/products/recommended//.png"
+                "image": "../share/img/products/recommended/merry/.png"
             }
         ],
         "company_name": "merry shop",
@@ -710,14 +714,14 @@
                 "image": "../share/img/products/recommended/kogyokudo/.png"
             }
         ],
-        "company_name": "株式会社 甲玉堂",
+        "company_name": "甲玉堂",
         "gasUrl": "https://script.google.com/macros/s/AKfycbzr6JvxmbbX8c1n54khjn8BfimxQy-PPvOmRv9P5KliiW9kdXhiapd2g6n-UEUzqft5/exec"
     },
     {
         "id": "3-2-1",
-        "name": "DCMペット＆グリーン",
+        "name": "DCMペット&グリーン",
         "catch": "キャッチコピー",
-        "image": "../share/img/store/",
+        "image": "../share/img/home/no_image.png",
         "pr": [
             "PR文１",
             "PR文２"
@@ -726,22 +730,22 @@
             {
                 "name": "ポインセチア",
                 "price": 500,
-                "image": "../share/img/products/recommended//.png"
+                "image": "../share/img/products/recommended/DCM/.png"
             },
             {
                 "name": "シクラメン",
                 "price": 600,
-                "image": "../share/img/products/recommended//.png"
+                "image": "../share/img/products/recommended/DCM/.png"
             }
         ],
-        "company_name": "DCMペット&グリーン 東町店",
+        "company_name": "DCMペット&グリーン",
         "gasUrl": "https://script.google.com/macros/s/AKfycbwmFwc14PTykOw_jxMYKtqc96_6TidvyZYzuN5-XiYdq8dsRv9blKkWGU42-i2TNJoQDg/exec"
     },
     {
         "id": "3-2-2",
         "name": "シガキ食品",
         "catch": "キャッチコピー",
-        "image": "../share/img/store/",
+        "image": "../share/img/home/no_image.png",
         "pr": [
             "PR文１",
             "PR文２"
@@ -750,10 +754,10 @@
             {
                 "name": "甘酒",
                 "price": 500,
-                "image": "../share/img/products/recommended//.png"
+                "image": "../share/img/products/recommended/shigaki/.png"
             }
         ],
-        "company_name": "合資会社 シガキ食品",
+        "company_name": "シガキ食品",
         "gasUrl": "https://script.google.com/macros/s/AKfycbwmFwc14PTykOw_jxMYKtqc96_6TidvyZYzuN5-XiYdq8dsRv9blKkWGU42-i2TNJoQDg/exec"
     },
     {
@@ -782,14 +786,14 @@
                 "image": "../share/img/products/recommended/michinoeki_suzunari/.png"
             }
         ],
-        "company_name": "石川県復興支援 道の駅 すずなり",
+        "company_name": "道の駅 すずなり",
         "gasUrl": "https://script.google.com/macros/s/AKfycbxPrz7_fbgslp6n86uKT7kWfANSXyNv2n0wUL20QSH805MZDmeoaC7hmTXMhVOr2lGU6Q/exec"
     },
     {
         "id": "3-3-2",
         "name": "南九州月星",
         "catch": "キャッチコピー",
-        "image": "../share/img/store/",
+        "image": "../share/img/home/no_image.png",
         "pr": [
             "PR文１",
             "PR文２"
@@ -798,10 +802,10 @@
             {
                 "name": "オーストリッチエアソール",
                 "price": 1500,
-                "image": "../share/img/products/recommended//.png"
+                "image": "../share/img/products/recommended/tsukihoshi/.png"
             }
         ],
-        "company_name": "南九州月星 株式会社",
+        "company_name": "南九州月星",
         "gasUrl": "https://script.google.com/macros/s/AKfycbxPrz7_fbgslp6n86uKT7kWfANSXyNv2n0wUL20QSH805MZDmeoaC7hmTXMhVOr2lGU6Q/exec"
     },
     {
@@ -820,7 +824,7 @@
                 "image": "../share/img/products/recommended/matsuai/.png"
             }
         ],
-        "company_name": "松合食品 株式会社",
+        "company_name": "松合食品",
         "gasUrl": "https://script.google.com/macros/s/AKfycbzvsrQzO0C9vzJ5TTgRA9zk05imKoYGjVzM0i-EWspbkyuDcc8kn3FI75FfYQufjIYbpA/exec"
     },
     {
@@ -839,7 +843,7 @@
                 "image": "../share/img/products/recommended/higo_oil/.png"
             }
         ],
-        "company_name": "肥後製油 株式会社",
+        "company_name": "肥後製油",
         "gasUrl": "https://script.google.com/macros/s/AKfycbzvsrQzO0C9vzJ5TTgRA9zk05imKoYGjVzM0i-EWspbkyuDcc8kn3FI75FfYQufjIYbpA/exec"
     },
     {
@@ -877,14 +881,14 @@
                 "image": "../share/img/products/recommended/Boulogne/.png"
             }
         ],
-        "company_name": "有限会社 欧風菓子の店 ブローニュの森",
+        "company_name": "ブローニュの森",
         "gasUrl": "https://script.google.com/macros/s/AKfycbxiyi8kUs3zzSXr3OSgyhFF_Yf5Z1Y0G7vTLcNUIEXeQNHOk_vnTIW-fWP7CoCXtlHZ/exec"
     },
     {
         "id": "3-7-1",
         "name": "市川製茶園",
         "catch": "キャッチコピー",
-        "image": "../share/img/store/",
+        "image": "../share/img/home/no_image.png",
         "pr": [
             "PR文１",
             "PR文２"
@@ -893,7 +897,7 @@
             {
                 "name": "おすすめ商品１",
                 "price": 500,
-                "image": "../share/img/products/recommended//.png"
+                "image": "../share/img/products/recommended/ichikawa/.png"
             }
         ],
         "company_name": "市川製茶園",
@@ -903,7 +907,7 @@
         "id": "3-7-2",
         "name": "コデラ",
         "catch": "キャッチコピー",
-        "image": "../share/img/store/",
+        "image": "../share/img/store/kodera.png",
         "pr": [
             "PR文１",
             "PR文２"
@@ -912,17 +916,17 @@
             {
                 "name": "おすすめ商品１",
                 "price": 500,
-                "image": "../share/img/products/recommended//.png"
+                "image": "../share/img/products/recommended/kodera/.png"
             }
         ],
-        "company_name": "有限会社 コデラ",
+        "company_name": "コデラ",
         "gasUrl": "https://script.google.com/macros/s/AKfycbxUuxK-c3lBffnvs_nMSYqdEazTTpRGphiyq56oKJ_BWttojtzTDYpdTg6GUYPpDK3j/exec"
     },
     {
         "id": "3-8-1",
         "name": "ゆうステーション熊本",
         "catch": "キャッチコピー",
-        "image": "../share/img/store/",
+        "image": "../share/img/home/no_image.png",
         "pr": [
             "PR文１",
             "PR文２"
@@ -931,17 +935,17 @@
             {
                 "name": "おすすめ商品１",
                 "price": 500,
-                "image": "../share/img/products/recommended//.png"
+                "image": "../share/img/products/recommended/yuu/.png"
             }
         ],
-        "company_name": "ＮＰＯ法人 ゆうステーション熊本",
+        "company_name": "ゆうステーション熊本",
         "gasUrl": "https://script.google.com/macros/s/AKfycbxScIiePXzOq-D9SKt7j5KfHCxiaLsI_AcCzhOPDULYh8kZYHHuwnN69IMJrSP5pYN6/exec"
     },
     {
         "id": "3-8-2",
         "name": "アトリエ Green Sea",
         "catch": "キャッチコピー",
-        "image": "../share/img/store/",
+        "image": "../share/img/home/no_image.png",
         "pr": [
             "PR文１",
             "PR文２"
@@ -950,7 +954,7 @@
             {
                 "name": "おすすめ商品１",
                 "price": 500,
-                "image": "../share/img/products/recommended//.png"
+                "image": "../share/img/products/recommended/atorie/.png"
             }
         ],
         "company_name": "アトリエ Green Sea",
@@ -991,7 +995,7 @@
                 "image": "../share/img/products/recommended/mikuniya/.png"
             }
         ],
-        "company_name": "株式会社 三国屋",
+        "company_name": "三国屋",
         "gasUrl": "https://script.google.com/macros/s/AKfycbyEHLBgehDKx2n8OztlXKV_V3c71krJc1dIgIE4mM8CdBIYvK6wZb_eb1oi98LzwQQqWw/exec"
     }
 ]

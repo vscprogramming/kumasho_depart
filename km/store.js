@@ -142,7 +142,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
       const img = document.createElement("img");
       img.src = shop.image;
-      img.alt = `${shop.name}の画像`;
+      img.alt = shop.name;
       img.loading = "lazy";
 
       const title = document.createElement("h3");
