@@ -188,7 +188,7 @@ document.addEventListener("DOMContentLoaded", async () => {
         const status = crowdMap.get(company) || 'データなし';
 
         let message = '';
-        let message2='';
+        let message2 = '';
         let color = 'black';
         if (status.includes('空き')) {
           message = 'ゆったりと';
@@ -208,9 +208,9 @@ document.addEventListener("DOMContentLoaded", async () => {
           color = 'gray';
         }
         crowdText.style.color = color;
-        if (status.includes('空き')){
+        if (status.includes('空き')) {
           crowdText.innerHTML = `混雑状況: ${status} <br>（${message}<br>${message2}）`;
-        } else { 
+        } else {
           crowdText.innerHTML = `混雑状況: ${status} <br>（${message}）`;
         }
       });
