@@ -6,7 +6,7 @@ const class_name = localStorage.getItem('class_name'), class_number = localStora
 // 不正アクセス防止
 if (!localStorage.getItem(`logged_${class_number}`)) {
     alert('不正なアクセスです。ログインページへ遷移します。');
-    window.location.href = '../home/home.html';
+    window.location.href = '../home/h.html';
 }
 
 // 半角数字を全角に
@@ -19,36 +19,11 @@ const fw_cn = ((num) => {
 
 // console.debug(`full_width_class_number: ${fw_cn}`);
 
-['page_title', 'title_display'].forEach(e_id => { document.getElementById(e_id).textContent = `${fw_cn[0]}年${fw_cn[1]}組` });
+['page_title', 'title_display'].forEach(e_id => { document.getElementById(e_id).textContent = `${fw_cn[0]}年${fw_cn[1]}組　デモ版アプリ` });
 
 const all_gas_url = new Map([
-    ['1-1', 'https://script.google.com/macros/s/AKfycbzHsNfnfnOqQpJaD-rSgHRGsfTcxfrA6i2X-O8JhlvKuHLd-SBO3-OTXc6RjEwnNswp/exec'],
-    ['1-2', 'https://script.google.com/macros/s/AKfycbyXwQXuoqOi2IvKuCxYI5sqi3Sz2CcuXAFH4etCKF_bT-bpJJ3q65K0mfSV2k6Bixb3oA/exec'],
-    ['1-3', 'https://script.google.com/macros/s/AKfycbzMAAW1BHqbmXCv3VK3PZZGTZlILpN2Idz0ejX-KwiC0taaUKehSrhzX6rsDjUokX3xMw/exec'],
-    ['1-4', 'https://script.google.com/macros/s/AKfycbz2xNt-rGReQ0E6UOpQ5V9uNyFfb5HSMKqUaa9g-99kExVJz3n8DKtysbmtK7GIIebn/exec'],
-    ['1-5', 'https://script.google.com/macros/s/AKfycbzNvt0g4hJI6ZIXOB5iuWFfcLk4aNHtzCTprHQpAangwuGe3r1vVkwZO8aiMuwLtKSHqQ/exec'],
-    ['1-6', 'https://script.google.com/macros/s/AKfycby4ijWRrgG4xcIeOHUoGq-nV5a4CUSHbovnFP5zlDyNyN4Omin1r-4caw08gMoZibhl/exec'],
-    ['1-7', 'https://script.google.com/macros/s/AKfycbyZJ2Wk9rsK0VHfUmq41gYMTmYoitdGNoW06cpockjkF6i1pgiYnrUySwN3id_mrK1X/exec'],
-    ['1-8', 'https://script.google.com/macros/s/AKfycbyl3lg13ygmc8xqAhMjsvtEcYd13GAA_FvGLcDQU2LXWCkZaVXpfNgJDX2-PxBFguJz/exec'],
-    ['1-9', 'https://script.google.com/macros/s/AKfycbwj43SO1avs2MCSOyoW3XMvX6VTADXYO7HFOsgs5d8mqE9qpXulVmimGHOxIbF__hf0Bw/exec'],
-    ['2-1', 'https://script.google.com/macros/s/AKfycbxnl4XompT1ZQlZhByBYitPlopkrSCUHOcO5VImTwmLIiU-886O_m6wCpHb13yjskLp/exec'],
-    ['2-2', 'https://script.google.com/macros/s/AKfycbyC285RKzw7FJvpHwKKgjhjWj8QjjJ5vFwvwIHAfqENUiRKZga0tGCclP1h1iKvZ4_yLQ/exec'],
-    ['2-3', 'https://script.google.com/macros/s/AKfycbxiO8OP0D1WIRNj_7Ik5EJaFaVo6lY0IZ34Azd6nFv1OwbrMtIympaKWAo8LofNSncjeg/exec'],
-    ['2-4', 'https://script.google.com/macros/s/AKfycbw0dGht80ag03xSmTLCfSpUamPnYmrPILEgHBrz0JO1RRaRIHhy6xuprgtEFiDM3ClJHA/exec'],
-    ['2-5', 'https://script.google.com/macros/s/AKfycbwKiEErOb1Vq5akQQYhnn01UprfUpJTUGiobnljq8Jql5miANCasut_bppOumXMQeB0/exec'],
-    ['2-6', 'https://script.google.com/macros/s/AKfycbwq_DMzG-GnyhOT7XwqhQ_13e3BA--RV7P4HdjfMeETomzRPwO8TH_XWdVJMesfCeq5/exec'],
-    ['2-7', 'https://script.google.com/macros/s/AKfycbwP0lWskCDnE2jEdJ7rc7-LTeEpPm6_sFAGoB8v5Nv4yFH5TLQ6gE9afAMaB5dSSV9K/exec'],
-    ['2-8', 'https://script.google.com/macros/s/AKfycbw0xmJy66CXDGQAU-qMrge3_b4dy4GM1oX0Xj8ZgYnLbI3baqQqLl6C7JRrO8rsA_Do/exec'],
-    ['2-9', 'https://script.google.com/macros/s/AKfycbzPHA0i_IGINSjDtkzW0ryAEkHP7mWvxl60hV6xUhmHYAWtaPT5V8-rDECxx-3LHwggzA/exec'],
-    ['3-1', 'https://script.google.com/macros/s/AKfycbzr6JvxmbbX8c1n54khjn8BfimxQy-PPvOmRv9P5KliiW9kdXhiapd2g6n-UEUzqft5/exec'],
-    ['3-2', 'https://script.google.com/macros/s/AKfycbwmFwc14PTykOw_jxMYKtqc96_6TidvyZYzuN5-XiYdq8dsRv9blKkWGU42-i2TNJoQDg/exec'],
-    ['3-3', 'https://script.google.com/macros/s/AKfycbxPrz7_fbgslp6n86uKT7kWfANSXyNv2n0wUL20QSH805MZDmeoaC7hmTXMhVOr2lGU6Q/exec'],
-    ['3-4', 'https://script.google.com/macros/s/AKfycbzvsrQzO0C9vzJ5TTgRA9zk05imKoYGjVzM0i-EWspbkyuDcc8kn3FI75FfYQufjIYbpA/exec'],
-    ['3-5', 'https://script.google.com/macros/s/AKfycbxS9YIopnCOHJdkm0XxNugd2dUm-37gIyiyIRXjbf0bPgCYsbe75nTQjDKofo-CUouX/exec'],
-    ['3-6', 'https://script.google.com/macros/s/AKfycbxiyi8kUs3zzSXr3OSgyhFF_Yf5Z1Y0G7vTLcNUIEXeQNHOk_vnTIW-fWP7CoCXtlHZ/exec'],
-    ['3-7', 'https://script.google.com/macros/s/AKfycbxUuxK-c3lBffnvs_nMSYqdEazTTpRGphiyq56oKJ_BWttojtzTDYpdTg6GUYPpDK3j/exec'],
-    ['3-8', 'https://script.google.com/macros/s/AKfycbxScIiePXzOq-D9SKt7j5KfHCxiaLsI_AcCzhOPDULYh8kZYHHuwnN69IMJrSP5pYN6/exec'],
-    ['3-9', 'https://script.google.com/macros/s/AKfycbyEHLBgehDKx2n8OztlXKV_V3c71krJc1dIgIE4mM8CdBIYvK6wZb_eb1oi98LzwQQqWw/exec'],
+    ['9-1', 'https://script.google.com/macros/s/AKfycbxr9uErPcZJRfys7orvMGtXgs9XTlx-T03aR1CcUlP7057Q4u7ZXjOgF0bVzGpFUAGY/exec'],
+    ['9-2', 'https://script.google.com/macros/s/AKfycbzhJ_MFmW0mvuGWrDUvnZPevrCpjwecPD42p7KsWaWN5mS0iEyZ95Q_eNn7_xVBDhASoA/exec']
 ]);
 
 const gas_url_post = all_gas_url.get(class_name);
@@ -77,7 +52,7 @@ window.addEventListener('DOMContentLoaded', async () => {
         await content_generation(gas_url_post);    // コンテンツ生成
     } else {
         alert('データの読み込みに失敗しました。ログインページに遷移します。');
-        window.location.href = '../home/home.html';
+        window.location.href = '../home/h.html';
     }
 
     document.getElementById('loading').style.display = 'none';
@@ -87,7 +62,7 @@ async function gas_loading_cs() {
     let retry_count = 1;
     while (retry_count <= 3) {
         try {
-            const response = await fetch(`https://script.google.com/macros/s/AKfycbwT4gS9ZQtDncvbyyHzZewqI-CprzojeoZjXc9jbJ1f1GdyTr611mi9Ja1FSZn7dVtI/exec?sheet=${encodeURIComponent('cs')}`);
+            const response = await fetch(`https://script.google.com/macros/s/AKfycbwLjcBwmQ1cyUZsZaEpHmMvDJtpV89nolCD-S9rumJkbRidLOYqDJ1erM3oGtEMLDU2/exec?sheet=${encodeURIComponent('cs')}`);
 
             if (response.ok) {
                 json_data_cs = await response.json();
@@ -455,7 +430,7 @@ async function content_generation(post) {
             let retry_count = 1;
             while (retry_count <= 3) { 
                 try {
-                    const response = await fetch('https://script.google.com/macros/s/AKfycbwT4gS9ZQtDncvbyyHzZewqI-CprzojeoZjXc9jbJ1f1GdyTr611mi9Ja1FSZn7dVtI/exec', {
+                    const response = await fetch('https://script.google.com/macros/s/AKfycbwLjcBwmQ1cyUZsZaEpHmMvDJtpV89nolCD-S9rumJkbRidLOYqDJ1erM3oGtEMLDU2/exec', {
                         method: 'POST',
                         body: gas_post_data_cs
                     });
@@ -659,7 +634,7 @@ const element_process = [
         event: 'click',
         handler: () => {
             localStorage.removeItem(`logged_${class_number}`);
-            window.location.href = '../home/home.html';
+            window.location.href = '../home/h.html';
         }
     },
     {   // タブの切り替え機構

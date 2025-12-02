@@ -230,7 +230,7 @@ table tr:last-child td:first-child { border-radius: 0 0 0 var(--radius); }
 
 #search_button::after { content: '商品検索'; }
 #reload_button::after { content: '再読み込み'; }
-#info_button::after { content: '追加情報'; }
+#info_button::after { content: '詳細情報'; }
 #search_button.searched { color: var(--color-blue-searched); }
 
 #logout_button::after {
@@ -354,7 +354,7 @@ table tr:last-child td:first-child { border-radius: 0 0 0 var(--radius); }
 
 #search_title::before { content: '商品検索'; }
 #logout_check_title::before { content: 'ログアウト確認'; }
-#info_title::before { content: '追加情報'; }
+#info_title::before { content: '詳細情報'; }
 
 #search_title, #logout_check_title, #info_title {
     width: 100%; height: 13%;
@@ -380,16 +380,6 @@ table tr:last-child td:first-child { border-radius: 0 0 0 var(--radius); }
 #logout_modal h3 {
     font-size: 130%;
     margin: 18% 0 11% 31%;
-    color: var(--color-text-light);
-}
-
-#info h3 {
-    margin: 10% 0 3% 7%;
-    color: var(--color-text-light)
-}
-
-#info p { 
-    margin-left: 10%;
     color: var(--color-text-light);
 }
 

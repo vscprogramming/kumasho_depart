@@ -1,0 +1,116 @@
+[
+    {
+        "id": "9-1-1",
+        "name": "店舗A",
+        "catch": "デモ店舗",
+        "image": "../share/img/store/cafe.png",
+        "pr": [
+            "これは架空の店舗です。",
+            "実際には存在しません。"
+        ],
+        "products": [
+            {
+                "name": "商品1",
+                "price": 500,
+                "image": "../share/img/products/recommended/cafe/rn.png"
+            }
+        ],
+        "company_name": "店舗A",
+        "gasUrl": "https://script.google.com/a/macros/g.bears.ed.jp/s/AKfycbxr9uErPcZJRfys7orvMGtXgs9XTlx-T03aR1CcUlP7057Q4u7ZXjOgF0bVzGpFUAGY/exec"
+    },
+    {
+        "id": "9-1-2",
+        "name": "店舗B",
+        "catch": "デモ店舗",
+        "image": "../share/img/store/TATOMIYA.png",
+        "pr": [
+            "これは架空の店舗です。",
+            "実際には存在しません。"
+        ],
+        "products": [
+            {
+                "name": "商品2",
+                "price": 2000,
+                "image": "../share/img/products/recommended/TATOMIYA/ss.png"
+            }
+        ],
+        "company_name": "店舗B",
+        "gasUrl": "https://script.google.com/a/macros/g.bears.ed.jp/s/AKfycbxr9uErPcZJRfys7orvMGtXgs9XTlx-T03aR1CcUlP7057Q4u7ZXjOgF0bVzGpFUAGY/exec"
+    },
+    {
+        "id": "9-1-3",
+        "name": "店舗C",
+        "catch": "デモ店舗",
+        "image": "../share/img/store/takada.png",
+        "pr": [
+            "これは架空の店舗です。",
+            "実際には存在しません。"
+        ],
+        "products": [
+            {
+                "name": "商品3",
+                "price": 1200,
+                "image": "../share/img/products/recommended/takada/nm.png"
+            }
+        ],
+        "company_name": "店舗C",
+        "gasUrl": "https://script.google.com/a/macros/g.bears.ed.jp/s/AKfycbxr9uErPcZJRfys7orvMGtXgs9XTlx-T03aR1CcUlP7057Q4u7ZXjOgF0bVzGpFUAGY/exec"
+    },
+    {
+        "id": "9-2-1",
+        "name": "店舗D",
+        "catch": "デモ店舗",
+        "image": "../share/img/store/takada.png",
+        "pr": [
+            "これは架空の店舗です。",
+            "実際には存在しません。"
+        ],
+        "products": [
+            {
+                "name": "商品1",
+                "price": 1000,
+                "image": "../share/img/products/recommended/takada/nm.png"
+            }
+        ],
+        "company_name": "店舗D",
+        "gasUrl": "https://script.google.com/macros/s/AKfycbzhJ_MFmW0mvuGWrDUvnZPevrCpjwecPD42p7KsWaWN5mS0iEyZ95Q_eNn7_xVBDhASoA/exec"
+    },
+    {
+        "id": "9-2-2",
+        "name": "店舗E",
+        "catch": "デモ店舗",
+        "image": "../share/img/store/takada.png",
+        "pr": [
+            "これは架空の店舗です。",
+            "実際には存在しません。"
+        ],
+        "products": [
+            {
+                "name": "商品2",
+                "price": 1000,
+                "image": "../share/img/products/recommended/takada/nm.png"
+            }
+        ],
+        "company_name": "店舗D",
+        "gasUrl": "https://script.google.com/macros/s/AKfycbzhJ_MFmW0mvuGWrDUvnZPevrCpjwecPD42p7KsWaWN5mS0iEyZ95Q_eNn7_xVBDhASoA/exec"
+    },
+    {
+        "id": "9-2-3",
+        "name": "店舗F",
+        "catch": "デモ店舗",
+        "image": "../share/img/store/takada.png",
+        "pr": [
+            "これは架空の店舗です。",
+            "実際には存在しません。"
+        ],
+        "products": [
+            {
+                "name": "商品3",
+                "price": 1000,
+                "image": "../share/img/products/recommended/takada/nm.png"
+            }
+        ],
+        "company_name": "店舗F",
+        "gasUrl": "https://script.google.com/macros/s/AKfycbzhJ_MFmW0mvuGWrDUvnZPevrCpjwecPD42p7KsWaWN5mS0iEyZ95Q_eNn7_xVBDhASoA/exec"
+    }
+]    
