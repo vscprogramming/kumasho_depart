@@ -10,7 +10,7 @@
         ],
         "products": [
             {
-                "name": "商品1",
+                "name": "ショートケーキ",
                 "price": 500,
                 "image": "img/sweets_shortcake.png"
             }

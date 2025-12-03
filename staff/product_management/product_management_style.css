@@ -209,6 +209,7 @@ table tr:last-child td:first-child { border-radius: 0 0 0 var(--radius); }
     font-size: 34px;
 }
 
+#info_search_icon { font-size: 18px; }
 #logout_icon { color: var(--color-red); }
 #search_icon.searched { color: var(--color-blue-searched); }
 #search_button:hover #search_icon, #reload_button:hover #reload_icon, #logout_button:hover #logout_icon, #info_button:hover #info_icon { display: none; }
@@ -388,7 +389,7 @@ table tr:last-child td:first-child { border-radius: 0 0 0 var(--radius); }
 }
 
 #info h3 {
-    margin: 10% 0 1.4% 5%;
+    margin: 7% 0 1.4% 5%;
     color: var(--color-orange)
 }
 
