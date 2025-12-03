@@ -3,7 +3,7 @@
         "id": "9-1-1",
         "name": "店舗A",
         "catch": "デモ店舗",
-        "image": "../share/img/store/cafe.png",
+        "image": "img/cake_ya_building.png",
         "pr": [
             "これは架空の店舗です。",
             "実際には存在しません。"
@@ -12,7 +12,7 @@
             {
                 "name": "商品1",
                 "price": 500,
-                "image": "../share/img/products/recommended/cafe/rn.png"
+                "image": "img/sweets_shortcake.png"
             }
         ],
         "company_name": "店舗A",
@@ -22,7 +22,7 @@
         "id": "9-1-2",
         "name": "店舗B",
         "catch": "デモ店舗",
-        "image": "../share/img/store/TATOMIYA.png",
+        "image": "../share/img/store/.png",
         "pr": [
             "これは架空の店舗です。",
             "実際には存在しません。"
@@ -31,7 +31,7 @@
             {
                 "name": "商品2",
                 "price": 2000,
-                "image": "../share/img/products/recommended/TATOMIYA/ss.png"
+                "image": "../share/img/products/recommended/TATOMIYA/.png"
             }
         ],
         "company_name": "店舗B",
@@ -41,7 +41,7 @@
         "id": "9-1-3",
         "name": "店舗C",
         "catch": "デモ店舗",
-        "image": "../share/img/store/takada.png",
+        "image": "../share/img/store/.png",
         "pr": [
             "これは架空の店舗です。",
             "実際には存在しません。"
@@ -50,7 +50,7 @@
             {
                 "name": "商品3",
                 "price": 1200,
-                "image": "../share/img/products/recommended/takada/nm.png"
+                "image": "../share/img/products/recommended/takada/.png"
             }
         ],
         "company_name": "店舗C",
@@ -60,7 +60,7 @@
         "id": "9-2-1",
         "name": "店舗D",
         "catch": "デモ店舗",
-        "image": "../share/img/store/takada.png",
+        "image": "../share/img/store/.png",
         "pr": [
             "これは架空の店舗です。",
             "実際には存在しません。"
@@ -69,7 +69,7 @@
             {
                 "name": "商品1",
                 "price": 1000,
-                "image": "../share/img/products/recommended/takada/nm.png"
+                "image": "../share/img/products/recommended/takada/.png"
             }
         ],
         "company_name": "店舗D",
@@ -79,7 +79,7 @@
         "id": "9-2-2",
         "name": "店舗E",
         "catch": "デモ店舗",
-        "image": "../share/img/store/takada.png",
+        "image": "../share/img/store/.png",
         "pr": [
             "これは架空の店舗です。",
             "実際には存在しません。"
@@ -88,7 +88,7 @@
             {
                 "name": "商品2",
                 "price": 1000,
-                "image": "../share/img/products/recommended/takada/nm.png"
+                "image": "../share/img/products/recommended/takada/.png"
             }
         ],
         "company_name": "店舗D",
@@ -98,7 +98,7 @@
         "id": "9-2-3",
         "name": "店舗F",
         "catch": "デモ店舗",
-        "image": "../share/img/store/takada.png",
+        "image": "../share/img/store/.png",
         "pr": [
             "これは架空の店舗です。",
             "実際には存在しません。"
@@ -107,7 +107,7 @@
             {
                 "name": "商品3",
                 "price": 1000,
-                "image": "../share/img/products/recommended/takada/nm.png"
+                "image": "../share/img/products/recommended/takada/.png"
             }
         ],
         "company_name": "店舗F",

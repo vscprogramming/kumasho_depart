@@ -55,7 +55,14 @@
 
                 <div id="info">
                     <h3>検索機能が新しくなりました</h3>
-                    <!-- <p>商品コードで検索したい場合、クラスコード、</p> -->
+                    <p>商品コードで検索したい場合</p>
+                    <p>「/」とともにクラス、企業番号を除いた商品番号（通番）</p>
+                    <p>すると商品コードの商品が表示されます。</p>
+                    <br>
+                    <p>【手順】</p>
+                    <p>商品コード「3902024」の商品を検索</p>
+                    <p>検索窓に「/024」または「/24」と入力</p>
+                    <p>商品コード「3902024」の商品が表示されます。</p>
                 </div>
             </div>
         </div>
@@ -69,7 +76,7 @@
                 </div>
 
                 <form id="search_form">
-                    <input type="text" id="search_input" name="search_input" placeholder="商品名を入力してください（部分一致可）">
+                    <input type="text" id="search_input" name="search_input" placeholder="商品名または商品コード（クラス・企業番号を除いた商品番号（通番））を入力してください（部分一致可）">
                     <button type="submit" id="search">検索</button><br>
                     <button type="reset" id="search_all_reset">全ての店舗の検索をクリア</button>
                     <button type="button" id="search_reset">この店舗の検索をクリア</button>
