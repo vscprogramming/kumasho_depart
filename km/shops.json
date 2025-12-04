@@ -10,7 +10,7 @@
         ],
         "products": [
             {
-                "name": "レモネード",
+                "name": "レモンソーダ",
                 "price": 450,
                 "image": "../share/img/products/recommended/cafe/rn.png"
             }
@@ -29,8 +29,8 @@
         ],
         "products": [
             {
-                "name": "冬いちごサンド",
-                "price": 580,
+                "name": "いちごサンド",
+                "price": 620,
                 "image": "../share/img/products/recommended/TATOMIYA/ss.png"
             }
         ],
@@ -48,7 +48,7 @@
         ],
         "products": [
             {
-                "name": "にらメンコ",
+                "name": "（揚げ）にらメンコ",
                 "price": 300,
                 "image": "../share/img/products/recommended/takada/nm.png"
             }
@@ -87,7 +87,7 @@
         "products": [
             {
                 "name": "焼きそば",
-                "price": 0,
+                "price": 350,
                 "image": "../share/img/products/recommended/matsunoya/ys.png"
             }
         ],
@@ -106,7 +106,7 @@
         "products": [
             {
                 "name": "キムチたくあん万十",
-                "price": 500,
+                "price": 250,
                 "image": "../share/img/products/recommended/yoshihara/ktm.png"
             }
         ],
@@ -124,19 +124,9 @@
         ],
         "products": [
             {
-                "name": "塩キャラメル",
-                "price": 0,
-                "image": "../share/img/products/recommended/ringodo/sc.png"
-            },
-            {
-                "name": "ホワイトチョコ",
-                "price": 0,
+                "name": "ホワイトチョコレート",
+                "price": 700,
                 "image": "../share/img/products/recommended/ringodo/wc.png"
-            },
-            {
-                "name": "プレーン",
-                "price": 0,
-                "image": "../share/img/products/recommended/ringodo/p.png"
             }
         ],
         "company_name": "林檎堂",
@@ -153,19 +143,14 @@
         ],
         "products": [
             {
-                "name": "ポン酢マヨ",
-                "price": 0,
+                "name": "たこやき（ネギぽん酢）",
+                "price": 450,
                 "image": "../share/img/products/recommended/kondo/saum.png"
             },
             {
-                "name": "ソースマヨ",
-                "price": 0,
+                "name": "たこ焼き（ソースマヨ）",
+                "price": 400,
                 "image": "../share/img/products/recommended/kondo/saum.png"
-            },
-            {
-                "name": "アイスキャンデー？",
-                "price": 0,
-                "image": "../share/img/products/recommended/kondo/ic.png"
             }
         ],
         "company_name": "近藤製飴本舗",
@@ -203,11 +188,6 @@
             {
                 "name": "キャラメルソルト",
                 "price": 300,
-                "image": "../share/img/products/recommended/cdb/pc.png"
-            },
-            {
-                "name": "熊デパ限定オリジナルポテトチップス",
-                "price": 0,
                 "image": "../share/img/products/recommended/cdb/pc.png"
             }
         ],
@@ -250,7 +230,7 @@
         "products": [
             {
                 "name": "チーズ揚げ",
-                "price": 0,
+                "price": 330,
                 "image": "../share/img/products/recommended/itoishiya/fc.png"
             }
         ],
@@ -269,7 +249,7 @@
         "products": [
             {
                 "name": "人吉シェリーケーキ",
-                "price": 0,
+                "price": 1650,
                 "image": "../share/img/products/recommended/hitoyoshi_onsen_shop/hsc.png"
             }
         ],
@@ -288,7 +268,7 @@
         "products": [
             {
                 "name": "いちごとイチジクのコンフィチュール",
-                "price": 0,
+                "price": 1180,
                 "image": "../share/img/products/recommended/artisans/sic.png"
             }
         ],
@@ -326,7 +306,7 @@
         "products": [
             {
                 "name": "馬ロッケ",
-                "price": 0,
+                "price": 200,
                 "image": "../share/img/products/recommended/torimiya/hc.png"
             }
         ],
@@ -344,8 +324,8 @@
         ],
         "products": [
             {
-                "name": "熊商よかとこセット",
-                "price": 500,
+                "name": "熊商セット",
+                "price": 1500,
                 "image": "../share/img/products/recommended/yatsushiro_yokatoko/ks.png"
             }
 
@@ -365,7 +345,7 @@
         "products": [
             {
                 "name": "ねこちぐら",
-                "price": 0,
+                "price": 18000,
                 "image": "../share/img/products/recommended/inoue/n.png"
             }
         ],
@@ -383,14 +363,9 @@
         ],
         "products": [
             {
-                "name": "ココシャイン",
-                "price": 0,
+                "name": "ココシャイン 500g",
+                "price": 850,
                 "image": "../share/img/products/recommended/hatiyui/.png"
-            },
-            {
-                "name": "トマトジュース",
-                "price": 0,
-                "image": "../share/img/products/recommended/hatiyui/tj.png"
             }
         ],
         "company_name": "はちゆい",
@@ -426,7 +401,7 @@
         ],
         "products": [
             {
-                "name": "サラたまちゃんギョーザ",
+                "name": "サラたまちゃんギョーザ 20個",
                 "price": 1200,
                 "image": "../share/img/products/recommended/JA_ashikita/gyoza.png"
             }
@@ -464,8 +439,8 @@
         ],
         "products": [
             {
-                "name": "ふわふわ削りぶし　さば",
-                "price": 260,
+                "name": "ふわふわ削りぶし燻製さば",
+                "price": 200,
                 "image": "../share/img/products/recommended/tennei/saba.png"
             }
         ],
@@ -489,12 +464,12 @@
             },
             {
                 "name": "どらやき",
-                "price": 0,
+                "price": 150,
                 "image": "../share/img/products/recommended/shunpuan/dorayaki.png"
             },
             {
-                "name": "もなか",
-                "price": 0,
+                "name": "うまか最中",
+                "price": 150,
                 "image": "../share/img/products/recommended/shunpuan/monaca.png"
             }
         ],
@@ -512,19 +487,14 @@
         ],
         "products": [
             {
-                "name": "たこ天",
+                "name": "天草タコ天",
                 "price": 400,
                 "image": "../share/img/products/recommended/matsushita/tako.png"
             },
             {
-                "name": "ニラ玉天",
-                "price": 0,
+                "name": "元気！ニラ玉天",
+                "price": 400,
                 "image": "../share/img/products/recommended/matsushita/nira.png"
-            },
-            {
-                "name": "じゃこ天",
-                "price": 0,
-                "image": "../share/img/products/recommended/matsushita/jako.png"
             }
         ],
         "company_name": "松下蒲鉾店",
@@ -541,14 +511,9 @@
         ],
         "products": [
             {
-                "name": "あか牛ハンバーグおむすび",
+                "name": "あか牛ハンバーグ",
                 "price": 500,
                 "image": "../share/img/products/recommended/en/bo.png"
-            },
-            {
-                "name": "2年6組の生徒が考えたオリジナルおにぎり",
-                "price": 0,
-                "image": "../share/img/products/recommended/en/so.png"
             }
         ],
         "company_name": "むすび屋 えん",
@@ -565,7 +530,7 @@
         ],
         "products": [
             {
-                "name": "丸ごとマロンパイ",
+                "name": "マロンパイ",
                 "price": 350,
                 "image": "../share/img/products/recommended/An/mp.png"
             }
@@ -589,14 +554,9 @@
                 "image": "../share/img/products/recommended/uto_marina/mb.png"
             },
             {
-                "name": "不知火みかん",
-                "price": 0,
+                "name": "温州みかん",
+                "price": 450,
                 "image": "../share/img/products/recommended/uto_marina/so.png"
-            },
-            {
-                "name": "乾燥海苔",
-                "price": 0,
-                "image": "../share/img/products/recommended/uto_marina/dn.png"
             }
         ],
         "company_name": "宇土マリーナおこしき館",
@@ -613,8 +573,8 @@
         ],
         "products": [
             {
-                "name": "デコポン",
-                "price": 500,
+                "name": "みかん",
+                "price": 250,
                 "image": "../share/img/products/recommended/ukisaikan/dekopon.png"
             }
         ],
@@ -632,7 +592,7 @@
         ],
         "products": [
             {
-                "name": "樺姫牛ぎゅうざ",
+                "name": "はな姫牛ぎゅうざ",
                 "price": 1500,
                 "image": "../share/img/products/recommended/sugimoto/gyuza.png"
             }
@@ -651,7 +611,7 @@
         ],
         "products": [
             {
-                "name": "乾ごぼうとしょうがのあったかセット",
+                "name": "乾ごぼうとしょうがのあったかせっと",
                 "price": 1500,
                 "image": "../share/img/products/recommended/higo_soukawa/bg_set.png"
             }
@@ -708,8 +668,8 @@
         ],
         "products": [
             {
-                "name": "あぁ！玉名ラーメン",
-                "price": 380,
+                "name": "あぁ！玉名ラーメン 1食入り",
+                "price": 1300,
                 "image": "../share/img/products/recommended/tamarara/ramen.png"
             }
         ],
@@ -746,8 +706,8 @@
         ],
         "products": [
             {
-                "name": "車の芳香剤？",
-                "price": 0,
+                "name": "車の芳香剤",
+                "price": 1800,
                 "image": "../share/img/products/recommended/merry/ch.png"
             }
         ],
@@ -765,8 +725,8 @@
         ],
         "products": [
             {
-                "name": "フエキくんグルー",
-                "price": 0,
+                "name": "フエキくんグルー GD6",
+                "price": 350,
                 "image": "../share/img/products/recommended/kogyokudo/fueki.png"
             }
         ],
@@ -784,13 +744,13 @@
         ],
         "products": [
             {
-                "name": "ポインセチア",
-                "price": 0,
+                "name": "ポインセチア 4号",
+                "price": 850,
                 "image": "../share/img/products/recommended/DCM/p.png"
             },
             {
-                "name": "シクラメン",
-                "price": 0,
+                "name": "シクラメン 5号",
+                "price": 1300,
                 "image": "../share/img/products/recommended/DCM/s.png"
             }
         ],
@@ -809,7 +769,7 @@
         "products": [
             {
                 "name": "甘酒",
-                "price": 0,
+                "price": 450,
                 "image": "../share/img/products/recommended/shigaki/amazake.png"
             }
         ],
@@ -881,7 +841,7 @@
             },
             {
                 "name": "しょうがみそ",
-                "price": 0,
+                "price": 590,
                 "image": "../share/img/products/recommended/matsuai/ggm.png"
             }
         ],
@@ -899,8 +859,8 @@
         ],
         "products": [
             {
-                "name": "だし菜種油",
-                "price": 900,
+                "name": "天草産 鰹節香味油 だし菜種油（180g）",
+                "price": 850,
                 "image": "../share/img/products/recommended/higo_oil/dno.png"
             }
         ],
@@ -938,7 +898,7 @@
         "products": [
             {
                 "name": "熊商ロール",
-                "price": 0,
+                "price": 1500,
                 "image": "../share/img/products/recommended/Boulogne/ksr.png"
             }
         ],
@@ -994,8 +954,8 @@
         ],
         "products": [
             {
-                "name": "鳥シリーズ？",
-                "price": 0,
+                "name": "シマエナガ",
+                "price": 700,
                 "image": "../share/img/products/recommended/yuu/bird.png"
             }
         ],
@@ -1013,8 +973,8 @@
         ],
         "products": [
             {
-                "name": "しめ縄",
-                "price": 0,
+                "name": "しめ縄S",
+                "price": 2000,
                 "image": "../share/img/products/recommended/atorie/shimenawa.png"
             }
         ],
@@ -1032,13 +992,13 @@
         ],
         "products": [
             {
-                "name": "熊商デパートオリジナルキャンディー",
+                "name": "熊商オリジナルキャンディー",
                 "price": 400,
                 "image": "../share/img/products/recommended/ameya/kmdpoc.png"
             },
             {
-                "name": "キャンディーパック？",
-                "price": 0,
+                "name": "いちごキャンディーパック",
+                "price": 480,
                 "image": "../share/img/products/recommended/ameya/cs.png"
             }
         ],
@@ -1056,8 +1016,8 @@
         ],
         "products": [
             {
-                "name": "招福干支？",
-                "price": 0,
+                "name": "彩絵招福玉もち午（日本製）",
+                "price": 550,
                 "image": "../share/img/products/recommended/mikuniya/se.png"
             },
             {
