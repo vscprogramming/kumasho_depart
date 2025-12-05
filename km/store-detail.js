@@ -58,7 +58,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const elShopPr = document.getElementById("shop-pr");
       if (elShopPr) {
-        elShopPr.innerHTML = Array.isArray(shop.pr) ? shop.pr.join("<br>") : (shop.pr || '');
+        document.getElementById("shop-pr").innerHTML =`${shop.name}では、<br>${shop.pr.join("<br>")}を販売しています。`;
       } else {
         console.warn('shop-pr 要素が見つかりません。');
       }

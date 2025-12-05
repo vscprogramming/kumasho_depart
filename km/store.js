@@ -166,7 +166,6 @@ document.addEventListener("DOMContentLoaded", async () => {
 
       card.appendChild(img);
       card.appendChild(title);
-      card.appendChild(catchCopy);
       card.appendChild(crowdText);
 
       grid.appendChild(card);
