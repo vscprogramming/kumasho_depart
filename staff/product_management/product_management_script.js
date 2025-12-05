@@ -294,7 +294,7 @@ async function content_generation(post) {
         const tab_contents_table_thead = document.createElement('thead');    // テーブルのヘッド
         const tab_contents_table_thead_row = document.createElement('tr');    // テーブル行
 
-        ['商品名', '販売状況'].forEach(text => {
+        ['商品コード（下3桁）', '商品名', '販売状況'].forEach(text => {
             const tab_contents_table_thead_th = document.createElement('th');
             tab_contents_table_thead_th.textContent = text;
             tab_contents_table_thead_row.appendChild(tab_contents_table_thead_th);
@@ -310,6 +310,11 @@ async function content_generation(post) {
 
         for (let p = 0; p < all_data[c].products.pdname.length; p++) {
             const tab_contents_table_tbody_tr = document.createElement('tr');
+
+            // 商品コード
+            const tab_contents_table_tbody_td_pdnumber = document.createElement('td');
+            tab_contents_table_tbody_td_pdnumber.textContent = String(p + 1).padStart(3, '0');
+            tab_contents_table_tbody_tr.appendChild(tab_contents_table_tbody_td_pdnumber);
 
             // 商品名
             const tab_contents_table_tbody_td_pdname = document.createElement('td');
@@ -372,7 +377,7 @@ async function content_generation(post) {
             const td = Object.assign(document.createElement('td'), {
                 id: 'not_found',
                 classList: 'not_found',
-                colSpan: 2,
+                colSpan: 3,
                 textContent: '該当する商品が見つかりませんでした。'
             });
 

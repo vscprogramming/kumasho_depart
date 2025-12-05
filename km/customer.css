@@ -172,20 +172,31 @@ footer a {
   padding: 10px;
 }
 
-.back-link,
+.back-link {
+  display: inline-block;
+  margin-top: 2rem;
+  font-weight: bold;
+  padding: 10px;
+  border-radius: 6px;
+  color: #1c1c2c;
+  transition: color 0.3s ease, background 0.3s;
+}
+
 .show-status {
   display: inline-block;
   margin-top: 2rem;
   font-weight: bold;
-  color: #1c1c2c;
-  text-decoration: underline;
+  padding: 10px;
+  border-radius: 6px;
+  color: #eee;
   transition: color 0.3s ease, background 0.3s;
+  background: #1c1c2c;
+  cursor: pointer;
 }
 
 .back-link:hover,
 .show-status:hover {
   color: #d4af37;
-  background: #fffbe6;
 }
 
 .class-directory,

@@ -163,13 +163,18 @@ table tbody tr:hover { background-color: var(--color-orange-tab-hover); }
 .crowd_status_text { margin: 0; }
 
 table td:first-child {
-    padding: 3px 0 3px 18px;
+    text-align: center;
     border-left: 1px solid var(--color-orange);
 }
 
+table td:nth-child(2) {
+    padding: 3px 0 3px 18px;
+}
+
 .company_total_display { margin-left: 7px; }
-table th:nth-child(1), table td:nth-child(1) { width: 65%; }
-table th:nth-child(2), table td:nth-child(2) { width: 35%; }
+table th:nth-child(1), table td:nth-child(1) { width: 14%; }
+table th:nth-child(2), table td:nth-child(2) { width: 60%; }
+table th:nth-child(3), table td:nth-child(3) { width: 26%; }
 table tr:last-child td:last-child { border-radius: 0 0 var(--radius) 0; }
 table tr:last-child td:first-child { border-radius: 0 0 0 var(--radius); }
 
@@ -366,8 +371,8 @@ table tr:last-child td:first-child { border-radius: 0 0 0 var(--radius); }
     border-radius: var(--radius) var(--radius) 0 0;
 }
 
-#search_title, #logout_check_title { width: 100%; height: 13%; }
 #info_title { width: 100%; height: 7%; }
+#search_title, #logout_check_title { width: 100%; height: 13%; }
 
 #search_close_button, #info_close_button {
     float: right;
