@@ -217,6 +217,7 @@ table tr:last-child td:first-child { border-radius: 0 0 0 var(--radius); }
 #info_search_icon { font-size: 18px; }
 #logout_icon { color: var(--color-red); }
 #search_icon.searched { color: var(--color-blue-searched); }
+#info_button { color: #05a; }
 #search_button:hover #search_icon, #reload_button:hover #reload_icon, #logout_button:hover #logout_icon, #info_button:hover #info_icon { display: none; }
 
 #search_button:hover::after, #reload_button:hover::after, #logout_button:hover::after, #info_button:hover::after {

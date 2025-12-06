@@ -347,7 +347,7 @@ async function content_generation(post) {
             if (search_text[c] != null) {
                 if(search_text[c][0] === '/') {
                     // 絞り込み（商品コード検索）
-                    if (tab_contents_table_tbody_tr.querySelector('td').textContent == all_data[c].products.pdname[Number(search_text[c].slice(1)) - 1]) {
+                    if (tab_contents_table_tbody_tr.querySelector('td:nth-child(2)').textContent == all_data[c].products.pdname[Number(search_text[c].slice(1)) - 1]) {
                         tab_contents_table_tbody.appendChild(tab_contents_table_tbody_tr);
                         search_count++;
                     }
@@ -391,6 +391,7 @@ async function content_generation(post) {
         tab_contents_div.appendChild(tab_contents_table);
         document.getElementById('tab_contents').appendChild(tab_contents_div);
 
+        // 検索
         if (search_text[c] != null) {
             let search_message;
 
