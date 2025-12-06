@@ -311,7 +311,7 @@ table tr:last-child td:first-child { border-radius: 0 0 0 var(--radius); }
 
 #search_input {
     top: 50%; left: 50%;
-    width: 70%; height: 10%;
+    width: 77%; height: 10%;
     position: absolute;
     border-radius: 7px;
     color: var(--color-bg-dark);
