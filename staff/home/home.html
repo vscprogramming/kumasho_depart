@@ -1,12 +1,10 @@
 <!DOCTYPE html>
-
 <html lang="ja">
     <head>
         <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
         <title>熊デパ ログイン</title>
         <link rel="icon" href="../img/kumadepa_icon.png">
     </head>
-
     <style>
         /* ======= CSS 変数 ======= */
         :root {
@@ -171,18 +169,15 @@
         @media (min-width: 650px) and (max-width: 700px) { #class { width: 114%; } }
         @media (min-width: 700px) and (max-width: 800px) { #class { width: 113%; } }
     </style>
-
     <body id="body">
         <div id="container">
             <h1>熊商デパート　関係者ログイン</h1>
-
             <form>
                 <table>
                     <tr>
                         <td>
                             <label for="id">学年</label>
                         </td>
-
                         <td>
                             <div id="grade">
                                 <label class="grade"><input class="grade" type="radio" name="grade" value="1" checked>1年</label>
@@ -191,34 +186,27 @@
                             </div>
                         </td>
                     </tr>
-
                     <tr>
                         <td><label for="class">クラス</label></td>
-
                         <td>
                             <select id="class" name="class" required>
                                 <!-- オプションはJavaScriptによって追加 -->
                             </select>
                         </td>
                     </tr>
-
                     <tr>
                         <td><label for="password">パスワード</label></td>
                         <td><input type="password" id="password" name="password" placeholder="パスワードを入力してください" required></td>
                     </tr>
                 </table>
-
                 <button type="submit" id="login_button">ログイン</button>
             </form>
         </div>
-
         <div id="loading">
             <div id="spinner"></div>
         </div>
-
         <p>v2.3.1</p>   <!-- バージョン情報 -->
     </body>
-
     <script>
         const class_options = {
             1: [
@@ -276,7 +264,11 @@
             document.getElementById('loading').style.display = 'flex';
 
             // ログイン状況のリセット
-            for (let g = 1; g <= 3; g++) for (let c = 1; c <= 9; c++) localStorage.removeItem(`logged_${g}${c}`);
+            for (let g = 1; g <= 3; g++) {
+                for (let c = 1; c <= 9; c++) {
+                    localStorage.removeItem(`logged_${g}${c}`);
+                }
+            }
 
             // プルダウンリストの内容作成
             document.querySelectorAll('input[name="grade"]').forEach(radio => { radio.addEventListener('change', () => update_class_options(radio.value)) });
@@ -303,7 +295,6 @@
 
                         // ローディングの非表示
                         document.getElementById('loading').style.display = 'none';
-
                         return;
                     } else {
                         alert(`ネットワークエラーが発生しました。\n再試行します。\n（${retry_count}/3）`);
@@ -319,7 +310,7 @@
             window.location.reload();
         });
 
-        document.querySelector('form').addEventListener('submit', async (event) => {
+        document.querySelector('form').addEventListener('submit', async event => {
             event.preventDefault();
 
             // ローディングの表示
